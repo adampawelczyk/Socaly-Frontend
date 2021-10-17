@@ -1,0 +1,49 @@
+header {
+  border-radius: 1px solid;
+}
+
+.socaly-logo {
+  height: 40px;
+  margin-left: 5px;
+  width: 40px;
+}
+
+.socaly-text {
+  padding-left: 10px;
+  font-weight: 700;
+  height: 80px;
+  width: 80px;
+  color: #8B4BF4;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.login, .sign-up {
+  background-color: transparent;
+  color: #8B4BF4;
+  fill: #8B4BF4;
+  border: 1px solid #8B4BF4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+}
+
+.sign-up {
+  background-color: #8B4BF4;
+  border-color: #8B4BF4;
+  color: aliceblue;
+}
+
+.sign-up:hover {
+  opacity: 0.6;
+}
