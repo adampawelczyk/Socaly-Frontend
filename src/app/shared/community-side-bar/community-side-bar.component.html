@@ -1,1 +1,17 @@
-<p>community-side-bar works!</p>
+<div class="sidebar-view-community">
+  <div style="color: black; font-weight: bold">
+    Browse Communities
+  </div>
+  <hr style="height:.5px">
+  <span *ngFor="let community of communities">
+    <span class="community-text">
+      <a href="/view-community/{{community.id}}">{{community.name}}</a>
+    </span>
+    <hr style="height:.5px">
+  </span>
+  <div style="text-align: center" *ngIf="displayViewAll">
+    <a style="font-weight: bold" routerLink="/communities">
+      View all
+    </a>
+  </div>
+</div>
