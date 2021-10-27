@@ -1,0 +1,25 @@
+<div class="row post" *ngFor="let post of posts$">
+  <div class="col-md-1">
+    <app-vote-button [post]="post"></app-vote-button>
+  </div>
+  <div class="col-md-11">
+    <span class="community-info">
+      <span class="community-text"><a class="post-url" routerLink="">{{post.communityName}}</a></span>
+      <span>   Posted by <a class="username" routerLink="/user/{{post.userName}}">{{post.userName}}</a></span>
+      <span>   {{post.duration}}</span>
+    </span>
+    <hr style="height:.5px">
+    <div class="post-title">
+      <a class="post-name" href="{{post.url}}">{{post.postName}}</a>
+    </div>
+    <div>
+      <p class="post-text">{{post.description}}</p>
+    </div>
+    <hr style="height:.5px">
+    <span>
+      <a class="bntComments" role="button">
+        <fa-icon [icon]="faComments"></fa-icon>Comments({{post.commentCount}})
+      </a>
+    </span>
+  </div>
+</div>
