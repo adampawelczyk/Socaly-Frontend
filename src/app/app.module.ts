@@ -18,6 +18,8 @@ import { PostTileComponent } from './shared/post-tile/post-tile.component';
 import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { CommunitySideBarComponent } from './shared/community-side-bar/community-side-bar.component';
+import { CreateCommunityComponent } from './community/create-community/create-community.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CommunitySideBarComponent } from './shared/community-side-bar/community
     PostTileComponent,
     VoteButtonComponent,
     SideBarComponent,
-    CommunitySideBarComponent
+    CommunitySideBarComponent,
+    CreateCommunityComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
