@@ -21,6 +21,7 @@ import { CommunitySideBarComponent } from './shared/community-side-bar/community
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { CommunitiesComponent } from './community/communities/communities.component';
+import {EditorModule} from "@tinymce/tinymce-angular";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CommunitiesComponent } from './community/communities/communities.compon
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    EditorModule
   ],
   providers: [
     {
