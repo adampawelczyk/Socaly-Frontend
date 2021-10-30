@@ -20,6 +20,7 @@ import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { CommunitySideBarComponent } from './shared/community-side-bar/community-side-bar.component';
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
+import { CommunitiesComponent } from './community/communities/communities.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
     SideBarComponent,
     CommunitySideBarComponent,
     CreateCommunityComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    CommunitiesComponent
   ],
   imports: [
     BrowserModule,
