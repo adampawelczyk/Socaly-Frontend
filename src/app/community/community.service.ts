@@ -13,4 +13,8 @@ export class CommunityService {
   getAllCommunities(): Observable<Array<CommunityResponse>> {
     return this.http.get<Array<CommunityResponse>>('http://localhost:8090/api/community')
   }
+
+  createCommunity(communityResponse: CommunityResponse): Observable<CommunityResponse> {
+    return this.http.post<CommunityResponse>('http://localhost:8090/api/community', communityResponse)
+  }
 }

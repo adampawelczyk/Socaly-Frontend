@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="create-community-container">
+      <form class="community-form" [formGroup]="createCommunityForm" (ngSubmit)="createCommunity()">
+        <div class="form-group">
+          <div class="create-community-heading">Create Community</div>
+          <hr>
+          <input type="text" [formControlName]="'title'" class="form-control" style="margin-top: 5px" placeholder="Title">
+          <textarea type="text" [formControlName]="'description'" class="description-textarea" placeholder="Description"></textarea>
+          <div>
+            <div style="margin-top: 5px" class="float-end">
+              <button (click)="discard()" class="bntDiscard">Discard</button>
+              <button type="submit" class="bntCreateCommunity">Create</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
