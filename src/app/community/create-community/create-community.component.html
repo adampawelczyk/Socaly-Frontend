@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="create-community-container">
-      <form class="community-form">
+      <form class="community-form" [formGroup]="createCommunityForm" (ngSubmit)="createCommunity()">
         <div class="form-group">
           <div class="create-community-heading">Create Community</div>
           <hr>
