@@ -9,8 +9,8 @@
           <textarea type="text" [formControlName]="'description'" class="description-textarea" placeholder="Description"></textarea>
           <div>
             <div style="margin-top: 5px" class="float-end">
-              <button class="bntDiscard">Discard</button>
-              <button class="bntCreateCommunity">Create</button>
+              <button (click)="discard()" class="bntDiscard">Discard</button>
+              <button (click)="createCommunity()" class="bntCreateCommunity">Create</button>
             </div>
           </div>
         </div>
