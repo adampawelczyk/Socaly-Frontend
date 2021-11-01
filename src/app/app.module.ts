@@ -22,6 +22,7 @@ import { CreateCommunityComponent } from './community/create-community/create-co
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { CommunitiesComponent } from './community/communities/communities.component';
 import {EditorModule} from "@tinymce/tinymce-angular";
+import { ViewPostComponent } from './post/view-post/view-post.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {EditorModule} from "@tinymce/tinymce-angular";
     CommunitySideBarComponent,
     CreateCommunityComponent,
     CreatePostComponent,
-    CommunitiesComponent
+    CommunitiesComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
