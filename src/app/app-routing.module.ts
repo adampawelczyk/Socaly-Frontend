@@ -6,9 +6,11 @@ import {HomeComponent} from "./home/home.component";
 import {CreatePostComponent} from "./post/create-post/create-post.component";
 import {CreateCommunityComponent} from "./community/create-community/create-community.component";
 import {CommunitiesComponent} from "./community/communities/communities.component";
+import {ViewPostComponent} from "./post/view-post/view-post.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'view-post/:id', component: ViewPostComponent },
   { path: 'communities', component: CommunitiesComponent },
   { path: 'create-post', component: CreatePostComponent},
   { path: 'create-community', component: CreateCommunityComponent},
