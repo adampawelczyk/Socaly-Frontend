@@ -26,11 +26,35 @@
             </span>
           </span>
           <hr>
-          <a routerLink="post.url" class="post-title">
+          <div class="post-title">
             {{post.postName}}
-          </a>
+          </div>
           <div>
             <p class="post-text" [innerHTML]="post.description"></p>
+          </div>
+          <div class="post-comment">
+            <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+              <div class="form-group">
+                <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+              </div>
+              <button type="submit" class="commentBnt login float-right">
+                Comment
+              </button>
+            </form>
+          </div>
+          <div *ngFor="let comment of comments">
+            <div class="comment">
+              <div>
+                <a class="username" routerLink="/user/comment.username">
+                  {{comment.username}}
+                </a>
+              </div>
+              <div>
+                <p>{{comment.duration}}</p>
+              </div>
+              <b>{{comment.text}}</b>
+            </div>
+            <hr>
           </div>
         </div>
       </div>
