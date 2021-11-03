@@ -18,4 +18,8 @@ export class PostService {
   createPost(postPayload: CreatePostPayload): Observable<any> {
     return this.http.post('http://localhost:8090/api/posts', postPayload)
   }
+
+  getPost(id: number): Observable<PostModel> {
+    return this.http.get<PostModel>('http://localhost:8090/api/posts/' + id)
+  }
 }

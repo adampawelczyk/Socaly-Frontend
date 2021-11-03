@@ -17,7 +17,7 @@
     </div>
     <hr style="height:.5px">
     <span>
-      <a class="bntComments" role="button">
+      <a class="bntComments" role="button" (click)="goToPost(post.id)">
         <fa-icon [icon]="faComments"></fa-icon>Comments({{post.commentCount}})
       </a>
     </span>
