@@ -9,7 +9,20 @@
       </a>
     </div>
     <div class="flex-grow-1 float-end">
-      <div>
+      <div *ngIf="isLoggedIn" ngbDropdown class="float-end">
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="goToUserProfile()" ngbDropdownItem>
+            Profile
+          </button>
+          <button ngbDropdownItem>
+            Logout
+          </button>
+        </div>
+        <button class="user-details me-2" id="dropdownBasic1" ngbDropdownToggle>
+          {{username}}
+        </button>
+      </div>
+      <div *ngIf="!isLoggedIn">
         <a routerLink="/sign-up" class="float-end sign-up me-2">Sign up</a>
         <a routerLink="/login" class="float-end login me-2">Login</a>
       </div>
