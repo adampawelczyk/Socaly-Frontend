@@ -47,3 +47,33 @@ header {
 .sign-up:hover {
   opacity: 0.6;
 }
+
+.user-details {
+  background-color: transparent;
+  color: #8B4BF4;
+  fill: #8B4BF4;
+  border: 1px solid #8B4BF4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropdown-item:hover {
+  background-color: #8B4BF4;
+}
