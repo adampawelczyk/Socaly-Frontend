@@ -25,7 +25,7 @@ export class UserProfileComponent implements OnInit {
       this.postLength = data.length;
     });
 
-    this.commentService.getAllCommenttsByUser(this.name).subscribe(data => {
+    this.commentService.getAllCommentsByUser(this.name).subscribe(data => {
       this.comments = data;
       this.commentLength = data.length;
     });
