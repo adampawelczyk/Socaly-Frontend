@@ -19,8 +19,8 @@ export class VoteButtonComponent implements OnInit {
   votePayload: VotePayload
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
-  upvoteColor: string;
-  downvoteColor: string;
+  upVoteColor: string;
+  downVoteColor: string;
 
   constructor(private voteService: VoteService, private authService: AuthService, private postService: PostService,
               private toastr: ToastrService) {
@@ -37,11 +37,13 @@ export class VoteButtonComponent implements OnInit {
   upvotePost() {
     this.votePayload.voteType = VoteType.UPVOTE;
     this.vote();
+    this.downVoteColor = '';
   }
 
   downvotePost() {
     this.votePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
+    this.upVoteColor = '';
   }
 
   private vote() {
