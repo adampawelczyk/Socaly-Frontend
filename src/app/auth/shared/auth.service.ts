@@ -33,6 +33,9 @@ export class AuthService {
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.expiresAt);
 
+        this.loggedIn.emit(true);
+        this.username.emit(data.username);
+
         return true;
       }));
   }
