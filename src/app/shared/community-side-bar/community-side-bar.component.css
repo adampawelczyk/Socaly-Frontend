@@ -1,3 +1,7 @@
+.sticky-top {
+  top: 75px;
+}
+
 .sidebar-view-community {
   width: 312px;
   height: 275px;
@@ -7,7 +11,6 @@
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
   color: #878A8C;
-  position: relative;
   border-radius: 4px;
   padding: 5px;
   margin-top: 10px;
