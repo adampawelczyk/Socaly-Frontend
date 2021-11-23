@@ -22,9 +22,9 @@ header {
 
 .login, .sign-up {
   background-color: transparent;
-  color: #8B4BF4;
-  fill: #8B4BF4;
-  border: 1px solid #8B4BF4;
+  color: #3B82F6;
+  fill: #3B82F6;
+  border: 1px solid #3B82F6;
   border-radius: 4px;
   box-sizing: border-box;
   text-align: center;
@@ -39,8 +39,8 @@ header {
 }
 
 .sign-up {
-  background-color: #8B4BF4;
-  border-color: #8B4BF4;
+  background-color: #3B82F6;
+  border-color: #3B82F6;
   color: aliceblue;
 }
 
