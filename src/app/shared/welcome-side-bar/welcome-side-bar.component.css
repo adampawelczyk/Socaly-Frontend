@@ -1,0 +1,25 @@
+.sticky-top {
+  top: 75px;
+}
+
+.sidebar {
+  width: 312px;
+  height: 242px;
+  --post-line-color: #ccc;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  background-color: #3B82F6;
+  color: aliceblue;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar:nth-child(2) {
+  top: 300px;
+}
+
+img {
+  width: 200px;
+}
