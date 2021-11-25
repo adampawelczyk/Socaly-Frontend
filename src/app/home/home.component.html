@@ -4,7 +4,7 @@
       <hr style="height:.5px">
       <div class="col-md-3">
         <div class="sticky-top sticky-top-offset">
-          <app-welcome-side-bar></app-welcome-side-bar>
+          <app-welcome-side-bar *ngIf="!isLoggedIn"></app-welcome-side-bar>
           <app-side-bar></app-side-bar>
         </div>
       </div>
