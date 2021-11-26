@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {faComments, faNewspaper, faUsers} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-side-bar',
@@ -7,6 +8,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+  discussions: boolean;
+  news: boolean;
+  communities: boolean;
+
+  faComments = faComments
+  faNewspaper = faNewspaper
+  faUsers = faUsers
 
   constructor(private router: Router) { }
 
