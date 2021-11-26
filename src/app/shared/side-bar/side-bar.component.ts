@@ -24,6 +24,34 @@ export class SideBarComponent implements OnInit {
     this.communities = this.router.url === '/communities'
   }
 
+  goToDiscussions() {
+    if (!this.discussions) {
+      this.discussions = true;
+      this.news = false;
+      this.communities = false;
+
+      this.router.navigateByUrl('');
+    }
+  }
+
+  goToNews() {
+    if (!this.news) {
+      this.discussions = false;
+      this.news = true;
+      this.communities = false;
+    }
+  }
+
+  goToCommunities() {
+    if (!this.communities) {
+      this.discussions = false;
+      this.news = false;
+      this.communities = true;
+
+      this.router.navigateByUrl('/communities');
+    }
+  }
+
   goToCreatePost() {
     this.router.navigateByUrl('/create-post');
   }
