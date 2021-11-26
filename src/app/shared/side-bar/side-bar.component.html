@@ -1,11 +1,11 @@
 <div class="sidebar">
-  <div style="text-align: center; font-size: 1em">
-    Welcome to Socaly home page. Come here to check in with your favorite communities.
-  </div>
-  <div style="text-align: center">
-    <button class="bntCreatePost" (click)="goToCreatePost()">Create Post</button>
-  </div>
-  <div style="text-align: center">
-    <button class="bntCreateCommunity" (click)="goToCreateCommunity()">Create Community</button>
-  </div>
+  <button [ngClass]="{'blue': discussions}" (click)="goToDiscussions()">
+    <fa-icon [icon]="faComments"></fa-icon><span class="m-3">Discussions</span>
+  </button>
+  <button [ngClass]="{'blue': news}" (click)="goToNews()">
+    <fa-icon [icon]="faNewspaper"></fa-icon><span class="m-3">News</span>
+  </button>
+  <button [ngClass]="{'blue': communities}" (click)="goToCommunities()">
+    <fa-icon [icon]="faUsers"></fa-icon><span class="m-3">Communities</span>
+  </button>
 </div>
