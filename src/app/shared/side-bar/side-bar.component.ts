@@ -19,6 +19,9 @@ export class SideBarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.discussions = this.router.url === '/'
+    this.news = false
+    this.communities = this.router.url === '/communities'
   }
 
   goToCreatePost() {
