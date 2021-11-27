@@ -5,19 +5,7 @@ header {
 .socaly-logo {
   height: 40px;
   margin-left: 5px;
-  width: 40px;
-}
-
-.socaly-text {
-  padding-left: 10px;
-  font-weight: 700;
-  height: 80px;
-  width: 80px;
-  color: #8B4BF4;
-}
-
-.logo {
-  text-decoration: none;
+  width: auto;
 }
 
 .login, .sign-up {
