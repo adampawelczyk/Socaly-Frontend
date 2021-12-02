@@ -1,16 +1,15 @@
 <div class="sidebar-view-community sticky-top">
-  <div style="color: black; font-weight: bold">
-    Browse Communities
+  <div class="blue-background mb-2 pt-2 pb-2">
+    <span class="m-3">Popular Communities</span>
   </div>
-  <hr style="height:.5px">
   <span *ngFor="let community of communities">
     <span class="community-text">
-      <a href="/view-community/{{community.id}}">{{community.name}}</a>
+      <a href="/view-community/{{community.id}}"><span class="m-3">{{community.name}}</span></a>
     </span>
-    <hr style="height:.5px">
+    <hr class="mt-2 mb-2">
   </span>
   <div style="text-align: center" *ngIf="displayViewAll">
-    <a style="font-weight: bold" routerLink="/communities">
+    <a routerLink="/communities" class="show-all">
       View all
     </a>
   </div>
