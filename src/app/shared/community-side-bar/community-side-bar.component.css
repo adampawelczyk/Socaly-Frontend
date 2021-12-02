@@ -25,10 +25,8 @@ a {
   color: black;
 }
 
-.bold-text {
-  font-weight: bold;
-  font-size: medium;
-  color: black;
+.show-all:hover {
+  color: #3B82F6;
 }
 
 .blue {
