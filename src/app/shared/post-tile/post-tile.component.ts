@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from "../post.service";
 import {PostModel} from "../post-model";
-import {faComments} from "@fortawesome/free-solid-svg-icons";
+import {faCommentAlt} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./post-tile.component.css']
 })
 export class PostTileComponent implements OnInit {
-  faComments = faComments;
+  faCommentAlt = faCommentAlt;
   @Input()
   posts$: PostModel[];
 

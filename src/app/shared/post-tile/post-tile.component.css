@@ -5,17 +5,22 @@
 .post {
   --post-line-color: #ccc;
   border: 1px solid #ccc;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.8);
   color: #878A8C;
   position: relative;
   border-radius: 4px;
-  padding: 15px 5px;
+}
+
+.post:hover {
+  border-color: #303030;
+  cursor: pointer;
 }
 
 .bntComments {
+  border-radius: 4px;
   color: #878A8C;
   opacity: 1;
   text-decoration: none;
@@ -24,6 +29,7 @@
 .bntComments:hover {
   opacity: 0.65;
   cursor: pointer;
+  background-color: #E8E8E8;
 }
 
 .post-title {
@@ -37,6 +43,10 @@
   text-decoration: none;
 }
 
+.community-info {
+  font-size: 12px;
+}
+
 .community-text {
   font-weight: bold;
 }
@@ -47,6 +57,7 @@
 
 .post-text {
   margin-top: 10px;
+  color: black;
 }
 
 .username {
@@ -56,4 +67,9 @@
 
 .username:hover {
   text-decoration: underline;
+}
+
+.vote-background {
+  max-width: 40px;
+  background-color: #f8f9fa;
 }
