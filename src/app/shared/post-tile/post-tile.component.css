@@ -68,3 +68,8 @@
 .username:hover {
   text-decoration: underline;
 }
+
+.vote-background {
+  max-width: 40px;
+  background-color: #f8f9fa;
+}
