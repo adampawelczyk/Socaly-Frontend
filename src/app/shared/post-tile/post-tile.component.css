@@ -43,6 +43,10 @@
   text-decoration: none;
 }
 
+.community-info {
+  font-size: 12px;
+}
+
 .community-text {
   font-weight: bold;
 }
