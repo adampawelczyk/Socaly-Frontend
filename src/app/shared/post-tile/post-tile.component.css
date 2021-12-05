@@ -29,6 +29,7 @@
 .bntComments:hover {
   opacity: 0.65;
   cursor: pointer;
+  background-color: #E8E8E8;
 }
 
 .post-title {
