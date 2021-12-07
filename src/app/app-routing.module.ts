@@ -9,12 +9,14 @@ import {CommunitiesComponent} from "./community/communities/communities.componen
 import {ViewPostComponent} from "./post/view-post/view-post.component";
 import {UserProfileComponent} from "./auth/user-profile/user-profile.component";
 import {AuthGuard} from "./auth/auth.guard";
+import {CommunityComponent} from "./community/community/community.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'view-post/:id', component: ViewPostComponent },
   { path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'communities', component: CommunitiesComponent },
+  { path: 'view-community/:id', component: CommunityComponent },
   { path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard] },
   { path: 'create-community', component: CreateCommunityComponent, canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignupComponent },
