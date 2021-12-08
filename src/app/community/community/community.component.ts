@@ -9,14 +9,14 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./community.component.css']
 })
 export class CommunityComponent implements OnInit {
-  communityId: number;
+  communityName: String;
   posts: PostModel[];
   postLength: number;
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
-    this.communityId = this.activatedRoute.snapshot.params.id;
+    this.communityName = this.activatedRoute.snapshot.params.name;
 
-    this.postService.getAllPostsByCommunity(this.communityId).subscribe(data => {
+    this.postService.getAllPostsByCommunity(this.communityName).subscribe(data => {
       this.posts = data;
       this.postLength = data.length;
     })
