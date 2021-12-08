@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'view-post/:id', component: ViewPostComponent },
   { path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'communities', component: CommunitiesComponent },
-  { path: 'view-community/:id', component: CommunityComponent },
+  { path: 'community/:name', component: CommunityComponent },
   { path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard] },
   { path: 'create-community', component: CreateCommunityComponent, canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignupComponent },
