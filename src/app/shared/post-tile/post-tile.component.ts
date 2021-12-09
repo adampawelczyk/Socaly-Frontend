@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./post-tile.component.css']
 })
 export class PostTileComponent implements OnInit {
+  @Input()
+  showCommunity$: boolean = true;
   faCommentAlt = faCommentAlt;
   @Input()
   posts$: PostModel[];
