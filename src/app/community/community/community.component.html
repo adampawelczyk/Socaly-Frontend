@@ -1,0 +1,22 @@
+<div class="community-background"></div>
+<div class="community-header">
+  <div class="container">
+    <div class="col-md-7 offset-md-1 row p-0">
+      <div class="col-auto ps-0">
+        <img src="assets/community-default-icon.png" alt="Image representing community logo" class="community-logo">
+      </div>
+      <div class="col pt-1">
+        <h1>{{communityName}}</h1>
+        <h2>s/{{communityName}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 offset-md-1">
+      <app-post-tile [posts$]="posts" [showCommunity$]="false"></app-post-tile>
+    </div>
+    <div class="col-md-3 ps-4"></div>
+  </div>
+</div>
