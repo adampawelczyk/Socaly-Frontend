@@ -27,6 +27,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { WelcomeSideBarComponent } from './shared/welcome-side-bar/welcome-side-bar.component';
 import { CommunityComponent } from './community/community/community.component';
+import { AboutCommunitySidebarComponent } from './shared/about-community-sidebar/about-community-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CommunityComponent } from './community/community/community.component';
     ViewPostComponent,
     UserProfileComponent,
     WelcomeSideBarComponent,
-    CommunityComponent
+    CommunityComponent,
+    AboutCommunitySidebarComponent
   ],
   imports: [
     BrowserModule,
