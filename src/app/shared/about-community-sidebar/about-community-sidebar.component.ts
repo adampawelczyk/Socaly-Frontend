@@ -17,6 +17,14 @@ export class AboutCommunitySidebarComponent implements OnInit {
   constructor(private communityService: CommunityService) {}
 
   ngOnInit(): void {
+    this.communityService.getCommunityDetails(this.communityName).subscribe(data => {
+      this.communityDescription = data.description;
+      this.createdDate = this.convertTimeToMs(data.createdDate!);
+    })
+  }
+
+  convertTimeToMs(time: string): string {
+    return (parseInt(time) * 1000).toString();
   }
 
 }
