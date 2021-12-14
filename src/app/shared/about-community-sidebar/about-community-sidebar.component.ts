@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { faBirthdayCake } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -7,6 +7,10 @@ import { faBirthdayCake } from "@fortawesome/free-solid-svg-icons";
   styleUrls: ['./about-community-sidebar.component.css']
 })
 export class AboutCommunitySidebarComponent implements OnInit {
+  @Input() communityName: string;
+
+  communityDescription: string
+  createdDate: string | undefined
   faBirthdayCake = faBirthdayCake
 
   constructor() { }
