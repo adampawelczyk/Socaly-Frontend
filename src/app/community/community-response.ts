@@ -3,4 +3,5 @@ export class CommunityResponse {
   name: string;
   description: string;
   postCount?: number;
+  createdDate?: string;
 }
