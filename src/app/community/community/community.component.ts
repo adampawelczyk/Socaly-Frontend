@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./community.component.css']
 })
 export class CommunityComponent implements OnInit {
-  communityName: String;
+  communityName: string;
   posts: PostModel[];
   postLength: number;
 
