@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { faBirthdayCake } from "@fortawesome/free-solid-svg-icons";
+import {CommunityService} from "../../community/community.service";
 
 @Component({
   selector: 'app-about-community-sidebar',
@@ -13,7 +14,7 @@ export class AboutCommunitySidebarComponent implements OnInit {
   createdDate: string | undefined
   faBirthdayCake = faBirthdayCake
 
-  constructor() { }
+  constructor(private communityService: CommunityService) {}
 
   ngOnInit(): void {
   }
