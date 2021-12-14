@@ -1,0 +1,15 @@
+<div class="about-community-sidebar sticky-top">
+  <div class="blue-background mb-2 pt-2 pb-2">
+    <span class="m-3 header-text">
+      About Community
+    </span>
+  </div>
+  <div class="m-3 text">
+    {{communityDescription}}
+  </div>
+  <hr class="m-1">
+  <div class="m-3 text">
+    <fa-icon [icon]="faBirthdayCake" class="me-2"></fa-icon>
+    Created {{createdDate | date: 'longDate'}}
+  </div>
+</div>
