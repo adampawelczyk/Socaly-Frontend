@@ -3,8 +3,6 @@
 }
 
 .sidebar-view-community {
-  width: 312px;
-  height: 205px;
   --post-line-color: #ccc;
   border: 1px solid #ccc;
   overflow: hidden;
