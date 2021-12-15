@@ -1,5 +1,5 @@
-<div class="row post" *ngFor="let post of posts$">
-  <div class="row" (click)="goToPost(post.id)">
+<div class="post" *ngFor="let post of posts$">
+  <div class="row m-0" (click)="goToPost(post.id)">
     <div class="col-md-1 p-2 vote-background">
       <app-vote-button [post]="post"></app-vote-button>
     </div>
