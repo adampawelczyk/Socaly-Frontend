@@ -1,12 +1,10 @@
 .sidebar {
-  width: 312px;
-  height: 100px;
   --post-line-color: #ccc;
   overflow: hidden;
   background-color: #f0f2f5;
   color: #878A8C;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 
