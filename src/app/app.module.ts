@@ -28,6 +28,7 @@ import { UserProfileComponent } from './auth/user-profile/user-profile.component
 import { WelcomeSideBarComponent } from './shared/welcome-side-bar/welcome-side-bar.component';
 import { CommunityComponent } from './community/community/community.component';
 import { AboutCommunitySidebarComponent } from './shared/about-community-sidebar/about-community-sidebar.component';
+import { CreatePostTopbarComponent } from './shared/create-post-topbar/create-post-topbar.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AboutCommunitySidebarComponent } from './shared/about-community-sidebar
     UserProfileComponent,
     WelcomeSideBarComponent,
     CommunityComponent,
-    AboutCommunitySidebarComponent
+    AboutCommunitySidebarComponent,
+    CreatePostTopbarComponent
   ],
   imports: [
     BrowserModule,
