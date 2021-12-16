@@ -3,7 +3,7 @@
     <div class="col-md-1 p-2 d-none d-sm-block vote-background">
       <app-vote-button [post]="post"></app-vote-button>
     </div>
-    <div class="col-md-11 p-1 pb-2">
+    <div class="col-sm-11 p-sm-2 pb-2">
       <span class="community-info">
         <span class="community-text" *ngIf="showCommunity$"><a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a></span>
         <span *ngIf="showCommunity$"> • </span>
