@@ -1,17 +1,16 @@
 <div class="socaly-body">
   <div class="container">
     <div class="row">
-      <hr style="height:.5px">
-      <div class="col-md-3 offset-md-1">
-        <div class="sticky-top sticky-top-offset">
+      <div class="col-xl-7 col-lg-8 offset-xl-1">
+        <app-create-post-topbar></app-create-post-topbar>
+        <app-post-tile [posts$]="posts"></app-post-tile>
+      </div>
+      <div class="col-xl-3 col-lg-4 sticky-top">
+        <div class="sticky-top">
           <app-welcome-side-bar *ngIf="!isLoggedIn"></app-welcome-side-bar>
           <app-side-bar></app-side-bar>
           <app-community-side-bar></app-community-side-bar>
         </div>
-      </div>
-      <div class="col-md-7">
-        <app-create-post-topbar></app-create-post-topbar>
-        <app-post-tile [posts$]="posts"></app-post-tile>
       </div>
     </div>
   </div>
