@@ -1,25 +1,29 @@
 <div class="community-background"></div>
 <div class="community-header">
   <div class="container">
-    <div class="col-md-7 offset-md-1 row p-0">
-      <div class="col-auto ps-0">
-        <img src="assets/community-default-icon.png" alt="Image representing community logo" class="community-logo">
-      </div>
-      <div class="col pt-1">
-        <h1>{{communityName}}</h1>
-        <h2>s/{{communityName}}</h2>
+    <div class="row">
+      <div class="col-xl-7 col-lg-8 offset-xl-1 row">
+        <div class="col-auto p-xl-0">
+          <img src="assets/community-default-icon.png" alt="Image representing community logo" class="community-logo">
+        </div>
+        <div class="col pt-1">
+          <h1>{{communityName}}</h1>
+          <h2>s/{{communityName}}</h2>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-7 offset-md-1">
+    <div class="col-xl-7 col-lg-8 offset-xl-1">
       <app-create-post-topbar></app-create-post-topbar>
       <app-post-tile [posts$]="posts" [showCommunity$]="false"></app-post-tile>
     </div>
-    <div class="col-md-3">
-      <app-about-community-sidebar [communityName]="communityName"></app-about-community-sidebar>
+    <div class="col-xl-3 col-lg-4">
+      <div class="sticky-top">
+        <app-about-community-sidebar [communityName]="communityName"></app-about-community-sidebar>
+      </div>
     </div>
   </div>
 </div>
