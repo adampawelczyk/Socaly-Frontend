@@ -16,11 +16,16 @@
       <div>
         <p class="post-text" [innerHTML]="post.description"></p>
       </div>
-      <span>
-        <a class="bntComments p-2" role="button" (click)="goToPost(post.id)">
-          <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
-        </a>
-      </span>
+      <div class="d-flex flex-row">
+        <div class="d-block d-sm-none pe-3">
+          <app-vote-button [post]="post"></app-vote-button>
+        </div>
+        <div>
+          <a class="bntComments" role="button" (click)="goToPost(post.id)">
+            <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
