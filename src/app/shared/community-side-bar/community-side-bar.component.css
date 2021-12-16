@@ -1,8 +1,5 @@
-.sticky-top {
-  top: 75px;
-}
-
 .sidebar-view-community {
+  width: 310px;
   --post-line-color: #ccc;
   border: 1px solid #ccc;
   overflow: hidden;

@@ -1,9 +1,9 @@
 <div class="post" *ngFor="let post of posts$">
   <div class="row m-0" (click)="goToPost(post.id)">
-    <div class="col-md-1 p-2 vote-background">
+    <div class="col-md-1 p-2 d-none d-sm-block vote-background">
       <app-vote-button [post]="post"></app-vote-button>
     </div>
-    <div class="col-md-11 p-1 pb-2">
+    <div class="col-sm-11 p-sm-2 pb-2">
       <span class="community-info">
         <span class="community-text" *ngIf="showCommunity$"><a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a></span>
         <span *ngIf="showCommunity$"> • </span>
@@ -16,11 +16,16 @@
       <div>
         <p class="post-text" [innerHTML]="post.description"></p>
       </div>
-      <span>
-        <a class="bntComments p-2" role="button" (click)="goToPost(post.id)">
-          <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
-        </a>
-      </span>
+      <div class="d-flex flex-row">
+        <div class="d-block d-sm-none pe-3">
+          <app-vote-button [post]="post"></app-vote-button>
+        </div>
+        <div>
+          <a class="bntComments" role="button" (click)="goToPost(post.id)">
+            <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
