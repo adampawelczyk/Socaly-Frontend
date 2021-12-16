@@ -1,8 +1,18 @@
-<div class="d-flex flex-column votebox">
+<div class="d-flex flex-column votebox d-none d-sm-block">
   <div>
     <fa-icon (click)="upvotePost()" class="upvote" [icon]="faArrowUp" [style.color]="post.upVote ? 'green':''"></fa-icon>
   </div>
   <div class="votecount">{{post.voteCount}}</div>
+  <div>
+    <fa-icon (click)="downvotePost()" class="downvote" [icon]="faArrowDown" [style.color]="post.downVote ? 'red':''"></fa-icon>
+  </div>
+</div>
+
+<div class="d-flex flex-row d-block d-sm-none">
+  <div>
+    <fa-icon (click)="upvotePost()" class="upvote" [icon]="faArrowUp" [style.color]="post.upVote ? 'green':''"></fa-icon>
+  </div>
+  <div class="votecount ps-1 pe-1">{{post.voteCount}}</div>
   <div>
     <fa-icon (click)="downvotePost()" class="downvote" [icon]="faArrowDown" [style.color]="post.downVote ? 'red':''"></fa-icon>
   </div>
