@@ -1,4 +1,5 @@
 .sidebar {
+  width: 310px;
   --post-line-color: #ccc;
   overflow: hidden;
   background-color: #f0f2f5;
