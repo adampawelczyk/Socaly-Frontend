@@ -1,7 +1,7 @@
 .sidebar-view-community {
   width: 310px;
   --post-line-color: #ccc;
-  border: 1px solid #ccc;
+  border: 0.5px solid #ccc;
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
   color: #878A8C;
@@ -27,4 +27,5 @@ a {
 .blue-background {
   background-color: #3B82F6;
   color: white;
+  border: 1px solid #3B82F6;
 }
