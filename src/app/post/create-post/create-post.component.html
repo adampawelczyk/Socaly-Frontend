@@ -1,49 +1,28 @@
-<div class="container">
-  <div class="row">
-    <hr>
-    <div class="create-post-container col-md-9">
-      <form class="post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
-        <div class="form-group">
-          <div class="create-post-heading">
-            Create post
-          </div>
-          <hr>
-          <input type="text" class="form-control" [formControlName]="'postName'" style="margin-top: 5px" placeholder="Title">
-          <select class="form-control" [formControlName]="'communityName'" style="margin-top: 10px">
-            <option value="" selected disabled>
-              Select Community
-            </option>
-            <option *ngFor="let community of communities">
-              {{community.name}}
-            </option>
-          </select>
-          <editor [formControlName]="'description'" [init]="{
-            height: 500,
-             menubar: false,
-             plugins: [
-               'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
-             ],
-             toolbar:
-               'undo redo | formatselect | bold italic backcolor | \
-               alignleft aligncenter alignright alignjustify | \
-               bullist numlist outdent indent | removeformat | help'
-          }"></editor>
-          <span>
-            <div style="margin-top: 5px" class="float-end">
-              <button (click)="discardPost()" class="bntDiscard">
-                Discard
-              </button>
-              <button type="submit" class="bntCreatePost">
-                Post
-              </button>
-            </div>
-          </span>
-        </div>
-      </form>
+<div class="modal-header">
+  <h4 class="modal-title">Create Post</h4>
+  <button type="button" class="btn-close" (click)="discardPost()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
+    <div class="form-group">
+      <select class="form-control" [formControlName]="'communityName'">
+        <option value="" selected disabled>
+          Select Community
+        </option>
+        <option *ngFor="let community of communities">
+          {{community.name}}
+        </option>
+      </select>
+      <input type="text" class="form-control mt-2 mb-2" [formControlName]="'postName'" placeholder="Title">
+      <editor apiKey="api-key" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
     </div>
-    <div class="col-md-3">
-    </div>
-  </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button (click)="discardPost()" class="btn btn-secondary">
+      Discard
+    </button>
+    <button type="submit" form="create-post-form" class="btn btn-primary">
+      Post
+    </button>
 </div>
