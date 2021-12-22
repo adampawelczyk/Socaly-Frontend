@@ -1,35 +1,5 @@
-.bntCreatePost, .bntCreateCommunity {
-  margin-top: 5px;
-}
-
-.post-form {
-  margin: 2px;
-}
-
-.create-post-container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  --post-line-color: #ccc;
-  border: 1px solid #ccc;
-  overflow: hidden;
-  background-color: rgba(255,255,255,0.8);
-  color: #878A8C;
-  position: relative;
-  border-radius: 4px;
-  padding: 5px;
-}
-
-.create-post-heading {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 22px;
-  color: #1C1C1C;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.btnDiscard, .btnCreatePost {
-  fill: #8B4BF4;
+.btn-secondary, .btn-primary {
+  fill: #3B82F6;
   border: 1px solid;
   border-radius: 4px;
   text-align: center;
