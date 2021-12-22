@@ -64,8 +64,9 @@ export class CreatePostComponent implements OnInit {
     this.postPayload.communityName = this.createPostForm.get('communityName')?.value;
     this.postPayload.description = this.createPostForm.get('description')?.value;
 
-    this.postService.createPost(this.postPayload).subscribe((data) => {
-      this.router.navigateByUrl('/');
+    this.postService.createPost(this.postPayload).subscribe((id) => {
+      this.activeModal.close();
+      this.router.navigateByUrl('/view-post/' + id);
     }, error => {
       throwError(error);
     })
