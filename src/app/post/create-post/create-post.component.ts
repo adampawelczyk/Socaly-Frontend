@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {PostService} from "../../shared/post.service";
 import {CommunityService} from "../../community/community.service";
 import {throwError} from "rxjs";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-create-post',
@@ -17,7 +18,26 @@ export class CreatePostComponent implements OnInit {
   postPayload: CreatePostPayload;
   communities: Array<CommunityResponse>
 
-  constructor(private router: Router, private postService: PostService, private communityService: CommunityService) {
+  editorConfig = {
+    skin_url: 'assets\\skins\\ui\\light',
+    body_class: "mceBlackBody",
+    branding: false,
+    height: 300,
+    menubar: false,
+    images_upload_handler: 'postAcceptor.php',
+    plugins: [
+      'advlist lists charmap print preview anchor emoticons',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code'
+    ],
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | emoticons'
+    }
+
+  constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
+              public activeModal: NgbActiveModal) {
     this.postPayload = {
       postName: '',
       description: '',
@@ -44,14 +64,15 @@ export class CreatePostComponent implements OnInit {
     this.postPayload.communityName = this.createPostForm.get('communityName')?.value;
     this.postPayload.description = this.createPostForm.get('description')?.value;
 
-    this.postService.createPost(this.postPayload).subscribe((data) => {
-      this.router.navigateByUrl('/');
+    this.postService.createPost(this.postPayload).subscribe((id) => {
+      this.activeModal.close();
+      this.router.navigateByUrl('/view-post/' + id);
     }, error => {
       throwError(error);
     })
   }
 
   discardPost() {
-    this.router.navigateByUrl('/');
+    this.activeModal.close();
   }
 }
