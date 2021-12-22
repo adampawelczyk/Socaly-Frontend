@@ -73,6 +73,6 @@ export class CreatePostComponent implements OnInit {
   }
 
   discardPost() {
-    this.router.navigateByUrl('/');
+    this.activeModal.close();
   }
 }
