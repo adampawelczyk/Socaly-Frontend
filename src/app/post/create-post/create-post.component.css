@@ -15,3 +15,8 @@
   color: #3B82F6;
   background-color: transparent;
 }
+
+.btn-primary {
+  background-color: #3B82F6;
+  color: white;
+}
