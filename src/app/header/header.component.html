@@ -20,7 +20,7 @@
         </button>
       </div>
       <div *ngIf="!isLoggedIn">
-        <a routerLink="/sign-up" class="float-end sign-up me-2">Sign up</a>
+        <a (click)="signup()" class="float-end sign-up me-2">Sign up</a>
         <a routerLink="/login" class="float-end login me-2">Login</a>
       </div>
     </div>
