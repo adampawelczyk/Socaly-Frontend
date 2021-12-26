@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {SignupComponent} from "../../auth/signup/signup.component";
 
 @Component({
   selector: 'app-welcome-side-bar',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeSideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modal: NgbModal) { }
 
   ngOnInit(): void {
   }
 
+  signup() {
+    this.modal.open(SignupComponent);
+  }
 }
