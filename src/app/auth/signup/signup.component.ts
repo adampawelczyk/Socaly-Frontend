@@ -38,7 +38,8 @@ export class SignupComponent implements OnInit {
     this.signupRequestPayload.password = this.signupForm.get('password')?.value;
 
     this.authService.signup(this.signupRequestPayload).subscribe(data => {
-      this.router.navigate(['/login'], {queryParams: {registered: 'true'}});
+      this.toastr.success('Signup Successful');
+      this.toastr.success('Please check your inbox for activation email');
     }, () => {
       this.toastr.error('Registration failed! Please try again');
     });
