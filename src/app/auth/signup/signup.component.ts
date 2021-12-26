@@ -43,6 +43,8 @@ export class SignupComponent implements OnInit {
     }, () => {
       this.toastr.error('Registration failed! Please try again');
     });
+
+    this.activeModal.close();
   }
 
 }
