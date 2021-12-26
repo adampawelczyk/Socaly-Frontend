@@ -47,4 +47,11 @@ export class SignupComponent implements OnInit {
     this.activeModal.close();
   }
 
+  discardSignup() {
+    this.activeModal.close();
+  }
+
+  login() {
+    this.activeModal.close();
+  }
 }
