@@ -42,4 +42,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  discardLogin() {
+    this.activeModal.close();
+  }
 }
