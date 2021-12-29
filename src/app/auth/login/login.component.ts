@@ -4,6 +4,7 @@ import {LoginRequestPayload} from "./login-request.payload";
 import {AuthService} from "../shared/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginRequestPayload: LoginRequestPayload;
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
-              private toastr: ToastrService) {
+              private toastr: ToastrService, public activeModal: NgbActiveModal) {
     this.loginRequestPayload = {
       username: '',
       password: ''
