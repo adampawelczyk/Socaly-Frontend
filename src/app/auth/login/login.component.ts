@@ -4,7 +4,8 @@ import {LoginRequestPayload} from "./login-request.payload";
 import {AuthService} from "../shared/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {SignupComponent} from "../signup/signup.component";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginRequestPayload: LoginRequestPayload;
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
-              private toastr: ToastrService, public activeModal: NgbActiveModal) {
+              private toastr: ToastrService, public activeModal: NgbActiveModal, private modal: NgbModal) {
     this.loginRequestPayload = {
       username: '',
       password: ''
@@ -44,5 +45,10 @@ export class LoginComponent implements OnInit {
 
   discardLogin() {
     this.activeModal.close();
+  }
+
+  signup() {
+    this.activeModal.close();
+    this.modal.open(SignupComponent);
   }
 }
