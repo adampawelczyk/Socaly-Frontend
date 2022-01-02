@@ -4,7 +4,8 @@ import {SignupRequestPayload} from "./signup-request.payload";
 import {AuthService} from "../shared/auth.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
   signupRequestPayload: SignupRequestPayload;
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService,
-              public activeModal: NgbActiveModal) {
+              public activeModal: NgbActiveModal, private modal: NgbModal) {
     this.signupRequestPayload = {
       username: '',
       email: '',
@@ -53,5 +54,6 @@ export class SignupComponent implements OnInit {
 
   login() {
     this.activeModal.close();
+    this.modal.open(LoginComponent);
   }
 }
