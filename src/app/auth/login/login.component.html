@@ -1,43 +1,22 @@
-<div class="login-section">
-  <div class="row justify-content-center">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header" style="text-align: center">
-          <h4>Login</h4>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <div class="form-group row">
-              <div class="col-md-8 mb-3 offset-md-2">
-                <input type="text" [formControlName]="'username'" id="user_name" class="form-control" name="user_name" placeholder="Username" required autofocus>
-                <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">
-                  Please provide a valid username
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-md-8 mb-3 offset-md-2">
-                <input type="password" [formControlName]="'password'" id="password" class="form-control" name="password" placeholder="Password" required>
-                <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
-                  Password cannot be empty
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <span class="col-md-3 offset-md-2">
-                <button type="submit" class="login">
-                  Login
-                </button>
-              </span>
-              <span class="col-md-5 text-md-end">New to Socaly? <a routerLink="/sign-up">Sign up</a></span>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
+<div class="modal-header">
+  <h4 class="modal-title">Login</h4>
+  <button type="button" class="btn-close" (click)="discardLogin()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <input type="text" [formControlName]="'username'" id="user_name" class="form-control" name="user_name" placeholder="Username" required autofocus>
+    <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">
+      Please provide a valid username
+    </span>
+    <input type="password" [formControlName]="'password'" id="password" class="form-control mt-2" name="password" placeholder="Password" required>
+    <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
+      Password cannot be empty
+    </span>
+  </form>
+</div>
+<div class="modal-footer">
+  New to Socaly? <button class="new-user-signup" (click)="signup()">Sign up</button>
+  <button type="submit" class="bnt btn-primary" form="login-form">
+    Login
+  </button>
 </div>
