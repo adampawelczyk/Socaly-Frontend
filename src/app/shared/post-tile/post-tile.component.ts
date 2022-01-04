@@ -64,6 +64,26 @@ export class PostTileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCommentsForPost();
+  }
+
+  postComment() {
+    this.commentPayload.text = this.commentForm.get('text')?.value;
+    this.dataModel = '';
+
+    this.commentService.postComment(this.commentPayload).subscribe(data => {
+      this.getCommentsForPost();
+    }, error => {
+      throwError(error);
+    });
+  }
+
+  private getCommentsForPost() {
+    this.commentService.getAllCommentsForPost(this.postId).subscribe(data => {
+      this.comments = data.reverse();
+    }, error => {
+      throwError(error);
+    });
   }
 
   goToPost(id: number): void {
