@@ -12,6 +12,8 @@ import {Router} from "@angular/router";
 export class PostTileComponent implements OnInit {
   @Input()
   showCommunity$: boolean = true;
+  @Input()
+  showComments: boolean = false;
   faCommentAlt = faCommentAlt;
   @Input()
   posts$: PostModel[];
