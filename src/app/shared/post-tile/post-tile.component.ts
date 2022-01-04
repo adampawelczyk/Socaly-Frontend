@@ -53,7 +53,15 @@ export class PostTileComponent implements OnInit {
               private activateRoute: ActivatedRoute) {
     this.postId = this.activateRoute.snapshot.params.id;
 
-  constructor(private postService: PostService, private router: Router) { }
+    this.commentForm = new FormGroup({
+      text: new FormControl('', Validators.required)
+    });
+
+    this.commentPayload = {
+      text: '',
+      postId: this.postId
+    };
+  }
 
   ngOnInit(): void {
   }
