@@ -20,15 +20,6 @@ export class ViewPostComponent implements OnInit {
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
               private commentService: CommentService) {
     this.postId = this.activateRoute.snapshot.params.id;
-
-    this.commentForm = new FormGroup({
-      text: new FormControl('', Validators.required)
-    });
-
-    this.commentPayload = {
-      text: '',
-      postId: this.postId
-    };
   }
 
   ngOnInit(): void {
