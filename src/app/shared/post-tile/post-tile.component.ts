@@ -69,7 +69,7 @@ export class PostTileComponent implements OnInit {
 
   postComment() {
     this.commentPayload.text = this.commentForm.get('text')?.value;
-    this.dataModel = '';
+    this.commentForm.get('text')?.setValue('');
 
     this.commentService.postComment(this.commentPayload).subscribe(data => {
       this.getCommentsForPost();
