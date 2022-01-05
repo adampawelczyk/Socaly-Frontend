@@ -14,10 +14,8 @@ import {CommentService} from "../../comment/comment.service";
 })
 export class ViewPostComponent implements OnInit {
   postId: number;
-  post: PostModel;
-  commentForm: FormGroup;
-  commentPayload: CommentPayload;
-  comments: CommentPayload[];
+  postArray: PostModel[] = [];
+  communityName = "";
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute,
               private commentService: CommentService) {
