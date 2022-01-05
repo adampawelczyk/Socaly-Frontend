@@ -38,17 +38,6 @@ export class ViewPostComponent implements OnInit {
     this.getCommentsForPost();
   }
 
-  postComment() {
-    this.commentPayload.text = this.commentForm.get('text')?.value;
-
-    this.commentService.postComment(this.commentPayload).subscribe(data => {
-      this.commentForm.get('text')?.setValue('');
-      this.getCommentsForPost();
-    }, error => {
-      throwError(error);
-    });
-  }
-
   private getPostById() {
     this.postService.getPost(this.postId).subscribe(data => {
       this.postArray.push(data);
