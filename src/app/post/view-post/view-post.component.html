@@ -4,6 +4,7 @@
       <app-post-tile [posts$]="postArray" [showComments]="true"></app-post-tile>
     </div>
     <div class="col-md-3">
+      <app-about-community-sidebar *ngIf="exists()" [communityName]="communityName"></app-about-community-sidebar>
       <app-side-bar></app-side-bar>
       <app-community-side-bar></app-community-side-bar>
     </div>
