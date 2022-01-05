@@ -57,11 +57,7 @@ export class ViewPostComponent implements OnInit {
     });
   }
 
-  private getCommentsForPost() {
-    this.commentService.getAllCommentsForPost(this.postId).subscribe(data => {
-      this.comments = data;
-    }, error => {
-      throwError(error);
-    });
+  exists() {
+    return this.communityName !== "";
   }
 }
