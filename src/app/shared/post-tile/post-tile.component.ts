@@ -62,7 +62,9 @@ export class PostTileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCommentsForPost();
+    if (this.showComments) {
+      this.getCommentsForPost();
+    }
   }
 
   postComment() {
