@@ -22,7 +22,6 @@ export class PostTileComponent implements OnInit {
   @Input()
   posts$: PostModel[];
   comments: CommentPayload[];
-  dataModel: string
 
   postId: number;
   commentForm: FormGroup;
