@@ -3,9 +3,6 @@ import {PostModel} from "../../shared/post-model";
 import {PostService} from "../../shared/post.service";
 import {ActivatedRoute} from "@angular/router";
 import {throwError} from "rxjs";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CommentPayload} from "../../comment/comment.payload";
-import {CommentService} from "../../comment/comment.service";
 
 @Component({
   selector: 'app-view-post',
