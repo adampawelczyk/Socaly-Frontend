@@ -1,65 +1,10 @@
 <div class="container">
   <div class="row">
-    <hr>
-    <div class="col-md-9">
-      <div class="row post">
-        <div class="col-md-1">
-          <app-vote-button [post]="post"></app-vote-button>
-        </div>
-        <div class="col-md-11">
-          <span>
-            <span class="community-text">
-              <a class="post-url" href="">{{post.communityName}}</a>
-            </span>
-            <span>
-              Posted
-              <span>
-                {{post.duration}}
-              </span>
-              by
-              <a *ngIf="post.userName === null" class="username" href="">
-                Anonymous
-              </a>
-              <a *ngIf="post.userName != null" class="username" href="">
-                {{post.userName}}
-              </a>
-            </span>
-          </span>
-          <hr>
-          <div class="post-title">
-            {{post.postName}}
-          </div>
-          <div>
-            <p class="post-text" [innerHTML]="post.description"></p>
-          </div>
-          <div class="post-comment">
-            <form [formGroup]="commentForm" (ngSubmit)="postComment()">
-              <div class="form-group">
-                <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
-              </div>
-              <button type="submit" class="commentBnt login float-right">
-                Comment
-              </button>
-            </form>
-          </div>
-          <div *ngFor="let comment of comments">
-            <div class="comment">
-              <div>
-                <a class="username" routerLink="/user/comment.username">
-                  {{comment.username}}
-                </a>
-              </div>
-              <div>
-                <p>{{comment.duration}}</p>
-              </div>
-              <b>{{comment.text}}</b>
-            </div>
-            <hr>
-          </div>
-        </div>
-      </div>
+    <div class="col-xl-7 col-lg-8 offset-xl-1">
+      <app-post-tile [posts$]="postArray" [showComments]="true"></app-post-tile>
     </div>
     <div class="col-md-3">
+      <app-about-community-sidebar *ngIf="exists()" [communityName]="communityName"></app-about-community-sidebar>
       <app-side-bar></app-side-bar>
       <app-community-side-bar></app-community-side-bar>
     </div>

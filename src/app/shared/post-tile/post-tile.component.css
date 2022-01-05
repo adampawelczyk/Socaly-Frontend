@@ -73,3 +73,36 @@
   max-width: 40px;
   background-color: #f8f9fa;
 }
+
+.btn-primary {
+  fill: #3B82F6;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+  margin-top: 5px;
+  color: white;
+  background-color: #3B82F6;
+}
+
+.comment-username {
+  color: black;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.comment-username:hover {
+  text-decoration: underline;
+}
+
+.comment-text {
+  color: black;
+}
