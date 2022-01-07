@@ -41,4 +41,8 @@ export class CreateCommunityComponent implements OnInit {
     })
   }
 
+  discard() {
+    this.activeModal.close();
+  }
+
 }
