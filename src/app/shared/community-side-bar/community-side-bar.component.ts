@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CommunityService} from "../../community/community.service";
 import {CommunityResponse} from "../../community/community-response";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {CreateCommunityComponent} from "../../community/create-community/create-community.component";
 
 @Component({
   selector: 'app-community-side-bar',
@@ -11,7 +13,7 @@ export class CommunitySideBarComponent implements OnInit {
   communities: Array<CommunityResponse>
   displayViewAll: boolean;
 
-  constructor(private communityService: CommunityService) {
+  constructor(private communityService: CommunityService, private modal: NgbModal) {
     this.communityService.getAllCommunities().subscribe(data => {
       if (data.length >= 4) {
         this.communities = data.slice(0, 3);
@@ -23,6 +25,10 @@ export class CommunitySideBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  createCommunity() {
+    this.modal.open(CreateCommunityComponent);
   }
 
 }
