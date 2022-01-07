@@ -30,10 +30,6 @@ export class CreateCommunityComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  discard() {
-    this.router.navigateByUrl('/');
-  }
-
   createCommunity() {
     this.communityResponse.name = this.createCommunityForm.get('title')?.value;
     this.communityResponse.description = this.createCommunityForm.get('description')?.value;
