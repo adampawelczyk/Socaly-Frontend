@@ -8,9 +8,14 @@
     </span>
     <hr class="mt-2 mb-2">
   </span>
-  <div style="text-align: center" *ngIf="displayViewAll">
-    <a routerLink="/communities" class="show-all">
+  <div class="text-center" *ngIf="displayViewAll">
+    <button routerLink="/communities" class="btn btn-primary" style="width: 60%">
       View all
-    </a>
+    </button>
+  </div>
+  <div class="text-center mt-1 mb-2">
+    <button class="btn btn-primary" (click)="createCommunity()" style="width: 60%">
+      Create Community
+    </button>
   </div>
 </div>

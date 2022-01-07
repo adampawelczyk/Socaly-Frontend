@@ -48,5 +48,30 @@
 .description-textarea {
   width: 100%;
   margin-top: 5px;
-  min-height: 200px;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-secondary, .btn-primary {
+  fill: #3B82F6;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+  margin-top: 5px;
+  color: #3B82F6;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: #3B82F6;
+  color: white;
 }
