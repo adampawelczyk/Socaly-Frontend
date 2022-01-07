@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CommunityService} from "../community.service";
 import {CommunityResponse} from "../community-response";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-create-community',
@@ -15,7 +16,7 @@ export class CreateCommunityComponent implements OnInit {
   title = new FormControl('');
   description = new FormControl('');
 
-  constructor(private router: Router, private communityService: CommunityService) {
+  constructor(private router: Router, private communityService: CommunityService, public activeModal: NgbActiveModal) {
     this.createCommunityForm = new FormGroup({
       title: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required)
