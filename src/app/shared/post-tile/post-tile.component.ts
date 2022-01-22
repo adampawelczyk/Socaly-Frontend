@@ -67,6 +67,14 @@ export class PostTileComponent implements OnInit {
     }
   }
 
+  postDescriptionIsNotEmpty(post: PostModel) {
+    return post.description != ""
+  }
+
+  postImagesAreNotEmpty(post: PostModel) {
+    return post.images && post.images?.length > 0
+  }
+
   postComment() {
     this.commentPayload.text = this.commentForm.get('text')?.value;
     this.commentForm.get('text')?.setValue('');
