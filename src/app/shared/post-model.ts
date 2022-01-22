@@ -1,7 +1,8 @@
 export class PostModel {
   id: number;
   postName: string;
-  description: string;
+  description?: string;
+  images?: string[];
   voteCount: number;
   userName: string;
   communityName: string;
