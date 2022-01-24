@@ -29,7 +29,6 @@ export class CreatePostComponent implements OnInit {
     height: 300,
     placeholder: "Text (optional)",
     menubar: false,
-    images_upload_handler: 'postAcceptor.php',
     plugins: [
       'advlist lists charmap print preview anchor emoticons paste',
       'searchreplace visualblocks fullscreen insertdatetime link'
