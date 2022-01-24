@@ -35,10 +35,14 @@ export class CreatePostComponent implements OnInit {
       'searchreplace visualblocks fullscreen insertdatetime link'
     ],
     toolbar:
-      'undo redo | formatselect | bold italic backcolor | \
-      alignleft aligncenter alignright alignjustify | \
-      bullist numlist outdent indent | removeformat | emoticons'
-    }
+      'formatselect | bold italic link strikethrough superscript bullist numlist emoticons',
+    link_title: false,
+    target_list: false,
+    default_link_target:"_blank",
+    link_context_toolbar: true,
+    advlist_bullet_styles: 'disc',
+    advlist_number_styles: 'decimal'
+  }
 
   constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
               public activeModal: NgbActiveModal) {
