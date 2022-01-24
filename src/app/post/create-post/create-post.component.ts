@@ -138,4 +138,8 @@ export class CreatePostComponent implements OnInit {
   isCommunityEmpty() {
     return this.selectedCommunity === 'Choose a community'
   }
+
+  isTitleEmpty() {
+    return this.createPostForm.get('postName')?.value === ''
+  }
 }
