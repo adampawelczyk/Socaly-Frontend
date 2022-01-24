@@ -61,3 +61,8 @@ body {
   float: none;
   opacity: 1;
 }
+
+.material-icons-outlined, .material-icons {
+  display: inline-flex;
+  vertical-align: top;
+}
