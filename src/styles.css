@@ -11,10 +11,6 @@ body {
   background-color: #f0f2f5;
 }
 
-input.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
-
 .login,
 .sign-up {
   background-color: #8B4BF4;
@@ -31,4 +27,42 @@ input.ng-invalid.ng-touched {
   text-transform: uppercase;
   padding: 3px 16px;
   opacity: 1;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("assets/prev-slide-icon.svg");
+  background-color: white;
+  background-size: 40px;
+  border-radius: 40px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+}
+
+.carousel-control-next-icon {
+  background-image: url("assets/next-slide-icon.svg");
+  background-color: white;
+  background-size: 40px;
+  border-radius: 40px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+}
+.carousel-item {
+  transition: opacity 0.5s ease !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  float: none;
+  opacity: 0;
+}
+
+.carousel-item.active {
+  position: relative !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  float: none;
+  opacity: 1;
+}
+
+.material-icons-outlined, .material-icons {
+  display: inline-flex;
+  vertical-align: top;
 }

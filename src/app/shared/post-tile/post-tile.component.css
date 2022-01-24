@@ -19,6 +19,13 @@
   cursor: pointer;
 }
 
+img {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .bntComments {
   border-radius: 4px;
   color: #878A8C;

@@ -1,28 +1,56 @@
 <div class="modal-header">
   <h4 class="modal-title">Create Post</h4>
-  <button type="button" class="btn-close" (click)="discardPost()" aria-label="Close"></button>
+  <button type="button" class="btn-close outline-none" (click)="discardPost()" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-  <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
-    <div class="form-group">
-      <select class="form-control" [formControlName]="'communityName'">
-        <option value="" selected disabled>
-          Select Community
-        </option>
-        <option *ngFor="let community of communities">
-          {{community.name}}
-        </option>
-      </select>
-      <input type="text" class="form-control mt-2 mb-2" [formControlName]="'postName'" placeholder="Title">
-      <editor apiKey="api-key" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
+<div ngbDropdown class="d-inline-block w-100">
+    <button class="form-select outline-none block mb-2 text-start" id="communityDropdown2" ngbDropdownToggle>{{selectedCommunity}}</button>
+    <div ngbDropdownMenu aria-labelledby="communityDropdown2" class="w-100">
+      <button *ngFor="let community of communities" ngbDropdownItem class="btn" (click)="selectCommunity(community.name)">
+        {{community.name}}
+      </button>
     </div>
-  </form>
+  </div>
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink><span class="material-icons-outlined me-1">article</span>Post</a>
+      <ng-template ngbNavContent>
+        <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postName'" placeholder="Title">
+            <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
+          </div>
+        </form>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink><i class="material-icons-outlined me-1">image</i>Image</a>
+      <ng-template ngbNavContent>
+        <form class="post-form" id="create-image-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
+          <div class="form-group">
+            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postName'" placeholder="Title">
+            <div class="dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+              <ngx-dropzone-label>Drag & drop, or click to upload images</ngx-dropzone-label>
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+              </ngx-dropzone-image-preview>
+            </div>
+          </div>
+        </form>
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
 </div>
 <div class="modal-footer">
-    <button (click)="discardPost()" class="btn btn-secondary">
-      Discard
-    </button>
-    <button type="submit" form="create-post-form" class="btn btn-primary">
-      Post
-    </button>
+  <button (click)="discardPost()" class="btn btn-secondary">
+    Discard
+  </button>
+  <button *ngIf="active == 1" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-post-form"
+          class="btn btn-primary">
+    Post
+  </button>
+  <button *ngIf="active == 2" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-image-form"
+          class="btn btn-primary">
+    Post
+  </button>
 </div>
