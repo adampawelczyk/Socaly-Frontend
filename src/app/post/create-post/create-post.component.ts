@@ -130,4 +130,8 @@ export class CreatePostComponent implements OnInit {
       reader.readAsDataURL(file)
     })
   }
+
+  selectCommunity(name: string) {
+    this.selectedCommunity = name
+  }
 }
