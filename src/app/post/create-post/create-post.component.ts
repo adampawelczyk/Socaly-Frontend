@@ -134,4 +134,8 @@ export class CreatePostComponent implements OnInit {
   selectCommunity(name: string) {
     this.selectedCommunity = name
   }
+
+  isCommunityEmpty() {
+    return this.selectedCommunity === 'Choose a community'
+  }
 }
