@@ -30,7 +30,7 @@ body {
 }
 
 .carousel-control-prev-icon {
-  background-image: url("assets/prev-slide-icon.svg");
+  background-image: url("assets/icons/prev-slide-icon.svg");
   background-color: white;
   background-size: 40px;
   border-radius: 40px;
@@ -39,7 +39,7 @@ body {
 }
 
 .carousel-control-next-icon {
-  background-image: url("assets/next-slide-icon.svg");
+  background-image: url("assets/icons/next-slide-icon.svg");
   background-color: white;
   background-size: 40px;
   border-radius: 40px;
