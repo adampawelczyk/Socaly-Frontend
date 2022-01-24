@@ -27,6 +27,7 @@ export class CreatePostComponent implements OnInit {
     icons: 'material',
     branding: false,
     height: 300,
+    placeholder: "Text (optional)",
     menubar: false,
     images_upload_handler: 'postAcceptor.php',
     plugins: [
