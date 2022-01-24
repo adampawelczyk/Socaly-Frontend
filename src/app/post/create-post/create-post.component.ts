@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CreatePostPayload} from "./create-post.payload";
-import {CommunityResponse} from "../../community/community-response";
-import {Router} from "@angular/router";
-import {PostService} from "../../shared/post.service";
-import {CommunityService} from "../../community/community.service";
-import {throwError} from "rxjs";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import { Component, OnInit } from '@angular/core'
+import {FormControl, FormGroup, Validators} from "@angular/forms"
+import {CreatePostPayload} from "./create-post.payload"
+import {CommunityResponse} from "../../community/community-response"
+import {Router} from "@angular/router"
+import {PostService} from "../../shared/post.service"
+import {CommunityService} from "../../community/community.service"
+import {throwError} from "rxjs"
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap"
 
 @Component({
   selector: 'app-create-post',
@@ -14,8 +14,8 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent implements OnInit {
-  createPostForm: FormGroup;
-  postPayload: CreatePostPayload;
+  createPostForm: FormGroup
+  postPayload: CreatePostPayload
   communities: Array<CommunityResponse>
 
   editorConfig = {
@@ -49,14 +49,14 @@ export class CreatePostComponent implements OnInit {
     this.createPostForm = new FormGroup({
       postName: new FormControl('', Validators.required),
       communityName: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required)
-    });
+      description: new FormControl('')
+    })
 
     this.communityService.getAllCommunities().subscribe((data) => {
-      this.communities = data;
+      this.communities = data
     }, error => {
-      throwError(error);
-    });
+      throwError(error)
+    })
   }
 
   createPost() {
@@ -65,15 +65,15 @@ export class CreatePostComponent implements OnInit {
     this.postPayload.description = this.createPostForm.get('description')?.value;
 
     this.postService.createPost(this.postPayload).subscribe((id) => {
-      this.activeModal.close();
-      this.router.navigateByUrl('/view-post/' + id);
+      this.activeModal.close()
+      this.router.navigateByUrl('/view-post/' + id)
     }, error => {
-      throwError(error);
+      throwError(error)
     })
   }
 
   discardPost() {
-    this.activeModal.close();
+    this.activeModal.close()
   }
 
   onSelect(event: { addedFiles: any }) {
