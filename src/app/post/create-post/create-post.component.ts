@@ -17,6 +17,10 @@ export class CreatePostComponent implements OnInit {
   createPostForm: FormGroup
   postPayload: CreatePostPayload
   communities: Array<CommunityResponse>
+  files: File[] = []
+  fileUrls: string[] = []
+  active = 1
+  selectedCommunity = "Choose a community"
 
   editorConfig = {
     skin_url: 'assets\\skins\\ui\\light',
