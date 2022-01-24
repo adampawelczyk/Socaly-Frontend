@@ -67,9 +67,16 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
-    this.postPayload.postName = this.createPostForm.get('postName')?.value;
-    this.postPayload.communityName = this.createPostForm.get('communityName')?.value;
-    this.postPayload.description = this.createPostForm.get('description')?.value;
+    this.postPayload.communityName = this.selectedCommunity
+    this.postPayload.postName = this.createPostForm.get('postName')?.value
+
+    if (this.active == 1) {
+      this.postPayload.description = this.createPostForm.get('description')?.value
+      this.postPayload.images = []
+    } else {
+      this.postPayload.description = ""
+      this.postPayload.images = this.fileUrls
+    }
 
     this.postService.createPost(this.postPayload).subscribe((id) => {
       this.activeModal.close()
