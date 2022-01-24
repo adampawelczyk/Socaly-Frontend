@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">Create Post</h4>
-  <button type="button" class="btn-close" (click)="discardPost()" aria-label="Close"></button>
+  <button type="button" class="btn-close outline-none" (click)="discardPost()" aria-label="Close"></button>
 </div>
 <div class="modal-body">
   <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
