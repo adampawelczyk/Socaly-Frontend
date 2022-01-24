@@ -29,6 +29,7 @@ import { WelcomeSideBarComponent } from './shared/welcome-side-bar/welcome-side-
 import { CommunityComponent } from './community/community/community.component';
 import { AboutCommunitySidebarComponent } from './shared/about-community-sidebar/about-community-sidebar.component';
 import { CreatePostTopbarComponent } from './shared/create-post-topbar/create-post-topbar.component';
+import {NgxDropzoneModule} from "ngx-dropzone";
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { CreatePostTopbarComponent } from './shared/create-post-topbar/create-po
     ToastrModule.forRoot(),
     FontAwesomeModule,
     EditorModule,
-    NgbModule
+    NgbModule,
+    NgxDropzoneModule
   ],
   providers: [
     {
