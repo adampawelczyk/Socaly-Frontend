@@ -9,7 +9,12 @@
           <a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a>
         </span>
         <span *ngIf="showCommunity$"> • </span>
-        <span>   Posted by <a class="username" routerLink="/user/{{post.userName}}" (click)="$event.stopPropagation()">u/{{post.userName}}</a></span>
+        <span>
+          Posted by
+          <a class="username" routerLink="/user/{{post.userName}}" (click)="$event.stopPropagation()">
+            u/{{post.userName}}
+          </a>
+        </span>
         <span>   {{post.duration}}</span>
       </span>
       <div class="post-title">
