@@ -5,7 +5,9 @@
     </div>
     <div class="col-sm-11 p-sm-2 pb-2">
       <span class="community-info">
-        <span class="community-text" *ngIf="showCommunity$"><a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a></span>
+        <span class="community-text" *ngIf="showCommunity$">
+          <a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a>
+        </span>
         <span *ngIf="showCommunity$"> • </span>
         <span>   Posted by <a class="username" routerLink="/user/{{post.userName}}" (click)="$event.stopPropagation()">u/{{post.userName}}</a></span>
         <span>   {{post.duration}}</span>
@@ -19,7 +21,7 @@
       <div *ngIf="postImagesAreNotEmpty(post)" class="mt-1 mb-1">
         <ngb-carousel [interval]="0" [wrap]="true" [showNavigationArrows]="showNavigationArrows(post)" (click)="$event.stopPropagation()">
           <ng-template ngbSlide *ngFor="let image of post.images">
-            <div class="test">
+            <div>
               <img [src]="image" alt="{{post.postName}}">
             </div>
           </ng-template>
