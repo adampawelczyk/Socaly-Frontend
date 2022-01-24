@@ -23,8 +23,8 @@ export class CreatePostComponent implements OnInit {
   selectedCommunity = "Choose a community"
 
   editorConfig = {
-    skin_url: 'assets\\skins\\ui\\light',
-    body_class: "mceBlackBody",
+    skin_url: '..\\assets\\skins\\ui\\light',
+    icons: 'material',
     branding: false,
     height: 300,
     menubar: false,
