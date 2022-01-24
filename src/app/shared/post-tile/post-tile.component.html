@@ -19,7 +19,8 @@
         <p [innerHTML]="post.description"></p>
       </div>
       <div *ngIf="postImagesAreNotEmpty(post)" class="mt-1 mb-1">
-        <ngb-carousel [interval]="0" [wrap]="true" [showNavigationArrows]="showNavigationArrows(post)" (click)="$event.stopPropagation()">
+        <ngb-carousel [interval]="0" [wrap]="true" [showNavigationIndicators]="false"
+                      [showNavigationArrows]="showNavigationArrows(post)" (click)="$event.stopPropagation()">
           <ng-template ngbSlide *ngFor="let image of post.images">
             <div>
               <img [src]="image" alt="{{post.postName}}">
