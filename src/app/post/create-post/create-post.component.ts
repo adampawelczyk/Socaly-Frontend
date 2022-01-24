@@ -75,4 +75,45 @@ export class CreatePostComponent implements OnInit {
   discardPost() {
     this.activeModal.close();
   }
+
+  onSelect(event: { addedFiles: any }) {
+    this.files.push(...event.addedFiles)
+
+    this.readFile(this.files[this.fileUrls.length]).then(fileContent => {
+      this.fileUrls.push(fileContent)
+    })
+
+    console.log(this.fileUrls)
+  }
+
+  onRemove(event: File) {
+    let index = this.files.indexOf(event)
+    this.files.splice(index, 1)
+    this.fileUrls.splice(index, 1)
+
+    console.log(this.fileUrls)
+  }
+
+  private async readFile(file: File): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader()
+
+      reader.onload = e => {
+        // @ts-ignore
+        return resolve((e.target as FileReader).result)
+      }
+
+      reader.onerror = e => {
+        console.error(`FileReader failed on file ${file.name}.`)
+        return reject(null)
+      }
+
+      if (!file) {
+        console.error('No file to read.')
+        return reject(null)
+      }
+
+      reader.readAsDataURL(file)
+    })
+  }
 }
