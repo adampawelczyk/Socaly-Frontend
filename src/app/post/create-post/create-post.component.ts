@@ -31,9 +31,8 @@ export class CreatePostComponent implements OnInit {
     menubar: false,
     images_upload_handler: 'postAcceptor.php',
     plugins: [
-      'advlist lists charmap print preview anchor emoticons',
-      'searchreplace visualblocks code fullscreen',
-      'insertdatetime media table paste code'
+      'advlist lists charmap print preview anchor emoticons paste',
+      'searchreplace visualblocks fullscreen insertdatetime link'
     ],
     toolbar:
       'undo redo | formatselect | bold italic backcolor | \
