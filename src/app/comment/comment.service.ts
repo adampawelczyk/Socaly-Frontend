@@ -14,6 +14,10 @@ export class CommentService {
     return this.httpClient.get<CommentPayload[]>('http://localhost:8090/api/comments/by-post/' + postId);
   }
 
+  getSubCommentsForComment(commentId: number): Observable<CommentPayload[]> {
+    return this.httpClient.get<CommentPayload[]>('http://localhost:8090/api/comments/subcomments/' + commentId)
+  }
+
   postComment(commentPayload: CommentPayload): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8090/api/comments', commentPayload)
   }

@@ -50,11 +50,8 @@
         <button type="submit" class="bnt btn-primary mt-2">Comment</button>
       </form>
       <hr>
-      <div class="mb-4" *ngFor="let comment of comments">
-        <div>
-          <a class="comment-username" routerLink="/user/{{comment.username}}">{{comment.username}}</a>
-          <p [innerHTML]="comment.text" class="comment-text"></p>
-        </div>
+      <div class="mb-2" *ngFor="let comment of comments">
+        <app-comment [comment]="comment" [postId]="postId"></app-comment>
       </div>
     </div>
   </div>
