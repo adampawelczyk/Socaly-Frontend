@@ -30,6 +30,7 @@ import { CommunityComponent } from './community/community/community.component';
 import { AboutCommunitySidebarComponent } from './shared/about-community-sidebar/about-community-sidebar.component';
 import { CreatePostTopbarComponent } from './shared/create-post-topbar/create-post-topbar.component';
 import {NgxDropzoneModule} from "ngx-dropzone";
+import { CommentComponent } from './shared/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {NgxDropzoneModule} from "ngx-dropzone";
     WelcomeSideBarComponent,
     CommunityComponent,
     AboutCommunitySidebarComponent,
-    CreatePostTopbarComponent
+    CreatePostTopbarComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
