@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-auto p-0">
+    <span class="material-icons align-middle text green-color-hover" (click)="upvoteComment(); $event.stopPropagation()"
+          [ngClass]="{'green-color': comment.upVote}">
+      arrow_upward
+    </span>
+  </div>
+  <div class="col-auto p-0 text ms-1 me-1">{{comment.voteCount}}</div>
+  <div class="col-auto p-0">
+    <span class="material-icons align-middle text red-color-hover" (click)="downVoteComment(); $event.stopPropagation()"
+          [ngClass]="{'red-color': comment.downVote}">
+      arrow_downward
+    </span>
+  </div>
+</div>
