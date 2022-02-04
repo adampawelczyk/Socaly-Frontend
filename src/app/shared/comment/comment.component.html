@@ -3,7 +3,8 @@
     <a class="comment-username ms-2" routerLink="/user/{{comment.username}}">{{comment.username}}</a>
     <p class="comment-text ms-2 mt-1 mb-1" [innerHTML]="comment.text" style="margin: 0"></p>
     <div class="row ms-2">
-      <button class="col-auto ps-0 btn-comment" (click)="showReplyForm(); $event.stopPropagation()">
+      <app-comment-vote class="col-auto" [comment]="comment"></app-comment-vote>
+      <button class="col-auto ms-1 btn-comment" (click)="showReplyForm(); $event.stopPropagation()">
         <span class="material-icons-outlined">reply</span>
         Reply
       </button>
