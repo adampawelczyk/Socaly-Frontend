@@ -6,6 +6,7 @@ import {FormControl, FormGroup} from "@angular/forms"
 import {throwError} from "rxjs"
 import {ActivatedRoute} from "@angular/router"
 import {AuthService} from "../../auth/shared/auth.service"
+import {CommentResponsePayload} from "../../comment/comment-response.payload";
 
 @Component({
   selector: 'app-comment',
@@ -14,9 +15,9 @@ import {AuthService} from "../../auth/shared/auth.service"
   encapsulation: ViewEncapsulation.None
 })
 export class CommentComponent implements OnInit {
-  @Input() comment: CommentPayload
+  @Input() comment: CommentResponsePayload
   @Input() postId: number
-  subComments: CommentPayload[]
+  subComments: CommentResponsePayload[]
   collapsed = false
   reply = false
   replyForm: FormGroup
