@@ -7,6 +7,7 @@ import {throwError} from "rxjs";
 import {CommentService} from "../../comment/comment.service";
 import {CommentPayload} from "../../comment/comment.payload";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CommentResponsePayload} from "../../comment/comment-response.payload";
 
 @Component({
   selector: 'app-post-tile',
@@ -21,7 +22,7 @@ export class PostTileComponent implements OnInit {
   faCommentAlt = faCommentAlt;
   @Input()
   posts$: PostModel[];
-  comments: CommentPayload[];
+  comments: CommentResponsePayload[];
 
   postId: number;
   commentForm: FormGroup;
