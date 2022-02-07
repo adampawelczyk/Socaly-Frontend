@@ -30,7 +30,6 @@ export class PostTileComponent implements OnInit {
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
-    icons: 'material',
     branding: false,
     height: 174,
     placeholder: "What are your thoughts?",
