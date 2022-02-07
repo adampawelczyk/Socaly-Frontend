@@ -35,7 +35,7 @@ export class PostTileComponent implements OnInit {
     placeholder: "What are your thoughts?",
     menubar: false,
     plugins: [
-      'advlist lists charmap print preview anchor emoticons paste',
+      'lists charmap print preview anchor emoticons paste',
       'searchreplace visualblocks fullscreen insertdatetime link'
     ],
     toolbar:
