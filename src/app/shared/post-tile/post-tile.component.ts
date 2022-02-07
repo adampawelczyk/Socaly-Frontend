@@ -44,7 +44,6 @@ export class PostTileComponent implements OnInit {
     target_list: false,
     default_link_target:"_blank",
     link_context_toolbar: true,
-    codesample_content_css: '..\\assets\\prism.css',
   }
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
