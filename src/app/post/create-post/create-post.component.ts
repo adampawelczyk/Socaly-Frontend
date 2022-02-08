@@ -24,7 +24,6 @@ export class CreatePostComponent implements OnInit {
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
-    icons: 'material',
     branding: false,
     height: 300,
     placeholder: "Text (optional)",
