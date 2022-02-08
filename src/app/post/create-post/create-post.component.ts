@@ -38,8 +38,7 @@ export class CreatePostComponent implements OnInit {
     target_list: false,
     default_link_target:"_blank",
     link_context_toolbar: true,
-    advlist_bullet_styles: 'disc',
-    advlist_number_styles: 'decimal'
+    contextmenu: false,
   }
 
   constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
