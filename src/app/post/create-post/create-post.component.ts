@@ -29,7 +29,7 @@ export class CreatePostComponent implements OnInit {
     placeholder: "Text (optional)",
     menubar: false,
     plugins: [
-      'advlist lists charmap print preview anchor emoticons paste',
+      'lists charmap print preview anchor emoticons paste',
       'searchreplace visualblocks fullscreen insertdatetime link'
     ],
     toolbar:
