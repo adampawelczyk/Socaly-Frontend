@@ -263,23 +263,6 @@ body {
   background-position: center center;
 }
 
-/*.tox .tox-collection__item-checkmark svg, .tox .tox-collection__item-icon svg {*/
-/*  display: none;*/
-/*}*/
-
-/*.tox .tox-collection__item-checkmark, .tox .tox-collection__item-icon {*/
-/*  display: list-item;*/
-/*  list-style: none;*/
-/*  width: 20px;*/
-/*  height: 20px;*/
-/*}*/
-
-/*.tox .tox-collection__item-checkmark, .tox .tox-collection__item-icon {*/
-/*  background-image: url("assets/icons/link.svg");*/
-/*  background-repeat: no-repeat;*/
-/*  background-position: center center;*/
-/*}*/
-
 .tox-tbtn[aria-label="Link"] .tox-icon svg {
   display: none;
 }
