@@ -30,13 +30,12 @@ export class PostTileComponent implements OnInit {
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
-    icons: 'material',
     branding: false,
     height: 174,
     placeholder: "What are your thoughts?",
     menubar: false,
     plugins: [
-      'advlist lists charmap print preview anchor emoticons paste',
+      'lists charmap print preview anchor emoticons paste',
       'searchreplace visualblocks fullscreen insertdatetime link'
     ],
     toolbar:
@@ -45,7 +44,6 @@ export class PostTileComponent implements OnInit {
     target_list: false,
     default_link_target:"_blank",
     link_context_toolbar: true,
-    codesample_content_css: '..\\assets\\prism.css',
   }
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
