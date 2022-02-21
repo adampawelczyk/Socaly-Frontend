@@ -8,14 +8,14 @@ import {CommunityResponse} from "./community-response";
 })
 export class CommunityService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getAllCommunities(): Observable<Array<CommunityResponse>> {
-    return this.http.get<Array<CommunityResponse>>('http://localhost:8090/api/community')
+    return this.httpClient.get<Array<CommunityResponse>>('http://localhost:8090/api/community')
   }
 
   createCommunity(communityResponse: CommunityResponse): Observable<CommunityResponse> {
-    return this.http.post<CommunityResponse>('http://localhost:8090/api/community', communityResponse)
+    return this.httpClient.post<CommunityResponse>('http://localhost:8090/api/community', communityResponse)
   }
 
   getCommunityDetails(name: string): Observable<CommunityResponse> {
