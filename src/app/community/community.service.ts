@@ -19,6 +19,19 @@ export class CommunityService {
   }
 
   getCommunityDetails(name: string): Observable<CommunityResponse> {
-    return this.http.get<CommunityResponse>('http://localhost:8090/api/community/' + name)
+    return this.httpClient.get<CommunityResponse>('http://localhost:8090/api/community/' + name)
+  }
+
+  join(name: string): Observable<any> {
+    return this.httpClient.get('http://localhost:8090/api/community/join/' + name)
+  }
+
+  leave(name: string): Observable<any> {
+    return this.httpClient.get('http://localhost:8090/api/community/leave/' + name)
+  }
+
+  getAllCommunitiesForUser(name: string): Observable<Array<CommunityResponse>> {
+    return this.httpClient.get<Array<CommunityResponse>>(
+      'http://localhost:8090/api/community/getAllCommunitiesForUser/' + name)
   }
 }
