@@ -20,7 +20,8 @@ export class CommunityComponent implements OnInit {
   userCommunities: Array<CommunityResponse>
   belongs: boolean
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
+  constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private userService: UserService,
+              private communityService: CommunityService, private authService: AuthService) {
     this.communityName = this.activatedRoute.snapshot.params.name;
 
     this.postService.getAllPostsByCommunity(this.communityName).subscribe(data => {
