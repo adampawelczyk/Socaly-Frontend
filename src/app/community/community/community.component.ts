@@ -40,4 +40,20 @@ export class CommunityComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  join() {
+    this.communityService.join(this.communityName).subscribe(() => {
+      this.belongs = true
+    },error => {
+      throwError(error)
+    })
+  }
+
+  leave() {
+    this.communityService.leave(this.communityName).subscribe(() => {
+      this.belongs = false
+    }, error => {
+      throwError(error)
+    })
+  }
+
 }
