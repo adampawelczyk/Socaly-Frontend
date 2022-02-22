@@ -17,6 +17,8 @@ export class CommunityComponent implements OnInit {
   communityName: string;
   posts: PostModel[];
   postLength: number;
+  userCommunities: Array<CommunityResponse>
+  belongs: boolean
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
     this.communityName = this.activatedRoute.snapshot.params.name;
