@@ -28,6 +28,13 @@ export class CommunityComponent implements OnInit {
       this.posts = data;
       this.postLength = data.length;
     })
+
+    this.communityService.getAllCommunitiesForUser(this.authService.getUsername()).subscribe(data => {
+      this.userCommunities = data
+      this.belongs =  data.some(community => community.name == this.communityName)
+    }, error => {
+      throwError(error)
+    })
   }
 
   ngOnInit(): void {
