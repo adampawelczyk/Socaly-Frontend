@@ -6,9 +6,17 @@
         <div class="col-auto p-xl-0">
           <img src="assets/community-default-icon.png" alt="Image representing community logo" class="community-logo">
         </div>
-        <div class="col pt-1">
+        <div class="col-auto pt-1">
           <h1>{{communityName}}</h1>
           <h2>s/{{communityName}}</h2>
+        </div>
+        <div class="col-auto pt-1">
+          <div *ngIf="belongs">
+            <button class="btn-secondary hover-text" (click)="leave()"></button>
+          </div>
+          <div *ngIf="!belongs">
+            <button class="btn-primary" (click)="join()">Join</button>
+          </div>
         </div>
       </div>
     </div>
