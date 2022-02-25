@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PostModel} from "../../shared/post-model";
-import {PostService} from "../../shared/post.service";
+import {PostModel} from "../post-model";
+import {PostService} from "../post.service";
 import {ActivatedRoute} from "@angular/router";
 import {throwError} from "rxjs";
 
