@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommentResponsePayload} from "../../comment/comment-response.payload";
+import {CommentResponsePayload} from "../comment-response.payload";
 import {CommentVotePayload} from "./comment-vote.payload";
 import {CommentVoteService} from "./comment-vote.service";
-import {AuthService} from "../../auth/shared/auth.service";
-import {CommentService} from "../../comment/comment.service";
-import {VoteType} from "../vote-button/vote-type";
+import {AuthService} from "../../auth/auth.service";
+import {CommentService} from "../comment.service";
+import {VoteType} from "../../post/vote-button/vote-type";
 import {throwError} from "rxjs";
 
 @Component({
