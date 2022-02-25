@@ -4,7 +4,7 @@ import {CommentVotePayload} from "./comment-vote.payload";
 import {CommentVoteService} from "./comment-vote.service";
 import {AuthService} from "../../auth/auth.service";
 import {CommentService} from "../comment.service";
-import {VoteType} from "../../post/vote-button/vote-type";
+import {VoteType} from "../../shared/vote-type";
 import {throwError} from "rxjs";
 
 @Component({
