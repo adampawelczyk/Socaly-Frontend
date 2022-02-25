@@ -1,4 +1,4 @@
-import { VoteType } from "../../post/vote-button/vote-type"
+import { VoteType } from "../../shared/vote-type"
 
 export class CommentVotePayload {
   voteType: VoteType
