@@ -6,7 +6,7 @@ import {VoteService} from "./vote.service";
 import {AuthService} from "../../auth/auth.service";
 import {PostService} from "../post.service";
 import {ToastrService} from "ngx-toastr";
-import {VoteType} from "./vote-type";
+import {VoteType} from "../../shared/vote-type";
 import {throwError} from "rxjs";
 
 @Component({
