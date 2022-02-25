@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PostModel} from "../../shared/post-model";
-import {PostService} from "../../shared/post.service";
+import {PostModel} from "../../post/post-model";
+import {PostService} from "../../post/post.service";
 import {ActivatedRoute} from "@angular/router";
-import {AuthService} from "../../auth/shared/auth.service";
+import {AuthService} from "../../auth/auth.service";
 import {UserService} from "../../user/user.service";
 import {CommunityResponse} from "../community-response";
 import {throwError} from "rxjs";
