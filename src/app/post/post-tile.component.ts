@@ -1,13 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostService} from "../post.service";
-import {PostModel} from "../post-model";
+import {PostService} from "./shared/post.service";
+import {PostModel} from "./shared/post-model";
 import {faCommentAlt} from "@fortawesome/free-solid-svg-icons";
 import {ActivatedRoute, Router} from "@angular/router";
 import {throwError} from "rxjs";
-import {CommentService} from "../../comment/comment.service";
-import {CommentPayload} from "../../comment/comment.payload";
+import {CommentService} from "../comment/shared/comment.service";
+import {CommentPayload} from "../comment/shared/comment.payload";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CommentResponsePayload} from "../../comment/comment-response.payload";
+import {CommentResponsePayload} from "../comment/shared/comment-response.payload";
 
 @Component({
   selector: 'app-post-tile',
