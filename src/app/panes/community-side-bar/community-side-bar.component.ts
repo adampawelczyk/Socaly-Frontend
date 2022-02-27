@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CommunityService} from "../../community/community.service";
-import {CommunityResponse} from "../../community/community-response";
+import {CommunityService} from "../../community/shared/community.service";
+import {CommunityResponse} from "../../community/shared/community-response";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateCommunityComponent} from "../../community/create-community/create-community.component";
 
