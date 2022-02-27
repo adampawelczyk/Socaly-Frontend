@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core'
 import {FormControl, FormGroup, Validators} from "@angular/forms"
 import {CreatePostPayload} from "./create-post.payload"
-import {CommunityResponse} from "../../community/community-response"
+import {CommunityResponse} from "../../community/shared/community-response"
 import {Router} from "@angular/router"
-import {PostService} from "../post.service"
-import {CommunityService} from "../../community/community.service"
+import {PostService} from "../shared/post.service"
+import {CommunityService} from "../../community/shared/community.service"
 import {throwError} from "rxjs"
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap"
-import {UserService} from "../../user/user.service";
-import {AuthService} from "../../auth/auth.service";
+import {AuthService} from "../../auth/shared/auth.service";
 
 @Component({
   selector: 'app-create-post',
