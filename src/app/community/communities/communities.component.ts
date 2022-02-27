@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CommunityResponse} from "../community-response";
-import {CommunityService} from "../community.service";
+import {CommunityResponse} from "../shared/community-response";
+import {CommunityService} from "../shared/community.service";
 import {throwError} from "rxjs";
 
 @Component({
