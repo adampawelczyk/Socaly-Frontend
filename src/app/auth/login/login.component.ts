@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginRequestPayload} from "./login-request.payload";
-import {AuthService} from "../auth.service";
+import {AuthService} from "../shared/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
