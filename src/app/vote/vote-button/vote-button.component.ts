@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostModel} from "../post-model";
+import {PostModel} from "../../post/shared/post-model";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {VotePayload} from "./vote-payload";
 import {VoteService} from "./vote.service";
-import {AuthService} from "../../auth/auth.service";
-import {PostService} from "../post.service";
+import {AuthService} from "../../auth/shared/auth.service";
+import {PostService} from "../../post/shared/post.service";
 import {ToastrService} from "ngx-toastr";
-import {VoteType} from "../../shared/vote-type";
+import {VoteType} from "../shared/vote-type";
 import {throwError} from "rxjs";
 
 @Component({
