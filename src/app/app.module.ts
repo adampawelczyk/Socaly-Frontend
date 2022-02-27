@@ -14,10 +14,10 @@ import {ToastrModule} from "ngx-toastr";
 import { HomeComponent } from './home/home.component';
 import {TokenInterceptor} from "./token-interceptor";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import { PostTileComponent } from './post/post-tile/post-tile.component';
-import { VoteButtonComponent } from './post/vote-button/vote-button.component';
-import { SideBarComponent } from './shared/side-bar/side-bar.component';
-import { CommunitySideBarComponent } from './shared/community-side-bar/community-side-bar.component';
+import { PostTileComponent } from './post/post-tile.component';
+import { VoteButtonComponent } from './vote/vote-button/vote-button.component';
+import { SideBarComponent } from './panes/side-bar/side-bar.component';
+import { CommunitySideBarComponent } from './panes/community-side-bar/community-side-bar.component';
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { CommunitiesComponent } from './community/communities/communities.component';
@@ -25,13 +25,13 @@ import {EditorModule} from "@tinymce/tinymce-angular";
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { WelcomeSideBarComponent } from './shared/welcome-side-bar/welcome-side-bar.component';
-import { CommunityComponent } from './community/community/community.component';
-import { AboutCommunitySidebarComponent } from './shared/about-community-sidebar/about-community-sidebar.component';
-import { CreatePostTopbarComponent } from './shared/create-post-topbar/create-post-topbar.component';
+import { WelcomeSideBarComponent } from './panes/welcome-side-bar/welcome-side-bar.component';
+import { CommunityComponent } from './community/community.component';
+import { AboutCommunitySidebarComponent } from './panes/about-community-sidebar/about-community-sidebar.component';
+import { CreatePostTopbarComponent } from './panes/create-post-topbar/create-post-topbar.component';
 import {NgxDropzoneModule} from "ngx-dropzone";
-import { CommentComponent } from './comment/comment/comment.component';
-import { CommentVoteComponent } from './comment/comment-vote/comment-vote.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentVoteComponent } from './vote/comment-vote/comment-vote.component';
 
 @NgModule({
   declarations: [
