@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core'
-import {CommentPayload} from "../comment.payload"
-import {CommentService} from "../comment.service"
+import {CommentPayload} from "./shared/comment.payload"
+import {CommentService} from "./shared/comment.service"
 import {ViewEncapsulation} from '@angular/core'
 import {FormControl, FormGroup} from "@angular/forms"
 import {throwError} from "rxjs"
 import {ActivatedRoute} from "@angular/router"
-import {AuthService} from "../../auth/auth.service"
-import {CommentResponsePayload} from "../comment-response.payload";
+import {AuthService} from "../auth/shared/auth.service"
+import {CommentResponsePayload} from "./shared/comment-response.payload";
 
 @Component({
   selector: 'app-comment',
