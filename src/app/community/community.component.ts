@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {PostModel} from "../../post/post-model";
-import {PostService} from "../../post/post.service";
+import {PostModel} from "../post/shared/post-model";
+import {PostService} from "../post/shared/post.service";
 import {ActivatedRoute} from "@angular/router";
-import {AuthService} from "../../auth/auth.service";
-import {UserService} from "../../user/user.service";
-import {CommunityResponse} from "../community-response";
+import {AuthService} from "../auth/shared/auth.service";
+import {UserService} from "../user/shared/user.service";
+import {CommunityResponse} from "./shared/community-response";
 import {throwError} from "rxjs";
-import {CommunityService} from "../community.service";
+import {CommunityService} from "./shared/community.service";
 
 @Component({
   selector: 'app-community',
