@@ -7,9 +7,9 @@ import {CreatePostComponent} from "./post/create-post/create-post.component";
 import {CreateCommunityComponent} from "./community/create-community/create-community.component";
 import {CommunitiesComponent} from "./community/communities/communities.component";
 import {ViewPostComponent} from "./post/view-post/view-post.component";
-import {UserProfileComponent} from "./auth/user-profile/user-profile.component";
-import {AuthGuard} from "./auth/auth.guard";
-import {CommunityComponent} from "./community/community/community.component";
+import {UserProfileComponent} from "./user/user-profile/user-profile.component";
+import {AuthGuard} from "./auth/shared/auth.guard";
+import {CommunityComponent} from "./community/community.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

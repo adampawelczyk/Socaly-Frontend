@@ -1,4 +1,4 @@
-import {VoteType} from "./vote-type";
+import {VoteType} from "../shared/vote-type";
 
 export class VotePayload {
   voteType: VoteType;

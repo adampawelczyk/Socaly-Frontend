@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {VotePayload} from "./vote-button/vote-payload";
+import {VotePayload} from "./vote-payload";
 import {Observable} from "rxjs";
 
 @Injectable({
