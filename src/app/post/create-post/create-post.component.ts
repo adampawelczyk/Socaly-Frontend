@@ -120,18 +120,12 @@ export class CreatePostComponent implements OnInit {
         return resolve((e.target as FileReader).result)
       }
 
-      reader.onerror = e => {
-        console.error(`FileReader failed on file ${file.name}.`)
-        return reject(null)
-      }
-
-      if (!file) {
-        console.error('No file to read.')
-        return reject(null)
-      }
-
-      reader.readAsDataURL(file)
-    })
+  private async uploadFiles(files: File[]) {
+    for (const file of files) {
+      let fileUrl = await this.fileService.uploadFile(file)
+      this.filesUploadProgress += 100 / files.length
+      this.fileUrls.push(fileUrl)
+    }
   }
 
   selectCommunity(name: string) {
