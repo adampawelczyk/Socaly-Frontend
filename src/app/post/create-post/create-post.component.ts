@@ -23,6 +23,9 @@ export class CreatePostComponent implements OnInit {
   fileUrls: string[] = []
   active = 1
   selectedCommunity = "Choose a community"
+  uploadingFiles = false
+  filesUploadProgress = 0
+  postWasPosted = false
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
