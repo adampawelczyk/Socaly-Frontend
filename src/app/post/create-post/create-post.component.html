@@ -36,6 +36,15 @@
             </div>
           </div>
         </form>
+        <div *ngIf="uploadingFiles" class="mt-2">
+          <ngb-progressbar [showValue]="false" height=".5rem" [value]="filesUploadProgress" [max]="100"></ngb-progressbar>
+          <div *ngIf="filesUploadProgress != 100">
+            Image uploading in progress...
+          </div>
+          <div *ngIf="filesUploadProgress == 100">
+            Image uploading completed
+          </div>
+        </div>
       </ng-template>
     </li>
   </ul>
