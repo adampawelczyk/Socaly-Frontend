@@ -97,11 +97,10 @@ export class CreatePostComponent implements OnInit {
     this.uploadingFiles = true
     this.files.push(...event.addedFiles)
 
-    this.readFile(this.files[this.fileUrls.length]).then(fileContent => {
-      this.fileUrls.push(fileContent)
-    })
-
-    console.log(this.fileUrls)
+    await this.uploadFiles(this.files)
+    await new Promise(resolve => setTimeout(resolve, 500))
+    this.uploadingFiles = false
+    this.filesUploadProgress = 0
   }
 
   onRemove(event: File) {
