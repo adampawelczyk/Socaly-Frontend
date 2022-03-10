@@ -69,6 +69,14 @@ export class CreatePostComponent implements OnInit {
     })
   }
 
+  ngOnDestroy() {
+    if (this.fileUrls.length > 0 && !this.postWasPosted) {
+      this.fileUrls.forEach(fileUrl => {
+        this.fileService.removeFile(fileUrl)
+      })
+    }
+  }
+
   createPost() {
     this.postPayload.communityName = this.selectedCommunity
     this.postPayload.postName = this.createPostForm.get('postName')?.value
