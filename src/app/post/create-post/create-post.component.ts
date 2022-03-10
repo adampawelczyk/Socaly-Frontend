@@ -8,6 +8,7 @@ import {CommunityService} from "../../community/shared/community.service"
 import {throwError} from "rxjs"
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap"
 import {AuthService} from "../../auth/shared/auth.service";
+import {FileService} from "../../shared/file.service";
 
 @Component({
   selector: 'app-create-post',
@@ -43,7 +44,7 @@ export class CreatePostComponent implements OnInit {
   }
 
   constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
-              public activeModal: NgbActiveModal) {
+              public activeModal: NgbActiveModal, private authService: AuthService, private fileService: FileService) {
     this.postPayload = {
       postName: '',
       description: '',
