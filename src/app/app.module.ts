@@ -32,6 +32,10 @@ import { CreatePostTopbarComponent } from './panes/create-post-topbar/create-pos
 import {NgxDropzoneModule} from "ngx-dropzone";
 import { CommentComponent } from './comment/comment.component';
 import { CommentVoteComponent } from './vote/comment-vote/comment-vote.component';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
+import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -67,7 +71,10 @@ import { CommentVoteComponent } from './vote/comment-vote/comment-vote.component
     FontAwesomeModule,
     EditorModule,
     NgbModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [
     {

@@ -62,3 +62,7 @@ a {
   cursor: not-allowed;
   filter: grayscale(1);
 }
+
+.progress-bar {
+  background-color: #3b82f6;
+}

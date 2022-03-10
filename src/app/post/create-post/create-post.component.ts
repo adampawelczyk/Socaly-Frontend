@@ -8,6 +8,7 @@ import {CommunityService} from "../../community/shared/community.service"
 import {throwError} from "rxjs"
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap"
 import {AuthService} from "../../auth/shared/auth.service";
+import {FileService} from "../../shared/file.service";
 
 @Component({
   selector: 'app-create-post',
@@ -22,6 +23,9 @@ export class CreatePostComponent implements OnInit {
   fileUrls: string[] = []
   active = 1
   selectedCommunity = "Choose a community"
+  uploadingFiles = false
+  filesUploadProgress = 0
+  postWasPosted = false
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
@@ -43,7 +47,7 @@ export class CreatePostComponent implements OnInit {
   }
 
   constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
-              public activeModal: NgbActiveModal) {
+              public activeModal: NgbActiveModal, private authService: AuthService, private fileService: FileService) {
     this.postPayload = {
       postName: '',
       description: '',
@@ -65,6 +69,14 @@ export class CreatePostComponent implements OnInit {
     })
   }
 
+  ngOnDestroy() {
+    if (this.fileUrls.length > 0 && !this.postWasPosted) {
+      this.fileUrls.forEach(fileUrl => {
+        this.fileService.removeFile(fileUrl)
+      })
+    }
+  }
+
   createPost() {
     this.postPayload.communityName = this.selectedCommunity
     this.postPayload.postName = this.createPostForm.get('postName')?.value
@@ -78,6 +90,7 @@ export class CreatePostComponent implements OnInit {
     }
 
     this.postService.createPost(this.postPayload).subscribe((id) => {
+      this.postWasPosted = true
       this.activeModal.close()
       this.router.navigateByUrl('/view-post/' + id)
     }, error => {
@@ -89,45 +102,32 @@ export class CreatePostComponent implements OnInit {
     this.activeModal.close()
   }
 
-  onSelect(event: { addedFiles: any }) {
+  async onSelect(event: { addedFiles: any }) {
+    this.uploadingFiles = true
     this.files.push(...event.addedFiles)
 
-    this.readFile(this.files[this.fileUrls.length]).then(fileContent => {
-      this.fileUrls.push(fileContent)
-    })
-
-    console.log(this.fileUrls)
+    await this.uploadFiles(this.files)
+    await new Promise(resolve => setTimeout(resolve, 500))
+    this.uploadingFiles = false
+    this.filesUploadProgress = 0
   }
 
   onRemove(event: File) {
     let index = this.files.indexOf(event)
     this.files.splice(index, 1)
-    this.fileUrls.splice(index, 1)
+    let deleteFileUrl = this.fileUrls.splice(index, 1)
 
-    console.log(this.fileUrls)
+    if (deleteFileUrl.length > 0) {
+      this.fileService.removeFile(deleteFileUrl[0])
+    }
   }
 
-  private async readFile(file: File): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
-      const reader = new FileReader()
-
-      reader.onload = e => {
-        // @ts-ignore
-        return resolve((e.target as FileReader).result)
-      }
-
-      reader.onerror = e => {
-        console.error(`FileReader failed on file ${file.name}.`)
-        return reject(null)
-      }
-
-      if (!file) {
-        console.error('No file to read.')
-        return reject(null)
-      }
-
-      reader.readAsDataURL(file)
-    })
+  private async uploadFiles(files: File[]) {
+    for (const file of files) {
+      let fileUrl = await this.fileService.uploadFile(file)
+      this.filesUploadProgress += 100 / files.length
+      this.fileUrls.push(fileUrl)
+    }
   }
 
   selectCommunity(name: string) {
