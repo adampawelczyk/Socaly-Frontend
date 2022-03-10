@@ -82,6 +82,7 @@ export class CreatePostComponent implements OnInit {
     }
 
     this.postService.createPost(this.postPayload).subscribe((id) => {
+      this.postWasPosted = true
       this.activeModal.close()
       this.router.navigateByUrl('/view-post/' + id)
     }, error => {
