@@ -106,19 +106,12 @@ export class CreatePostComponent implements OnInit {
   onRemove(event: File) {
     let index = this.files.indexOf(event)
     this.files.splice(index, 1)
-    this.fileUrls.splice(index, 1)
+    let deleteFileUrl = this.fileUrls.splice(index, 1)
 
-    console.log(this.fileUrls)
+    if (deleteFileUrl.length > 0) {
+      this.fileService.removeFile(deleteFileUrl[0])
+    }
   }
-
-  private async readFile(file: File): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
-      const reader = new FileReader()
-
-      reader.onload = e => {
-        // @ts-ignore
-        return resolve((e.target as FileReader).result)
-      }
 
   private async uploadFiles(files: File[]) {
     for (const file of files) {
