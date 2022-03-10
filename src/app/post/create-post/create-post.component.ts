@@ -93,7 +93,8 @@ export class CreatePostComponent implements OnInit {
     this.activeModal.close()
   }
 
-  onSelect(event: { addedFiles: any }) {
+  async onSelect(event: { addedFiles: any }) {
+    this.uploadingFiles = true
     this.files.push(...event.addedFiles)
 
     this.readFile(this.files[this.fileUrls.length]).then(fileContent => {
