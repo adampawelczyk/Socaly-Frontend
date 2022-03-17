@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginRequestPayload.username = this.loginForm.get('username')?.value;
-    this.loginRequestPayload.password = this.loginForm.get('password')?.value;
+    this.loginRequestPayload.username = this.loginForm.get('username')?.value
+    this.loginRequestPayload.password = this.loginForm.get('password')?.value
 
     this.authService.login(this.loginRequestPayload).subscribe(data => {
       this.router.navigateByUrl('');
@@ -44,11 +44,11 @@ export class LoginComponent implements OnInit {
   }
 
   discardLogin() {
-    this.activeModal.close();
+    this.activeModal.close()
   }
 
   signup() {
-    this.activeModal.close();
-    this.modal.open(SignupComponent);
+    this.activeModal.close()
+    this.modal.open(SignupComponent)
   }
 }
