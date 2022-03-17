@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
     this.loginRequestPayload.username = this.loginForm.get('username')?.value
     this.loginRequestPayload.password = this.loginForm.get('password')?.value
 
-    this.authService.login(this.loginRequestPayload).subscribe(data => {
-      this.router.navigateByUrl('');
-      this.toastr.success('Login successful');
-    }, error => {
-        this.toastr.error('Login failed. Please check your credentials and try again');
-    });
+    this.authService.login(this.loginRequestPayload).subscribe(() => {
+      this.router.navigateByUrl('')
+      this.toastr.success('Login successful')
+    }, () => {
+        this.toastr.error('Login failed. Please check your credentials and try again')
+    })
   }
 
   discardLogin() {
