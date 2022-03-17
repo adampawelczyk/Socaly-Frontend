@@ -13,8 +13,8 @@ import { SignupComponent } from "../signup/signup.component"
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  loginRequestPayload: LoginRequestPayload;
+  loginForm: FormGroup
+  loginRequestPayload: LoginRequestPayload
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
               private toastr: ToastrService, public activeModal: NgbActiveModal, private modal: NgbModal) {
