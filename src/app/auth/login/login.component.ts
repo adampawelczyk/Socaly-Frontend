@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from "@angular/forms"
-import { LoginRequestPayload } from "./login-request.payload"
+import { LoginRequestModel } from "./login-request.model"
 import { AuthService } from "../shared/auth.service"
 import { ActivatedRoute, Router } from "@angular/router"
 import { ToastrService } from "ngx-toastr"
@@ -14,7 +14,7 @@ import { SignupComponent } from "../signup/signup.component"
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup
-  loginRequestPayload: LoginRequestPayload
+  loginRequestPayload: LoginRequestModel
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
               private toastr: ToastrService, public activeModal: NgbActiveModal, private modal: NgbModal) {
