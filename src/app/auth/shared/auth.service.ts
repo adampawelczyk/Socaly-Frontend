@@ -2,8 +2,8 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {SignupRequestPayload} from "../signup/signup-request.payload";
 import {Observable, throwError} from "rxjs";
-import {LoginRequestPayload} from "../login/login-request.payload";
-import {LoginResponsePayload} from "../login/login-response.payload";
+import {LoginRequestModel} from "../login/login-request.model";
+import {LoginResponseModel} from "../login/login-response.model";
 import {map, tap} from "rxjs/operators";
 import {LocalStorageService} from "ngx-webstorage";
 
@@ -25,8 +25,8 @@ export class AuthService {
     return this.httpClient.post('http://localhost:8090/api/auth/signup', signupRequestPayload, {responseType: 'text'});
   }
 
-  login(loginRequestPayload: LoginRequestPayload): Observable<boolean> {
-    return this.httpClient.post<LoginResponsePayload>('http://localhost:8090/api/auth/login', loginRequestPayload)
+  login(loginRequestPayload: LoginRequestModel): Observable<boolean> {
+    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/login', loginRequestPayload)
       .pipe(map(data => {
         this.localStorage.store('authenticationToken', data.authenticationToken);
         this.localStorage.store('username', data.username);
@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.httpClient.post<LoginResponsePayload>('http://localhost:8090/api/auth/refresh/token', this.refreshTokenPayload)
+    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/refresh/token', this.refreshTokenPayload)
       .pipe(tap(response => {
         this.localStorage.clear('authenticationToken');
         this.localStorage.clear('expiresAt');
