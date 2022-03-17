@@ -1,4 +1,4 @@
-export interface LoginResponsePayload {
+export interface LoginResponseModel {
   authenticationToken: string;
   refreshToken: string;
   expiresAt: Date;
