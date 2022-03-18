@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
     this.signupRequestPayload.username = this.signupForm.get('username')?.value
     this.signupRequestPayload.password = this.signupForm.get('password')?.value
 
-    this.authService.signup(this.signupRequestPayload).subscribe(data => {
+    this.authService.signup(this.signupRequestPayload).subscribe(() => {
       this.toastr.success('Signup Successful')
       this.toastr.success('Please check your inbox for activation email')
     }, () => {
