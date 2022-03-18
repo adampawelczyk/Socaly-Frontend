@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SignupRequestPayload} from "./signup-request.payload";
-import {AuthService} from "../shared/auth.service";
-import {Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {LoginComponent} from "../login/login.component";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { SignupRequestPayload } from "./signup-request.payload";
+import { AuthService } from "../shared/auth.service";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { LoginComponent } from "../login/login.component";
 
 @Component({
   selector: 'app-signup',
