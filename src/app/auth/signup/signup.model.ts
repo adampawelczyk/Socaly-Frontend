@@ -1,4 +1,4 @@
-export interface SignupRequestPayload {
+export interface SignupModel {
   username: string
   password: string
   email: string
