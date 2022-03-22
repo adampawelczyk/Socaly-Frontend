@@ -1,4 +1,4 @@
-export class CommentRequestModel {
+export interface CommentRequestModel {
   id?: number
   postId: number
   text: string
