@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CommunityResponse} from "../shared/community-response";
-import {CommunityService} from "../shared/community.service";
-import {throwError} from "rxjs";
+import { CommunityResponse } from "../shared/community-response";
+import { CommunityService } from "../shared/community.service";
+import { throwError } from "rxjs";
 
 @Component({
   selector: 'app-communities',
