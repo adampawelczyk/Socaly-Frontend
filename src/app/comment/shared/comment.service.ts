@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CommentPayload} from "./comment.payload";
+import {CommentRequestModel} from "./comment-request.model";
 import {CommentResponsePayload} from "./comment-response.payload";
 
 @Injectable({
@@ -23,7 +23,7 @@ export class CommentService {
     return this.httpClient.get<CommentResponsePayload[]>('http://localhost:8090/api/comments/subcomments/' + commentId)
   }
 
-  postComment(commentPayload: CommentPayload): Observable<any> {
+  postComment(commentPayload: CommentRequestModel): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8090/api/comments', commentPayload)
   }
 
