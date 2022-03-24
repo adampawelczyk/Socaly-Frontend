@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { CommentRequestModel } from "./comment-request.model";
-import { CommentResponsePayload } from "./comment-response.payload";
+import { Injectable } from '@angular/core'
+import { HttpClient } from "@angular/common/http"
+import { Observable } from "rxjs"
+import { CommentRequestModel } from "./comment-request.model"
+import { CommentResponsePayload } from "./comment-response.payload"
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class CommentService {
   }
 
   getAllCommentsForPost(postId: number): Observable<CommentResponsePayload[]> {
-    return this.httpClient.get<CommentResponsePayload[]>('http://localhost:8090/api/comments/by-post/' + postId);
+    return this.httpClient.get<CommentResponsePayload[]>('http://localhost:8090/api/comments/by-post/' + postId)
   }
 
   getSubCommentsForComment(commentId: number): Observable<CommentResponsePayload[]> {
