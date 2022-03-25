@@ -55,5 +55,4 @@ export class CommunityComponent implements OnInit {
       throwError(error)
     })
   }
-
 }
