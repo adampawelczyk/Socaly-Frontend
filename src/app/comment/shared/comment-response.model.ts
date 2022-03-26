@@ -1,4 +1,4 @@
-export class CommentResponsePayload {
+export class CommentResponseModel {
   id: number
   postId: number
   text: string
