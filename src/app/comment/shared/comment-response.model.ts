@@ -4,7 +4,6 @@ export class CommentResponseModel {
   text: string
   username: string
   duration: string
-  parentCommentId: number
   voteCount: number
   upVote: boolean
   downVote: boolean
