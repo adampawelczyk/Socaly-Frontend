@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {CommunityService} from "../shared/community.service";
-import {CommunityResponse} from "../shared/community-response";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { CommunityService } from "../shared/community.service";
+import { CommunityResponse } from "../shared/community-response";
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-create-community',
