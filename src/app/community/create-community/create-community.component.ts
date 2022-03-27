@@ -34,9 +34,9 @@ export class CreateCommunityComponent implements OnInit {
     this.communityResponse.name = this.createCommunityForm.get('title')?.value
     this.communityResponse.description = this.createCommunityForm.get('description')?.value
 
-    this.communityService.createCommunity(this.communityResponse).subscribe(data => {
+    this.communityService.createCommunity(this.communityResponse).subscribe(() => {
       this.router.navigateByUrl('/communities')
-    }, error => {
+    }, () => {
       console.log('Error occurred')
     })
   }
