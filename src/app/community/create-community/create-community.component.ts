@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { CommunityService } from "../shared/community.service";
-import { CommunityResponse } from "../shared/community-response";
-import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { Component, OnInit } from '@angular/core'
+import { FormControl, FormGroup, Validators } from "@angular/forms"
+import { Router } from "@angular/router"
+import { CommunityService } from "../shared/community.service"
+import { CommunityResponse } from "../shared/community-response"
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
 
 @Component({
   selector: 'app-create-community',
@@ -11,16 +11,16 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./create-community.component.css']
 })
 export class CreateCommunityComponent implements OnInit {
-  createCommunityForm: FormGroup;
-  communityResponse: CommunityResponse;
-  title = new FormControl('');
-  description = new FormControl('');
+  createCommunityForm: FormGroup
+  communityResponse: CommunityResponse
+  title = new FormControl('')
+  description = new FormControl('')
 
   constructor(private router: Router, private communityService: CommunityService, public activeModal: NgbActiveModal) {
     this.createCommunityForm = new FormGroup({
       title: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required)
-    });
+    })
     this.communityResponse = {
       name: '',
       description: ''
@@ -31,18 +31,18 @@ export class CreateCommunityComponent implements OnInit {
   }
 
   createCommunity() {
-    this.communityResponse.name = this.createCommunityForm.get('title')?.value;
-    this.communityResponse.description = this.createCommunityForm.get('description')?.value;
+    this.communityResponse.name = this.createCommunityForm.get('title')?.value
+    this.communityResponse.description = this.createCommunityForm.get('description')?.value
 
     this.communityService.createCommunity(this.communityResponse).subscribe(data => {
-      this.router.navigateByUrl('/communities');
+      this.router.navigateByUrl('/communities')
     }, error => {
-      console.log('Error occurred');
+      console.log('Error occurred')
     })
   }
 
   discard() {
-    this.activeModal.close();
+    this.activeModal.close()
   }
 
 }
