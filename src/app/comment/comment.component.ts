@@ -3,10 +3,10 @@ import { ViewEncapsulation } from '@angular/core'
 import { FormControl, FormGroup } from "@angular/forms"
 import { throwError } from "rxjs"
 import { ActivatedRoute } from "@angular/router"
-import { AuthService } from "../auth/shared/auth.service";
-import { CommentResponseModel } from "./shared/comment-response.model";
-import { CommentRequestModel } from "./shared/comment-request.model";
-import { CommentService } from "./shared/comment.service";
+import { AuthService } from "../auth/shared/auth.service"
+import { CommentResponseModel } from "./shared/comment-response.model"
+import { CommentRequestModel } from "./shared/comment-request.model"
+import { CommentService } from "./shared/comment.service"
 
 @Component({
   selector: 'app-comment',
