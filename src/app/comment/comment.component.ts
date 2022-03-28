@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core'
-import {CommentPayload} from "./shared/comment.payload"
-import {CommentService} from "./shared/comment.service"
 import {ViewEncapsulation} from '@angular/core'
 import {FormControl, FormGroup} from "@angular/forms"
 import {throwError} from "rxjs"
 import {ActivatedRoute} from "@angular/router"
-import {AuthService} from "../auth/shared/auth.service"
-import {CommentResponsePayload} from "./shared/comment-response.payload";
+import {AuthService} from "../auth/shared/auth.service";
+import {CommentResponseModel} from "./shared/comment-response.model";
+import {CommentRequestModel} from "./shared/comment-request.model";
+import {CommentService} from "./shared/comment.service";
 
 @Component({
   selector: 'app-comment',
@@ -15,13 +15,13 @@ import {CommentResponsePayload} from "./shared/comment-response.payload";
   encapsulation: ViewEncapsulation.None
 })
 export class CommentComponent implements OnInit {
-  @Input() comment: CommentResponsePayload
+  @Input() comment: CommentResponseModel
   @Input() postId: number
-  subComments: CommentResponsePayload[]
+  subComments: CommentResponseModel[]
   collapsed = false
   reply = false
   replyForm: FormGroup
-  replyPayload: CommentPayload
+  replyPayload: CommentRequestModel
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
