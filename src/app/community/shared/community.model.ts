@@ -1,4 +1,4 @@
-export class CommunityResponse {
+export class CommunityModel {
   id?: number;
   name: string;
   description: string;
