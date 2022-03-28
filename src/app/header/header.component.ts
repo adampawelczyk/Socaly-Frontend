@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../auth/shared/auth.service";
-import {Router} from "@angular/router";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {SignupComponent} from "../auth/signup/signup.component";
-import {LoginComponent} from "../auth/login/login.component";
+import { AuthService } from "../auth/shared/auth.service";
+import { Router } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { SignupComponent } from "../auth/signup/signup.component";
+import { LoginComponent } from "../auth/login/login.component";
 
 @Component({
   selector: 'app-header',
