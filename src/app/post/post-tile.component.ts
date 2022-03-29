@@ -5,7 +5,7 @@ import {faCommentAlt} from "@fortawesome/free-solid-svg-icons";
 import {ActivatedRoute, Router} from "@angular/router";
 import {throwError} from "rxjs";
 import {CommentService} from "../comment/shared/comment.service";
-import {CommentPayload} from "../comment/shared/comment.payload";
+import {CommentRequestModel} from "../comment/shared/comment-request.model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CommentResponsePayload} from "../comment/shared/comment-response.payload";
 
@@ -26,7 +26,7 @@ export class PostTileComponent implements OnInit {
 
   postId: number;
   commentForm: FormGroup;
-  commentPayload: CommentPayload;
+  commentPayload: CommentRequestModel;
 
   editorConfig = {
     skin_url: '..\\assets\\skins\\ui\\light',
