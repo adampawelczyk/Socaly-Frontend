@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {PostModel} from "../../post/shared/post-model";
-import {CommentPayload} from "../../comment/shared/comment.payload";
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../post/shared/post.service";
 import {CommentService} from "../../comment/shared/comment.service";
+import {CommentResponseModel} from "../../comment/shared/comment-response.model";
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +13,7 @@ import {CommentService} from "../../comment/shared/comment.service";
 export class UserProfileComponent implements OnInit {
   name: string;
   posts: PostModel[];
-  comments: CommentPayload[];
+  comments: CommentResponseModel[];
   postLength: number;
   commentLength: number;
 
