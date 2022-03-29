@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommentResponsePayload} from "../../comment/shared/comment-response.payload";
+import {CommentResponseModel} from "../../comment/shared/comment-response.model";
 import {CommentVotePayload} from "./comment-vote.payload";
 import {CommentVoteService} from "./comment-vote.service";
 import {AuthService} from "../../auth/shared/auth.service";
@@ -13,7 +13,7 @@ import {throwError} from "rxjs";
   styleUrls: ['./comment-vote.component.css']
 })
 export class CommentVoteComponent implements OnInit {
-  @Input() comment: CommentResponsePayload
+  @Input() comment: CommentResponseModel
   commentVotePayload: CommentVotePayload
 
   constructor(private commentVoteService: CommentVoteService, private authService: AuthService,
