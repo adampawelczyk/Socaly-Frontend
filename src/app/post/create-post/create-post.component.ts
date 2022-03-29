@@ -7,8 +7,8 @@ import { PostService } from "../shared/post.service"
 import { CommunityService } from "../../community/shared/community.service"
 import { throwError } from "rxjs"
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
-import { AuthService } from "../../auth/shared/auth.service";
-import { FileService } from "../../shared/file.service";
+import { AuthService } from "../../auth/shared/auth.service"
+import { FileService } from "../../shared/file.service"
 
 @Component({
   selector: 'app-create-post',
