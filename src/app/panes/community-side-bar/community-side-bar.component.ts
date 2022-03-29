@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommunityService} from "../../community/shared/community.service";
-import {CommunityResponse} from "../../community/shared/community-response";
+import {CommunityModel} from "../../community/shared/community.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateCommunityComponent} from "../../community/create-community/create-community.component";
 
@@ -10,7 +10,7 @@ import {CreateCommunityComponent} from "../../community/create-community/create-
   styleUrls: ['./community-side-bar.component.css']
 })
 export class CommunitySideBarComponent implements OnInit {
-  communities: Array<CommunityResponse>
+  communities: Array<CommunityModel>
   displayViewAll: boolean;
 
   constructor(private communityService: CommunityService, private modal: NgbModal) {
