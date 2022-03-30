@@ -1,4 +1,4 @@
-export class CreatePostPayload {
+export class PostRequestModel {
   postName: string
   communityName: string
   description?: string
