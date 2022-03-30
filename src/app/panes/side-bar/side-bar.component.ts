@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {faComments, faNewspaper, faUsers} from "@fortawesome/free-solid-svg-icons";
+import { Router } from "@angular/router";
+import { faComments, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-side-bar',
