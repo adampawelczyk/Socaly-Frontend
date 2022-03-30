@@ -1,4 +1,4 @@
-export class PostRequestModel {
+export interface PostRequestModel {
   postName: string
   communityName: string
   description?: string
