@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CommunityService} from "../../community/shared/community.service";
-import {CommunityModel} from "../../community/shared/community.model";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {CreateCommunityComponent} from "../../community/create-community/create-community.component";
+import { CommunityService } from "../../community/shared/community.service";
+import { CommunityModel } from "../../community/shared/community.model";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { CreateCommunityComponent } from "../../community/create-community/create-community.component";
 
 @Component({
   selector: 'app-community-side-bar',
