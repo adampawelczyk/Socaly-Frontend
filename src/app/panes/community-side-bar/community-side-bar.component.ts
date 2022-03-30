@@ -30,5 +30,4 @@ export class CommunitySideBarComponent implements OnInit {
   createCommunity() {
     this.modal.open(CreateCommunityComponent)
   }
-
 }
