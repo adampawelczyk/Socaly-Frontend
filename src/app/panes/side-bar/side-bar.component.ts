@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { faComments, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { Component, OnInit } from '@angular/core'
+import { Router } from "@angular/router"
+import { faComments, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons"
 
 @Component({
   selector: 'app-side-bar',
@@ -8,9 +8,9 @@ import { faComments, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-ic
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-  discussions: boolean;
-  news: boolean;
-  communities: boolean;
+  discussions: boolean
+  news: boolean
+  communities: boolean
 
   faComments = faComments
   faNewspaper = faNewspaper
@@ -26,38 +26,38 @@ export class SideBarComponent implements OnInit {
 
   goToDiscussions() {
     if (!this.discussions) {
-      this.discussions = true;
-      this.news = false;
-      this.communities = false;
+      this.discussions = true
+      this.news = false
+      this.communities = false
 
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('')
     }
   }
 
   goToNews() {
     if (!this.news) {
-      this.discussions = false;
-      this.news = true;
-      this.communities = false;
+      this.discussions = false
+      this.news = true
+      this.communities = false
     }
   }
 
   goToCommunities() {
     if (!this.communities) {
-      this.discussions = false;
-      this.news = false;
-      this.communities = true;
+      this.discussions = false
+      this.news = false
+      this.communities = true
 
-      this.router.navigateByUrl('/communities');
+      this.router.navigateByUrl('/communities')
     }
   }
 
   goToCreatePost() {
-    this.router.navigateByUrl('/create-post');
+    this.router.navigateByUrl('/create-post')
   }
 
   goToCreateCommunity() {
-    this.router.navigateByUrl('/create-community');
+    this.router.navigateByUrl('/create-community')
   }
 
 }
