@@ -26,5 +26,4 @@ export class AboutCommunitySidebarComponent implements OnInit {
   convertTimeToMs(time: string): string {
     return (parseInt(time) * 1000).toString()
   }
-
 }
