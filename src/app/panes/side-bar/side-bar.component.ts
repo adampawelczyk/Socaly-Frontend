@@ -59,5 +59,4 @@ export class SideBarComponent implements OnInit {
   goToCreateCommunity() {
     this.router.navigateByUrl('/create-community')
   }
-
 }
