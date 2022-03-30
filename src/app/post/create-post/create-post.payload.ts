@@ -1,5 +1,5 @@
 export class CreatePostPayload {
-  postName: string;
+  postName: string
   communityName: string
   description?: string
   images?: string[]
