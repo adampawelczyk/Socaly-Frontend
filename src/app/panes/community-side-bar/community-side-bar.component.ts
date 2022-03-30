@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CommunityService } from "../../community/shared/community.service";
-import { CommunityModel } from "../../community/shared/community.model";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { CreateCommunityComponent } from "../../community/create-community/create-community.component";
+import { Component, OnInit } from '@angular/core'
+import { CommunityService } from "../../community/shared/community.service"
+import { CommunityModel } from "../../community/shared/community.model"
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
+import { CreateCommunityComponent } from "../../community/create-community/create-community.component"
 
 @Component({
   selector: 'app-community-side-bar',
@@ -11,15 +11,15 @@ import { CreateCommunityComponent } from "../../community/create-community/creat
 })
 export class CommunitySideBarComponent implements OnInit {
   communities: Array<CommunityModel>
-  displayViewAll: boolean;
+  displayViewAll: boolean
 
   constructor(private communityService: CommunityService, private modal: NgbModal) {
     this.communityService.getAllCommunities().subscribe(data => {
       if (data.length >= 4) {
-        this.communities = data.slice(0, 3);
-        this.displayViewAll = true;
+        this.communities = data.slice(0, 3)
+        this.displayViewAll = true
       } else {
-        this.communities = data;
+        this.communities = data
       }
     })
   }
@@ -28,7 +28,7 @@ export class CommunitySideBarComponent implements OnInit {
   }
 
   createCommunity() {
-    this.modal.open(CreateCommunityComponent);
+    this.modal.open(CreateCommunityComponent)
   }
 
 }
