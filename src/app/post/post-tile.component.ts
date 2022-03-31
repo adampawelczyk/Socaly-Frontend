@@ -1,13 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {PostService} from "./shared/post.service";
-import {PostResponseModel} from "./shared/post-response.model";
-import {faCommentAlt} from "@fortawesome/free-solid-svg-icons";
-import {ActivatedRoute, Router} from "@angular/router";
-import {throwError} from "rxjs";
-import {CommentService} from "../comment/shared/comment.service";
-import {CommentRequestModel} from "../comment/shared/comment-request.model";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CommentResponseModel} from "../comment/shared/comment-response.model";
+import { Component, Input, OnInit } from '@angular/core';
+import { PostService } from "./shared/post.service";
+import { PostResponseModel } from "./shared/post-response.model";
+import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
+import { ActivatedRoute, Router } from "@angular/router";
+import { throwError } from "rxjs";
+import { CommentService } from "../comment/shared/comment.service";
+import { CommentRequestModel } from "../comment/shared/comment-request.model";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { CommentResponseModel } from "../comment/shared/comment-response.model";
 
 @Component({
   selector: 'app-post-tile',
