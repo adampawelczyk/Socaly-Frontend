@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PostResponseModel} from "../shared/post-response.model";
-import {PostService} from "../shared/post.service";
-import {ActivatedRoute} from "@angular/router";
-import {throwError} from "rxjs";
+import { PostResponseModel } from "../shared/post-response.model";
+import { PostService } from "../shared/post.service";
+import { ActivatedRoute } from "@angular/router";
+import { throwError } from "rxjs";
 
 @Component({
   selector: 'app-view-post',
