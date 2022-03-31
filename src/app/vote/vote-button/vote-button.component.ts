@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostModel} from "../../post/shared/post-model";
+import {PostResponseModel} from "../../post/shared/post-response.model";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {VotePayload} from "./vote-payload";
 import {VoteService} from "./vote.service";
@@ -15,7 +15,7 @@ import {throwError} from "rxjs";
   styleUrls: ['./vote-button.component.css']
 })
 export class VoteButtonComponent implements OnInit {
-  @Input() post: PostModel
+  @Input() post: PostResponseModel
   votePayload: VotePayload
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
