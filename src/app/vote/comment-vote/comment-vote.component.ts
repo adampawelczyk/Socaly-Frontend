@@ -51,5 +51,4 @@ export class CommentVoteComponent implements OnInit {
       this.comment = data
     })
   }
-
 }
