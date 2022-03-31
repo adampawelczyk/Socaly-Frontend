@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PostModel} from "../../post/shared/post-model";
+import {PostResponseModel} from "../../post/shared/post-response.model";
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../post/shared/post.service";
 import {CommentService} from "../../comment/shared/comment.service";
@@ -12,7 +12,7 @@ import {CommentResponseModel} from "../../comment/shared/comment-response.model"
 })
 export class UserProfileComponent implements OnInit {
   name: string;
-  posts: PostModel[];
+  posts: PostResponseModel[];
   comments: CommentResponseModel[];
   postLength: number;
   commentLength: number;
