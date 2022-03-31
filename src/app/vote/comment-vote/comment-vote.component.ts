@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CommentResponseModel} from "../../comment/shared/comment-response.model";
-import {CommentVotePayload} from "./comment-vote.payload";
-import {CommentVoteService} from "./comment-vote.service";
-import {AuthService} from "../../auth/shared/auth.service";
-import {CommentService} from "../../comment/shared/comment.service";
-import {VoteType} from "../shared/vote-type";
-import {throwError} from "rxjs";
+import { Component, Input, OnInit } from '@angular/core';
+import { CommentResponseModel } from "../../comment/shared/comment-response.model";
+import { CommentVotePayload } from "./comment-vote.payload";
+import { CommentVoteService } from "./comment-vote.service";
+import { AuthService } from "../../auth/shared/auth.service";
+import { CommentService } from "../../comment/shared/comment.service";
+import { VoteType } from "../shared/vote-type";
+import { throwError } from "rxjs";
 
 @Component({
   selector: 'app-comment-vote',
