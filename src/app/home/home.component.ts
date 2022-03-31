@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { PostModel } from "../post/shared/post-model"
+import { PostResponseModel } from "../post/shared/post-response.model"
 import { PostService } from "../post/shared/post.service"
 import { AuthService } from "../auth/shared/auth.service"
 
@@ -9,7 +9,7 @@ import { AuthService } from "../auth/shared/auth.service"
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  posts: Array<PostModel> = []
+  posts: Array<PostResponseModel> = []
   isLoggedIn: boolean
 
   constructor(private postService: PostService, private authService: AuthService) {
