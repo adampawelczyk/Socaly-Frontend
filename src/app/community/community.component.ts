@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { PostModel } from "../post/shared/post-model"
+import { PostResponseModel } from "../post/shared/post-response.model"
 import { PostService } from "../post/shared/post.service"
 import { ActivatedRoute } from "@angular/router"
 import { AuthService } from "../auth/shared/auth.service"
@@ -15,7 +15,7 @@ import { CommunityService } from "./shared/community.service"
 })
 export class CommunityComponent implements OnInit {
   communityName: string
-  posts: PostModel[]
+  posts: PostResponseModel[]
   postLength: number
   userCommunities: Array<CommunityModel>
   belongs: boolean
