@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from "./shared/post.service";
-import {PostModel} from "./shared/post-model";
+import {PostResponseModel} from "./shared/post-response.model";
 import {faCommentAlt} from "@fortawesome/free-solid-svg-icons";
 import {ActivatedRoute, Router} from "@angular/router";
 import {throwError} from "rxjs";
@@ -21,7 +21,7 @@ export class PostTileComponent implements OnInit {
   showComments: boolean = false;
   faCommentAlt = faCommentAlt;
   @Input()
-  posts$: PostModel[];
+  posts$: PostResponseModel[];
   comments: CommentResponseModel[];
 
   postId: number;
@@ -66,11 +66,11 @@ export class PostTileComponent implements OnInit {
     }
   }
 
-  postDescriptionIsNotEmpty(post: PostModel) {
+  postDescriptionIsNotEmpty(post: PostResponseModel) {
     return post.description != ""
   }
 
-  postImagesAreNotEmpty(post: PostModel) {
+  postImagesAreNotEmpty(post: PostResponseModel) {
     return post.images && post.images?.length > 0
   }
 
@@ -97,7 +97,7 @@ export class PostTileComponent implements OnInit {
     this.router.navigateByUrl('/view-post/' + id);
   }
 
-  showNavigationArrows(post: PostModel) {
+  showNavigationArrows(post: PostResponseModel) {
     if (post.images !== undefined) {
       return post.images.length > 1
     } else {
