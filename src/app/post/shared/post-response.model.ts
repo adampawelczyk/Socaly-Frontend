@@ -1,4 +1,4 @@
-export class PostModel {
+export class PostResponseModel {
   id: number;
   postName: string;
   description?: string;
