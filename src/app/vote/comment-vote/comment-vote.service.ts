@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from "@angular/common/http"
 import { CommentVoteModel } from "./comment-vote.model"
-import {Observable} from "rxjs"
+import { Observable } from "rxjs"
 
 @Injectable({
   providedIn: 'root'
