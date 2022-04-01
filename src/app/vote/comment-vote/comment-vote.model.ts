@@ -1,6 +1,6 @@
 import { VoteType } from "../shared/vote-type"
 
-export class CommentVotePayload {
+export class CommentVoteModel {
   voteType: VoteType
   commentId: number
 }
