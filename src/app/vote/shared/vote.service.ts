@@ -13,4 +13,8 @@ export class VoteService {
   voteOnPost(voteModel: VoteModel): Observable<any> {
     return this.http.post('http://localhost:8090/api/votes/', voteModel);
   }
+
+  voteOnComment(voteModel: VoteModel): Observable<any> {
+    return this.http.post('http://localhost:8090/api/comments/vote', voteModel)
+  }
 }
