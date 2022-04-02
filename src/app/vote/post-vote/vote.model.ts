@@ -1,6 +1,6 @@
 import {VoteType} from "../shared/vote-type";
 
-export class VotePayload {
+export class VoteModel {
   voteType: VoteType;
   postId: number;
 }
