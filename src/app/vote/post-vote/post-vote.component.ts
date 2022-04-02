@@ -48,7 +48,6 @@ export class PostVoteComponent implements OnInit {
 
   private vote() {
     this.votePayload.postID = this.post.id;
-    console.log(this.post.id);
     this.voteService.voteOnPost(this.votePayload).subscribe(() => {
       this.updateVoteDetails();
     }, error => {
