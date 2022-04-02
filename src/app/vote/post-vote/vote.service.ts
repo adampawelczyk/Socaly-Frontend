@@ -10,7 +10,7 @@ export class VoteService {
 
   constructor(private http: HttpClient) { }
 
-  vote(votePayload: VoteModel): Observable<any> {
-    return this.http.post('http://localhost:8090/api/votes/', votePayload);
+  vote(voteModel: VoteModel): Observable<any> {
+    return this.http.post('http://localhost:8090/api/votes/', voteModel);
   }
 }
