@@ -8,13 +8,13 @@ import { Observable } from "rxjs";
 })
 export class VoteService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   voteOnPost(voteModel: VoteModel): Observable<any> {
-    return this.http.post('http://localhost:8090/api/votes/', voteModel);
+    return this.httpClient.post('http://localhost:8090/api/votes/', voteModel);
   }
 
   voteOnComment(voteModel: VoteModel): Observable<any> {
-    return this.http.post('http://localhost:8090/api/comments/vote', voteModel)
+    return this.httpClient.post('http://localhost:8090/api/comments/vote', voteModel)
   }
 }
