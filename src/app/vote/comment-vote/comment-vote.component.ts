@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommentResponseModel } from "../../comment/shared/comment-response.model";
-import { CommentVoteModel } from "./comment-vote.model";
-import { CommentVoteService } from "./comment-vote.service";
+import { CommentVoteModel } from "../shared/comment-vote.model";
+import { VoteService } from "../shared/vote.service";
 import { AuthService } from "../../auth/shared/auth.service";
 import { CommentService } from "../../comment/shared/comment.service";
 import { VoteType } from "../shared/vote-type";
@@ -14,13 +14,13 @@ import { throwError } from "rxjs";
 })
 export class CommentVoteComponent implements OnInit {
   @Input() comment: CommentResponseModel
-  commentVotePayload: CommentVoteModel
+  commentVoteModel: CommentVoteModel
 
-  constructor(private commentVoteService: CommentVoteService, private authService: AuthService,
+  constructor(private voteService: VoteService, private authService: AuthService,
               private commentService: CommentService) {
-    this.commentVotePayload = {
+    this.commentVoteModel = {
       voteType: undefined!,
-      commentId: undefined!
+      commentID: undefined!
     }
   }
 
@@ -28,18 +28,18 @@ export class CommentVoteComponent implements OnInit {
   }
 
   upvoteComment() {
-    this.commentVotePayload.voteType = VoteType.UPVOTE
+    this.commentVoteModel.voteType = VoteType.UPVOTE
     this.vote()
   }
 
   downVoteComment() {
-    this.commentVotePayload.voteType = VoteType.DOWNVOTE
+    this.commentVoteModel.voteType = VoteType.DOWNVOTE
     this.vote()
   }
 
   private vote() {
-    this.commentVotePayload.commentId = this.comment.id
-    this.commentVoteService.vote(this.commentVotePayload).subscribe(() => {
+    this.commentVoteModel.commentID = this.comment.id
+    this.voteService.voteOnComment(this.commentVoteModel).subscribe(() => {
       this.updateCommentVoteDetails()
     }, error => {
       throwError(error)
