@@ -10,7 +10,7 @@ import {VoteType} from "../shared/vote-type";
 import {throwError} from "rxjs";
 
 @Component({
-  selector: 'app-vote-button',
+  selector: 'app-post-vote',
   templateUrl: './vote-button.component.html',
   styleUrls: ['./vote-button.component.css']
 })
