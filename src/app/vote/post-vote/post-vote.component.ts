@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostResponseModel} from "../../post/shared/post-response.model";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import {VoteModel} from "../shared/vote.model";
+import {PostVoteModel} from "../shared/post-vote.model";
 import {VoteService} from "../shared/vote.service";
 import {AuthService} from "../../auth/shared/auth.service";
 import {PostService} from "../../post/shared/post.service";
@@ -16,7 +16,7 @@ import {throwError} from "rxjs";
 })
 export class PostVoteComponent implements OnInit {
   @Input() post: PostResponseModel
-  votePayload: VoteModel
+  votePayload: PostVoteModel
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   upVoteColor: string;
@@ -26,7 +26,7 @@ export class PostVoteComponent implements OnInit {
               private toastr: ToastrService) {
     this.votePayload = {
       voteType: undefined!,
-      itemID: undefined!
+      postID: undefined!
     }
   }
 
@@ -47,7 +47,8 @@ export class PostVoteComponent implements OnInit {
   }
 
   private vote() {
-    this.votePayload.itemID = this.post.id;
+    this.votePayload.postID = this.post.id;
+    console.log(this.post.id);
     this.voteService.voteOnPost(this.votePayload).subscribe(() => {
       this.updateVoteDetails();
     }, error => {
