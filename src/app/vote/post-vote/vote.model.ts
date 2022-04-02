@@ -1,4 +1,4 @@
-import {VoteType} from "../shared/vote-type";
+import { VoteType } from "../shared/vote-type";
 
 export interface VoteModel {
   voteType: VoteType;
