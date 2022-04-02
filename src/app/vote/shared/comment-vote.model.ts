@@ -1,6 +1,6 @@
 import { VoteType } from "./vote-type"
 
-export class CommentVoteModel {
+export interface CommentVoteModel {
   voteType: VoteType
   commentId: number
 }
