@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {VotePayload} from "./vote-payload";
+import {VoteModel} from "../shared/vote.model";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -10,7 +10,7 @@ export class VoteService {
 
   constructor(private http: HttpClient) { }
 
-  vote(votePayload: VotePayload): Observable<any> {
+  vote(votePayload: VoteModel): Observable<any> {
     return this.http.post('http://localhost:8090/api/votes/', votePayload);
   }
 }
