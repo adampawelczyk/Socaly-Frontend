@@ -1,6 +1,6 @@
 import { VoteType } from "./vote-type";
 
-export interface VoteModel {
+export interface PostVoteModel {
   voteType: VoteType;
   postID: number;
 }
