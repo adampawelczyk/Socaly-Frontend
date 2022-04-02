@@ -11,10 +11,10 @@ import {throwError} from "rxjs";
 
 @Component({
   selector: 'app-post-vote',
-  templateUrl: './vote-button.component.html',
-  styleUrls: ['./vote-button.component.css']
+  templateUrl: './post-vote.component.html',
+  styleUrls: ['./post-vote.component.css']
 })
-export class VoteButtonComponent implements OnInit {
+export class PostVoteComponent implements OnInit {
   @Input() post: PostResponseModel
   votePayload: VotePayload
   faArrowUp = faArrowUp;
