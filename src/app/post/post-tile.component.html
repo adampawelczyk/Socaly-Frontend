@@ -1,7 +1,7 @@
 <div class="post" *ngFor="let post of posts$">
   <div class="row m-0" (click)="goToPost(post.id)">
     <div class="col-md-1 p-2 d-none d-sm-block vote-background">
-      <app-vote-button [post]="post"></app-vote-button>
+      <app-post-vote [post]="post"></app-post-vote>
     </div>
     <div class="col-sm-11 p-sm-2 pb-2">
       <span class="community-info">
@@ -35,7 +35,7 @@
       </div>
       <div class="d-flex flex-row">
         <div class="d-block d-sm-none pe-3">
-          <app-vote-button [post]="post"></app-vote-button>
+          <app-post-vote [post]="post"></app-post-vote>
         </div>
         <div>
           <a class="bntComments" role="button" (click)="goToPost(post.id)">
