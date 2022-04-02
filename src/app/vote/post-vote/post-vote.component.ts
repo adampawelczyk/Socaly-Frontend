@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PostResponseModel} from "../../post/shared/post-response.model";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {VoteModel} from "../shared/vote.model";
-import {VoteService} from "./vote.service";
+import {VoteService} from "../shared/vote.service";
 import {AuthService} from "../../auth/shared/auth.service";
 import {PostService} from "../../post/shared/post.service";
 import {ToastrService} from "ngx-toastr";
