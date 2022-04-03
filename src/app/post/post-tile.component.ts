@@ -8,6 +8,7 @@ import { CommentService } from "../comment/shared/comment.service";
 import { CommentRequestModel } from "../comment/shared/comment-request.model";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { CommentResponseModel } from "../comment/shared/comment-response.model";
+import { editorConfig } from "../../globals";
 
 @Component({
   selector: 'app-post-tile',
@@ -27,28 +28,13 @@ export class PostTileComponent implements OnInit {
   postId: number;
   commentForm: FormGroup;
   commentPayload: CommentRequestModel;
-
-  editorConfig = {
-    skin_url: '..\\assets\\skins\\ui\\light',
-    branding: false,
-    height: 174,
-    placeholder: "What are your thoughts?",
-    menubar: false,
-    plugins: [
-      'lists charmap print preview anchor emoticons paste',
-      'searchreplace visualblocks fullscreen insertdatetime link'
-    ],
-    toolbar:
-      'formatselect | bold italic link strikethrough superscript bullist numlist emoticons',
-    link_title: false,
-    target_list: false,
-    default_link_target:"_blank",
-    link_context_toolbar: true,
-  }
+  editorConfig = editorConfig;
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
               private activateRoute: ActivatedRoute) {
     this.postId = this.activateRoute.snapshot.params.id;
+    this.editorConfig.placeholder = "What are your thoughts?"
+    this.editorConfig.height = 174;
 
     this.commentForm = new FormGroup({
       text: new FormControl('', Validators.required)

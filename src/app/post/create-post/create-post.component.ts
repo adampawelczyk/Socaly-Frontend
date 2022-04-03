@@ -9,6 +9,7 @@ import { throwError } from "rxjs"
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
 import { AuthService } from "../../auth/shared/auth.service"
 import { FileService } from "../../shared/file.service"
+import {editorConfig} from "../../../globals";
 
 @Component({
   selector: 'app-create-post',
@@ -26,28 +27,13 @@ export class CreatePostComponent implements OnInit {
   uploadingFiles = false
   filesUploadProgress = 0
   postWasPosted = false
-
-  editorConfig = {
-    skin_url: '..\\assets\\skins\\ui\\light',
-    branding: false,
-    height: 300,
-    placeholder: "Text (optional)",
-    menubar: false,
-    plugins: [
-      'lists charmap print preview anchor emoticons paste',
-      'searchreplace visualblocks fullscreen insertdatetime link'
-    ],
-    toolbar:
-      'formatselect | bold italic link strikethrough superscript bullist numlist emoticons',
-    link_title: false,
-    target_list: false,
-    default_link_target:"_blank",
-    link_context_toolbar: true,
-    contextmenu: false,
-  }
+  editorConfig = editorConfig;
 
   constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
               public activeModal: NgbActiveModal, private authService: AuthService, private fileService: FileService) {
+    this.editorConfig.placeholder = "Text (optional)";
+    this.editorConfig.height = 300;
+
     this.postPayload = {
       postName: '',
       description: '',

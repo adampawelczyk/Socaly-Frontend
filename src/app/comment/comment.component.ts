@@ -7,6 +7,7 @@ import { AuthService } from "../auth/shared/auth.service"
 import { CommentResponseModel } from "./shared/comment-response.model"
 import { CommentRequestModel } from "./shared/comment-request.model"
 import { CommentService } from "./shared/comment.service"
+import { editorConfig } from "../../globals";
 
 @Component({
   selector: 'app-comment',
@@ -22,29 +23,12 @@ export class CommentComponent implements OnInit {
   reply = false
   replyForm: FormGroup
   replyPayload: CommentRequestModel
-
-  editorConfig = {
-    skin_url: '..\\assets\\skins\\ui\\light',
-    icons: 'material',
-    branding: false,
-    height: 174,
-    placeholder: "What are your thoughts?",
-    menubar: false,
-    plugins: [
-      'advlist lists charmap print preview anchor emoticons paste',
-      'searchreplace visualblocks fullscreen insertdatetime link'
-    ],
-    toolbar:
-      'formatselect | bold italic link strikethrough superscript bullist numlist emoticons',
-    link_title: false,
-    target_list: false,
-    default_link_target:"_blank",
-    link_context_toolbar: true,
-    codesample_content_css: '..\\assets\\prism.css',
-  }
+  editorConfig = editorConfig;
 
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private authService: AuthService) {
     this.postId = this.activateRoute.snapshot.params.id
+    this.editorConfig.placeholder = "What are your thoughts?"
+    this.editorConfig.height = 174;
 
     this.replyForm = new FormGroup({
       text: new FormControl('')
