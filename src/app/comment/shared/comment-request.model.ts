@@ -1,5 +1,5 @@
 export interface CommentRequestModel {
-  postId: number
+  postID: number
   text: string
   parentCommentId?: number
 }
