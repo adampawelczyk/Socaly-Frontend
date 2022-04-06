@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { CreateCommunityComponent } from "../../community/create-community/create-community.component"
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
-import { CreatePostComponent } from "../../post/create-post/create-post.component"
+import { Component, OnInit } from '@angular/core';
+import { CreateCommunityComponent } from '../../community/create-community/create-community.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CreatePostComponent } from '../../post/create-post/create-post.component';
 
 @Component({
   selector: 'app-home-sidebar',
@@ -9,17 +9,15 @@ import { CreatePostComponent } from "../../post/create-post/create-post.componen
   styleUrls: ['./home-sidebar.component.css']
 })
 export class HomeSidebarComponent implements OnInit {
-
   constructor(private modal: NgbModal) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   createPost() {
-    this.modal.open(CreatePostComponent, {size: 'lg'})
+    this.modal.open(CreatePostComponent, {size: 'lg'});
   }
 
   createCommunity() {
-    this.modal.open(CreateCommunityComponent)
+    this.modal.open(CreateCommunityComponent);
   }
 }
