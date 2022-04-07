@@ -70,7 +70,7 @@ export class CommentComponent implements OnInit {
   postReply() {
     this.replyPayload.text = this.replyForm.get('text')?.value;
     this.replyForm.get('text')?.setValue('');
-    this.replyPayload.parentCommentID = this.comment.id;
+    this.replyPayload.parentCommentId = this.comment.id;
 
     this.commentService.postComment(this.replyPayload).subscribe(() => {
       this.reply = false;
