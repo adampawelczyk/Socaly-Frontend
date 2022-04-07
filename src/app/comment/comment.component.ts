@@ -34,7 +34,7 @@ export class CommentComponent implements OnInit {
     });
 
     this.replyPayload = {
-      postID: this.postId,
+      postId: this.postId,
       text: '',
     };
   }

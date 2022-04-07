@@ -42,7 +42,7 @@ export class PostTileComponent implements OnInit {
 
     this.commentPayload = {
       text: '',
-      postID: this.postId
+      postId: this.postId
     };
   }
 
