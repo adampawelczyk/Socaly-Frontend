@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { CommunityModel } from "./community.model"
+import { CommunityRequestModel } from "./community-request.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class CommunityService {
     return this.httpClient.get<Array<CommunityModel>>('http://localhost:8090/api/community')
   }
 
-  createCommunity(communityResponse: CommunityModel): Observable<CommunityModel> {
-    return this.httpClient.post<CommunityModel>('http://localhost:8090/api/community', communityResponse)
+  createCommunity(communityRequest: CommunityRequestModel): Observable<CommunityModel> {
+    return this.httpClient.post<CommunityModel>('http://localhost:8090/api/community', communityRequest)
   }
 
   getCommunityDetails(name: string): Observable<CommunityModel> {
