@@ -1,4 +1,4 @@
-export class CommunityModel {
+export interface CommunityModel {
   id?: number
   name: string
   description: string
