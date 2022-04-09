@@ -1,7 +1,7 @@
 export interface CommunityModel {
-  id?: number
+  id: number
   name: string
   description: string
-  createdDate?: string
-  numberOfUsers?: number
+  createdDate: string
+  numberOfUsers: number
 }
