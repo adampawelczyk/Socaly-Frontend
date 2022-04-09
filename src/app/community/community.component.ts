@@ -3,7 +3,7 @@ import { PostResponseModel } from "../post/shared/post-response.model"
 import { PostService } from "../post/shared/post.service"
 import { ActivatedRoute } from "@angular/router"
 import { AuthService } from "../auth/shared/auth.service"
-import { CommunityModel } from "./shared/community.model"
+import { CommunityResponseModel } from "./shared/community-response.model"
 import { throwError } from "rxjs"
 import { CommunityService } from "./shared/community.service"
 
@@ -16,7 +16,7 @@ export class CommunityComponent implements OnInit {
   communityName: string
   posts: PostResponseModel[]
   postLength: number
-  userCommunities: Array<CommunityModel>
+  userCommunities: Array<CommunityResponseModel>
   belongs: boolean
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService,

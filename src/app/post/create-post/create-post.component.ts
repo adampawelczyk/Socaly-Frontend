@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from "@angular/forms"
 import { PostRequestModel } from "./post-request.model"
-import { CommunityModel } from "../../community/shared/community.model"
+import { CommunityResponseModel } from "../../community/shared/community-response.model"
 import { Router } from "@angular/router"
 import { PostService } from "../shared/post.service"
 import { CommunityService } from "../../community/shared/community.service"
@@ -19,7 +19,7 @@ import {editorConfig} from "../../../globals";
 export class CreatePostComponent implements OnInit {
   createPostForm: FormGroup
   postPayload: PostRequestModel
-  communities: Array<CommunityModel>
+  communities: Array<CommunityResponseModel>
   files: File[] = []
   fileUrls: string[] = []
   active = 1

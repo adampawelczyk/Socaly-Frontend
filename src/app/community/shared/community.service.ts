@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from "@angular/common/http"
 import { Observable } from "rxjs"
-import { CommunityModel } from "./community.model"
+import { CommunityResponseModel } from "./community-response.model"
 import { CommunityRequestModel } from "./community-request.model";
 
 @Injectable({
@@ -11,16 +11,16 @@ export class CommunityService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllCommunities(): Observable<Array<CommunityModel>> {
-    return this.httpClient.get<Array<CommunityModel>>('http://localhost:8090/api/community')
+  getAllCommunities(): Observable<Array<CommunityResponseModel>> {
+    return this.httpClient.get<Array<CommunityResponseModel>>('http://localhost:8090/api/community')
   }
 
-  createCommunity(communityRequest: CommunityRequestModel): Observable<CommunityModel> {
-    return this.httpClient.post<CommunityModel>('http://localhost:8090/api/community', communityRequest)
+  createCommunity(communityRequest: CommunityRequestModel): Observable<CommunityResponseModel> {
+    return this.httpClient.post<CommunityResponseModel>('http://localhost:8090/api/community', communityRequest)
   }
 
-  getCommunityDetails(name: string): Observable<CommunityModel> {
-    return this.httpClient.get<CommunityModel>('http://localhost:8090/api/community/' + name)
+  getCommunityDetails(name: string): Observable<CommunityResponseModel> {
+    return this.httpClient.get<CommunityResponseModel>('http://localhost:8090/api/community/' + name)
   }
 
   join(name: string): Observable<any> {
@@ -31,8 +31,8 @@ export class CommunityService {
     return this.httpClient.get('http://localhost:8090/api/community/leave/' + name)
   }
 
-  getAllCommunitiesForUser(name: string): Observable<Array<CommunityModel>> {
-    return this.httpClient.get<Array<CommunityModel>>(
+  getAllCommunitiesForUser(name: string): Observable<Array<CommunityResponseModel>> {
+    return this.httpClient.get<Array<CommunityResponseModel>>(
       'http://localhost:8090/api/community/getAllCommunitiesForUser/' + name)
   }
 }
