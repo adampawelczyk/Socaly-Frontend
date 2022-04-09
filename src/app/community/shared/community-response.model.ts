@@ -1,4 +1,4 @@
-export interface CommunityModel {
+export interface CommunityResponseModel {
   id: number
   name: string
   description: string
