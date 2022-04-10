@@ -21,7 +21,7 @@ export class CommentComponent implements OnInit {
   collapsed = false;
   reply = false;
   replyForm: FormGroup;
-  replyPayload: CommentRequestModel;
+  replyModel: CommentRequestModel;
   editorConfig = editorConfig;
 
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute) {
@@ -33,7 +33,7 @@ export class CommentComponent implements OnInit {
       text: new FormControl('')
     });
 
-    this.replyPayload = {
+    this.replyModel = {
       postId: this.postId,
       text: '',
     };
@@ -68,11 +68,11 @@ export class CommentComponent implements OnInit {
   }
 
   postReply() {
-    this.replyPayload.text = this.replyForm.get('text')?.value;
+    this.replyModel.text = this.replyForm.get('text')?.value;
     this.replyForm.get('text')?.setValue('');
-    this.replyPayload.parentCommentId = this.comment.id;
+    this.replyModel.parentCommentId = this.comment.id;
 
-    this.commentService.postComment(this.replyPayload).subscribe(() => {
+    this.commentService.postComment(this.replyModel).subscribe(() => {
       this.reply = false;
       this.getSubCommentsForComment(this.comment.id);
     }, error => {
