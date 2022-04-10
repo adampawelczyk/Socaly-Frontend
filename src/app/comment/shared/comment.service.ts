@@ -22,11 +22,11 @@ export class CommentService {
     return this.httpClient.get<CommentResponseModel[]>('http://localhost:8090/api/comments/subcomments/' + commentId);
   }
 
-  postComment(commentPayload: CommentRequestModel): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:8090/api/comments', commentPayload);
+  postComment(commentPayload: CommentRequestModel): Observable<Object> {
+    return this.httpClient.post('http://localhost:8090/api/comments', commentPayload);
   }
 
-  getAllCommentsByUser(name: string) {
+  getAllCommentsByUser(name: string): Observable<CommentResponseModel[]> {
     return this.httpClient.get<CommentResponseModel[]>('http://localhost:8090/api/comments/by-user/' + name);
   }
 }
