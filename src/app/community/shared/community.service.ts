@@ -26,7 +26,7 @@ export class CommunityService {
     return this.httpClient.get('http://localhost:8090/api/community/join/' + name);
   }
 
-  leave(name: string): Observable<Object> {
+  leaveCommunity(name: string): Observable<Object> {
     return this.httpClient.get('http://localhost:8090/api/community/leave/' + name);
   }
 
