@@ -40,7 +40,7 @@ export class CommunityComponent implements OnInit {
   }
 
   join() {
-    this.communityService.join(this.communityName).subscribe(() => {
+    this.communityService.joinCommunity(this.communityName).subscribe(() => {
       this.belongs = true
     },error => {
       throwError(error)

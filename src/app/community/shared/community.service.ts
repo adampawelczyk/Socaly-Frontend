@@ -22,7 +22,7 @@ export class CommunityService {
     return this.httpClient.get<CommunityResponseModel>('http://localhost:8090/api/community/' + name);
   }
 
-  join(name: string): Observable<Object> {
+  joinCommunity(name: string): Observable<Object> {
     return this.httpClient.get('http://localhost:8090/api/community/join/' + name);
   }
 
