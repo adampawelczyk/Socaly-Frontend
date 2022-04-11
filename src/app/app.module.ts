@@ -16,7 +16,6 @@ import { TokenInterceptor } from "./token-interceptor";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { PostTileComponent } from './post/post-tile.component';
 import { PostVoteComponent } from './vote/post-vote/post-vote.component';
-import { SideBarComponent } from './panes/side-bar/side-bar.component';
 import { CommunitySideBarComponent } from './panes/community-side-bar/community-side-bar.component';
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
@@ -47,7 +46,6 @@ import { HomeSidebarComponent } from './panes/home-sidebar/home-sidebar.componen
     HomeComponent,
     PostTileComponent,
     PostVoteComponent,
-    SideBarComponent,
     CommunitySideBarComponent,
     CreateCommunityComponent,
     CreatePostComponent,
