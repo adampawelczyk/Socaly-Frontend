@@ -1,6 +1,6 @@
 export interface PostRequestModel {
-  postName: string
-  communityName: string
-  description?: string
-  images?: string[]
+  postName: string;
+  communityName: string;
+  description?: string;
+  images?: string[];
 }
