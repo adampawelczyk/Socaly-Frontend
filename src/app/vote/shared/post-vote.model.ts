@@ -1,4 +1,4 @@
-import { VoteType } from "./vote-type";
+import { VoteType } from './vote-type';
 
 export interface PostVoteModel {
   voteType: VoteType;
