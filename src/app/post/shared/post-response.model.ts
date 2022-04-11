@@ -1,4 +1,4 @@
-export class PostResponseModel {
+export interface PostResponseModel {
   id: number;
   postName: string;
   description?: string;
