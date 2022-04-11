@@ -11,11 +11,11 @@
           <h2>s/{{communityName}}</h2>
         </div>
         <div class="col-auto pt-1">
-          <div *ngIf="belongs">
-            <button class="btn-secondary hover-text" (click)="leave()"></button>
+          <div *ngIf="userBelongsToCommunity">
+            <button class="btn-secondary hover-text" (click)="leaveCommunity()"></button>
           </div>
-          <div *ngIf="!belongs">
-            <button class="btn-primary" (click)="join()">Join</button>
+          <div *ngIf="!userBelongsToCommunity">
+            <button class="btn-primary" (click)="joinCommunity()">Join</button>
           </div>
         </div>
       </div>

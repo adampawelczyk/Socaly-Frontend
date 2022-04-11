@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
-import { PostResponseModel } from "../post/shared/post-response.model"
-import { PostService } from "../post/shared/post.service"
-import { ActivatedRoute } from "@angular/router"
-import { AuthService } from "../auth/shared/auth.service"
-import { CommunityResponseModel } from "./shared/community-response.model"
-import { throwError } from "rxjs"
-import { CommunityService } from "./shared/community.service"
+import { Component, OnInit } from '@angular/core';
+import { PostResponseModel } from '../post/shared/post-response.model';
+import { PostService } from '../post/shared/post.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth/shared/auth.service';
+import { CommunityResponseModel } from './shared/community-response.model';
+import { throwError } from 'rxjs';
+import { CommunityService } from './shared/community.service';
 
 @Component({
   selector: 'app-community',
@@ -13,45 +13,44 @@ import { CommunityService } from "./shared/community.service"
   styleUrls: ['./community.component.css']
 })
 export class CommunityComponent implements OnInit {
-  communityName: string
-  posts: PostResponseModel[]
-  postLength: number
-  userCommunities: Array<CommunityResponseModel>
-  belongs: boolean
+  communityName: string;
+  posts: PostResponseModel[];
+  postLength: number;
+  userCommunities: CommunityResponseModel[];
+  userBelongsToCommunity: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService,
               private communityService: CommunityService, private authService: AuthService) {
-    this.communityName = this.activatedRoute.snapshot.params.name
+    this.communityName = this.activatedRoute.snapshot.params.name;
 
     this.postService.getAllPostsByCommunity(this.communityName).subscribe(data => {
-      this.posts = data
-      this.postLength = data.length
-    })
+      this.posts = data;
+      this.postLength = data.length;
+    });
 
     this.communityService.getAllCommunitiesForUser(this.authService.getUsername()).subscribe(data => {
-      this.userCommunities = data
-      this.belongs =  data.some(community => community.name == this.communityName)
+      this.userCommunities = data;
+      this.userBelongsToCommunity = data.some(community => community.name == this.communityName);
     }, error => {
-      throwError(error)
-    })
+      throwError(error);
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  join() {
+  joinCommunity() {
     this.communityService.joinCommunity(this.communityName).subscribe(() => {
-      this.belongs = true
+      this.userBelongsToCommunity = true;
     },error => {
-      throwError(error)
-    })
+      throwError(error);
+    });
   }
 
-  leave() {
+  leaveCommunity() {
     this.communityService.leaveCommunity(this.communityName).subscribe(() => {
-      this.belongs = false
+      this.userBelongsToCommunity = false;
     }, error => {
-      throwError(error)
-    })
+      throwError(error);
+    });
   }
 }
