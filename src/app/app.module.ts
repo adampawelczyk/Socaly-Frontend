@@ -24,7 +24,6 @@ import { EditorModule } from "@tinymce/tinymce-angular";
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { WelcomeSideBarComponent } from './panes/welcome-side-bar/welcome-side-bar.component';
 import { CommunityComponent } from './community/community.component';
 import { AboutCommunitySidebarComponent } from './panes/about-community-sidebar/about-community-sidebar.component';
 import { CreatePostTopbarComponent } from './panes/create-post-topbar/create-post-topbar.component';
@@ -52,7 +51,6 @@ import { HomeSidebarComponent } from './panes/home-sidebar/home-sidebar.componen
     CommunitiesComponent,
     ViewPostComponent,
     UserProfileComponent,
-    WelcomeSideBarComponent,
     CommunityComponent,
     AboutCommunitySidebarComponent,
     CreatePostTopbarComponent,
