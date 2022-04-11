@@ -11,11 +11,11 @@ import { CommentResponseModel } from "../comment/shared/comment-response.model";
 import { editorConfig } from "../../globals";
 
 @Component({
-  selector: 'app-post-tile',
-  templateUrl: './post-tile.component.html',
-  styleUrls: ['./post-tile.component.css']
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.css']
 })
-export class PostTileComponent implements OnInit {
+export class PostComponent implements OnInit {
   @Input()
   showCommunity$: boolean = true;
   @Input()

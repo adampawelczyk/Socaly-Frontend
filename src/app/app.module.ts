@@ -14,7 +14,7 @@ import { ToastrModule } from "ngx-toastr";
 import { HomeComponent } from './home/home.component';
 import { TokenInterceptor } from "./token-interceptor";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { PostTileComponent } from './post/post-tile.component';
+import { PostComponent } from './post/post.component';
 import { PostVoteComponent } from './vote/post-vote/post-vote.component';
 import { CommunitySideBarComponent } from './panes/community-side-bar/community-side-bar.component';
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
@@ -43,7 +43,7 @@ import { HomeSidebarComponent } from './panes/home-sidebar/home-sidebar.componen
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    PostTileComponent,
+    PostComponent,
     PostVoteComponent,
     CommunitySideBarComponent,
     CreateCommunityComponent,
