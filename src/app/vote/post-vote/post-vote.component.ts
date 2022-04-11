@@ -1,13 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostResponseModel} from "../../post/shared/post-response.model";
-import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import {PostVoteModel} from "../shared/post-vote.model";
-import {VoteService} from "../shared/vote.service";
-import {AuthService} from "../../auth/shared/auth.service";
-import {PostService} from "../../post/shared/post.service";
-import {ToastrService} from "ngx-toastr";
-import {VoteType} from "../shared/vote-type";
-import {throwError} from "rxjs";
+import {PostResponseModel} from '../../post/shared/post-response.model';
+import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
+import {PostVoteModel} from '../shared/post-vote.model';
+import {VoteService} from '../shared/vote.service';
+import {AuthService} from '../../auth/shared/auth.service';
+import {PostService} from '../../post/shared/post.service';
+import {ToastrService} from 'ngx-toastr';
+import {VoteType} from '../shared/vote-type';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-post-vote',
@@ -15,8 +15,8 @@ import {throwError} from "rxjs";
   styleUrls: ['./post-vote.component.css']
 })
 export class PostVoteComponent implements OnInit {
-  @Input() post: PostResponseModel
-  votePayload: PostVoteModel
+  @Input() post: PostResponseModel;
+  postVoteModel: PostVoteModel;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   upVoteColor: string;
@@ -24,10 +24,10 @@ export class PostVoteComponent implements OnInit {
 
   constructor(private voteService: VoteService, private authService: AuthService, private postService: PostService,
               private toastr: ToastrService) {
-    this.votePayload = {
+    this.postVoteModel = {
       voteType: undefined!,
       postID: undefined!
-    }
+    };
   }
 
   ngOnInit(): void {
@@ -35,20 +35,20 @@ export class PostVoteComponent implements OnInit {
   }
 
   upvotePost() {
-    this.votePayload.voteType = VoteType.UPVOTE;
+    this.postVoteModel.voteType = VoteType.UPVOTE;
     this.vote();
     this.downVoteColor = '';
   }
 
   downvotePost() {
-    this.votePayload.voteType = VoteType.DOWNVOTE;
+    this.postVoteModel.voteType = VoteType.DOWNVOTE;
     this.vote();
     this.upVoteColor = '';
   }
 
   private vote() {
-    this.votePayload.postID = this.post.id;
-    this.voteService.voteOnPost(this.votePayload).subscribe(() => {
+    this.postVoteModel.postID = this.post.id;
+    this.voteService.voteOnPost(this.postVoteModel).subscribe(() => {
       this.updateVoteDetails();
     }, error => {
       this.toastr.error(error.error.message);
@@ -59,6 +59,6 @@ export class PostVoteComponent implements OnInit {
   private updateVoteDetails() {
     this.postService.getPost(this.post.id).subscribe(data => {
       this.post = data;
-    })
+    });
   }
 }
