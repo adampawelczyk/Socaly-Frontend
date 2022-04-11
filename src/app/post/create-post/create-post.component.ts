@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from "@angular/forms"
-import { PostRequestModel } from "./post-request.model"
+import { PostRequestModel } from "../shared/post-request.model"
 import { CommunityResponseModel } from "../../community/shared/community-response.model"
 import { Router } from "@angular/router"
 import { PostService } from "../shared/post.service"
