@@ -26,7 +26,7 @@ export class PostVoteComponent implements OnInit {
               private toastr: ToastrService) {
     this.postVoteModel = {
       voteType: undefined!,
-      postID: undefined!
+      postId: undefined!
     };
   }
 
@@ -47,7 +47,7 @@ export class PostVoteComponent implements OnInit {
   }
 
   private vote() {
-    this.postVoteModel.postID = this.post.id;
+    this.postVoteModel.postId = this.post.id;
     this.voteService.voteOnPost(this.postVoteModel).subscribe(() => {
       this.updateVoteDetails();
     }, error => {
