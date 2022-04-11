@@ -20,7 +20,7 @@ export class CommentVoteComponent implements OnInit {
               private commentService: CommentService) {
     this.commentVoteModel = {
       voteType: undefined!,
-      commentID: undefined!
+      commentId: undefined!
     };
   }
 
@@ -37,7 +37,7 @@ export class CommentVoteComponent implements OnInit {
   }
 
   private vote() {
-    this.commentVoteModel.commentID = this.comment.id;
+    this.commentVoteModel.commentId = this.comment.id;
     this.voteService.voteOnComment(this.commentVoteModel).subscribe(() => {
       this.updateCommentVoteDetails();
     }, error => {
