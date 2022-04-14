@@ -5,10 +5,10 @@
     </div>
     <div class="col-sm-11 p-sm-2 pb-2">
       <span class="community-info">
-        <span class="community-text" *ngIf="showCommunity$">
+        <span class="community-text" *ngIf="showCommunityName">
           <a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a>
         </span>
-        <span *ngIf="showCommunity$"> • </span>
+        <span *ngIf="showCommunityName"> • </span>
         <span>
           Posted by
           <a class="username" routerLink="/user/{{post.userName}}" (click)="$event.stopPropagation()">
