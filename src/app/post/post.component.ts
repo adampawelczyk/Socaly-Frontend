@@ -16,13 +16,10 @@ import { editorConfig } from "../../globals";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @Input()
-  showCommunity$: boolean = true;
-  @Input()
-  showComments: boolean = false;
+  @Input() showCommunity$: boolean = true;
+  @Input() showComments: boolean = false;
+  @Input() posts$: PostResponseModel[];
   faCommentAlt = faCommentAlt;
-  @Input()
-  posts$: PostResponseModel[];
   comments: CommentResponseModel[];
 
   postId: number;
