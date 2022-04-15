@@ -18,7 +18,7 @@ import { editorConfig } from "../../globals";
 export class PostComponent implements OnInit {
   @Input() showCommunityName: boolean = true;
   @Input() showComments: boolean = false;
-  @Input() posts$: PostResponseModel[];
+  @Input() posts: PostResponseModel[];
   faCommentAlt = faCommentAlt;
   comments: CommentResponseModel[];
 
