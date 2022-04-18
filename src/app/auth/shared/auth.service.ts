@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core'
 import { HttpClient } from "@angular/common/http"
 import { SignupModel } from "./signup.model"
 import { Observable, throwError } from "rxjs"
-import { LoginRequestModel } from "../login/login-request.model"
+import { LoginRequestModel } from "./login-request.model"
 import { LoginResponseModel } from "../login/login-response.model"
 import { map, tap } from "rxjs/operators"
 import { LocalStorageService } from "ngx-webstorage"
