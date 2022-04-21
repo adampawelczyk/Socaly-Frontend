@@ -12,7 +12,7 @@ import { CommunityRequestModel } from '../shared/community-request.model';
 })
 export class CreateCommunityComponent implements OnInit {
   createCommunityForm: FormGroup;
-  communityRequestModel: CommunityRequestModel;
+  communityPayload: CommunityRequestModel;
   title = new FormControl('');
   description = new FormControl('');
 
@@ -22,7 +22,7 @@ export class CreateCommunityComponent implements OnInit {
       description: new FormControl('', Validators.required)
     });
 
-    this.communityRequestModel = {
+    this.communityPayload = {
       name: '',
       description: ''
     };
@@ -31,10 +31,10 @@ export class CreateCommunityComponent implements OnInit {
   ngOnInit(): void { }
 
   createCommunity() {
-    this.communityRequestModel.name = this.createCommunityForm.get('title')?.value;
-    this.communityRequestModel.description = this.createCommunityForm.get('description')?.value;
+    this.communityPayload.name = this.createCommunityForm.get('title')?.value;
+    this.communityPayload.description = this.createCommunityForm.get('description')?.value;
 
-    this.communityService.createCommunity(this.communityRequestModel).subscribe(() => {
+    this.communityService.createCommunity(this.communityPayload).subscribe(() => {
       this.router.navigateByUrl('/communities');
     }, () => {
       console.log('Error occurred');
