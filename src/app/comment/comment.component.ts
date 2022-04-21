@@ -19,7 +19,7 @@ export class CommentComponent implements OnInit {
   @Input() postId: number;
   subComments: CommentResponseModel[];
   collapsed = false;
-  reply = false;
+  replyFormIsExpanded = false;
   replyForm: FormGroup;
   commentRequest: CommentRequestModel;
   editorConfig = editorConfig;
@@ -64,7 +64,7 @@ export class CommentComponent implements OnInit {
   }
 
   showReplyForm() {
-    this.reply = !this.reply;
+    this.replyFormIsExpanded = !this.replyFormIsExpanded;
   }
 
   postReply() {
@@ -73,7 +73,7 @@ export class CommentComponent implements OnInit {
     this.commentRequest.parentCommentId = this.comment.id;
 
     this.commentService.postComment(this.commentRequest).subscribe(() => {
-      this.reply = false;
+      this.replyFormIsExpanded = false;
       this.getSubCommentsForComment(this.comment.id);
     }, error => {
       throwError(error);
