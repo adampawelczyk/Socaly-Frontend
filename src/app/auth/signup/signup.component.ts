@@ -14,11 +14,11 @@ import { LoginComponent } from '../login/login.component';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  signupModel: SignupRequestModel;
+  signupPayload: SignupRequestModel;
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService,
               public activeModal: NgbActiveModal, private modal: NgbModal) {
-    this.signupModel = {
+    this.signupPayload = {
       username: '',
       email: '',
       password: ''
@@ -34,11 +34,11 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    this.signupModel.email = this.signupForm.get('email')?.value;
-    this.signupModel.username = this.signupForm.get('username')?.value;
-    this.signupModel.password = this.signupForm.get('password')?.value;
+    this.signupPayload.email = this.signupForm.get('email')?.value;
+    this.signupPayload.username = this.signupForm.get('username')?.value;
+    this.signupPayload.password = this.signupForm.get('password')?.value;
 
-    this.authService.signup(this.signupModel).subscribe(() => {
+    this.authService.signup(this.signupPayload).subscribe(() => {
       this.toastr.success('Signup Successful');
       this.toastr.success('Please check your inbox for activation email');
     }, () => {
