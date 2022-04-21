@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SignupModel } from './signup.model';
+import { SignupRequestModel } from './signup-request.model';
 import { Observable, throwError } from 'rxjs';
 import { LoginRequestModel } from './login-request.model';
 import { LoginResponseModel } from './login-response.model';
@@ -21,7 +21,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
 
-  signup(signupRequestPayload: SignupModel): Observable<any> {
+  signup(signupRequestPayload: SignupRequestModel): Observable<any> {
     return this.httpClient.post('http://localhost:8090/api/auth/signup', signupRequestPayload, {responseType: 'text'});
   }
 
