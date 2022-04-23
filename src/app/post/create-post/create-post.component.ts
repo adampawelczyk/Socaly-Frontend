@@ -18,7 +18,7 @@ import { editorConfig } from '../../../globals';
 })
 export class CreatePostComponent implements OnInit {
   createPostForm: FormGroup;
-  postRequest: PostRequestModel;
+  postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
   files: File[] = [];
   fileUrls: string[] = [];
@@ -34,7 +34,7 @@ export class CreatePostComponent implements OnInit {
     this.editorConfig.placeholder = "Text (optional)";
     this.editorConfig.height = 300;
 
-    this.postRequest = {
+    this.postPayload = {
       postName: '',
       description: '',
       communityName: ''
@@ -64,18 +64,18 @@ export class CreatePostComponent implements OnInit {
   }
 
   createPost() {
-    this.postRequest.communityName = this.selectedCommunity;
-    this.postRequest.postName = this.createPostForm.get('postName')?.value;
+    this.postPayload.communityName = this.selectedCommunity;
+    this.postPayload.postName = this.createPostForm.get('postName')?.value;
 
     if (this.active == 1) {
-      this.postRequest.description = this.createPostForm.get('description')?.value;
-      this.postRequest.images = [];
+      this.postPayload.description = this.createPostForm.get('description')?.value;
+      this.postPayload.images = [];
     } else {
-      this.postRequest.description = "";
-      this.postRequest.images = this.fileUrls;
+      this.postPayload.description = "";
+      this.postPayload.images = this.fileUrls;
     }
 
-    this.postService.createPost(this.postRequest).subscribe((id) => {
+    this.postService.createPost(this.postPayload).subscribe((id) => {
       this.postWasPosted = true;
       this.activeModal.close();
       this.router.navigateByUrl('/view-post/' + id);
