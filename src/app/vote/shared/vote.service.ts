@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 export class VoteService {
   constructor(private httpClient: HttpClient) { }
 
-  voteOnPost(voteModel: PostVoteModel): Observable<Object> {
-    return this.httpClient.post('http://localhost:8090/api/votes/', voteModel);
+  voteOnPost(postVotePayload: PostVoteModel): Observable<Object> {
+    return this.httpClient.post('http://localhost:8090/api/votes/', postVotePayload);
   }
 
   voteOnComment(commentVoteModel: CommentVoteModel): Observable<Object> {
