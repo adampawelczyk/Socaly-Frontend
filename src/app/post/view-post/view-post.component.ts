@@ -11,7 +11,7 @@ import { throwError } from 'rxjs';
 })
 export class ViewPostComponent implements OnInit {
   postId: number;
-  posts: PostResponseModel[];
+  posts: PostResponseModel[] = [];
   communityName = "";
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute) {
