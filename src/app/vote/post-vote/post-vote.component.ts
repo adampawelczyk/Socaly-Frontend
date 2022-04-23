@@ -16,7 +16,7 @@ import {throwError} from 'rxjs';
 })
 export class PostVoteComponent implements OnInit {
   @Input() post: PostResponseModel;
-  postVoteModel: PostVoteModel;
+  postVotePayload: PostVoteModel;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   upVoteColor: string;
@@ -24,7 +24,7 @@ export class PostVoteComponent implements OnInit {
 
   constructor(private voteService: VoteService, private authService: AuthService, private postService: PostService,
               private toastr: ToastrService) {
-    this.postVoteModel = {
+    this.postVotePayload = {
       voteType: undefined!,
       postId: undefined!
     };
@@ -35,20 +35,20 @@ export class PostVoteComponent implements OnInit {
   }
 
   upvotePost() {
-    this.postVoteModel.voteType = VoteType.UPVOTE;
+    this.postVotePayload.voteType = VoteType.UPVOTE;
     this.vote();
     this.downVoteColor = '';
   }
 
   downvotePost() {
-    this.postVoteModel.voteType = VoteType.DOWNVOTE;
+    this.postVotePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
     this.upVoteColor = '';
   }
 
   private vote() {
-    this.postVoteModel.postId = this.post.id;
-    this.voteService.voteOnPost(this.postVoteModel).subscribe(() => {
+    this.postVotePayload.postId = this.post.id;
+    this.voteService.voteOnPost(this.postVotePayload).subscribe(() => {
       this.updateVoteDetails();
     }, error => {
       this.toastr.error(error.error.message);
