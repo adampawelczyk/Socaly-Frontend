@@ -5,11 +5,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateCommunityComponent } from '../../community/create-community/create-community.component';
 
 @Component({
-  selector: 'app-community-side-bar',
-  templateUrl: './community-side-bar.component.html',
-  styleUrls: ['./community-side-bar.component.css']
+  selector: 'app-community-sidebar',
+  templateUrl: './community-sidebar.component.html',
+  styleUrls: ['./community-sidebar.component.css']
 })
-export class CommunitySideBarComponent implements OnInit {
+export class CommunitySidebarComponent implements OnInit {
   communities: CommunityResponseModel[];
   displayViewAll: boolean;
 

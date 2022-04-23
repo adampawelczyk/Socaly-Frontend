@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommunitySideBarComponent } from './community-side-bar.component';
+import { CommunitySidebarComponent } from './community-sidebar.component';
 
 describe('CommunitySideBarComponent', () => {
-  let component: CommunitySideBarComponent;
-  let fixture: ComponentFixture<CommunitySideBarComponent>;
+  let component: CommunitySidebarComponent;
+  let fixture: ComponentFixture<CommunitySidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommunitySideBarComponent ]
+      declarations: [ CommunitySidebarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommunitySideBarComponent);
+    fixture = TestBed.createComponent(CommunitySidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
