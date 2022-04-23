@@ -14,8 +14,8 @@ export class CommunityService {
     return this.httpClient.get<CommunityResponseModel[]>('http://localhost:8090/api/community');
   }
 
-  createCommunity(communityRequest: CommunityRequestModel): Observable<CommunityResponseModel> {
-    return this.httpClient.post<CommunityResponseModel>('http://localhost:8090/api/community', communityRequest);
+  createCommunity(communityPayload: CommunityRequestModel): Observable<CommunityResponseModel> {
+    return this.httpClient.post<CommunityResponseModel>('http://localhost:8090/api/community', communityPayload);
   }
 
   getCommunityDetails(name: string): Observable<CommunityResponseModel> {
