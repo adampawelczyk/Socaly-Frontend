@@ -14,11 +14,11 @@ import { throwError } from 'rxjs';
 })
 export class CommentVoteComponent implements OnInit {
   @Input() comment: CommentResponseModel;
-  commentVoteModel: CommentVoteModel;
+  commentVotePayload: CommentVoteModel;
 
   constructor(private voteService: VoteService, private authService: AuthService,
               private commentService: CommentService) {
-    this.commentVoteModel = {
+    this.commentVotePayload = {
       voteType: undefined!,
       commentId: undefined!
     };
@@ -27,18 +27,18 @@ export class CommentVoteComponent implements OnInit {
   ngOnInit(): void { }
 
   upvoteComment() {
-    this.commentVoteModel.voteType = VoteType.UPVOTE;
+    this.commentVotePayload.voteType = VoteType.UPVOTE;
     this.vote();
   }
 
   downVoteComment() {
-    this.commentVoteModel.voteType = VoteType.DOWNVOTE;
+    this.commentVotePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
   }
 
   private vote() {
-    this.commentVoteModel.commentId = this.comment.id;
-    this.voteService.voteOnComment(this.commentVoteModel).subscribe(() => {
+    this.commentVotePayload.commentId = this.comment.id;
+    this.voteService.voteOnComment(this.commentVotePayload).subscribe(() => {
       this.updateCommentVoteDetails();
     }, error => {
       throwError(error);
