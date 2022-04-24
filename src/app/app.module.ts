@@ -34,7 +34,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../environments/environment";
-import { HomeSidebarComponent } from './panes/home-sidebar/home-sidebar.component';
+import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component';
 
 @NgModule({
   declarations: [
