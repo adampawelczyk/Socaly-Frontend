@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreatePostComponent } from '../../post/create-post/create-post.component';
+import { CreatePostComponent } from '../create-post/create-post.component';
 
 @Component({
   selector: 'app-create-post-topbar',
