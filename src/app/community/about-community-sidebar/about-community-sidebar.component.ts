@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
-import { CommunityService } from '../../community/shared/community.service';
+import { CommunityService } from '../shared/community.service';
 
 @Component({
   selector: 'app-about-community-sidebar',

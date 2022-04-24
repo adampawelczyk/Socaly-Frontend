@@ -25,7 +25,7 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { CommunityComponent } from './community/community.component';
-import { AboutCommunitySidebarComponent } from './panes/about-community-sidebar/about-community-sidebar.component';
+import { AboutCommunitySidebarComponent } from './community/about-community-sidebar/about-community-sidebar.component';
 import { CreatePostTopbarComponent } from './panes/create-post-topbar/create-post-topbar.component';
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { CommentComponent } from './comment/comment.component';
