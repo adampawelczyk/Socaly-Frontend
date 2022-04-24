@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CommunityService } from '../../community/shared/community.service';
-import { CommunityResponseModel } from '../../community/shared/community-response.model';
+import { CommunityService } from '../shared/community.service';
+import { CommunityResponseModel } from '../shared/community-response.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateCommunityComponent } from '../../community/create-community/create-community.component';
+import { CreateCommunityComponent } from '../create-community/create-community.component';
 
 @Component({
   selector: 'app-community-sidebar',
