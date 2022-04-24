@@ -21,8 +21,8 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
 
-  signup(signupRequestPayload: SignupRequestModel): Observable<any> {
-    return this.httpClient.post('http://localhost:8090/api/auth/signup', signupRequestPayload, {responseType: 'text'});
+  signup(signupPayload: SignupRequestModel): Observable<any> {
+    return this.httpClient.post('http://localhost:8090/api/auth/signup', signupPayload, {responseType: 'text'});
   }
 
   login(loginRequestPayload: LoginRequestModel): Observable<boolean> {
