@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PostModel} from "../shared/post-model";
-import {PostService} from "../shared/post.service";
-import {ActivatedRoute} from "@angular/router";
-import {throwError} from "rxjs";
+import { PostResponseModel } from '../shared/post-response.model';
+import { PostService } from '../shared/post.service';
+import { ActivatedRoute } from '@angular/router';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-view-post',
@@ -11,7 +11,7 @@ import {throwError} from "rxjs";
 })
 export class ViewPostComponent implements OnInit {
   postId: number;
-  postArray: PostModel[] = [];
+  posts: PostResponseModel[] = [];
   communityName = "";
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute) {
@@ -24,7 +24,7 @@ export class ViewPostComponent implements OnInit {
 
   private getPostById() {
     this.postService.getPost(this.postId).subscribe(data => {
-      this.postArray.push(data);
+      this.posts.push(data);
       this.communityName = data.communityName
     }, error => {
       throwError(error);

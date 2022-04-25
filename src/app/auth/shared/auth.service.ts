@@ -1,11 +1,11 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {SignupRequestPayload} from "../signup/signup-request.payload";
-import {Observable, throwError} from "rxjs";
-import {LoginRequestPayload} from "../login/login-request.payload";
-import {LoginResponsePayload} from "../login/login-response.payload";
-import {map, tap} from "rxjs/operators";
-import {LocalStorageService} from "ngx-webstorage";
+import { EventEmitter, Injectable, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { SignupRequestModel } from './signup-request.model';
+import { Observable, throwError } from 'rxjs';
+import { LoginRequestModel } from './login-request.model';
+import { LoginResponseModel } from './login-response.model';
+import { map, tap } from 'rxjs/operators';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +17,16 @@ export class AuthService {
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
     username: this.getUsername()
-  }
+  };
 
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
 
-  signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
-    return this.httpClient.post('http://localhost:8090/api/auth/signup', signupRequestPayload, {responseType: 'text'});
+  signup(signupPayload: SignupRequestModel): Observable<any> {
+    return this.httpClient.post('http://localhost:8090/api/auth/signup', signupPayload, {responseType: 'text'});
   }
 
-  login(loginRequestPayload: LoginRequestPayload): Observable<boolean> {
-    return this.httpClient.post<LoginResponsePayload>('http://localhost:8090/api/auth/login', loginRequestPayload)
+  login(loginPayload: LoginRequestModel): Observable<boolean> {
+    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/login', loginPayload)
       .pipe(map(data => {
         this.localStorage.store('authenticationToken', data.authenticationToken);
         this.localStorage.store('username', data.username);
@@ -41,18 +41,18 @@ export class AuthService {
   }
 
   getJwtToken() {
-    return this.localStorage.retrieve('authenticationToken')
+    return this.localStorage.retrieve('authenticationToken');
   }
 
   refreshToken() {
-    return this.httpClient.post<LoginResponsePayload>('http://localhost:8090/api/auth/refresh/token', this.refreshTokenPayload)
+    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/refresh/token', this.refreshTokenPayload)
       .pipe(tap(response => {
         this.localStorage.clear('authenticationToken');
         this.localStorage.clear('expiresAt');
 
         this.localStorage.store('authenticationToken', response.authenticationToken);
         this.localStorage.store('expiresAt', response.expiresAt);
-      }))
+      }));
   }
 
   logout() {

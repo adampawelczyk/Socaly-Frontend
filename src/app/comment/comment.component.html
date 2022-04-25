@@ -13,7 +13,7 @@
         Collapse
       </button>
     </div>
-    <div *ngIf="reply" class="mt-3 ms-2">
+    <div *ngIf="replyFormIsExpanded" class="mt-3 ms-2">
       <form [formGroup]="replyForm" (ngSubmit)="postReply()">
         <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
         <button type="submit" class="btn-primary mt-2">Reply</button>

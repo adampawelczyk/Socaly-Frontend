@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SignupRequestPayload} from "./signup-request.payload";
-import {AuthService} from "../shared/auth.service";
-import {Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {LoginComponent} from "../login/login.component";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SignupRequestModel } from '../shared/signup-request.model';
+import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-signup',
@@ -14,11 +14,11 @@ import {LoginComponent} from "../login/login.component";
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  signupRequestPayload: SignupRequestPayload;
+  signupPayload: SignupRequestModel;
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService,
               public activeModal: NgbActiveModal, private modal: NgbModal) {
-    this.signupRequestPayload = {
+    this.signupPayload = {
       username: '',
       email: '',
       password: ''
@@ -34,11 +34,11 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    this.signupRequestPayload.email = this.signupForm.get('email')?.value;
-    this.signupRequestPayload.username = this.signupForm.get('username')?.value;
-    this.signupRequestPayload.password = this.signupForm.get('password')?.value;
+    this.signupPayload.email = this.signupForm.get('email')?.value;
+    this.signupPayload.username = this.signupForm.get('username')?.value;
+    this.signupPayload.password = this.signupForm.get('password')?.value;
 
-    this.authService.signup(this.signupRequestPayload).subscribe(data => {
+    this.authService.signup(this.signupPayload).subscribe(() => {
       this.toastr.success('Signup Successful');
       this.toastr.success('Please check your inbox for activation email');
     }, () => {

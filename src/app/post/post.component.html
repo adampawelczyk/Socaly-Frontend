@@ -1,0 +1,58 @@
+<div class="post" *ngFor="let post of posts">
+  <div class="row m-0" (click)="goToPost(post.id)">
+    <div class="col-md-1 p-2 d-none d-sm-block vote-background">
+      <app-post-vote [post]="post"></app-post-vote>
+    </div>
+    <div class="col-sm-11 p-sm-2 pb-2">
+      <span class="community-info">
+        <span class="community-text" *ngIf="showCommunityName">
+          <a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a>
+        </span>
+        <span *ngIf="showCommunityName"> • </span>
+        <span>
+          Posted by
+          <a class="username" routerLink="/user/{{post.userName}}" (click)="$event.stopPropagation()">
+            u/{{post.userName}}
+          </a>
+        </span>
+        <span>   {{post.duration}}</span>
+      </span>
+      <div class="post-title">
+        <a class="post-name" href="">{{post.postName}}</a>
+      </div>
+      <div *ngIf="postDescriptionIsNotEmpty(post)" class="mt-1 mb-1">
+        <p [innerHTML]="post.description"></p>
+      </div>
+      <div *ngIf="postImagesAreNotEmpty(post)" class="mt-1 mb-1">
+        <ngb-carousel [interval]="0" [wrap]="true" [showNavigationIndicators]="false"
+                      [showNavigationArrows]="showNavigationArrows(post)" (click)="$event.stopPropagation()">
+          <ng-template ngbSlide *ngFor="let image of post.images">
+            <div>
+              <img [src]="image" alt="{{post.postName}}">
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+      <div class="d-flex flex-row">
+        <div class="d-block d-sm-none pe-3">
+          <app-post-vote [post]="post"></app-post-vote>
+        </div>
+        <div>
+          <a class="bntComments" role="button" (click)="goToPost(post.id)">
+            <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ps-5 pe-5 pt-2" *ngIf="showComments">
+      <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+        <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
+        <button type="submit" class="bnt btn-primary mt-2">Comment</button>
+      </form>
+      <hr>
+      <div class="mb-2" *ngFor="let comment of comments">
+        <app-comment [comment]="comment" [postId]="postId"></app-comment>
+      </div>
+    </div>
+  </div>
+</div>

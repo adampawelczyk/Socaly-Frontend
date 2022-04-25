@@ -11,11 +11,11 @@
           <h2>s/{{communityName}}</h2>
         </div>
         <div class="col-auto pt-1">
-          <div *ngIf="belongs">
-            <button class="btn-secondary hover-text" (click)="leave()"></button>
+          <div *ngIf="userBelongsToCommunity">
+            <button class="btn-secondary hover-text" (click)="leaveCommunity()"></button>
           </div>
-          <div *ngIf="!belongs">
-            <button class="btn-primary" (click)="join()">Join</button>
+          <div *ngIf="!userBelongsToCommunity">
+            <button class="btn-primary" (click)="joinCommunity()">Join</button>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-xl-7 col-lg-8 offset-xl-1">
       <app-create-post-topbar></app-create-post-topbar>
-      <app-post-tile [posts$]="posts" [showCommunity$]="false"></app-post-tile>
+      <app-post [posts]="posts" [showCommunityName]="false"></app-post>
     </div>
     <div class="col-xl-3 col-lg-4">
       <div class="sticky-top">

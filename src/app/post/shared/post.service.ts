@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {PostModel} from "./post-model";
-import {CreatePostPayload} from "../create-post/create-post.payload";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { PostResponseModel } from './post-response.model';
+import { PostRequestModel } from './post-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-
   constructor(private http: HttpClient) { }
 
-  getAllPosts(): Observable<Array<PostModel>> {
-    return this.http.get<Array<PostModel>>('http://localhost:8090/api/posts')
+  getAllPosts(): Observable<PostResponseModel[]> {
+    return this.http.get<PostResponseModel[]>('http://localhost:8090/api/posts');
   }
 
-  createPost(postPayload: CreatePostPayload): Observable<Number> {
-    return this.http.post<Number>('http://localhost:8090/api/posts', postPayload)
+  createPost(postPayload: PostRequestModel): Observable<number> {
+    return this.http.post<number>('http://localhost:8090/api/posts', postPayload);
   }
 
-  getPost(id: number): Observable<PostModel> {
-    return this.http.get<PostModel>('http://localhost:8090/api/posts/' + id)
+  getPost(id: number): Observable<PostResponseModel> {
+    return this.http.get<PostResponseModel>('http://localhost:8090/api/posts/' + id);
   }
 
-  getAllPostsByUser(name: String): Observable<PostModel[]> {
-    return this.http.get<PostModel[]>('http://localhost:8090/api/posts/by-user/' + name)
+  getAllPostsByUser(username: string): Observable<PostResponseModel[]> {
+    return this.http.get<PostResponseModel[]>('http://localhost:8090/api/posts/by-user/' + username);
   }
 
-  getAllPostsByCommunity(name: String): Observable<PostModel[]> {
-    return this.http.get<PostModel[]>('http://localhost:8090/api/posts/by-community/' + name)
+  getAllPostsByCommunity(communityName: string): Observable<PostResponseModel[]> {
+    return this.http.get<PostResponseModel[]>('http://localhost:8090/api/posts/by-community/' + communityName);
   }
 }

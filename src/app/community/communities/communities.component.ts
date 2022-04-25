@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CommunityResponse} from "../shared/community-response";
-import {CommunityService} from "../shared/community.service";
-import {throwError} from "rxjs";
+import { CommunityResponseModel } from '../shared/community-response.model';
+import { CommunityService } from '../shared/community.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-communities',
@@ -9,7 +9,7 @@ import {throwError} from "rxjs";
   styleUrls: ['./communities.component.css']
 })
 export class CommunitiesComponent implements OnInit {
-  communities: Array<CommunityResponse>;
+  communities: CommunityResponseModel[];
 
   constructor(private communityService: CommunityService) { }
 
@@ -18,7 +18,6 @@ export class CommunitiesComponent implements OnInit {
       this.communities = data;
     }, error => {
       throwError(error);
-    })
+    });
   }
-
 }
