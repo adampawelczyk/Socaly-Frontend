@@ -80,7 +80,7 @@ export class PostComponent implements OnInit {
     this.router.navigateByUrl('/view-post/' + id);
   }
 
-  showNavigationArrows(post: PostResponseModel) {
+  showCarouselNavigationControls(post: PostResponseModel) {
     if (post.images !== undefined) {
       return post.images.length > 1;
     } else {
