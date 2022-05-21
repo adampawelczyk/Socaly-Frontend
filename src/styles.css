@@ -63,6 +63,23 @@ body {
   float: none;
 }
 
+.carousel-indicators li {
+  width : 10px;
+  background-color: white;
+  opacity: 0.5;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+  height: 10px;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.carousel-indicators .active {
+  width : 10px;
+  background-color: white;
+  height: 10px;
+  border-radius: 50%;
+}
+
 .material-icons-outlined, .material-icons {
   display: inline-flex;
   vertical-align: top;
