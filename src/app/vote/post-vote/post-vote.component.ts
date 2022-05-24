@@ -12,7 +12,7 @@ import {throwError} from 'rxjs';
 @Component({
   selector: 'app-post-vote',
   templateUrl: './post-vote.component.html',
-  styleUrls: ['./post-vote.component.css']
+  styleUrls: ['./post-vote.component.scss']
 })
 export class PostVoteComponent implements OnInit {
   @Input() post: PostResponseModel;

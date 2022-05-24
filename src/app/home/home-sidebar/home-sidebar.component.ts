@@ -6,7 +6,7 @@ import { CreatePostComponent } from '../../post/create-post/create-post.componen
 @Component({
   selector: 'app-home-sidebar',
   templateUrl: './home-sidebar.component.html',
-  styleUrls: ['./home-sidebar.component.css']
+  styleUrls: ['./home-sidebar.component.scss']
 })
 export class HomeSidebarComponent implements OnInit {
   constructor(private modal: NgbModal) { }

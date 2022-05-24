@@ -8,7 +8,7 @@ import { CommunityRequestModel } from '../shared/community-request.model';
 @Component({
   selector: 'app-create-community',
   templateUrl: './create-community.component.html',
-  styleUrls: ['./create-community.component.css']
+  styleUrls: ['./create-community.component.scss']
 })
 export class CreateCommunityComponent implements OnInit {
   createCommunityForm: FormGroup;

@@ -6,7 +6,7 @@ import { throwError } from 'rxjs';
 @Component({
   selector: 'app-communities',
   templateUrl: './communities.component.html',
-  styleUrls: ['./communities.component.css']
+  styleUrls: ['./communities.component.scss']
 })
 export class CommunitiesComponent implements OnInit {
   communities: CommunityResponseModel[];

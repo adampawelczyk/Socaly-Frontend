@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
 @Component({
   selector: 'app-comment-vote',
   templateUrl: './comment-vote.component.html',
-  styleUrls: ['./comment-vote.component.css']
+  styleUrls: ['./comment-vote.component.scss']
 })
 export class CommentVoteComponent implements OnInit {
   @Input() comment: CommentResponseModel;

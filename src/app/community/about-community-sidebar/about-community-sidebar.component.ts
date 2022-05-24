@@ -5,7 +5,7 @@ import { CommunityService } from '../shared/community.service';
 @Component({
   selector: 'app-about-community-sidebar',
   templateUrl: './about-community-sidebar.component.html',
-  styleUrls: ['./about-community-sidebar.component.css']
+  styleUrls: ['./about-community-sidebar.component.scss']
 })
 export class AboutCommunitySidebarComponent implements OnInit {
   @Input() communityName: string;
