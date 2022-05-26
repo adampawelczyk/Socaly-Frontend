@@ -25,3 +25,8 @@ nav {
 .user-dropdown::after {
   display: none;
 }
+
+.dropdown-menu {
+  right: 0;
+  min-width: 16em;
+}
