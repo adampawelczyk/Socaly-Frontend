@@ -7,6 +7,9 @@
     </div>
     <div class="flex-grow-1 float-end">
       <div *ngIf="isLoggedIn" ngbDropdown class="float-end">
+        <button class="user-details me-2" id="dropdownBasic1" ngbDropdownToggle>
+          {{username}}
+        </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button (click)="goToUserProfile()" ngbDropdownItem>
             Profile
@@ -15,9 +18,6 @@
             Logout
           </button>
         </div>
-        <button class="user-details me-2" id="dropdownBasic1" ngbDropdownToggle>
-          {{username}}
-        </button>
       </div>
       <div *ngIf="!isLoggedIn">
         <button (click)="signup()" class="float-end sign-up me-2">Sign up</button>
