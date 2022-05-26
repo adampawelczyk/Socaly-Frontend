@@ -10,8 +10,14 @@
         <button class="user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
           {{username}}
         </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button (click)="goToUserProfile()" ngbDropdownItem>
+        <div class="dropdown-menu mt-2" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem [disabled]="true">
+            <span class="material-icons">account_circle</span>
+            <span class="ps-1">
+              My Stuff
+            </span>
+          </button>
+          <button class="btn ps-5" (click)="goToUserProfile()" ngbDropdownItem>
             Profile
           </button>
           <button (click)="logout()" ngbDropdownItem>
