@@ -8,3 +8,20 @@ nav {
   width: auto;
 }
 
+.user-dropdown {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.user-dropdown:hover {
+  border-color: #edeff1;
+}
+
+.user-dropdown:focus {
+  border-color: #edeff1;
+  box-shadow: none;
+}
+
+.user-dropdown::after {
+  display: none;
+}
