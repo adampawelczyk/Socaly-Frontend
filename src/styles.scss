@@ -47,7 +47,7 @@ body {
   background-color: $menuButtonBackground-focus;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover:not(:focus) {
   background-color: $menuButtonBackground-hover;
 }
 
