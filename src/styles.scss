@@ -19,6 +19,36 @@ body {
   background-color: #f0f2f5;
 }
 
+.btn-secondary, .btn-primary {
+  fill: $primaryButtonBackground;
+  border: 1px solid;
+  border-radius: 999px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  min-height: 32px;
+  min-width: 96px;
+  padding: 4px 16px;
+  opacity: 1;
+  margin-top: 5px;
+  color: $primaryButtonBackground;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: $primaryButtonBackground;
+  color: $secondaryButtonBackground;
+}
+
+.btn-secondary:focus, .btn-primary:focus {
+  box-shadow: none;
+}
+
 .dropdown-item {
   border-radius: 4px;
 }
