@@ -52,6 +52,12 @@ body {
   box-shadow: none;
 }
 
+.btn-secondary:active {
+  background-color: $secondaryButtonBackground-active;
+  border: 1px solid $primaryButtonBackground;
+  color: $primaryButtonBackground;
+}
+
 .btn-secondary:hover {
   background-color: $secondaryButtonBackground-hover;
   border: 1px solid $primaryButtonBackground;
