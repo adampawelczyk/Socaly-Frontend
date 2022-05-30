@@ -46,7 +46,7 @@ body {
   color: $secondaryButtonBackground;
 }
 
-.btn-secondary:focus, .btn-primary:focus {
+.btn-secondary:active:focus, .btn-primary:active:focus {
   box-shadow: none;
 }
 
