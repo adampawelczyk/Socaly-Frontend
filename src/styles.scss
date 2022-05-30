@@ -50,6 +50,12 @@ body {
   box-shadow: none;
 }
 
+.btn-secondary:hover {
+  background-color: $secondaryButtonBackground-hover;
+  border: 1px solid $primaryButtonBackground;
+  color: $primaryButtonBackground;
+}
+
 .dropdown-item {
   border-radius: 4px;
 }
