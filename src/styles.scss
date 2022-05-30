@@ -57,6 +57,12 @@ body {
   color: $primaryButtonBackground;
 }
 
+.btn-secondary:focus {
+  background-color: $secondaryButtonBackground-focus;
+  border: 1px solid $primaryButtonBackground;
+  color: $primaryButtonBackground;
+}
+
 .dropdown-item {
   border-radius: 4px;
 }
