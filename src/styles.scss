@@ -1,14 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-$menuButtonBackground-active: #ebebeb;
-$menuButtonBackground-focus: #e0e0e0;
-$menuButtonBackground-hover: #f5f5f5;
-
 $primaryButtonBackground: #0079d3;
 $secondaryButtonBackground: white;
-$secondaryButtonBackground-hover: #f5fafe;
-$secondaryButtonBackground-focus: #ebf4fc;
-$secondaryButtonBackground-active: #d7eaf8;
 
 html {
   padding: 0;
@@ -53,20 +46,20 @@ body {
 }
 
 .btn-secondary:active {
-  background-color: $secondaryButtonBackground-active;
-  border: 1px solid $primaryButtonBackground;
+  background-color: #d7eaf8;
+  border: 1px solid #d7eaf8;
   color: $primaryButtonBackground;
 }
 
 .btn-secondary:hover {
-  background-color: $secondaryButtonBackground-hover;
-  border: 1px solid $primaryButtonBackground;
+  background-color: #f5fafe;
+  border: 1px solid #d7eaf8;
   color: $primaryButtonBackground;
 }
 
 .btn-secondary:focus {
-  background-color: $secondaryButtonBackground-focus;
-  border: 1px solid $primaryButtonBackground;
+  background-color: #ebf4fc;
+  border: 1px solid #d7eaf8;
   color: $primaryButtonBackground;
 }
 
@@ -76,15 +69,15 @@ body {
 
 .dropdown-item:active {
   color: black;
-  background-color: $menuButtonBackground-active;
+  background-color: #ebebeb;
 }
 
 .dropdown-item:focus {
-  background-color: $menuButtonBackground-focus;
+  background-color: #e0e0e0;
 }
 
 .dropdown-item:hover:not(:focus) {
-  background-color: $menuButtonBackground-hover;
+  background-color: #f5f5f5;
 }
 
 .carousel-control-prev-icon {
