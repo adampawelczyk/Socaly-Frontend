@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primaryButtonBackground: #0079d3;
+$primaryColor: #0079d3;
 $secondaryButtonBackground: white;
 
 html {
@@ -16,7 +16,7 @@ body {
 }
 
 .btn-secondary, .btn-primary {
-  fill: $primaryButtonBackground;
+  fill: $primaryColor;
   border: 1px solid #d7eaf8;
   border-radius: 999px;
   text-align: center;
@@ -32,14 +32,14 @@ body {
   padding: 4px 16px;
   opacity: 1;
   margin-top: 5px;
-  color: $primaryButtonBackground;
+  color: $primaryColor;
   background-color: transparent;
 }
 
 .btn-primary {
-  background-color: $primaryButtonBackground;
+  background-color: $primaryColor;
   color: $secondaryButtonBackground;
-  border-color: $primaryButtonBackground;
+  border-color: $primaryColor;
 }
 
 .btn-secondary:active:focus, .btn-primary:active:focus {
@@ -49,19 +49,19 @@ body {
 .btn-secondary:active {
   background-color: #d7eaf8;
   border: 1px solid #d7eaf8;
-  color: $primaryButtonBackground;
+  color: $primaryColor;
 }
 
 .btn-secondary:hover {
   background-color: #f5fafe;
   border: 1px solid #d7eaf8;
-  color: $primaryButtonBackground;
+  color: $primaryColor;
 }
 
 .btn-secondary:focus {
   background-color: #ebf4fc;
   border: 1px solid #d7eaf8;
-  color: $primaryButtonBackground;
+  color: $primaryColor;
   box-shadow: none;
 }
 
