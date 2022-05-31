@@ -16,7 +16,7 @@ body {
 
 .btn-secondary, .btn-primary {
   fill: $primaryColor;
-  border: 1px solid #d7eaf8;
+  border: 1px solid $primaryColor;
   border-radius: 999px;
   text-align: center;
   letter-spacing: 1px;
@@ -38,7 +38,6 @@ body {
 .btn-primary {
   background-color: $primaryColor;
   color: white;
-  border-color: $primaryColor;
 }
 
 .btn-secondary:active:focus, .btn-primary:active:focus {
@@ -47,19 +46,19 @@ body {
 
 .btn-secondary:active {
   background-color: #d7eaf8;
-  border: 1px solid #d7eaf8;
+  border: 1px solid $primaryColor;
   color: $primaryColor;
 }
 
 .btn-secondary:hover {
   background-color: #f5fafe;
-  border: 1px solid #d7eaf8;
+  border: 1px solid $primaryColor;
   color: $primaryColor;
 }
 
 .btn-secondary:focus {
   background-color: #ebf4fc;
-  border: 1px solid #d7eaf8;
+  border: 1px solid $primaryColor;
   color: $primaryColor;
   box-shadow: none;
 }
