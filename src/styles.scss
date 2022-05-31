@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 $primaryColor: #0079d3;
-$secondaryButtonBackground: white;
 
 html {
   padding: 0;
@@ -38,7 +37,7 @@ body {
 
 .btn-primary {
   background-color: $primaryColor;
-  color: $secondaryButtonBackground;
+  color: white;
   border-color: $primaryColor;
 }
 
