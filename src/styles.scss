@@ -17,7 +17,7 @@ body {
 
 .btn-secondary, .btn-primary {
   fill: $primaryButtonBackground;
-  border: 1px solid $primaryButtonBackground;
+  border: 1px solid #d7eaf8;
   border-radius: 999px;
   text-align: center;
   letter-spacing: 1px;
@@ -39,6 +39,7 @@ body {
 .btn-primary {
   background-color: $primaryButtonBackground;
   color: $secondaryButtonBackground;
+  border-color: $primaryButtonBackground;
 }
 
 .btn-secondary:active:focus, .btn-primary:active:focus {
