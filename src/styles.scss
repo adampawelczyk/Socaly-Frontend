@@ -50,6 +50,12 @@ body {
   border-color: #1484d7;
 }
 
+.btn-primary:focus {
+  background-color: #288eda;
+  border-color: #288eda;
+  box-shadow: none;
+}
+
 .btn-secondary:active:focus, .btn-primary:active:focus {
   box-shadow: none;
 }
