@@ -40,6 +40,11 @@ body {
   color: white;
 }
 
+.btn-primary:active {
+  background-color: #3d99de;
+  border-color: #3d99de;
+}
+
 .btn-secondary:active:focus, .btn-primary:active:focus {
   box-shadow: none;
 }
