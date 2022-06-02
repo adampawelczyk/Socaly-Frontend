@@ -1,16 +1,16 @@
 <header>
   <nav class="navbar fixed-top navbar-expand-lg pt-1 pb-1">
-    <div class="flex-grow-1">
+    <div class="col-6">
       <a aria-label="Home" class="logo" routerLink="/">
         <img src="assets/Socaly-logo_blue.png" alt="Image representing Socaly logo" class="socaly-logo">
       </a>
     </div>
-    <div class="flex-grow-1 float-end">
-      <div *ngIf="isLoggedIn" ngbDropdown class="col-3 float-end">
-        <button class="user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
+    <div class="col-6">
+      <div *ngIf="isLoggedIn" ngbDropdown class="col-6 col-md-3 float-end">
+        <button class="col-xl-2 float-end user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
           {{username}}
         </button>
-        <div class="dropdown-menu mt-2" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button (click)="goToUserProfile()" ngbDropdownItem>
             <span class="material-icons">account_circle</span>
             Profile
@@ -22,9 +22,9 @@
           </button>
         </div>
       </div>
-      <div *ngIf="!isLoggedIn">
-        <button (click)="signup()" class="float-end btn-primary me-2">Sign up</button>
-        <button (click)="login()" class="float-end btn-secondary me-2">Login</button>
+      <div class="col-12 col-md-6 float-end" *ngIf="!isLoggedIn">
+        <button (click)="signup()" class="col-xl-4 float-end btn-primary me-2">Sign up</button>
+        <button (click)="login()" class="col-xl-4 float-end btn-secondary me-2">Login</button>
       </div>
     </div>
   </nav>
