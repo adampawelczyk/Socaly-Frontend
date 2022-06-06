@@ -23,3 +23,16 @@
   border: none;
   background-color: transparent;
 }
+
+.side-banner {
+  background-image: url("../../../assets/side-banner.png");
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-size: 130% auto;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.min-height {
+  min-height: 70vh;
+}
