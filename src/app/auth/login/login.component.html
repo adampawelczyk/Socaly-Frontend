@@ -1,22 +1,27 @@
-<div class="modal-header">
-  <h4 class="modal-title">Login</h4>
-  <button type="button" class="btn-close" (click)="discardLogin()" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-  <form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
-    <input type="text" [formControlName]="'username'" id="user_name" class="form-control" name="user_name" placeholder="Username" required autofocus>
-    <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">
-      Please provide a valid username
-    </span>
-    <input type="password" [formControlName]="'password'" id="password" class="form-control mt-2" name="password" placeholder="Password" required>
-    <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
-      Password cannot be empty
-    </span>
-  </form>
-</div>
-<div class="modal-footer">
-  New to Socaly? <button class="new-user-signup" (click)="signup()">Sign up</button>
-  <button type="submit" class="bnt btn-primary" form="login-form">
-    Login
-  </button>
+<div class="row min-height">
+  <div class="col-lg-2 d-none d-lg-block side-banner"></div>
+  <div class="col-12 col-lg-10 float-end">
+    <div class="modal-header">
+      <h4 class="modal-title">Login</h4>
+      <button type="button" class="btn-close" (click)="discardLogin()" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="text" [formControlName]="'username'" id="user_name" class="form-control" name="user_name" placeholder="Username" required autofocus>
+        <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">
+          Please provide a valid username
+        </span>
+        <input type="password" [formControlName]="'password'" id="password" class="form-control mt-2" name="password" placeholder="Password" required>
+        <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
+          Password cannot be empty
+        </span>
+      </form>
+    </div>
+    <div class="modal-footer">
+      New to Socaly? <button class="new-user-signup" (click)="signup()">Sign up</button>
+      <button type="submit" class="bnt btn-primary" form="login-form">
+        Login
+      </button>
+    </div>
+  </div>
 </div>
