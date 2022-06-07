@@ -93,6 +93,10 @@ body {
   background-color: #f5f5f5;
 }
 
+.modal-header {
+  border-bottom: none;
+}
+
 .carousel-control-prev-icon {
   background-image: url("assets/icons/prev-slide-icon.svg");
   background-color: white;
