@@ -6,7 +6,7 @@
       <button type="button" class="btn-close" (click)="discardLogin()" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <form ngNativeValidate id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
         <input type="text" [formControlName]="'username'" id="user_name" class="w-100" name="user_name" placeholder="Username" required autofocus>
         <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">
           Please provide a valid username
