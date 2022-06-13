@@ -1,25 +1,19 @@
-.btn-primary {
-  fill: #3B82F6;
-  border: 1px solid;
-  border-radius: 4px;
-  text-align: center;
-  letter-spacing: 1px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 24px;
-  text-transform: uppercase;
-  padding: 3px 16px;
-  opacity: 1;
-  margin-top: 5px;
-  color: white;
-  background-color: #3B82F6;
+.side-banner {
+  background-image: url("../../../assets/side-banner.png");
+  background-size: 100% 100%;
 }
 
-.existing-user-login {
-  color: black;
+.log-in-link {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  text-transform: uppercase;
   text-decoration: none;
-  font-weight: bold;
-  border: none;
-  background-color: transparent;
+  color: #0079d3;
+  cursor: pointer;
+}
+
+.min-height {
+  height: 22rem;
 }
