@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.modal.open(LoginComponent, { size: 'lg' });
+    this.modal.open(LoginComponent);
   }
 
   goToUserProfile() {
