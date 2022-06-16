@@ -16,6 +16,10 @@ body {
   background-color: #f0f2f5;
 }
 
+.sr-only {
+  @extend .visually-hidden;
+}
+
 .btn-secondary, .btn-primary {
   fill: $primaryColor;
   border: 1px solid $primaryColor;
