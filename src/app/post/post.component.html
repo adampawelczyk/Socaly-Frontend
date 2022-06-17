@@ -38,8 +38,9 @@
           <app-post-vote [post]="post"></app-post-vote>
         </div>
         <div>
-          <a class="bntComments" role="button" (click)="goToPost(post.id)">
-            <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
+          <a class="bntComments p-2 d-flex" role="button" (click)="goToPost(post.id)">
+            <span class="material-symbols-outlined d-flex post-button-icon">chat_bubble</span>
+            <span class="ps-1 d-flex post-button-text">{{post.commentCount}} Comments</span>
           </a>
         </div>
       </div>
