@@ -1,20 +1,12 @@
-.votebox {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  font-size: 1em;
-}
-
-.upvote, .downvote {
+.up-vote, .down-vote {
   cursor: pointer;
-  /*border: 2px solid;*/
 }
 
-.upvote:hover {
+.up-vote:hover {
   color: green;
 }
 
-.downvote:hover {
+.down-vote:hover {
   color: red;
 }
 
