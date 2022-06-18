@@ -10,6 +10,20 @@
   color: red;
 }
 
-.votecount {
-  font-weight: bold;
+.vote-number-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  text-align: center;
+}
+
+.vote-icon {
+  font-size: 1.25rem;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 48
 }
