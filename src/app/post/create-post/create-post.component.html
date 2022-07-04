@@ -50,16 +50,24 @@
   </ul>
   <div [ngbNavOutlet]="nav"></div>
 </div>
-<div class="modal-footer">
-  <button (click)="discardPost()" class="btn btn-secondary">
-    Discard
-  </button>
-  <button *ngIf="active == 1" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-post-form"
-          class="btn btn-primary">
-    Post
-  </button>
-  <button *ngIf="active == 2" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty() || uploadingFiles)}" type="submit" form="create-image-form"
-          class="btn btn-primary">
-    Post
-  </button>
+<div class="modal-footer justify-content-end pt-0">
+  <div class="d-flex flex-row">
+    <div class="col-auto me-2">
+      <button (click)="discardPost()" class="btn-secondary">
+        Discard
+      </button>
+    </div>
+    <div class="col-auto">
+      <button *ngIf="active == 1" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-post-form"
+              class="btn-primary">
+        Post
+      </button>
+    </div>
+    <div class="col-auto">
+      <button *ngIf="active == 2" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty() || uploadingFiles)}" type="submit" form="create-image-form"
+              class="btn-primary">
+        Post
+      </button>
+    </div>
+  </div>
 </div>
