@@ -42,3 +42,10 @@ a {
 .progress-bar {
   background-color: #3b82f6;
 }
+
+.modal-footer {
+  border-top: none;
+  position: static;
+  padding: 1rem;
+  bottom: 0;
+}
