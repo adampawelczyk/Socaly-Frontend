@@ -12,10 +12,10 @@
         </div>
         <div class="col-auto pt-1">
           <div *ngIf="userBelongsToCommunity">
-            <button class="btn-secondary hover-text" (click)="leaveCommunity()"></button>
+            <button class="btn-secondary hover-text min-width" (click)="leaveCommunity()"></button>
           </div>
           <div *ngIf="!userBelongsToCommunity">
-            <button class="btn-primary" (click)="joinCommunity()">Join</button>
+            <button class="btn-primary min-width" (click)="joinCommunity()">Join</button>
           </div>
         </div>
       </div>
