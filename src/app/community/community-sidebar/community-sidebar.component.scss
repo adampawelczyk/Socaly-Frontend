@@ -9,6 +9,23 @@
   margin: 0;
 }
 
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.banner {
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.banner-text {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  color: white;
+}
+
 hr {
   height: 0.5px;
   margin: 0;
