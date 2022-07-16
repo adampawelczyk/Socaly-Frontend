@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-lg-7">
+  <div class="d-flex">
+    <div class="flex-grow-1 me-lg-4">
       <app-post [posts]="posts" [showComments]="true"></app-post>
     </div>
-    <div class="col-lg-4">
-      <app-about-community-sidebar *ngIf="exists()" [communityName]="communityName"></app-about-community-sidebar>
+    <div>
+      <div class="sticky-top">
+        <app-about-community-sidebar *ngIf="exists()" [communityName]="communityName"></app-about-community-sidebar>
+      </div>
     </div>
   </div>
 </div>
