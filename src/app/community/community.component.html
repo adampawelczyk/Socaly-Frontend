@@ -1,16 +1,16 @@
 <div class="community-background"></div>
 <div class="community-header">
   <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-lg-11 row">
-        <div class="col-auto ps-0">
+    <div class="d-flex">
+      <div class="d-flex flex-grow-1 flex-row">
+        <div class="">
           <img src="../../assets/community-default-icon.png" alt="Image representing community logo" class="community-logo">
         </div>
-        <div class="col-auto pt-1">
-          <h1>{{communityName}}</h1>
-          <h2>s/{{communityName}}</h2>
+        <div class="ps-3 pt-1">
+          <h1 class="mb-0">{{communityName}}</h1>
+          <h2 class="community-name">s/{{communityName}}</h2>
         </div>
-        <div class="col-auto pt-2">
+        <div class="ps-4 pt-2">
           <div *ngIf="userBelongsToCommunity">
             <button class="btn-secondary hover-text min-width" (click)="leaveCommunity()"></button>
           </div>
@@ -23,12 +23,12 @@
   </div>
 </div>
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-lg-7">
+  <div class="d-flex">
+    <div class="flex-grow-1 me-lg-4">
       <app-create-post-topbar></app-create-post-topbar>
       <app-post [posts]="posts" [showCommunityName]="false"></app-post>
     </div>
-    <div class="col-lg-4">
+    <div>
       <div class="sticky-top">
         <app-about-community-sidebar [communityName]="communityName"></app-about-community-sidebar>
       </div>
