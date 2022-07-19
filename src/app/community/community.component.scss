@@ -3,8 +3,10 @@
 }
 
 .community-background {
-  background-color: #3B82F6;
-  height: 64px;
+  height: 150px;
+  background-image: url("../../assets/community-default-banner.png");
+  background-position: top;
+  background-size: cover;
 }
 
 .community-header {
