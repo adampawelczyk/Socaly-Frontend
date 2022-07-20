@@ -2,12 +2,12 @@
   <div class="community-sidebar-banner">
     <span class="banner-text">Popular Communities</span>
   </div>
-  <span *ngFor="let community of communities">
-    <span class="community-text">
+  <div *ngFor="let community of communities">
+    <div class="mt-2 mb-2">
       <a href="community/{{community.name}}"><span class="m-3">{{community.name}}</span></a>
-    </span>
-    <hr class="mt-2">
-  </span>
+    </div>
+    <hr>
+  </div>
   <div class="text-center p-3" *ngIf="displayViewAll">
     <button routerLink="/communities" class="btn btn-primary" style="width: 60%">
       View all
