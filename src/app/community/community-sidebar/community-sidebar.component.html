@@ -3,10 +3,10 @@
     <span class="banner-text">Popular Communities</span>
   </div>
   <div *ngFor="let community of communities">
+    <hr>
     <div class="mt-2 mb-2">
       <a href="community/{{community.name}}"><span class="m-3">{{community.name}}</span></a>
     </div>
-    <hr>
   </div>
   <div class="text-center p-3" *ngIf="displayViewAll">
     <button routerLink="/communities" class="btn btn-primary" style="width: 60%">
