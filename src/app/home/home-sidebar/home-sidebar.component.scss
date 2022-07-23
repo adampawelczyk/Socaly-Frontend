@@ -17,6 +17,17 @@
 }
 
 .title {
+  margin-top: -1.7rem;
+}
+
+.snoo-home {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fsnoo-home.png?alt=media&token=c71da224-aa6e-42e4-b1a4-bc6087fa756b");
+  background-size: 40px 68px;
+  height: 68px;
+  width: 40px;
+}
+
+.title-text {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
