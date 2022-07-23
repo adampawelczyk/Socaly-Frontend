@@ -3,22 +3,22 @@
     <a class="comment-username ms-2" routerLink="/user/{{comment.username}}">{{comment.username}}</a>
     <p class="comment-text ms-2 mt-1 mb-1" [innerHTML]="comment.text" style="margin: 0"></p>
     <div class="d-flex flex-row ms-2">
-      <app-comment-vote class="col-auto" [comment]="comment"></app-comment-vote>
+      <app-comment-vote class="flex-column" [comment]="comment"></app-comment-vote>
       <div>
-        <button class="col-auto ms-1 btn-comment d-flex" (click)="showReplyForm(); $event.stopPropagation()">
+        <button class="d-flex ms-1 btn-comment" (click)="showReplyForm(); $event.stopPropagation()">
           <span class="material-symbols-outlined comment-button-icon pe-1">reply</span>
           <span>Reply</span>
         </button>
       </div>
-      <button class="col-auto ms-1 btn-comment d-flex" (click)="collapse(); $event.stopPropagation()">
+      <button class="d-flex ms-1 btn-comment" (click)="collapse(); $event.stopPropagation()">
         <span>Collapse</span>
       </button>
     </div>
     <div *ngIf="replyFormIsExpanded" class="mt-3 ms-2">
       <form [formGroup]="replyForm" (ngSubmit)="postReply()">
         <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
-        <div class="row justify-content-end">
-          <div class="col-3">
+        <div class="d-flex flex-row-reverse">
+          <div>
             <button type="submit" class="btn-primary mt-2">Reply</button>
           </div>
         </div>
