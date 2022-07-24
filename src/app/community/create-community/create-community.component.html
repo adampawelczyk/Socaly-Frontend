@@ -10,11 +10,17 @@
     </div>
   </form>
 </div>
-<div class="modal-footer">
-  <button class="bnt btn-secondary" (click)="discard()">
-    Discard
-  </button>
-  <button type="submit" form="create-community-form" class="btn btn-primary">
-    Create
-  </button>
+<div class="modal-footer justify-content-end pt-0">
+  <div class="d-flex flex-row">
+    <div class="me-2">
+      <button class="btn-secondary" (click)="discard()">
+        Discard
+      </button>
+    </div>
+    <div>
+      <button type="submit" form="create-community-form" class="btn-primary">
+        Create
+      </button>
+    </div>
+  </div>
 </div>
