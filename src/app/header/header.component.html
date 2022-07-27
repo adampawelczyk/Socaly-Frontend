@@ -1,14 +1,14 @@
 <header>
-  <nav class="navbar fixed-top navbar-expand-lg pt-1 pb-1">
-    <div class="col-6 ms-3">
+  <nav class="d-flex navbar fixed-top navbar-expand-lg pt-1 pb-1">
+    <div class="d-flex ms-3">
       <a aria-label="Home" class="logo" routerLink="/">
         <img src="https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fsocaly-image-logo.png?alt=media&token=9ff49c88-38db-4c16-8156-7249cde35e9c" alt="Image representing Socaly image logo" class="socaly-logo me-1">
         <img src="https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fsocaly-text-logo-black.png?alt=media&token=e30e5f38-605d-4d7a-80cc-f61fbe638a5e" alt="Image representing Socaly text logo" class="socaly-logo">
       </a>
     </div>
-    <div class="col-6">
-      <div *ngIf="isLoggedIn" ngbDropdown class="col-6 col-md-3 float-end">
-        <button class="col-xl-2 float-end user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
+    <div class="d-flex ms-auto">
+      <div *ngIf="isLoggedIn" ngbDropdown class="me-3">
+        <button class="user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
           {{username}}
         </button>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -23,11 +23,11 @@
           </button>
         </div>
       </div>
-      <div class="d-flex flex-row justify-content-end" *ngIf="!isLoggedIn">
-        <div class="col-auto me-2">
+      <div class="d-flex flex-row" *ngIf="!isLoggedIn">
+        <div class="me-2">
           <button (click)="login()" class="btn-secondary min-width">Log In</button>
         </div>
-        <div class="col-auto p-0 pe-2 me-2">
+        <div class="p-0 me-3">
           <button (click)="signup()" class="btn-primary min-width">Sign Up</button>
         </div>
       </div>
