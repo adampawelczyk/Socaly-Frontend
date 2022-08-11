@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@use "utilities/colors";
 @import "node_modules/bootstrap/scss/bootstrap";
 
 $primaryColor: #0079d3;
@@ -27,7 +27,7 @@ body {
 }
 
 .btn-secondary, .btn-primary {
-  fill: $primaryColor;
+  fill: colors.$button-color;
   border: 1px solid $primaryColor;
   border-radius: 999px;
   text-align: center;
