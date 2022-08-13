@@ -69,19 +69,19 @@ body {
 }
 
 .btn-secondary:active {
-  background-color: #d7eaf8;
+  background-color: colors.$btn-secondary-active-color;
   border: 1px solid colors.$btn-primary-color;
   color: colors.$btn-primary-color;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(0, 121, 211, 0.04);
+  background-color: colors.$btn-secondary-hover-color;
   border: 1px solid colors.$btn-primary-color;
   color: colors.$btn-primary-color;
 }
 
 .btn-secondary:focus {
-  background-color: #ebf4fc;
+  background-color: colors.$btn-secondary-focus-color;
   border: 1px solid colors.$btn-primary-color;
   color: colors.$btn-primary-color;
   box-shadow: none;
