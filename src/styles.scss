@@ -49,18 +49,18 @@ body {
 }
 
 .btn-primary:active {
-  background-color: #3d99de;
-  border-color: #3d99de;
+  background-color: colors.$btn-primary-active-color;
+  border-color: colors.$btn-primary-active-color;
 }
 
 .btn-primary:hover {
-  background-color: #1484d7;
-  border-color: #1484d7;
+  background-color: colors.$btn-primary-hover-color;
+  border-color: colors.$btn-primary-hover-color;
 }
 
 .btn-primary:focus {
-  background-color: #288eda;
-  border-color: #288eda;
+  background-color: colors.$btn-primary-focus-color;
+  border-color: colors.$btn-primary-focus-color;
   box-shadow: none;
 }
 
