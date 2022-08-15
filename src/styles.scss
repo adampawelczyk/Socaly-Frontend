@@ -25,8 +25,8 @@ body {
 }
 
 .btn-secondary, .btn-primary {
-  fill: colors.$btn-primary-color;
-  border: 1px solid colors.$btn-primary-color;
+  fill: colors.$primary-color;
+  border: 1px solid colors.$primary-color;
   border-radius: 999px;
   text-align: center;
   letter-spacing: 1px;
@@ -39,12 +39,12 @@ body {
   min-width: 100%;
   padding: 4px 16px;
   opacity: 1;
-  color: colors.$btn-primary-color;
+  color: colors.$primary-color;
   background-color: transparent;
 }
 
 .btn-primary {
-  background-color: colors.$btn-primary-color;
+  background-color: colors.$primary-color;
   color: white;
 }
 
@@ -70,20 +70,20 @@ body {
 
 .btn-secondary:active {
   background-color: colors.$btn-secondary-active-color;
-  border: 1px solid colors.$btn-primary-color;
-  color: colors.$btn-primary-color;
+  border: 1px solid colors.$primary-color;
+  color: colors.$primary-color;
 }
 
 .btn-secondary:hover {
   background-color: colors.$btn-secondary-hover-color;
-  border: 1px solid colors.$btn-primary-color;
-  color: colors.$btn-primary-color;
+  border: 1px solid colors.$primary-color;
+  color: colors.$primary-color;
 }
 
 .btn-secondary:focus {
   background-color: colors.$btn-secondary-focus-color;
-  border: 1px solid colors.$btn-primary-color;
-  color: colors.$btn-primary-color;
+  border: 1px solid colors.$primary-color;
+  color: colors.$primary-color;
   box-shadow: none;
 }
 
