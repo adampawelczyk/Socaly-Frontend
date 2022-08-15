@@ -1,3 +1,5 @@
+@use "../../../utilities/colors.scss";
+
 .side-banner {
   background-image: url("../../../assets/side-banner.png");
   background-size: 100% 100%;
@@ -10,7 +12,7 @@
   line-height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #0079d3;
+  color: colors.$primary-color;
   cursor: pointer;
 }
 
