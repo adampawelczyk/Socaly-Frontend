@@ -1,8 +1,8 @@
+@use "../../utilities/colors.scss";
+
 .community-banner {
   height: 150px;
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fcommunity-default-banner.png?alt=media&token=3af0b164-3ab9-4bf3-8e97-7946ebfb3ac3");
-  background-position: top;
-  background-size: cover;
+  background-color: colors.$primary-color;
 }
 
 .community-header {
