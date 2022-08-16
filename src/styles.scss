@@ -24,6 +24,11 @@ body {
   @extend .visually-hidden;
 }
 
+.btn-primary-small-font {
+  @extend .btn-primary;
+  font-size: 0.75rem !important;
+}
+
 .btn-secondary, .btn-primary {
   fill: colors.$primary-color;
   border: 1px solid colors.$primary-color;
