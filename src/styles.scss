@@ -140,42 +140,6 @@ body {
   border: 1px solid black;
 }
 
-.icon-w300-g0-o48 {
-  @extend .material-symbols-outlined;
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 300,
-    'GRAD' 0,
-    'opsz' 48
-}
-
-.icon-w400-g200-o48 {
-  @extend .material-symbols-outlined;
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 200,
-    'opsz' 48
-}
-
-.icon-w300-g0-o14 {
-  @extend .material-symbols-outlined;
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 300,
-    'GRAD' 0,
-    'opsz' 14
-}
-
-.icon-w700-g200-o48 {
-  @extend .material-symbols-outlined;
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 700,
-    'GRAD' 200,
-    'opsz' 48
-}
-
 .carousel-control-prev-icon {
   background-image: url("assets/icons/prev-slide-icon.svg");
   background-color: white;
