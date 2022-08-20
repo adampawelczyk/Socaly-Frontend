@@ -1,5 +1,5 @@
 <div class="d-flex flex-row flex-sm-column align-items-center p-1 ps-0 p-sm-0">
-    <span class="material-symbols-outlined up-vote vote-icon" (click)="upvotePost(); $event.stopPropagation()" [style.color]="post.upVote ? 'green':''">arrow_upward</span>
+    <span class="material-symbols-outlined up-vote" (click)="upvotePost(); $event.stopPropagation()" [style.color]="post.upVote ? 'green':''">arrow_upward</span>
   <div class="vote-number-text">{{post.voteCount}}</div>
-    <span class="material-symbols-outlined down-vote vote-icon" (click)="downvotePost(); $event.stopPropagation()" [style.color]="post.downVote ? 'red':''">arrow_downward</span>
+    <span class="material-symbols-outlined down-vote" (click)="downvotePost(); $event.stopPropagation()" [style.color]="post.downVote ? 'red':''">arrow_downward</span>
 </div>
