@@ -1,3 +1,5 @@
+@use '../../utilities/colors.scss';
+
 .thread-line {
   border-left: 2px solid #f1f2f4;
 }
@@ -7,7 +9,7 @@
   padding: 4px;
   font-size: 12px;
   font-weight: 700;
-  color: #878A8C;
+  color: colors.$lightgray;
   background-color: transparent;
   opacity: 1;
   text-decoration: none;

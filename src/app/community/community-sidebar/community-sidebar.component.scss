@@ -1,9 +1,11 @@
+@use '../../../utilities/colors.scss';
+
 .sidebar-view-community {
   --post-line-color: #ccc;
   border: 0.5px solid #ccc;
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
-  color: #878A8C;
+  color: colors.$lightgray;
   border-radius: 4px;
   padding: 0;
   margin: 0;

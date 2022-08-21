@@ -1,3 +1,5 @@
+@use '../../utilities/colors.scss';
+
 .row-post {
   padding-top: 50px;
 }
@@ -9,7 +11,7 @@
   margin-bottom: 15px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.8);
-  color: #878A8C;
+  color: colors.$lightgray;
   position: relative;
   border-radius: 4px;
 }
@@ -28,7 +30,7 @@ img {
 
 .bntComments {
   border-radius: 4px;
-  color: #878A8C;
+  color: colors.$lightgray;
   opacity: 1;
   text-decoration: none;
 }
@@ -69,7 +71,7 @@ img {
 
 .username {
   text-decoration: none;
-  color: #878A8C;
+  color: colors.$lightgray;
 }
 
 .username:hover {
