@@ -108,6 +108,7 @@ body {
 .btn-tertiary:hover {
   cursor: pointer;
   background-color: colors.$lightgray;
+  color: colors.$darkgray;
 }
 
 .dropdown-item {
