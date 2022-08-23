@@ -5,12 +5,12 @@
     <div class="d-flex flex-row ms-2">
       <app-comment-vote class="flex-column" [comment]="comment"></app-comment-vote>
       <div>
-        <button class="d-flex ms-1 btn-comment" (click)="showReplyForm(); $event.stopPropagation()">
+        <button class="d-flex ms-1 btn-tertiary" (click)="showReplyForm(); $event.stopPropagation()">
           <span class="material-symbols-outlined pe-1">reply</span>
           <span>Reply</span>
         </button>
       </div>
-      <button class="d-flex ms-1 btn-comment" (click)="collapse(); $event.stopPropagation()">
+      <button class="d-flex ms-1 btn-tertiary" (click)="collapse(); $event.stopPropagation()">
         <span>Collapse</span>
       </button>
     </div>
@@ -32,7 +32,7 @@
     </div>
 </div>
 <div *ngIf="collapsed">
-  <button class="btn-comment" (click)="extend(); $event.stopPropagation()">
+  <button class="btn-tertiary" (click)="extend(); $event.stopPropagation()">
     <span class="material-icons-outlined me-1">expand_more</span>
     Expand
   </button>

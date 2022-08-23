@@ -92,6 +92,24 @@ body {
   box-shadow: none;
 }
 
+.btn-tertiary {
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: colors.$darkgray;
+  background-color: transparent;
+  opacity: 1;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+.btn-tertiary:hover {
+  cursor: pointer;
+  background-color: colors.$lightgray;
+}
+
 .dropdown-item {
   border-radius: 4px;
 }
