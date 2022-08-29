@@ -41,5 +41,5 @@ a {
 .blue-background {
   background-color: colors.$primary-color;
   color: white;
-  border: 1px solid #3B82F6;
+  border: 1px solid colors.$primary-color;
 }
