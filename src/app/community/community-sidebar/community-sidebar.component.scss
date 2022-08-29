@@ -3,7 +3,7 @@
 .sidebar-view-community {
   border: 0.5px solid colors.$border-color;
   overflow: hidden;
-  background-color: rgba(255,255,255,0.8);
+  background-color: colors.$card-background-color;
   color: colors.$darkgray;
   border-radius: 4px;
   padding: 0;
