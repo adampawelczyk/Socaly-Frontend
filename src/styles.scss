@@ -137,6 +137,7 @@ body {
 }
 
 .modal-footer {
+  background-color: colors.$card-footer-background-color;
   border-top: none;
   justify-content: flex-start;
   padding: 1rem;
