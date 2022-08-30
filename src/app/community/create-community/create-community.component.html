@@ -6,7 +6,7 @@
   <form class="community-form" id="create-community-form" [formGroup]="createCommunityForm" (ngSubmit)="createCommunity()">
     <div class="form-group">
       <input type="text" [formControlName]="'title'" class="form-control" placeholder="Title">
-      <textarea type="text" [formControlName]="'description'" class="description-textarea mt-2" placeholder="Description"></textarea>
+      <textarea type="text" [formControlName]="'description'" class="form-control mt-2" placeholder="Description"></textarea>
     </div>
   </form>
 </div>
