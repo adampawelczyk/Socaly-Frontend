@@ -5,7 +5,7 @@
 <div class="modal-body">
   <form class="community-form" id="create-community-form" [formGroup]="createCommunityForm" (ngSubmit)="createCommunity()">
     <div class="form-group">
-      <input type="text" [formControlName]="'title'" class="form-control" style="margin-top: 5px" placeholder="Title">
+      <input type="text" [formControlName]="'title'" class="form-control" placeholder="Title">
       <textarea type="text" [formControlName]="'description'" class="description-textarea mt-2" placeholder="Description"></textarea>
     </div>
   </form>
