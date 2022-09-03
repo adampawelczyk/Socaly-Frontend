@@ -1,7 +1,7 @@
 @use '../../../utilities/colors.scss';
 
 .create-post-topbar {
-  border: 1px solid #ccc;
+  border: 1px solid colors.$border-color;
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
   color: colors.$darkgray;
