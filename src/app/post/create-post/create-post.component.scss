@@ -1,3 +1,5 @@
+@use '../../../utilities/colors.scss';
+
 .black-border:hover {
   outline: none;
 }
@@ -22,7 +24,7 @@ a {
 
 .dropzone {
   height: 200px;
-  border: 1px dashed #ccc;
+  border: 1px dashed colors.$border-color;
 }
 
 .dropdown-toggle::after {
