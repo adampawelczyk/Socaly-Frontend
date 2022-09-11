@@ -20,7 +20,7 @@ input {
 
 input:hover {
   background-color: white;
-  border: 1px solid #3B82F6;
+  border: 1px solid colors.$primary-color;
 }
 
 input:focus {
