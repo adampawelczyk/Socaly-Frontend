@@ -1,3 +1,5 @@
+@use "../../utilities/colors.scss";
+
 nav {
   height: 48px;
   background-color: white;
@@ -32,7 +34,7 @@ nav {
 }
 
 .user-dropdown:hover {
-  border-color: #edeff1;
+  border-color: colors.$dropdown-item-hover-color;
 }
 
 .user-dropdown:focus {
