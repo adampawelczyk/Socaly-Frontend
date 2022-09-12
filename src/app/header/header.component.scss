@@ -38,7 +38,7 @@ nav {
 }
 
 .user-dropdown:focus {
-  border-color: #edeff1;
+  border-color: colors.$dropdown-item-focus-color;
   box-shadow: none;
 }
 
