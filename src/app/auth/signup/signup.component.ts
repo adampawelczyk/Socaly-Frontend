@@ -10,7 +10,7 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
     this.signupPayload.password = this.signupForm.get('password')?.value;
 
     this.authService.signup(this.signupPayload).subscribe(() => {
+      this.activeModal.close();
       this.toastr.success('Signup Successful');
       this.toastr.success('Please check your inbox for activation email');
     }, () => {

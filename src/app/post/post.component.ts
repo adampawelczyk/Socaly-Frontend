@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from './shared/post.service';
 import { PostResponseModel } from './shared/post-response.model';
-import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { CommentService } from '../comment/shared/comment.service';
@@ -13,13 +12,12 @@ import { editorConfig } from '../../globals';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
   @Input() showCommunityName: boolean = true;
   @Input() showComments: boolean = false;
   @Input() posts: PostResponseModel[];
-  faCommentAlt = faCommentAlt;
   comments: CommentResponseModel[];
 
   postId: number;
@@ -80,7 +78,7 @@ export class PostComponent implements OnInit {
     this.router.navigateByUrl('/view-post/' + id);
   }
 
-  showNavigationArrows(post: PostResponseModel) {
+  showCarouselNavigationControls(post: PostResponseModel) {
     if (post.images !== undefined) {
       return post.images.length > 1;
     } else {

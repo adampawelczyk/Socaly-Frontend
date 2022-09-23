@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@use "utilities/colors";
+@import "node_modules/bootstrap/scss/bootstrap";
+
 html {
   padding: 0;
   height: 100%;
@@ -6,27 +9,157 @@ html {
 }
 
 body {
-  margin-top: 56px;
+  margin-top: 3rem;
   height: 100%;
-  background-color: #f0f2f5;
+  background-color: colors.$body-background-color;
+  font-family: Arial, sans-serif;
 }
 
-.login,
-.sign-up {
-  background-color: #8B4BF4;
-  color: aliceblue;
-  fill: #8B4BF4;
-  border: 1px solid #8B4BF4;
-  border-radius: 4px;
+.container {
+  max-width: 1200px;
+  margin: auto
+}
+
+.sr-only {
+  @extend .visually-hidden;
+}
+
+.btn-primary-small-font {
+  @extend .btn-primary;
+  font-size: 0.75rem !important;
+}
+
+.btn-primary, .btn-secondary {
+  fill: colors.$primary-color;
+  border: 1px solid colors.$primary-color;
+  border-radius: 999px;
   text-align: center;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
   letter-spacing: 1px;
-  line-height: 24px;
-  text-transform: uppercase;
-  padding: 3px 16px;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Arial, sans-serif;
+  font-size: 0.87rem;
+  font-weight: 700;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 0.25rem 1rem;
   opacity: 1;
+  color: colors.$primary-color;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: colors.$primary-color;
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: colors.$btn-primary-active-color;
+  border-color: colors.$btn-primary-active-color;
+}
+
+.btn-primary:hover {
+  background-color: colors.$btn-primary-hover-color;
+  border-color: colors.$btn-primary-hover-color;
+}
+
+.btn-primary:focus {
+  background-color: colors.$btn-primary-focus-color;
+  border-color: colors.$btn-primary-focus-color;
+  box-shadow: none;
+}
+
+.btn-secondary:active:focus, .btn-primary:active:focus {
+  box-shadow: none;
+}
+
+.btn-secondary:active {
+  background-color: colors.$btn-secondary-active-color;
+  border: 1px solid colors.$primary-color;
+  color: colors.$primary-color;
+}
+
+.btn-secondary:hover {
+  background-color: colors.$btn-secondary-hover-color;
+  border: 1px solid colors.$primary-color;
+  color: colors.$primary-color;
+}
+
+.btn-secondary:focus {
+  background-color: colors.$btn-secondary-focus-color;
+  border: 1px solid colors.$primary-color;
+  color: colors.$primary-color;
+  box-shadow: none;
+}
+
+.btn-tertiary {
+  border-radius: 4px;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: colors.$darkgray;
+  background-color: transparent;
+  opacity: 1;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.btn-tertiary:hover {
+  cursor: pointer;
+  background-color: colors.$lightgray;
+  color: colors.$darkgray;
+}
+
+.dropdown-item {
+  border-radius: 4px;
+}
+
+.dropdown-item:active {
+  color: black;
+  background-color: colors.$dropdown-item-active-color;
+}
+
+.dropdown-item:focus {
+  background-color: colors.$dropdown-item-focus-color;
+}
+
+.dropdown-item:hover:not(:focus) {
+  background-color: colors.$dropdown-item-hover-color;
+}
+
+.sticky-top {
+  top: 4rem;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  background-color: colors.$card-footer-background-color;
+  border-top: none;
+  justify-content: flex-start;
+  padding: 1rem;
+  position: static;
+  bottom: 0;
+}
+
+.modal-content {
+  overflow: hidden;
+  border: none;
+}
+
+.btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid black;
 }
 
 .carousel-control-prev-icon {
@@ -34,7 +167,7 @@ body {
   background-color: white;
   background-size: 40px;
   border-radius: 40px;
-  padding: 22px;
+  padding: 1.3rem;
   box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
 }
 
@@ -43,23 +176,41 @@ body {
   background-color: white;
   background-size: 40px;
   border-radius: 40px;
-  padding: 22px;
+  padding: 1.3rem;
   box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
 }
 .carousel-item {
-  transition: opacity 0.5s ease !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
+  transition: visibility 0.05s;
+  visibility: hidden;
+  display: inline-block;
+  vertical-align: middle;
   float: none;
-  opacity: 0;
 }
 
 .carousel-item.active {
-  position: relative !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
+  transition: visibility 0.05s;
+  visibility: visible;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
   float: none;
-  opacity: 1;
+}
+
+.carousel-indicators li {
+  width : 10px;
+  background-color: white;
+  opacity: 0.5;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+  height: 10px;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.carousel-indicators .active {
+  width : 10px;
+  background-color: white;
+  height: 10px;
+  border-radius: 50%;
 }
 
 .material-icons-outlined, .material-icons {

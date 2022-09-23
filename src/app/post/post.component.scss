@@ -1,0 +1,95 @@
+@use '../../utilities/colors.scss';
+
+.post {
+  border: 1px solid colors.$border-color;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
+  position: relative;
+  border-radius: 4px;
+}
+
+.post-hover-border:hover {
+  border-color: #303030;
+  cursor: pointer;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.post-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  opacity: 1;
+}
+
+.post-url, .post-name {
+  color: black;
+  text-decoration: none;
+}
+
+.community-info {
+  font-size: 0.75rem;
+}
+
+.community-text {
+  font-weight: bold;
+}
+
+.community-text:hover {
+  text-decoration: underline;
+}
+
+.post-text {
+  margin-top: 0.62rem;
+  color: black;
+}
+
+.username {
+  text-decoration: none;
+  color: colors.$darkgray;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+.vote-background {
+  max-width: 40px;
+}
+
+.comment-username {
+  color: black;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.comment-username:hover {
+  text-decoration: underline;
+}
+
+.comment-text {
+  color: black;
+}
+
+.post-button-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+.material-symbols-outlined {
+  font-size: 1.2rem;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 200,
+    'opsz' 48
+}

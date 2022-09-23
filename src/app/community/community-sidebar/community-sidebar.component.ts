@@ -7,7 +7,7 @@ import { CreateCommunityComponent } from '../create-community/create-community.c
 @Component({
   selector: 'app-community-sidebar',
   templateUrl: './community-sidebar.component.html',
-  styleUrls: ['./community-sidebar.component.css']
+  styleUrls: ['./community-sidebar.component.scss']
 })
 export class CommunitySidebarComponent implements OnInit {
   communities: CommunityResponseModel[];

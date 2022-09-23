@@ -1,0 +1,29 @@
+.up-vote, .down-vote {
+  cursor: pointer;
+}
+
+.up-vote:hover {
+  color: green;
+}
+
+.down-vote:hover {
+  color: red;
+}
+
+.vote-number-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-size: 1.25rem;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 48
+}

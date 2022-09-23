@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostResponseModel} from '../../post/shared/post-response.model';
-import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import {PostVoteModel} from '../shared/post-vote.model';
 import {VoteService} from '../shared/vote.service';
 import {AuthService} from '../../auth/shared/auth.service';
@@ -12,13 +11,11 @@ import {throwError} from 'rxjs';
 @Component({
   selector: 'app-post-vote',
   templateUrl: './post-vote.component.html',
-  styleUrls: ['./post-vote.component.css']
+  styleUrls: ['../shared/vote.component.scss']
 })
 export class PostVoteComponent implements OnInit {
   @Input() post: PostResponseModel;
   postVotePayload: PostVoteModel;
-  faArrowUp = faArrowUp;
-  faArrowDown = faArrowDown;
   upVoteColor: string;
   downVoteColor: string;
 

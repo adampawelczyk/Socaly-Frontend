@@ -1,0 +1,58 @@
+@use "../../utilities/colors.scss";
+
+.community-banner {
+  height: 150px;
+  background-color: colors.$primary-color;
+}
+
+.community-header {
+  background-color: white;
+  height: 78px;
+}
+
+.community-logo {
+  height: 82px;
+  width: 82px;
+  margin-top: -1rem;
+}
+
+.community-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 6px solid white;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.community-name {
+  margin-left: 0.1rem;
+}
+
+.community-name-bold {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: colors.$darkgray
+}
+
+.hover-text:after {
+  content: "Joined";
+}
+
+.hover-text:hover:after {
+  content: "Leave";
+}
+
+.min-width {
+  min-width: 85px;
+}

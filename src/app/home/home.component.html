@@ -1,11 +1,11 @@
 <div class="socaly-body">
   <div class="container">
-    <div class="row">
-      <div class="col-xl-7 col-lg-8 offset-xl-1">
+    <div class="d-flex">
+      <div class="flex-grow-1 me-lg-4">
         <app-create-post-topbar></app-create-post-topbar>
         <app-post [posts]="posts"></app-post>
       </div>
-      <div class="col-xl-3 col-lg-4 sticky-top">
+      <div class="sidebar">
         <div class="sticky-top">
           <app-community-sidebar></app-community-sidebar>
           <app-home-sidebar></app-home-sidebar>

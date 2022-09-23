@@ -1,27 +1,35 @@
 <header>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <div class="flex-grow-1">
+  <nav class="d-flex navbar fixed-top navbar-expand-lg pt-1 pb-1">
+    <div class="d-flex ms-3">
       <a aria-label="Home" class="logo" routerLink="/">
-        <img src="assets/Socaly-logo_blue.png" alt="Image representing Socaly logo" class="socaly-logo">
+        <img src="https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fsocaly-image-logo.png?alt=media&token=9ff49c88-38db-4c16-8156-7249cde35e9c" alt="Image representing Socaly image logo" class="socaly-logo me-1">
+        <img src="https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fsocaly-text-logo-black.png?alt=media&token=e30e5f38-605d-4d7a-80cc-f61fbe638a5e" alt="Image representing Socaly text logo" class="socaly-logo">
       </a>
     </div>
-    <div class="flex-grow-1 float-end">
-      <div *ngIf="isLoggedIn" ngbDropdown class="float-end">
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button (click)="goToUserProfile()" ngbDropdownItem>
-            Profile
-          </button>
-          <button (click)="logout()" ngbDropdownItem>
-            Logout
-          </button>
-        </div>
-        <button class="user-details me-2" id="dropdownBasic1" ngbDropdownToggle>
+    <div class="d-flex ms-auto">
+      <div *ngIf="isLoggedIn" ngbDropdown class="me-3">
+        <button class="user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
           {{username}}
         </button>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button class="d-flex" (click)="goToUserProfile()" ngbDropdownItem>
+            <span class="material-symbols-outlined">account_circle</span>
+            <span class="ps-1 text">Profile</span>
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="d-flex" (click)="logout()" ngbDropdownItem>
+            <span class="material-symbols-outlined">logout</span>
+            <span class="ps-1 text">Log Out</span>
+          </button>
+        </div>
       </div>
-      <div *ngIf="!isLoggedIn">
-        <button (click)="signup()" class="float-end sign-up me-2">Sign up</button>
-        <button (click)="login()" class="float-end login me-2">Login</button>
+      <div class="d-flex flex-row" *ngIf="!isLoggedIn">
+        <div class="me-2">
+          <button (click)="login()" class="btn-secondary min-width">Log In</button>
+        </div>
+        <div class="p-0 me-3">
+          <button (click)="signup()" class="btn-primary min-width">Sign Up</button>
+        </div>
       </div>
     </div>
   </nav>

@@ -5,7 +5,7 @@ import { CreatePostComponent } from '../create-post/create-post.component';
 @Component({
   selector: 'app-create-post-topbar',
   templateUrl: './create-post-topbar.component.html',
-  styleUrls: ['./create-post-topbar.component.css']
+  styleUrls: ['./create-post-topbar.component.scss']
 })
 export class CreatePostTopbarComponent implements OnInit {
   constructor(private modal: NgbModal) { }

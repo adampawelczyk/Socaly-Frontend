@@ -1,0 +1,46 @@
+@use '../../../utilities/colors.scss';
+
+.black-border:hover {
+  outline: none;
+}
+
+.black-border:focus {
+  border: 1px solid black;
+}
+
+.outline-none:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #495057;
+}
+
+.nav-link.active {
+  color: colors.$primary-color;
+}
+
+a {
+  color: #495057
+}
+
+.dropzone {
+  height: 200px;
+  border: 1px dashed colors.$border-color;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.block {
+  display: block;
+  width: 100%
+}
+
+.disabled-btn, .disabled-btn:hover {
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.progress-bar {
+  background-color: colors.$primary-color;
+}

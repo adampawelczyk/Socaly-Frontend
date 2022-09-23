@@ -1,12 +1,13 @@
+@use '../../../utilities/colors.scss';
+
 .create-post-topbar {
-  --post-line-color: #ccc;
-  border: 1px solid #ccc;
+  border: 1px solid colors.$border-color;
   overflow: hidden;
-  background-color: rgba(255,255,255,0.8);
-  color: #878A8C;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
   border-radius: 4px;
   padding: 0;
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 input {
@@ -19,7 +20,7 @@ input {
 
 input:hover {
   background-color: white;
-  border: 1px solid #3B82F6;
+  border: 1px solid colors.$primary-color;
 }
 
 input:focus {

@@ -2,6 +2,20 @@ export const editorConfig = {
   skin_url: '..\\assets\\skins\\ui\\light',
   branding: false,
   height: 0,
+  setup: (editor: { on: (arg0: string, arg1: () => void) => void; getContainer: () => any; }) => {
+    editor.on("focus", () => {
+      const element = editor.getContainer();
+      if (element) {
+        element.style.border = "1px solid black";
+      }
+    });
+    editor.on("blur", () => {
+      const element = editor.getContainer();
+      if (element) {
+        element.style.border = "1px solid #f0f2f3";
+      }
+    });
+  },
   placeholder: "",
   menubar: false,
   plugins: [

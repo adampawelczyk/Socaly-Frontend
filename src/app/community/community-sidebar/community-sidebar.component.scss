@@ -1,0 +1,45 @@
+@use '../../../utilities/colors.scss';
+
+.sidebar-view-community {
+  border: 0.5px solid colors.$border-color;
+  overflow: hidden;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  width: 312px;
+}
+
+.community-sidebar-banner {
+  height: 80px;
+  background-image: url("../../../assets/popular-communities-banner.png");
+  background-size: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  color: white;
+}
+
+hr {
+  height: 0.5px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.show-all:hover {
+  color: colors.$primary-color;
+}
+
+.blue-background {
+  background-color: colors.$primary-color;
+  color: white;
+  border: 1px solid colors.$primary-color;
+}

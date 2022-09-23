@@ -10,7 +10,7 @@ import { SignupComponent } from '../signup/signup.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     this.loginPayload.password = this.loginForm.get('password')?.value;
 
     this.authService.login(this.loginPayload).subscribe(() => {
+      this.activeModal.close();
       this.router.navigateByUrl('')
       this.toastr.success('Login successful')
     }, () => {

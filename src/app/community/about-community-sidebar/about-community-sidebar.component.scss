@@ -1,0 +1,42 @@
+@use "../../../utilities/colors.scss";
+
+.about-community-sidebar {
+  border: 0.5px solid colors.$border-color;
+  overflow: hidden;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
+  border-radius: 4px;
+  padding: 0;
+  margin-top: 1rem;
+  width: 312px;
+}
+
+.blue-background {
+  background-color: colors.$primary-color;
+  color: white;
+  border: 1px solid colors.$primary-color;
+}
+
+.header-text {
+  font-size: 0.87rem;
+  font-weight: 700;
+}
+
+.text {
+  color: black;
+  font-size: 0.87rem;
+}
+
+.material-symbols-outlined {
+  color: black;
+  font-size: 1.2rem;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 14
+}
+
+hr {
+  height: 0.5px;
+}

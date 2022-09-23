@@ -5,16 +5,22 @@
 <div class="modal-body">
   <form class="community-form" id="create-community-form" [formGroup]="createCommunityForm" (ngSubmit)="createCommunity()">
     <div class="form-group">
-      <input type="text" [formControlName]="'title'" class="form-control" style="margin-top: 5px" placeholder="Title">
-      <textarea type="text" [formControlName]="'description'" class="description-textarea" placeholder="Description"></textarea>
+      <input type="text" [formControlName]="'title'" class="form-control" placeholder="Title">
+      <textarea type="text" [formControlName]="'description'" class="form-control mt-2" rows="5" placeholder="Description"></textarea>
     </div>
   </form>
 </div>
-<div class="modal-footer">
-  <button class="bnt btn-secondary" (click)="discard()">
-    Discard
-  </button>
-  <button type="submit" form="create-community-form" class="btn btn-primary">
-    Create
-  </button>
+<div class="modal-footer justify-content-end p-2">
+  <div class="d-flex flex-row">
+    <div class="me-2">
+      <button class="btn-secondary" (click)="discard()">
+        Discard
+      </button>
+    </div>
+    <div>
+      <button type="submit" form="create-community-form" class="btn-primary">
+        Create
+      </button>
+    </div>
+  </div>
 </div>

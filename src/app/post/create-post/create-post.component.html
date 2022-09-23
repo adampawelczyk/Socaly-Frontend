@@ -13,7 +13,7 @@
   </div>
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
     <li [ngbNavItem]="1">
-      <a ngbNavLink><span class="material-icons-outlined me-1">article</span>Post</a>
+      <a ngbNavLink class="d-flex"><span class="material-symbols-outlined me-1">article</span>Post</a>
       <ng-template ngbNavContent>
         <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="form-group">
@@ -24,7 +24,7 @@
       </ng-template>
     </li>
     <li [ngbNavItem]="2">
-      <a ngbNavLink><i class="material-icons-outlined me-1">image</i>Image</a>
+      <a ngbNavLink class="d-flex"><span class="material-symbols-outlined me-1">image</span>Image</a>
       <ng-template ngbNavContent>
         <form class="post-form" id="create-image-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="form-group">
@@ -50,16 +50,24 @@
   </ul>
   <div [ngbNavOutlet]="nav"></div>
 </div>
-<div class="modal-footer">
-  <button (click)="discardPost()" class="btn btn-secondary">
-    Discard
-  </button>
-  <button *ngIf="active == 1" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-post-form"
-          class="btn btn-primary">
-    Post
-  </button>
-  <button *ngIf="active == 2" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty() || uploadingFiles)}" type="submit" form="create-image-form"
-          class="btn btn-primary">
-    Post
-  </button>
+<div class="modal-footer justify-content-end p-2">
+  <div class="d-flex flex-row">
+    <div class="me-2">
+      <button (click)="discardPost()" class="btn-secondary">
+        Discard
+      </button>
+    </div>
+    <div>
+      <button *ngIf="active == 1" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-post-form"
+              class="btn-primary">
+        Post
+      </button>
+    </div>
+    <div>
+      <button *ngIf="active == 2" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty() || uploadingFiles)}" type="submit" form="create-image-form"
+              class="btn-primary">
+        Post
+      </button>
+    </div>
+  </div>
 </div>

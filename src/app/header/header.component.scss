@@ -1,0 +1,52 @@
+@use "../../utilities/colors.scss";
+
+nav {
+  height: 48px;
+  background-color: white;
+}
+
+.min-width {
+  min-width: 94px;
+}
+
+.text {
+  font-size: 0.87rem;
+}
+
+.material-symbols-outlined {
+  color: black;
+  font-size: 1.2rem;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 14
+}
+
+.socaly-logo {
+  height: 30px;
+  width: auto;
+}
+
+.user-dropdown {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.user-dropdown:hover {
+  border-color: colors.$dropdown-item-hover-color;
+}
+
+.user-dropdown:focus {
+  border-color: colors.$dropdown-item-focus-color;
+  box-shadow: none;
+}
+
+.user-dropdown::after {
+  display: none;
+}
+
+.dropdown-menu {
+  right: 0;
+  min-width: 256px;
+}

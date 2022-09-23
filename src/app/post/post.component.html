@@ -1,9 +1,9 @@
-<div class="post" *ngFor="let post of posts">
-  <div class="row m-0" (click)="goToPost(post.id)">
-    <div class="col-md-1 p-2 d-none d-sm-block vote-background">
+<div class="post" [ngClass]="!showComments ? 'post-hover-border' : ''" *ngFor="let post of posts" >
+  <div class="d-flex flex-row" (click)="goToPost(post.id)">
+    <div class="d-flex flex-column p-2 d-none d-sm-block vote-background">
       <app-post-vote [post]="post"></app-post-vote>
     </div>
-    <div class="col-sm-11 p-sm-2 pb-2">
+    <div class="d-flex flex-column flex-fill p-2">
       <span class="community-info">
         <span class="community-text" *ngIf="showCommunityName">
           <a class="post-url" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a>
@@ -24,35 +24,40 @@
         <p [innerHTML]="post.description"></p>
       </div>
       <div *ngIf="postImagesAreNotEmpty(post)" class="mt-1 mb-1">
-        <ngb-carousel [interval]="0" [wrap]="true" [showNavigationIndicators]="false"
-                      [showNavigationArrows]="showNavigationArrows(post)" (click)="$event.stopPropagation()">
+        <ngb-carousel [interval]="0" [wrap]="true" [showNavigationIndicators]="showCarouselNavigationControls(post)"
+                      [showNavigationArrows]="showCarouselNavigationControls(post)" (click)="$event.stopPropagation()">
           <ng-template ngbSlide *ngFor="let image of post.images">
-            <div>
+            <div class="pe-3">
               <img [src]="image" alt="{{post.postName}}">
             </div>
           </ng-template>
         </ngb-carousel>
       </div>
       <div class="d-flex flex-row">
-        <div class="d-block d-sm-none pe-3">
+        <div class="d-flex d-sm-none">
           <app-post-vote [post]="post"></app-post-vote>
         </div>
         <div>
-          <a class="bntComments" role="button" (click)="goToPost(post.id)">
-            <fa-icon [icon]="faCommentAlt"></fa-icon> {{post.commentCount}} Comments
+          <a class="btn-tertiary p-1" role="button" (click)="goToPost(post.id)">
+            <span class="material-symbols-outlined d-flex">chat_bubble</span>
+            <span class="ps-1 d-flex post-button-text">{{post.commentCount}} Comments</span>
           </a>
         </div>
       </div>
     </div>
-    <div class="ps-5 pe-5 pt-2" *ngIf="showComments">
-      <form [formGroup]="commentForm" (ngSubmit)="postComment()">
-        <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
-        <button type="submit" class="bnt btn-primary mt-2">Comment</button>
-      </form>
-      <hr>
-      <div class="mb-2" *ngFor="let comment of comments">
-        <app-comment [comment]="comment" [postId]="postId"></app-comment>
+  </div>
+  <div class="ps-5 pe-5 pt-2" *ngIf="showComments">
+    <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+      <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
+      <div class="d-flex flex-row-reverse">
+        <div>
+          <button type="submit" class="btn-primary-small-font mt-2">Comment</button>
+        </div>
       </div>
+    </form>
+    <hr>
+    <div class="mb-2" *ngFor="let comment of comments">
+      <app-comment [comment]="comment" [postId]="postId"></app-comment>
     </div>
   </div>
 </div>

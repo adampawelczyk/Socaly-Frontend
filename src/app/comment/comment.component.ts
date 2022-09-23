@@ -11,7 +11,7 @@ import { editorConfig } from '../../globals';
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.css'],
+  styleUrls: ['./comment.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class CommentComponent implements OnInit {

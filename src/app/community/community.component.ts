@@ -10,7 +10,7 @@ import { CommunityService } from './shared/community.service';
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
-  styleUrls: ['./community.component.css']
+  styleUrls: ['./community.component.scss']
 })
 export class CommunityComponent implements OnInit {
   communityName: string;
