@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommunityService } from '../shared/community.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,15 +11,15 @@ import { CommunityRequestModel } from '../shared/community-request.model';
   styleUrls: ['./create-community.component.scss']
 })
 export class CreateCommunityComponent implements OnInit {
-  createCommunityForm: FormGroup;
+  createCommunityForm: UntypedFormGroup;
   communityPayload: CommunityRequestModel;
-  title = new FormControl('');
-  description = new FormControl('');
+  title = new UntypedFormControl('');
+  description = new UntypedFormControl('');
 
   constructor(private router: Router, private communityService: CommunityService, public activeModal: NgbActiveModal) {
-    this.createCommunityForm = new FormGroup({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required)
+    this.createCommunityForm = new UntypedFormGroup({
+      title: new UntypedFormControl('', Validators.required),
+      description: new UntypedFormControl('', Validators.required)
     });
 
     this.communityPayload = {
