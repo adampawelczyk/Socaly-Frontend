@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PostRequestModel } from '../shared/post-request.model';
 import { CommunityResponseModel } from '../../community/shared/community-response.model';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ import { editorConfig } from '../../../globals';
   styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent implements OnInit {
-  createPostForm: FormGroup;
+  createPostForm: UntypedFormGroup;
   postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
   files: File[] = [];
@@ -42,10 +42,10 @@ export class CreatePostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createPostForm = new FormGroup({
-      postName: new FormControl('', Validators.required),
-      communityName: new FormControl('', Validators.required),
-      description: new FormControl('')
+    this.createPostForm = new UntypedFormGroup({
+      postName: new UntypedFormControl('', Validators.required),
+      communityName: new UntypedFormControl('', Validators.required),
+      description: new UntypedFormControl('')
     });
 
     this.communityService.getAllCommunities().subscribe((data) => {

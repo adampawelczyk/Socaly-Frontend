@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { CommentService } from '../comment/shared/comment.service';
 import { CommentRequestModel } from '../comment/shared/comment-request.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CommentResponseModel } from '../comment/shared/comment-response.model';
 import { editorConfig } from '../../globals';
 
@@ -21,7 +21,7 @@ export class PostComponent implements OnInit {
   comments: CommentResponseModel[];
 
   postId: number;
-  commentForm: FormGroup;
+  commentForm: UntypedFormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
 
@@ -31,8 +31,8 @@ export class PostComponent implements OnInit {
     this.editorConfig.placeholder = "What are your thoughts?";
     this.editorConfig.height = 174;
 
-    this.commentForm = new FormGroup({
-      text: new FormControl('', Validators.required)
+    this.commentForm = new UntypedFormGroup({
+      text: new UntypedFormControl('', Validators.required)
     });
 
     this.commentPayload = {
