@@ -180,6 +180,20 @@ body {
   box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
 }
 
+.carousel-indicators [data-bs-target] {
+  width : 10px;
+  background-color: white;
+  opacity: 0.5;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+  height: 10px;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
 .material-icons-outlined, .material-icons {
   display: inline-flex;
   vertical-align: top;
