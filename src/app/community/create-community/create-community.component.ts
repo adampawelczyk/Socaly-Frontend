@@ -26,6 +26,9 @@ export class CreateCommunityComponent implements OnInit {
       name: '',
       description: ''
     };
+
+    const body = document.getElementsByTagName('body')[0];
+    body.removeAttribute("style");
   }
 
   ngOnInit(): void { }
