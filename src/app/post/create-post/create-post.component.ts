@@ -39,6 +39,9 @@ export class CreatePostComponent implements OnInit {
       description: '',
       communityName: ''
     };
+
+    const body = document.getElementsByTagName('body')[0];
+    body.removeAttribute("style");
   }
 
   ngOnInit(): void {
