@@ -20,10 +20,10 @@ export const editorConfig = {
   menubar: false,
   plugins: [
     'lists charmap print preview anchor emoticons paste',
-    'searchreplace visualblocks fullscreen insertdatetime link'
+    'searchreplace visualblocks fullscreen insertdatetime link codesample'
   ],
   toolbar:
-    'formatselect | bold italic link strikethrough superscript bullist numlist emoticons',
+    'formatselect | bold italic link strikethrough superscript bullist numlist emoticons codesample',
   link_title: false,
   target_list: false,
   default_link_target:"_blank",
