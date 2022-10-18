@@ -28,5 +28,5 @@ export const editorConfig = {
   target_list: false,
   default_link_target:"_blank",
   link_context_toolbar: true,
-  contextmenu: false,
+  contextmenu: false
 }
