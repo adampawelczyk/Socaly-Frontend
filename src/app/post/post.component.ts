@@ -8,6 +8,7 @@ import { CommentRequestModel } from '../comment/shared/comment-request.model';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CommentResponseModel } from '../comment/shared/comment-response.model';
 import { editorConfig } from '../../globals';
+import { HighlightService } from "../shared/highlight.service";
 
 @Component({
   selector: 'app-post',
@@ -26,7 +27,7 @@ export class PostComponent implements OnInit {
   editorConfig = editorConfig;
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
-              private activateRoute: ActivatedRoute) {
+              private activateRoute: ActivatedRoute, private highlightService: HighlightService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = "What are your thoughts?";
     this.editorConfig.height = 174;
@@ -39,6 +40,10 @@ export class PostComponent implements OnInit {
       text: '',
       postId: this.postId
     };
+  }
+
+  ngAfterViewChecked() {
+      this.highlightService.highlightAll();
   }
 
   ngOnInit(): void {
