@@ -7,6 +7,7 @@ import { CommentResponseModel } from './shared/comment-response.model';
 import { CommentRequestModel } from './shared/comment-request.model';
 import { CommentService } from './shared/comment.service';
 import { editorConfig } from '../../globals';
+import { HighlightService } from "../shared/highlight.service";
 
 @Component({
   selector: 'app-comment',
@@ -24,7 +25,7 @@ export class CommentComponent implements OnInit {
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
 
-  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute) {
+  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = "What are your thoughts?";
     this.editorConfig.height = 174;
@@ -37,6 +38,10 @@ export class CommentComponent implements OnInit {
       postId: this.postId,
       text: '',
     };
+  }
+
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
   }
 
   ngOnInit(): void {
