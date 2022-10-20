@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CommentVoteModule } from '../vote/comment-vote/comment-vote.module';
+import { HighlightService } from "../shared/highlight.service";
 
 @NgModule({
   imports: [
@@ -19,6 +20,9 @@ import { CommentVoteModule } from '../vote/comment-vote/comment-vote.module';
   ],
   exports: [
     CommentComponent
+  ],
+  providers: [
+    HighlightService
   ]
 })
 

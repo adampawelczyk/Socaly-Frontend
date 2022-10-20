@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use "utilities/colors";
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "assets/prismjs/prism.css";
 
 html {
   padding: 0;
@@ -387,6 +388,23 @@ body {
 
 [aria-label='Link'].tox-tbtn .tox-icon {
   background-image: url("assets/icons/link.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.tox-tbtn[aria-label="Insert/edit code sample"] .tox-icon svg {
+  display: none;
+}
+
+.tox-tbtn[aria-label="Insert/edit code sample"] .tox-icon {
+  display: list-item;
+  list-style: none;
+  width: 25px;
+  height: 25px;
+}
+
+[aria-label='Insert/edit code sample'].tox-tbtn .tox-icon {
+  background-image: url("assets/icons/code-block.svg");
   background-repeat: no-repeat;
   background-position: center center;
 }
