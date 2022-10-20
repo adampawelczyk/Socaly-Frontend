@@ -18,6 +18,7 @@ export const editorConfig = {
   },
   placeholder: "",
   menubar: false,
+  codesample_global_prismjs: true,
   codesample_languages: [
     { text: 'C', value: 'c' },
     { text: 'C++', value: 'cpp' },
