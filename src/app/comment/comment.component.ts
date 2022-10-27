@@ -54,6 +54,7 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSubCommentsForComment(this.comment.id);
+    this.initializeEditForm()
   }
 
   private getSubCommentsForComment(commentId: number | undefined) {
@@ -91,5 +92,8 @@ export class CommentComponent implements OnInit {
     }, error => {
       throwError(error);
     });
+  }
+  initializeEditForm() {
+    this.editForm.get('text')?.setValue(this.comment.text)
   }
 }
