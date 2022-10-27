@@ -93,6 +93,11 @@ export class CommentComponent implements OnInit {
       throwError(error);
     });
   }
+
+  showEdit() {
+    return this.comment.username === this.authService.getUsername()
+  }
+
   initializeEditForm() {
     this.editForm.get('text')?.setValue(this.comment.text)
   }
