@@ -105,4 +105,18 @@ export class CommentComponent implements OnInit {
   initializeEditForm() {
     this.editForm.get('text')?.setValue(this.comment.text)
   }
+
+  postEdit() {
+    this.commentService.editComment(this.comment.id, this.editForm.get('text')?.value).subscribe(() => {
+      this.edit = false;
+      this.editForm.get('text')?.setValue('');
+      this.commentService.getComment(this.comment.id).subscribe(data => {
+        this.comment = data;
+      }, error => {
+        throwError(error);
+      })
+    }, error => {
+      throwError(error);
+    });
+  }
 }
