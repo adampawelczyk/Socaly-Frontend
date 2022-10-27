@@ -22,6 +22,8 @@ export class CommentComponent implements OnInit {
   collapsed = false;
   replyFormIsExpanded = false;
   replyForm: UntypedFormGroup;
+  edit = false
+  editForm: UntypedFormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
 
