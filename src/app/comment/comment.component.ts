@@ -42,6 +42,10 @@ export class CommentComponent implements OnInit {
       postId: this.postId,
       text: '',
     };
+
+    this.editForm = new UntypedFormGroup({
+      text: new UntypedFormControl('')
+    })
   }
 
   ngAfterViewChecked() {
