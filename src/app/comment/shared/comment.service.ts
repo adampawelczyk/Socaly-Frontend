@@ -26,6 +26,10 @@ export class CommentService {
     return this.httpClient.post('http://localhost:8090/api/comments', commentPayload);
   }
 
+  editComment(commentId: number, text: string): Observable<Object> {
+    return this.httpClient.post('http://localhost:8090/api/comments/edit/' + commentId, text);
+  }
+
   getAllCommentsByUser(name: string): Observable<CommentResponseModel[]> {
     return this.httpClient.get<CommentResponseModel[]>('http://localhost:8090/api/comments/by-user/' + name);
   }
