@@ -14,10 +14,10 @@
       <app-comment-vote class="flex-column" [comment]="comment"></app-comment-vote>
       <button class="ms-1 btn-tertiary" (click)="showReplyForm(); $event.stopPropagation()">
         <span class="material-symbols-outlined pe-1">reply</span>
-        <span>Reply</span>
+        Reply
       </button>
       <button class="ms-1 btn-tertiary" (click)="collapse(); $event.stopPropagation()">
-        <span>Collapse</span>
+        Collapse
       </button>
       <button *ngIf="showEdit()" class="ms-1 btn-tertiary" (click)="showEditForm(); $event.stopPropagation()">
         Edit
