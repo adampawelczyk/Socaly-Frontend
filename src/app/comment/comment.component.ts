@@ -8,6 +8,7 @@ import { CommentRequestModel } from './shared/comment-request.model';
 import { CommentService } from './shared/comment.service';
 import { editorConfig } from '../../globals';
 import { HighlightService } from "../shared/highlight.service";
+import { AuthService } from "../auth/shared/auth.service";
 
 @Component({
   selector: 'app-comment',
@@ -22,10 +23,13 @@ export class CommentComponent implements OnInit {
   collapsed = false;
   replyFormIsExpanded = false;
   replyForm: UntypedFormGroup;
+  edit = false
+  editForm: UntypedFormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
 
-  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService) {
+  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
+              private authService: AuthService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = "What are your thoughts?";
     this.editorConfig.height = 174;
@@ -38,6 +42,10 @@ export class CommentComponent implements OnInit {
       postId: this.postId,
       text: '',
     };
+
+    this.editForm = new UntypedFormGroup({
+      text: new UntypedFormControl('')
+    })
   }
 
   ngAfterViewChecked() {
@@ -46,6 +54,7 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSubCommentsForComment(this.comment.id);
+    this.initializeEditForm()
   }
 
   private getSubCommentsForComment(commentId: number | undefined) {
@@ -80,6 +89,32 @@ export class CommentComponent implements OnInit {
     this.commentService.postComment(this.commentPayload).subscribe(() => {
       this.replyFormIsExpanded = false;
       this.getSubCommentsForComment(this.comment.id);
+    }, error => {
+      throwError(error);
+    });
+  }
+
+  showEdit() {
+    return this.comment.username === this.authService.getUsername()
+  }
+
+  showEditForm() {
+    this.edit = !this.edit
+  }
+
+  initializeEditForm() {
+    this.editForm.get('text')?.setValue(this.comment.text)
+  }
+
+  postEdit() {
+    this.commentService.editComment(this.comment.id, this.editForm.get('text')?.value).subscribe(() => {
+      this.edit = false;
+      this.editForm.get('text')?.setValue(this.editForm.get('text')?.value);
+      this.commentService.getComment(this.comment.id).subscribe(data => {
+        this.comment = data;
+      }, error => {
+        throwError(error);
+      })
     }, error => {
       throwError(error);
     });
