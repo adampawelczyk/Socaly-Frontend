@@ -1,6 +1,14 @@
 <div id="{{comment.postId}}-{{comment.username}}" *ngIf="!collapsed" class="mb-3">
   <div class="thread-line ps-2">
-    <a class="comment-username ms-2" routerLink="/user/{{comment.username}}">{{comment.username}}</a>
+    <a class="comment-username ms-2" routerLink="/user/{{comment.username}}">
+      {{comment.username}}
+    </a>
+    <span class="timeSinceCreation">
+    • {{comment.timeSinceCreation}}
+    </span>
+    <span class="timeSinceEdit" *ngIf="comment.timeSinceEdit.length > 0">
+      • edited {{comment.timeSinceEdit}}
+    </span>
     <p class="comment-text ms-2 mt-1 mb-1" [innerHTML]="comment.text" style="margin: 0"></p>
     <div class="d-flex flex-row ms-2">
       <app-comment-vote class="flex-column" [comment]="comment"></app-comment-vote>
