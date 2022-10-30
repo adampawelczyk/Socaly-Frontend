@@ -21,6 +21,9 @@
       <button class="ms-1 btn-tertiary" (click)="collapse(); $event.stopPropagation()">
         <span>Collapse</span>
       </button>
+      <button *ngIf="showEdit()" class="ms-1 btn-tertiary" (click)="showEditForm(); $event.stopPropagation()">
+        Edit
+      </button>
     </div>
     <div *ngIf="replyFormIsExpanded" class="mt-3 ms-2">
       <form [formGroup]="replyForm" (ngSubmit)="postReply()">
