@@ -38,3 +38,8 @@ p {
   color: grey;
   text-decoration: none;
 }
+
+.timeSinceEdit {
+  @extend .timeSinceCreation;
+  font-style: italic;
+}
