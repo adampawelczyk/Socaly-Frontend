@@ -33,6 +33,16 @@
         </div>
       </form>
     </div>
+    <div *ngIf="edit" class="mt-3 ms-2">
+      <form [formGroup]="editForm" (ngSubmit)="postEdit()">
+        <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
+        <div class="d-flex flex-row-reverse">
+          <div>
+            <button type="submit" class="btn-primary-small-font mt-2">Save Edits</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <div *ngIf="hasSubComments()">
       <div *ngFor="let comment of subComments" class="ms-3 mb-3 mt-3">
         <app-comment [comment]="comment"></app-comment>
