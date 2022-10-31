@@ -23,6 +23,9 @@ export class SignupComponent implements OnInit {
       email: '',
       password: ''
     };
+
+    const body = document.getElementsByTagName('body')[0];
+    body.removeAttribute("style");
   }
 
   ngOnInit(): void {
