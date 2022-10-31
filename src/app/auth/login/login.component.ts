@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
       username: '',
       password: ''
     };
+
+    const body = document.getElementsByTagName('body')[0];
+    body.removeAttribute("style");
   }
 
   ngOnInit(): void {
