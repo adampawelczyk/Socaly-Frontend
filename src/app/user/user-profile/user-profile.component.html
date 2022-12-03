@@ -1,28 +1,66 @@
 <div class="container">
-  <div>
-    Welcome <b>{{name}}</b>.
-    <br>
-    You have posted <b>{{postLength}}</b> time(s) and commented <b>{{commentLength}}</b> time(s).
-    You can check your post and comment history below.
-  </div>
-  <hr>
-  <div>
-    Your posts:
-  </div>
-  <app-post [posts]="posts"></app-post>
-  <hr>
-  <div>
-    Your comments:
-  </div>
-  <div *ngFor="let comment of comments">
-    <div class="comment">
-      <div class="username">
-        <a routerLink="/user/comment.username">
-          {{comment.username}}
-        </a>
-      </div>
-      <b>{{comment.text}}</b>
-    </div>
-    <hr>
-  </div>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs nav-fill">
+    <li ngbNavItem>
+      <a ngbNavLink>Overview</a>
+      <ng-template ngbNavContent>
+        <div>
+          Welcome <b>{{name}}</b>.
+          <br>
+          You have posted <b>{{postLength}}</b> time(s) and commented <b>{{commentLength}}</b> time(s).
+          You can check your post and comment history below.
+        </div>
+        <hr>
+        <div>
+          Your posts:
+        </div>
+        <app-post [posts]="posts"></app-post>
+        <hr>
+        <div>
+          Your comments:
+        </div>
+        <div *ngFor="let comment of comments">
+          <div class="comment">
+            <div class="username">
+              <a routerLink="/user/comment.username">
+                {{comment.username}}
+              </a>
+            </div>
+            <b>{{comment.text}}</b>
+          </div>
+          <hr>
+        </div>
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Posts</a>
+      <ng-template ngbNavContent>
+        Content
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Comments</a>
+      <ng-template ngbNavContent>
+        Content
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Saved</a>
+      <ng-template ngbNavContent>
+        Content
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Upvoted</a>
+      <ng-template ngbNavContent>
+        Content
+      </ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Downvoted</a>
+      <ng-template ngbNavContent>
+        Content
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
 </div>
