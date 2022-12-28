@@ -3,21 +3,7 @@
     <li ngbNavItem>
       <a ngbNavLink>Overview</a>
       <ng-template ngbNavContent>
-        <div>
-          Welcome <b>{{name}}</b>.
-          <br>
-          You have posted <b>{{postLength}}</b> time(s) and commented <b>{{commentLength}}</b> time(s).
-          You can check your post and comment history below.
-        </div>
-        <hr>
-        <div>
-          Your posts:
-        </div>
         <app-post [posts]="posts"></app-post>
-        <hr>
-        <div>
-          Your comments:
-        </div>
         <div *ngFor="let comment of comments">
           <div class="comment">
             <div class="username">
