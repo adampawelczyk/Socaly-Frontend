@@ -26,7 +26,17 @@
     <li ngbNavItem>
       <a ngbNavLink>Comments</a>
       <ng-template ngbNavContent>
-        Content
+        <div *ngFor="let comment of comments">
+          <div class="comment">
+            <div class="username">
+              <a routerLink="/user/comment.username">
+                {{comment.username}}
+              </a>
+            </div>
+            <b>{{comment.text}}</b>
+          </div>
+          <hr>
+        </div>
       </ng-template>
     </li>
     <li ngbNavItem>
