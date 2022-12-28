@@ -200,6 +200,27 @@ body {
   vertical-align: top;
 }
 
+.nav-tabs {
+  border: none;
+}
+
+.nav-link {
+  border: none !important;
+  background-color: white !important;
+  color: black;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: colors.$primary-color;
+  border: none;
+}
+
+.nav-link.active {
+  border-color: transparent !important;
+  border-bottom: 2px colors.$primary-color solid !important;
+  color: colors.$primary-color !important;
+}
+
 /*Tinymce material icons*/
 
 .tox-tbtn[aria-label="Bold"] .tox-icon svg {
