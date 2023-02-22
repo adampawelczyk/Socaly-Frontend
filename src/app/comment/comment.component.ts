@@ -9,6 +9,7 @@ import { CommentService } from './shared/comment.service';
 import { editorConfig } from '../../globals';
 import { HighlightService } from "../shared/highlight.service";
 import { AuthService } from "../auth/shared/auth.service";
+import { UserService } from '../user/shared/user.service';
 
 @Component({
   selector: 'app-comment',
@@ -27,9 +28,10 @@ export class CommentComponent implements OnInit {
   editForm: UntypedFormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
+  userProfileImage: string;
 
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService) {
+              private authService: AuthService, private userService: UserService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = "What are your thoughts?";
     this.editorConfig.height = 174;
@@ -55,6 +57,10 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     this.getSubCommentsForComment(this.comment.id);
     this.initializeEditForm()
+
+    this.userService.getUserDetails(this.comment.username).subscribe(data => {
+      this.userProfileImage = data.profileImage;
+    })
   }
 
   private getSubCommentsForComment(commentId: number | undefined) {
