@@ -7,8 +7,8 @@ import { CommentResponseModel } from './shared/comment-response.model';
 import { CommentRequestModel } from './shared/comment-request.model';
 import { CommentService } from './shared/comment.service';
 import { editorConfig } from '../../globals';
-import { HighlightService } from "../shared/highlight.service";
-import { AuthService } from "../auth/shared/auth.service";
+import { HighlightService } from '../shared/highlight.service';
+import { AuthService } from '../auth/shared/auth.service';
 import { UserService } from '../user/shared/user.service';
 
 @Component({

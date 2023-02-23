@@ -8,7 +8,7 @@ import { CommentRequestModel } from '../comment/shared/comment-request.model';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CommentResponseModel } from '../comment/shared/comment-response.model';
 import { editorConfig } from '../../globals';
-import { HighlightService } from "../shared/highlight.service";
+import { HighlightService } from '../shared/highlight.service';
 
 @Component({
   selector: 'app-post',
