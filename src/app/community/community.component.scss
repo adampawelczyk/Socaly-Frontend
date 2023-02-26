@@ -1,4 +1,4 @@
-@use "../../utilities/colors.scss";
+@use '../../utilities/colors.scss';
 
 .community-banner {
   height: 150px;
@@ -46,11 +46,11 @@ h2 {
 }
 
 .hover-text:after {
-  content: "Joined";
+  content: 'Joined';
 }
 
 .hover-text:hover:after {
-  content: "Leave";
+  content: 'Leave';
 }
 
 .min-width {
