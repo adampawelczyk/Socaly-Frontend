@@ -12,7 +12,7 @@ import { throwError } from 'rxjs';
 export class ViewPostComponent implements OnInit {
   postId: number;
   posts: PostResponseModel[] = [];
-  communityName = "";
+  communityName = '';
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute) {
     this.postId = this.activateRoute.snapshot.params.id;
@@ -32,6 +32,6 @@ export class ViewPostComponent implements OnInit {
   }
 
   exists() {
-    return this.communityName !== "";
+    return this.communityName !== '';
   }
 }

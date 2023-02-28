@@ -23,7 +23,7 @@ export class CreatePostComponent implements OnInit {
   files: File[] = [];
   fileUrls: string[] = [];
   active = 1;
-  selectedCommunity = "Choose a community";
+  selectedCommunity = 'Choose a community';
   uploadingFiles = false;
   filesUploadProgress = 0;
   postWasPosted = false;
@@ -31,7 +31,7 @@ export class CreatePostComponent implements OnInit {
 
   constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
               public activeModal: NgbActiveModal, private authService: AuthService, private fileService: FileService) {
-    this.editorConfig.placeholder = "Text (optional)";
+    this.editorConfig.placeholder = 'Text (optional)';
     this.editorConfig.height = 300;
 
     this.postPayload = {
@@ -41,7 +41,7 @@ export class CreatePostComponent implements OnInit {
     };
 
     const body = document.getElementsByTagName('body')[0];
-    body.removeAttribute("style");
+    body.removeAttribute('style');
   }
 
   ngOnInit(): void {
@@ -74,7 +74,7 @@ export class CreatePostComponent implements OnInit {
       this.postPayload.description = this.createPostForm.get('description')?.value;
       this.postPayload.images = [];
     } else {
-      this.postPayload.description = "";
+      this.postPayload.description = '';
       this.postPayload.images = this.fileUrls;
     }
 

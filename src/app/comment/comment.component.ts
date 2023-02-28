@@ -33,7 +33,7 @@ export class CommentComponent implements OnInit {
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
               private authService: AuthService, private userService: UserService) {
     this.postId = this.activateRoute.snapshot.params.id;
-    this.editorConfig.placeholder = "What are your thoughts?";
+    this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
 
     this.replyForm = new UntypedFormGroup({
