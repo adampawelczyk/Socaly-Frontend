@@ -29,7 +29,7 @@ export class PostComponent implements OnInit {
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
               private activateRoute: ActivatedRoute, private highlightService: HighlightService) {
     this.postId = this.activateRoute.snapshot.params.id;
-    this.editorConfig.placeholder = "What are your thoughts?";
+    this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
 
     this.commentForm = new UntypedFormGroup({
@@ -53,7 +53,7 @@ export class PostComponent implements OnInit {
   }
 
   postDescriptionIsNotEmpty(post: PostResponseModel) {
-    return post.description != "";
+    return post.description != '';
   }
 
   postImagesAreNotEmpty(post: PostResponseModel) {
