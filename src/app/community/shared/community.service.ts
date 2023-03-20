@@ -11,15 +11,15 @@ export class CommunityService {
   constructor(private httpClient: HttpClient) { }
 
   getAllCommunities(): Observable<CommunityResponseModel[]> {
-    return this.httpClient.get<CommunityResponseModel[]>('http://localhost:8090/api/community');
+    return this.httpClient.get<CommunityResponseModel[]>('http://localhost:8090/api/community/get/all');
   }
 
   createCommunity(communityPayload: CommunityRequestModel): Observable<CommunityResponseModel> {
-    return this.httpClient.post<CommunityResponseModel>('http://localhost:8090/api/community', communityPayload);
+    return this.httpClient.post<CommunityResponseModel>('http://localhost:8090/api/community/create', communityPayload);
   }
 
   getCommunityDetails(name: string): Observable<CommunityResponseModel> {
-    return this.httpClient.get<CommunityResponseModel>('http://localhost:8090/api/community/' + name);
+    return this.httpClient.get<CommunityResponseModel>('http://localhost:8090/api/community/get/' + name);
   }
 
   joinCommunity(name: string): Observable<Object> {
@@ -31,6 +31,6 @@ export class CommunityService {
   }
 
   getAllCommunitiesForUser(name: string): Observable<CommunityResponseModel[]> {
-    return this.httpClient.get<CommunityResponseModel[]>('http://localhost:8090/api/community/getAllCommunitiesForUser/' + name);
+    return this.httpClient.get<CommunityResponseModel[]>('http://localhost:8090/api/community/get/all/by-user/' + name);
   }
 }

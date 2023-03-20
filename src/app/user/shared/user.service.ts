@@ -10,6 +10,6 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   getUserDetails(username: string): Observable<UserModel> {
-    return this.httpClient.get<UserModel>('http://localhost:8090/api/user/getUserDetails/' + username)
+    return this.httpClient.get<UserModel>('http://localhost:8090/api/user/get/' + username)
   }
 }

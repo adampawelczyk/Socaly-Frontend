@@ -15,6 +15,6 @@ export class VoteService {
   }
 
   voteOnComment(commentVotePayload: CommentVoteModel): Observable<Object> {
-    return this.httpClient.post('http://localhost:8090/api/comments/vote', commentVotePayload);
+    return this.httpClient.post('http://localhost:8090/api/comment/vote', commentVotePayload);
   }
 }
