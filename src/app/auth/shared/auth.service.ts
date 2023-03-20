@@ -22,11 +22,11 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
 
   signup(signupPayload: SignupRequestModel): Observable<any> {
-    return this.httpClient.post('http://localhost:8090/api/auth/signup', signupPayload, {responseType: 'text'});
+    return this.httpClient.post('http://localhost:8090/api/auth/sign-up', signupPayload, {responseType: 'text'});
   }
 
   login(loginPayload: LoginRequestModel): Observable<boolean> {
-    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/login', loginPayload)
+    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/log-in', loginPayload)
       .pipe(map(data => {
         this.localStorage.store('authenticationToken', data.authenticationToken);
         this.localStorage.store('username', data.username);
@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/refresh/token', this.refreshTokenPayload)
+    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/refresh-token', this.refreshTokenPayload)
       .pipe(tap(response => {
         this.localStorage.clear('authenticationToken');
         this.localStorage.clear('expiresAt');
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   logout() {
-    this.httpClient.post('http://localhost:8090/api/auth/logout', this.refreshTokenPayload, {responseType: 'text'})
+    this.httpClient.post('http://localhost:8090/api/auth/log-out', this.refreshTokenPayload, {responseType: 'text'})
       .subscribe(data => {
         console.log(data);
       }, error => {
