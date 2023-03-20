@@ -60,6 +60,7 @@ export class CommentComponent implements OnInit {
 
     this.userService.getUserDetails(this.comment.username).subscribe(data => {
       this.userProfileImage = data.profileImage;
+      console.log(data.profileImage);
     })
   }
 
