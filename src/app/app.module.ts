@@ -25,6 +25,7 @@ import { AboutCommunitySidebarModule } from './community/about-community-sidebar
 import { CreatePostTopbarModule } from './post/create-post-topbar/create-post-topbar.module';
 import { HomeSidebarModule } from './home/home-sidebar/home-sidebar.module';
 import { UserProfileModule } from './user/user-profile/user-profile.module';
+import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { UserProfileModule } from './user/user-profile/user-profile.module';
     AboutCommunitySidebarModule,
     CreatePostTopbarModule,
     HomeSidebarModule,
-    UserProfileModule
+    UserProfileModule,
+    UserSidebarModule
   ],
   providers: [
     {
