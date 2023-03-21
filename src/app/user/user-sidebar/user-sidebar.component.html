@@ -1,1 +1,4 @@
-<p>user-sidebar works!</p>
+<div class="sidebar d-none d-lg-block d-xl-block">
+  <div *ngIf="!bannerUrl" class="sidebar-banner"></div>
+  <div *ngIf="bannerUrl" class="sidebar-banner" [ngStyle]="{ 'background-image': 'url(' + bannerUrl + ')'}"></div>
+</div>
