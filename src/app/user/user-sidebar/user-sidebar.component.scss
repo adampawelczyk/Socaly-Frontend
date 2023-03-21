@@ -1,0 +1,12 @@
+@use '../../../utilities/colors.scss';
+
+.sidebar {
+  border: 0.5px solid colors.$border-color;
+  overflow: hidden;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  width: 312px;
+}
