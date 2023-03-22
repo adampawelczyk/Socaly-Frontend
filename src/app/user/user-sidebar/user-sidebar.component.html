@@ -5,4 +5,20 @@
   <div class="profile-image-frame">
     <img class="profile-image" src="{{userDetails.profileImage}}" alt="profile image">
   </div>
+  <div class="content">
+    <div class="user-name">
+      u/{{username}}
+    </div>
+    <div class="cake-day">
+      Cake day
+      <div class="align-items-center d-flex">
+        <span class="material-symbols-outlined me-1 cake">
+          cake
+        </span>
+        <span class="date">
+          {{userDetails.createdDate | date: 'longDate'}}
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
