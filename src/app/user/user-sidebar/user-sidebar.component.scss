@@ -16,3 +16,13 @@
   background-color: colors.$primary-color;
   background-size: cover;
 }
+
+.profile-image-frame {
+  height: 5.5rem;
+  width: 5.5rem;
+  border: 4px white solid;
+  border-radius: 4px;
+  margin-top: -4rem;
+  margin-left: 0.5rem;
+  background-color: white;
+}
