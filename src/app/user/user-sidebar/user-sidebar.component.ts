@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserModel } from '../shared/user.model';
+import { AuthService } from '../../auth/shared/auth.service';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-sidebar.component.scss']
 })
 export class UserSidebarComponent implements OnInit {
+  @Input() userDetails: UserModel;
+  username: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private activatedRoute: ActivatedRoute, private authService: AuthService) {
+    this.username = this.activatedRoute.snapshot.params.name;
   }
 
+  ngOnInit(): void { }
 }
