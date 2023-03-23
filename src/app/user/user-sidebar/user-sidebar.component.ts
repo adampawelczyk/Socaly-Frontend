@@ -21,4 +21,16 @@ export class UserSidebarComponent implements OnInit {
   isCurrentUser(): boolean {
     return this.username === this.authService.getUsername()
   }
+
+  uploadProfileImage(event: Event): void {
+
+  }
+
+  uploadProfileBanner(): void {
+
+  }
+
+  openSettings(): void {
+
+  }
 }
