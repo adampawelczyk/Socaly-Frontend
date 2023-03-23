@@ -17,4 +17,8 @@ export class UserSidebarComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  isCurrentUser(): boolean {
+    return this.username === this.authService.getUsername()
+  }
 }
