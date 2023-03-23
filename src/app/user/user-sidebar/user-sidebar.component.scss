@@ -33,6 +33,35 @@
   border-radius: 4px;
 }
 
+.button {
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px colors.$primary-color solid;
+  color: colors.$primary-color;
+  cursor: pointer;
+}
+
+.change-profile-image-button {
+  @extend .button;
+  margin-top: -1.75rem;
+  margin-left: 4.5rem;
+}
+
+.change-banner-button {
+  @extend .button;
+  margin-top: -4.25rem;
+  margin-left: 16.5rem;
+}
+
+.settings-button {
+  @extend .button;
+  margin-top: -1rem;
+  margin-left: 16.5rem;
+  border: none;
+}
+
 .content {
   padding: 0 1rem 1rem;
 }
