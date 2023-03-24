@@ -11,9 +11,12 @@
     <label for="profile-image-upload" class="material-symbols-outlined me-1 change-profile-image-button">
       add_a_photo
     </label>
-    <div class="material-symbols-outlined me-1 change-banner-button" (click)="uploadProfileBanner()">
+
+    <input type="file" id="profile-banner-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
+           (change)="uploadProfileBanner($event)" hidden/>
+    <label for="profile-banner-upload" class="material-symbols-outlined me-1 change-banner-button">
       add_a_photo
-    </div>
+    </label>
     <div class="material-symbols-outlined me-1 settings-button" (click)="openSettings()">
       settings
     </div>
