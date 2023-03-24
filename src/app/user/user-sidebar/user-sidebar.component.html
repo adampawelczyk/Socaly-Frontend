@@ -1,7 +1,7 @@
 <div class="sidebar d-none d-lg-block d-xl-block">
-  <div *ngIf="!userDetails.profileBanner" class="sidebar-banner"></div>
-  <div *ngIf="userDetails.profileBanner" class="sidebar-banner"
-       [ngStyle]="{ 'background-image': 'url(' + userDetails.profileBanner + ')'}"></div>
+  <div>
+    <img class="sidebar-banner" src="{{userDetails.profileBanner}}" alt="profile banner">
+  </div>
   <div class="profile-image-frame">
     <img class="profile-image" src="{{userDetails.profileImage}}" alt="profile image">
   </div>
