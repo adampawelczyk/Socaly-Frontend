@@ -6,8 +6,9 @@
     <img class="profile-image" src="{{userDetails.profileImage}}" alt="profile image">
   </div>
   <span *ngIf="isCurrentUser()">
-    <input type="file" id="actual-btn" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif" (change)="uploadProfileImage($event)" hidden/>
-    <label for="actual-btn" class="material-symbols-outlined me-1 change-profile-image-button">
+    <input type="file" id="profile-image-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
+           (change)="uploadProfileImage($event)" hidden/>
+    <label for="profile-image-upload" class="material-symbols-outlined me-1 change-profile-image-button">
       add_a_photo
     </label>
     <div class="material-symbols-outlined me-1 change-banner-button" (click)="uploadProfileBanner()">
