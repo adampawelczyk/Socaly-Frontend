@@ -15,6 +15,7 @@ export class UserSidebarComponent implements OnInit {
   username: string;
   file: File;
   isProfileImageUploading: boolean = false;
+  isProfileBannerUploading: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private fileService: FileService,
               private userService: UserService) {
@@ -48,8 +49,25 @@ export class UserSidebarComponent implements OnInit {
     }
   }
 
-  uploadProfileBanner(): void {
+  async uploadProfileBanner(event: Event): Promise<void> {
+    const target = event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
 
+    if (file) {
+      this.isProfileBannerUploading = true;
+      let fileUrl = await this.fileService.uploadFile(file);
+      this.isProfileBannerUploading = false;
+
+      this.userService.changeProfileBanner(fileUrl).subscribe(() => {
+        this.userService.getUserDetails(this.username).subscribe(data => {
+          if (this.userDetails.profileBanner.includes('uploads')) {
+            this.fileService.removeFile(this.userDetails.profileBanner);
+          }
+
+          this.userDetails.profileBanner = data.profileBanner;
+        })
+      })
+    }
   }
 
   openSettings(): void {
