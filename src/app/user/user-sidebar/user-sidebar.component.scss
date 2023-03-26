@@ -18,6 +18,8 @@
 }
 
 .profile-image-frame {
+  z-index: 1;
+  position: relative;
   height: 5.5rem;
   width: 5.5rem;
   border: 4px white solid;
