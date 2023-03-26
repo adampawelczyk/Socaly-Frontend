@@ -49,7 +49,7 @@ export class UserSidebarComponent implements OnInit {
     }
   }
 
-  async uploadProfileBanner(event: Event): Promise<void> {
+  async changeProfileBanner(event: Event): Promise<void> {
     const target = event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
 
