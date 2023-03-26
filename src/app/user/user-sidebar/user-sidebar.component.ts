@@ -28,7 +28,7 @@ export class UserSidebarComponent implements OnInit {
     return this.username === this.authService.getUsername()
   }
 
-  async uploadProfileImage(event: Event): Promise<void> {
+  async changeProfileImage(event: Event): Promise<void> {
     const target = event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
 

@@ -8,7 +8,7 @@
   <span *ngIf="isCurrentUser()">
     <div class="lds-dual-ring profile-image-loading-wheel-position" *ngIf="isProfileImageUploading"></div>
     <input type="file" id="profile-image-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
-           (change)="uploadProfileImage($event)" hidden/>
+           (change)="changeProfileImage($event)" hidden/>
     <label for="profile-image-upload" class="material-symbols-outlined me-1 change-profile-image-button">
       add_a_photo
     </label>
