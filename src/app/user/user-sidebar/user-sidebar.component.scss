@@ -1,0 +1,132 @@
+@use '../../../utilities/colors.scss';
+
+.sidebar {
+  border: 0.5px solid colors.$border-color;
+  overflow: hidden;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  width: 312px;
+}
+
+.sidebar-banner {
+  height: 80px;
+  width: 100%;
+}
+
+.profile-image-frame {
+  z-index: 1;
+  position: relative;
+  height: 5.5rem;
+  width: 5.5rem;
+  border: 4px white solid;
+  border-radius: 4px;
+  margin-top: -4rem;
+  margin-left: 0.5rem;
+  background-color: white;
+}
+
+.profile-image {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 4px;
+}
+
+.button {
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px colors.$primary-color solid;
+  color: colors.$primary-color;
+  cursor: pointer;
+}
+
+.change-profile-image-button {
+  @extend .button;
+  margin-top: -1.75rem;
+  margin-left: 4.5rem;
+}
+
+.change-banner-button {
+  @extend .button;
+  margin-top: -4.25rem;
+  margin-left: 16.5rem;
+}
+
+.settings-button {
+  @extend .button;
+  margin-top: -1rem;
+  margin-left: 16.5rem;
+  border: none;
+}
+
+.content {
+  padding: 0 1rem 1rem;
+}
+
+.user-name {
+  font-weight: 500;
+  color: black;
+  font-size: 12px;
+}
+
+.cake-day {
+  padding-top: 2rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+}
+
+.cake {
+  font-size: 14px;
+  color: colors.$primary-color;
+}
+
+.date {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 4px;
+  color: colors.$darkgray;
+}
+
+.profile-banner-loading-wheel-position {
+  position: absolute;
+  margin-top: -6.5rem;
+  margin-left: 7rem;
+}
+
+.profile-image-loading-wheel-position {
+  z-index: 3;
+  position: absolute;
+  margin-top: -5.25rem;
+  margin-left: 0.7rem;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

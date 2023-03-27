@@ -12,4 +12,12 @@ export class UserService {
   getUserDetails(username: string): Observable<UserModel> {
     return this.httpClient.get<UserModel>('http://localhost:8090/api/user/get/' + username)
   }
+
+  changeProfileImage(imageUrl: string): Observable<Object> {
+    return this.httpClient.patch('http://localhost:8090/api/user/change/profile/image', imageUrl);
+  }
+
+  changeProfileBanner(imageUrl: string): Observable<Object> {
+    return this.httpClient.patch('http://localhost:8090/api/user/change/profile/banner', imageUrl);
+  }
 }

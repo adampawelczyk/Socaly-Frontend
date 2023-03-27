@@ -1,0 +1,42 @@
+<div class="sidebar d-none d-lg-block d-xl-block">
+  <div>
+    <img class="sidebar-banner" src="{{userDetails.profileBanner}}" alt="profile banner">
+  </div>
+  <div class="profile-image-frame">
+    <img class="profile-image" src="{{userDetails.profileImage}}" alt="profile image">
+  </div>
+  <span *ngIf="isCurrentUser()">
+    <div class="lds-dual-ring profile-image-loading-wheel-position" *ngIf="isProfileImageUploading"></div>
+    <input type="file" id="profile-image-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
+           (change)="changeProfileImage($event)" hidden/>
+    <label for="profile-image-upload" class="material-symbols-outlined me-1 change-profile-image-button">
+      add_a_photo
+    </label>
+
+    <div class="lds-dual-ring profile-banner-loading-wheel-position" *ngIf="isProfileBannerUploading"></div>
+    <input type="file" id="profile-banner-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
+           (change)="changeProfileBanner($event)" hidden/>
+    <label for="profile-banner-upload" class="material-symbols-outlined me-1 change-banner-button">
+      add_a_photo
+    </label>
+    <div class="material-symbols-outlined me-1 settings-button" (click)="openSettings()">
+      settings
+    </div>
+  </span>
+  <div class="content">
+    <div class="user-name">
+      u/{{username}}
+    </div>
+    <div class="cake-day">
+      Cake day
+      <div class="align-items-center d-flex">
+        <span class="material-symbols-outlined me-1 cake">
+          cake
+        </span>
+        <span class="date">
+          {{userDetails.createdDate | date: 'longDate'}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
