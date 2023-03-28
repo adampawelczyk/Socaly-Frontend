@@ -10,11 +10,13 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { AuthGuard } from './auth/shared/auth.guard';
 import { CommunityComponent } from './community/community.component';
+import { SettingsComponent } from './user/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'view-post/:id', component: ViewPostComponent },
   { path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
   { path: 'communities', component: CommunitiesComponent },
   { path: 'community/:name', component: CommunityComponent },
   { path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard] },
