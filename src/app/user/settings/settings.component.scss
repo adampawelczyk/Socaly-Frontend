@@ -1,0 +1,8 @@
+@use '../../../utilities/colors';
+
+.nav-tabs {
+  background-color: white;
+  border-top: 1px colors.$border-color solid;
+  padding-left: calc((100vw - 1200px + 0.75rem) / 2);
+  padding-right: calc((100vw - 1200px + 0.75rem) / 2);
+}
