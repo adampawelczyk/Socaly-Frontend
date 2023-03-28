@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from '../shared/user.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { FileService } from '../../shared/file.service';
@@ -18,7 +18,7 @@ export class UserSidebarComponent implements OnInit {
   isProfileBannerUploading: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private fileService: FileService,
-              private userService: UserService) {
+              private userService: UserService, private router: Router) {
     this.username = this.activatedRoute.snapshot.params.name;
   }
 
@@ -71,6 +71,6 @@ export class UserSidebarComponent implements OnInit {
   }
 
   openSettings(): void {
-
+    this.router.navigateByUrl('/settings');
   }
 }
