@@ -60,7 +60,38 @@
   <li ngbNavItem>
     <a ngbNavLink>Profile</a>
     <ng-template ngbNavContent>
+      <div class="settings-page">
+        <h2>Customize Profile</h2>
+        <h4>Profile information</h4>
+        <div class="d-flex flex-flow-wrap flex-column">
+          <div>
+            <h3>
+              About (optional)
+            </h3>
+            <p class="description">
+              A brief description of yourself shown on your profile.
+            </p>
+          </div>
+          <div>
+            <textarea class="about-textarea" placeholder="About (optional)" rows="4"></textarea>
+          </div>
+        </div>
 
+        <h4>Images</h4>
+        <div class="d-flex flex-flow-wrap flex-column">
+          <div>
+            <h3>
+              Profile image and banner
+            </h3>
+            <p class="description">
+              Images must be .png or .jpg format
+            </p>
+          </div>
+          <div>
+
+          </div>
+        </div>
+      </div>
     </ng-template>
   </li>
   <li ngbNavItem>
