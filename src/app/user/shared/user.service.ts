@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from './user.model';
 import { Observable } from 'rxjs';
+import { UserSettingsModel } from './user-settings.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,10 @@ export class UserService {
 
   getUserDetails(username: string): Observable<UserModel> {
     return this.httpClient.get<UserModel>('http://localhost:8090/api/user/get/' + username)
+  }
+
+  getUserSettings(): Observable<UserSettingsModel> {
+    return this.httpClient.get<UserSettingsModel>('http://localhost:8090/api/user/get/settings')
   }
 
   changeProfileImage(imageUrl: string): Observable<Object> {
