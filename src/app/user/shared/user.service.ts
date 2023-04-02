@@ -25,4 +25,8 @@ export class UserService {
   changeProfileBanner(imageUrl: string): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/change/profile/banner', imageUrl);
   }
+
+  changeDescription(description: string): Observable<Object> {
+    return this.httpClient.patch('http://localhost:8090/api/user/change/description', description);
+  }
 }
