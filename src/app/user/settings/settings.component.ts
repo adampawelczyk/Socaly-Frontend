@@ -20,6 +20,7 @@ export class SettingsComponent implements OnInit {
     this.authService.getUsername();
     this.userService.getUserSettings().subscribe(data => {
       this.userSettings = data;
+      this.initializeDescriptionForm();
     })
 
     this.changeDescriptionForm = new UntypedFormGroup({
@@ -27,4 +28,10 @@ export class SettingsComponent implements OnInit {
     });
 
   }
+
+  initializeDescriptionForm() {
+    this.changeDescriptionForm.get('description')
+      ?.setValue(this.userSettings.description ? this.userSettings.description : '');
+  }
+
 }
