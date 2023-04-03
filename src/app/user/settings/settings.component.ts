@@ -13,6 +13,7 @@ export class SettingsComponent implements OnInit {
   name: string;
   userSettings: UserSettingsModel;
   changeDescriptionForm: UntypedFormGroup;
+  availableCharacters: number;
 
   constructor(private authService: AuthService ,private userService: UserService) { }
 
@@ -21,6 +22,7 @@ export class SettingsComponent implements OnInit {
     this.userService.getUserSettings().subscribe(data => {
       this.userSettings = data;
       this.initializeDescriptionForm();
+      this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
     })
 
     this.changeDescriptionForm = new UntypedFormGroup({
@@ -38,5 +40,9 @@ export class SettingsComponent implements OnInit {
     this.userService.changeDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
 
     })
+  }
+
+  countCharacters() {
+    this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 }

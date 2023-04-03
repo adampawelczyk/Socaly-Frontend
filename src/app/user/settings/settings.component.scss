@@ -67,6 +67,20 @@ h4 {
   color: colors.$darkgray;
 }
 
+.about-textarea {
+  width: 100%;
+  border: 1px solid colors.$border-color;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+}
 
 .btn-resend-verification-email {
   font-size: 12px;

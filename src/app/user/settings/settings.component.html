@@ -77,7 +77,20 @@
             </p>
           </div>
           <div>
-            <textarea class="about-textarea" placeholder="About (optional)" rows="4"></textarea>
+            <form [formGroup]="changeDescriptionForm" (ngSubmit)="changeDescription()">
+              <textarea maxlength="255" (keyup)="countCharacters()" (keydown)="countCharacters()" [formControlName]="'description'" class="about-textarea" placeholder="About (optional)" rows="4"></textarea>
+              <span [style.color]="availableCharacters == 0 ? 'red' : 'black'">{{availableCharacters}}</span>
+              <span *ngIf="availableCharacters != 1" [style.color]="availableCharacters == 0 ? 'red' : 'black'"> Characters</span>
+              <span *ngIf="availableCharacters == 1" class="black"> Character</span>
+              <span [style.color]="availableCharacters == 0 ? 'red' : 'black'"> remaining</span>
+              <div class="d-flex align-items-center justify-content-end flex-grow-1">
+                <div>
+                  <button type="submit" class="btn-primary">
+                    Save
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
 
