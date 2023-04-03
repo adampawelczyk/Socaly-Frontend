@@ -34,4 +34,9 @@ export class SettingsComponent implements OnInit {
       ?.setValue(this.userSettings.description ? this.userSettings.description : '');
   }
 
+  changeDescription() {
+    this.userService.changeDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
+
+    })
+  }
 }
