@@ -2,12 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserSettingsModel } from './user-settings.model';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserSettingsService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
+
+  reloadUserSettings() {
+    this.getUserSettings().subscribe(data => {
+      this.localStorage.store('userSettings', data);
+    })
+  }
 
   getUserSettings(): Observable<UserSettingsModel> {
     return this.httpClient.get<UserSettingsModel>('http://localhost:8090/api/user/settings/get')
