@@ -24,8 +24,12 @@ export class UserService {
     return this.httpClient.get<UserModel>('http://localhost:8090/api/user/get/' + username)
   }
 
-  getUserSettings(): Observable<UserSettingsModel> {
-    return this.httpClient.get<UserSettingsModel>('http://localhost:8090/api/user/get/settings')
+  getEmail(): Observable<string> {
+    return this.httpClient.get('http://localhost:8090/api/user/get/email', {responseType: "text"});
+  }
+
+  isEmailVerified(): Observable<boolean> {
+    return this.httpClient.get<boolean>('http://localhost:8090/api/user/is-email-verified');
   }
 
   changeProfileImage(imageUrl: string): Observable<Object> {
