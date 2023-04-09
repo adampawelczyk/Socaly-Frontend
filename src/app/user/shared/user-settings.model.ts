@@ -1,8 +1,10 @@
+import { Sorting } from './sorting';
+
 export interface UserSettingsModel {
-  createdDate: string;
-  profileImage: string;
-  profileBanner: string;
-  description: string;
-  email: string;
-  emailVerified: boolean;
+  communityContentSort: Sorting;
+  openPostsInNewTab: boolean;
+  postCommentEmails: boolean;
+  commentReplyEmails: boolean;
+  postUpvoteEmails: boolean;
+  commentUpVoteEmails: boolean;
 }
