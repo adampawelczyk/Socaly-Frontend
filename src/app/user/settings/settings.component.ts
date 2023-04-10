@@ -46,6 +46,9 @@ export class SettingsComponent implements OnInit {
 
     this.user = this.authService.getUserDetails();
     this.userSettings = this.authService.getUserSettings();
+
+    this.initializeDescriptionForm();
+    this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 
   initializeDescriptionForm() {
