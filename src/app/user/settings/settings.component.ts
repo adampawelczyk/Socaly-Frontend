@@ -3,6 +3,7 @@ import { UserService } from '../shared/user.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { UserSettingsModel } from '../shared/user-settings.model';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { UserModel } from '../shared/user.model';
 
 @Component({
   selector: 'app-settings',
@@ -10,7 +11,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  name: string;
+  user: UserModel;
   userSettings: UserSettingsModel;
   changeDescriptionForm: UntypedFormGroup;
   availableCharacters: number;
@@ -29,6 +30,7 @@ export class SettingsComponent implements OnInit {
       description: new UntypedFormControl('', Validators.required)
     });
 
+    this.user = this.authService.getUserDetails();
   }
 
   initializeDescriptionForm() {
