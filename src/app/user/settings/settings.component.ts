@@ -50,7 +50,7 @@ export class SettingsComponent implements OnInit {
 
   initializeDescriptionForm() {
     this.changeDescriptionForm.get('description')
-      ?.setValue(this.userSettings.description ? this.userSettings.description : '');
+      ?.setValue(this.authService.getUserDetails().description ? this.authService.getUserDetails().description : '');
   }
 
   changeDescription() {
