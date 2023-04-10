@@ -13,6 +13,8 @@ import { UserModel } from '../shared/user.model';
 export class SettingsComponent implements OnInit {
   user: UserModel;
   userSettings: UserSettingsModel;
+  email: string;
+  isEmailVerified: boolean;
   changeDescriptionForm: UntypedFormGroup;
   availableCharacters: number;
 
@@ -28,6 +30,14 @@ export class SettingsComponent implements OnInit {
 
     this.changeDescriptionForm = new UntypedFormGroup({
       description: new UntypedFormControl('', Validators.required)
+    });
+
+    this.userService.getEmail().subscribe(data => {
+      this.email = data;
+    });
+
+    this.userService.isEmailVerified().subscribe(data => {
+      this.isEmailVerified = data;
     });
 
     this.user = this.authService.getUserDetails();
