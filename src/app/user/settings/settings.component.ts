@@ -32,6 +32,10 @@ export class SettingsComponent implements OnInit {
       description: new UntypedFormControl('', Validators.required)
     });
 
+    this.changeDescriptionForm = new UntypedFormGroup({
+      description: new UntypedFormControl('', Validators.required)
+    });
+
     this.userService.getEmail().subscribe(data => {
       this.email = data;
     });
