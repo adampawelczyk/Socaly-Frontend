@@ -55,7 +55,9 @@ export class SettingsComponent implements OnInit {
 
   changeDescription() {
     this.userService.changeDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
-
+      this.userService.getUserDetails(this.authService.getUsername()).subscribe(() => {
+        this.userService.reloadUserDetails();
+      })
     })
   }
 
