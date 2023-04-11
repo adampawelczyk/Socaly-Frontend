@@ -10,9 +10,9 @@
             <h3>
               Email Address
             </h3>
-            <p *ngIf="userSettings" class="description">
-              {{userSettings.email}}
-              <span *ngIf="!userSettings.emailVerified">
+            <p *ngIf="email" class="description">
+              {{email}}
+              <span *ngIf="!isEmailVerified">
                 not verified!
                 <button class="btn-resend-verification-email">Click here to resend</button>
               </span>
