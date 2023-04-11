@@ -6,6 +6,10 @@ import { LoginRequestModel } from './login-request.model';
 import { LoginResponseModel } from './login-response.model';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
+import { UserModel } from '../../user/shared/user.model';
+import { UserSettingsModel } from '../../user/shared/user-settings.model';
+import { UserService } from '../../user/shared/user.service';
+import { UserSettingsService } from '../../user/shared/user-settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +17,16 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class AuthService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();
+  @Output() currentUser: UserModel;
+  @Output() currentUserSettings: UserSettingsModel;
 
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
     username: this.getUsername()
   };
 
-  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
+  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService, private userService: UserService,
+              private userSettingsService: UserSettingsService) { }
 
   signup(signupPayload: SignupRequestModel): Observable<any> {
     return this.httpClient.post('http://localhost:8090/api/auth/sign-up', signupPayload, {responseType: 'text'});
@@ -35,6 +42,14 @@ export class AuthService {
 
         this.loggedIn.emit(true);
         this.username.emit(data.username);
+
+        this.userService.getUserDetails(data.username).subscribe(data => {
+          this.localStorage.store('userDetails', data);
+        })
+
+        this.userSettingsService.getUserSettings().subscribe(data => {
+          this.localStorage.store('userSettings', data);
+        })
 
         return true;
       }));
@@ -67,6 +82,8 @@ export class AuthService {
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');
+    this.localStorage.clear('userDetails');
+    this.localStorage.clear('userSettings');
   }
 
   getRefreshToken() {
@@ -75,6 +92,14 @@ export class AuthService {
 
   getUsername() {
     return this.localStorage.retrieve('username');
+  }
+
+  getUserDetails() {
+    return this.localStorage.retrieve('userDetails');
+  }
+
+  getUserSettings() {
+    return this.localStorage.retrieve('userSettings');
   }
 
   isLoggedIn(): boolean {
