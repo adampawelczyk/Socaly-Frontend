@@ -16,7 +16,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'view-post/:id', component: ViewPostComponent },
   { path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard] },
-  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
+  { path: 'settings', canActivate: [AuthGuard], children: [
+      { path: 'account', component: SettingsComponent, canActivate: [AuthGuard], data: {activeId: 'account'}},
+      { path: 'profile', component: SettingsComponent, canActivate: [AuthGuard], data: {activeId: 'profile'}},
+      { path: 'privacy', component: SettingsComponent, canActivate: [AuthGuard], data: {activeId: 'privacy'}},
+      { path: 'feed', component: SettingsComponent, canActivate: [AuthGuard], data: {activeId: 'feed'}},
+      { path: 'emails', component: SettingsComponent, canActivate: [AuthGuard], data: {activeId: 'emails'}}
+    ]},
   { path: 'communities', component: CommunitiesComponent },
   { path: 'community/:name', component: CommunityComponent },
   { path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard] },
