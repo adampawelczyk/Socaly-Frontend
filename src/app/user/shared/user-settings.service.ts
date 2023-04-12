@@ -22,6 +22,6 @@ export class UserSettingsService {
 
   changeOpenPostsInNewTab(openPostsInNewTab: boolean): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/open-posts-in-new-tab',
-      openPostsInNewTab, {responseType: "text"})
+      openPostsInNewTab, {responseType: 'text'})
   }
 }

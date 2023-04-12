@@ -282,8 +282,11 @@
               Enable to always open posts in a new tab.
             </p>
           </div>
-          <div>
-
+          <div class="d-flex align-items-center justify-content-end flex-grow-1">
+            <label class="switch">
+              <input type="checkbox" [checked]="userSettings.openPostsInNewTab" (change)="changeOpenPostsInNewTab()">
+              <span class="slider round"></span>
+            </label>
           </div>
         </div>
       </div>
