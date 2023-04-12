@@ -71,6 +71,6 @@ export class UserSidebarComponent implements OnInit {
   }
 
   openSettings(): void {
-    this.router.navigateByUrl('/settings');
+    this.router.navigateByUrl('/settings/profile');
   }
 }
