@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserSettingsModel } from './user-settings.model';
 import { LocalStorageService } from 'ngx-webstorage';
+import { Sorting } from './sorting';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class UserSettingsService {
   changeOpenPostsInNewTab(openPostsInNewTab: boolean): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/open-posts-in-new-tab',
       openPostsInNewTab, {responseType: 'text'})
+  }
+
+  changeCommunityContentSort(sorting: Sorting) {
+    return this.httpClient.patch('http://localhost:8090/api/user/settings/change/community-content-sort', sorting)
   }
 }
