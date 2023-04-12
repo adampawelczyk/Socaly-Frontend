@@ -4,6 +4,7 @@ import { AuthService } from '../../auth/shared/auth.service';
 import { UserSettingsModel } from '../shared/user-settings.model';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { UserModel } from '../shared/user.model';
+import { UserSettingsService } from '../shared/user-settings.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
@@ -24,8 +25,8 @@ export class SettingsComponent implements OnInit {
   availableCharacters: number;
   SortingType = Sorting;
 
-  constructor(private authService: AuthService ,private userService: UserService, private route: ActivatedRoute,
-              private location: Location) { }
+  constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
+              private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
@@ -66,6 +67,13 @@ export class SettingsComponent implements OnInit {
 
   countCharacters() {
     this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
+  }
+
+  changeCommunityContentSort(sorting: Sorting) {
+    this.userSettingsService.changeCommunityContentSort(sorting).subscribe(() => {
+      this.userSettings.communityContentSort = sorting;
+      this.userSettingsService.reloadUserSettings();
+    })
   }
 
   onChangeTab(url: NgbNavChangeEvent){
