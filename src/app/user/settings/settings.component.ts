@@ -7,6 +7,7 @@ import { UserModel } from '../shared/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { Sorting } from '../shared/sorting';
 
 @Component({
   selector: 'app-settings',
@@ -21,6 +22,7 @@ export class SettingsComponent implements OnInit {
   isEmailVerified: boolean;
   changeDescriptionForm: UntypedFormGroup;
   availableCharacters: number;
+  SortingType = Sorting;
 
   constructor(private authService: AuthService ,private userService: UserService, private route: ActivatedRoute,
               private location: Location) { }
