@@ -69,6 +69,12 @@ export class SettingsComponent implements OnInit {
     this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 
+  changeOpenPostsInNewTab() {
+    this.userSettingsService.changeOpenPostsInNewTab(!this.userSettings.openPostsInNewTab).subscribe(() => {
+      this.userSettingsService.reloadUserSettings();
+    })
+  }
+
   changeCommunityContentSort(sorting: Sorting) {
     this.userSettingsService.changeCommunityContentSort(sorting).subscribe(() => {
       this.userSettings.communityContentSort = sorting;
