@@ -122,6 +122,10 @@ h4 {
   box-shadow: none;
 }
 
+.feed-sort-dropdown-menu-toggle::after {
+  display: none;
+}
+
 .feed-sort-dropdown-menu {
   min-width: 0;
 }
