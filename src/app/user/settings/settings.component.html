@@ -107,6 +107,13 @@
           <div class="d-flex flex-row user-images">
             <div>
               <img class="user-profile-image" src="{{this.user.profileImage}}" alt="user profile image"/>
+
+              <div class="lds-dual-ring profile-image-loading-wheel-position" *ngIf="isProfileImageUploading"></div>
+              <input type="file" id="profile-image-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
+                     (change)="changeProfileImage($event)" hidden/>
+              <label for="profile-image-upload" class="material-symbols-outlined me-1 change-profile-image-button">
+                add_a_photo
+              </label>
             </div>
             <div class="ms-3">
               <img class="user-profile-banner" src="{{this.user.profileBanner}}" alt="user profile banner"/>
