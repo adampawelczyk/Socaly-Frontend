@@ -5,6 +5,6 @@ export interface UserSettingsModel {
   openPostsInNewTab: boolean;
   postCommentEmails: boolean;
   commentReplyEmails: boolean;
-  postUpvoteEmails: boolean;
+  postUpVoteEmails: boolean;
   commentUpVoteEmails: boolean;
 }
