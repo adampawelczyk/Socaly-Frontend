@@ -9,6 +9,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { CommentResponseModel } from '../comment/shared/comment-response.model';
 import { editorConfig } from '../../globals';
 import { HighlightService } from '../shared/highlight.service';
+import { AuthService } from '../auth/shared/auth.service';
 
 @Component({
   selector: 'app-post',
@@ -27,7 +28,7 @@ export class PostComponent implements OnInit {
   editorConfig = editorConfig;
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
-              private activateRoute: ActivatedRoute, private highlightService: HighlightService) {
+              private activateRoute: ActivatedRoute, private highlightService: HighlightService, private authService: AuthService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
@@ -80,7 +81,12 @@ export class PostComponent implements OnInit {
   }
 
   goToPost(id: number): void {
-    this.router.navigateByUrl('/view-post/' + id);
+    if (this.authService.getUserSettings().openPostsInNewTab) {
+      const url = this.router.serializeUrl(this.router.createUrlTree(['/view-post/' + id]));
+      window.open(url, '_blank');
+    } else {
+      this.router.navigateByUrl('/view-post/' + id);
+    }
   }
 
   showCarouselNavigationControls(post: PostResponseModel) {
