@@ -117,6 +117,13 @@
             </div>
             <div class="ms-3">
               <img class="user-profile-banner" src="{{this.user.profileBanner}}" alt="user profile banner"/>
+
+              <div class="lds-dual-ring profile-banner-loading-wheel-position" *ngIf="isProfileBannerUploading"></div>
+              <input type="file" id="profile-banner-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
+                     (change)="changeProfileBanner($event)" hidden/>
+              <label for="profile-banner-upload" class="material-symbols-outlined me-1 change-banner-button">
+                add_a_photo
+              </label>
             </div>
           </div>
         </div>
