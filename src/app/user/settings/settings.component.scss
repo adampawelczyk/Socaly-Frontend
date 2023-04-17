@@ -151,3 +151,9 @@ h4 {
   margin-top: 5rem;
   margin-left: -2.5rem;
 }
+
+.change-banner-button {
+  @extend .button;
+  margin-top: 5rem;
+  margin-left: -2.5rem;
+}
