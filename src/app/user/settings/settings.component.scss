@@ -145,3 +145,9 @@ h4 {
   color: colors.$primary-color;
   cursor: pointer;
 }
+
+.change-profile-image-button {
+  @extend .button;
+  margin-top: 5rem;
+  margin-left: -2.5rem;
+}
