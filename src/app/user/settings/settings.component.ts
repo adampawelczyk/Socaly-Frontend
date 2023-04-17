@@ -27,6 +27,7 @@ export class SettingsComponent implements OnInit {
   SortingType = Sorting;
   file: File;
   isProfileImageUploading: boolean = false;
+  isProfileBannerUploading: boolean = false;
 
   constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
               private route: ActivatedRoute, private location: Location, private fileService: FileService) { }
@@ -137,6 +138,28 @@ export class SettingsComponent implements OnInit {
           }
 
           this.user.profileImage = data.profileImage;
+          this.userService.reloadUserDetails();
+        })
+      })
+    }
+  }
+
+  async changeProfileBanner(event: Event): Promise<void> {
+    const target = event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+
+    if (file) {
+      this.isProfileBannerUploading = true;
+      let fileUrl = await this.fileService.uploadFile(file);
+      this.isProfileBannerUploading = false;
+
+      this.userService.changeProfileBanner(fileUrl).subscribe(() => {
+        this.userService.getUserDetails(this.authService.getUsername()).subscribe(data => {
+          if (this.user.profileBanner.includes('uploads')) {
+            this.fileService.removeFile(this.user.profileBanner);
+          }
+
+          this.user.profileBanner = data.profileBanner;
           this.userService.reloadUserDetails();
         })
       })
