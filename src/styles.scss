@@ -2,6 +2,7 @@
 @use "utilities/colors";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "assets/prismjs/prism.css";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 html {
   padding: 0;
@@ -13,7 +14,7 @@ body {
   margin-top: 3rem;
   height: calc(100vh - 48px);
   background-color: colors.$body-background-color;
-  font-family: Arial, sans-serif;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
 }
 
 .container {
