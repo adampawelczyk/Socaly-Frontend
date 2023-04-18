@@ -4,14 +4,16 @@ import { SettingsComponent } from './settings.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountSettingsModule } from '../account-settings/account-settings.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        NgbModule
-    ],
+  imports: [
+    CommonModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    NgbModule,
+    AccountSettingsModule
+  ],
   declarations: [
     SettingsComponent
   ],

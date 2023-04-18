@@ -3,61 +3,7 @@
     <a ngbNavLink>Account</a>
     <ng-template ngbNavContent class="h-100">
       <div class="settings-page">
-        <h2>Account Settings</h2>
-        <h4>Account preferences</h4>
-        <div class="d-flex mb-2">
-          <div>
-            <h3>
-              Email Address
-            </h3>
-            <p *ngIf="email" class="description">
-              {{email}}
-              <span *ngIf="!isEmailVerified">
-                not verified!
-                <button class="btn-resend-verification-email">Click here to resend</button>
-              </span>
-            </p>
-          </div>
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <div>
-              <button class="btn-secondary">
-                Change
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex">
-          <div>
-            <h3>
-              Change password
-            </h3>
-            <p class="description">
-              Password must be at least 8 characters long
-            </p>
-          </div>
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <div>
-              <button class="btn-secondary">
-                Change
-              </button>
-            </div>
-          </div>
-        </div>
-        <h4>Delete account</h4>
-        <div class="d-flex">
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <div>
-              <button class="delete-account-button d-flex align-items-center">
-                <span class="material-symbols-outlined delete-icon">
-                  delete
-                </span>
-                <span class="delete-account-button-text">
-                  Delete account
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
+        <app-account-settings></app-account-settings>
       </div>
     </ng-template>
   </li>

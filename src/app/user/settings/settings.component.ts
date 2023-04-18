@@ -20,8 +20,6 @@ export class SettingsComponent implements OnInit {
   @Input() activeId: string = "account";
   user: UserModel;
   userSettings: UserSettingsModel;
-  email: string;
-  isEmailVerified: boolean;
   changeDescriptionForm: UntypedFormGroup;
   availableCharacters: number;
   SortingType = Sorting;
@@ -39,14 +37,6 @@ export class SettingsComponent implements OnInit {
 
     this.changeDescriptionForm = new UntypedFormGroup({
       description: new UntypedFormControl('', Validators.required)
-    });
-
-    this.userService.getEmail().subscribe(data => {
-      this.email = data;
-    });
-
-    this.userService.isEmailVerified().subscribe(data => {
-      this.isEmailVerified = data;
     });
 
     this.user = this.authService.getUserDetails();

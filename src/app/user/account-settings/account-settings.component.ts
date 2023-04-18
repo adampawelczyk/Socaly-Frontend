@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-settings.component.scss']
 })
 export class AccountSettingsComponent implements OnInit {
+  email: string;
+  isEmailVerified: boolean;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-  }
+    this.userService.getEmail().subscribe(data => {
+      this.email = data;
+    });
 
+    this.userService.isEmailVerified().subscribe(data => {
+      this.isEmailVerified = data;
+    });
+  }
 }
