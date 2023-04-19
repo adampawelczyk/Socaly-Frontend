@@ -27,7 +27,7 @@ import { HomeSidebarModule } from './home/home-sidebar/home-sidebar.module';
 import { UserProfileModule } from './user/user-profile/user-profile.module';
 import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
 import { SettingsModule } from './user/settings/settings.module';
-import {AccountSettingsModule} from "./user/account-settings/account-settings.module";
+import { AccountSettingsModule } from './user/account-settings/account-settings.module';
 @NgModule({
   declarations: [
     AppComponent
