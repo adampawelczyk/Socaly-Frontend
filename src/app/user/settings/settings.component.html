@@ -27,63 +27,7 @@
     <a ngbNavLink>Emails</a>
     <ng-template ngbNavContent>
       <div class="settings-page">
-        <h2>Manage Emails</h2>
-        <h4>Activity</h4>
-        <div class="d-flex mb-2">
-          <div>
-            <h3>
-              Comments on your posts
-            </h3>
-          </div>
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <label class="switch">
-              <input type="checkbox" [checked]="userSettings.postCommentEmails">
-              <span class="slider round"></span>
-            </label>
-          </div>
-        </div>
-
-        <div class="d-flex mb-2">
-          <div>
-            <h3>
-              Replies to your comments
-            </h3>
-          </div>
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <label class="switch">
-              <input type="checkbox" [checked]="userSettings.commentReplyEmails">
-              <span class="slider round"></span>
-            </label>
-          </div>
-        </div>
-
-        <div class="d-flex mb-2">
-          <div>
-            <h3>
-              Upvotes on your posts
-            </h3>
-          </div>
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <label class="switch">
-              <input type="checkbox" [checked]="userSettings.postUpVoteEmails">
-              <span class="slider round"></span>
-            </label>
-          </div>
-        </div>
-
-        <div class="d-flex mb-2">
-          <div>
-            <h3>
-              Upvotes on your comments
-            </h3>
-          </div>
-          <div class="d-flex align-items-center justify-content-end flex-grow-1">
-            <label class="switch">
-              <input type="checkbox" [checked]="userSettings.commentUpVoteEmails">
-              <span class="slider round"></span>
-            </label>
-          </div>
-        </div>
+        <app-email-settings></app-email-settings>
       </div>
     </ng-template>
   </li>

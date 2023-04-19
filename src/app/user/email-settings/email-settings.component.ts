@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserSettingsModel } from '../shared/user-settings.model';
+import { AuthService } from '../../auth/shared/auth.service';
 
 @Component({
   selector: 'app-email-settings',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./email-settings.component.scss']
 })
 export class EmailSettingsComponent implements OnInit {
+  userSettings: UserSettingsModel;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.userSettings = this.authService.getUserSettings();
   }
 
 }

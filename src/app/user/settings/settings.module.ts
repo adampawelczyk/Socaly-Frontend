@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AccountSettingsModule } from '../account-settings/account-settings.module';
 import { ProfileSettingsModule } from '../profile-settings/profile-settings.module';
 import { FeedSettingsModule } from '../feed-settings/feed-settings.module';
+import { EmailSettingsModule } from '../email-settings/email-settings.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { FeedSettingsModule } from '../feed-settings/feed-settings.module';
     NgbModule,
     AccountSettingsModule,
     ProfileSettingsModule,
-    FeedSettingsModule
+    FeedSettingsModule,
+    EmailSettingsModule
   ],
   declarations: [
     SettingsComponent

@@ -16,7 +16,6 @@ import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 export class SettingsComponent implements OnInit {
   @Input() activeId: string = "account";
   user: UserModel;
-  userSettings: UserSettingsModel;
 
   constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
               private route: ActivatedRoute, private location: Location) { }
@@ -27,7 +26,6 @@ export class SettingsComponent implements OnInit {
     });
 
     this.user = this.authService.getUserDetails();
-    this.userSettings = this.authService.getUserSettings();
   }
 
   onChangeTab(url: NgbNavChangeEvent){
