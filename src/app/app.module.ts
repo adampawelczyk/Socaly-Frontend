@@ -28,6 +28,7 @@ import { UserProfileModule } from './user/user-profile/user-profile.module';
 import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
 import { SettingsModule } from './user/settings/settings.module';
 import { AccountSettingsModule } from './user/account-settings/account-settings.module';
+import { ProfileSettingsModule } from './user/profile-settings/profile-settings.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -59,7 +60,8 @@ import { AccountSettingsModule } from './user/account-settings/account-settings.
     UserProfileModule,
     UserSidebarModule,
     SettingsModule,
-    AccountSettingsModule
+    AccountSettingsModule,
+    ProfileSettingsModule
   ],
   providers: [
     {
