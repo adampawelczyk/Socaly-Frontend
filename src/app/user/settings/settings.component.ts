@@ -7,7 +7,6 @@ import { UserSettingsService } from '../shared/user-settings.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-import { Sorting } from '../shared/sorting';
 
 @Component({
   selector: 'app-settings',
@@ -18,7 +17,6 @@ export class SettingsComponent implements OnInit {
   @Input() activeId: string = "account";
   user: UserModel;
   userSettings: UserSettingsModel;
-  SortingType = Sorting;
   file: File;
 
   constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
@@ -33,52 +31,7 @@ export class SettingsComponent implements OnInit {
     this.userSettings = this.authService.getUserSettings();
   }
 
-  changeOpenPostsInNewTab() {
-    this.userSettingsService.changeOpenPostsInNewTab(!this.userSettings.openPostsInNewTab).subscribe(() => {
-      this.userSettingsService.reloadUserSettings();
-    })
-  }
-
-  changeCommunityContentSort(sorting: Sorting) {
-    this.userSettingsService.changeCommunityContentSort(sorting).subscribe(() => {
-      this.userSettings.communityContentSort = sorting;
-      this.userSettingsService.reloadUserSettings();
-    })
-  }
-
   onChangeTab(url: NgbNavChangeEvent){
     this.location.replaceState("settings/" + url.nextId);
-  }
-
-  isHot() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.HOT] || this.userSettings.communityContentSort === Sorting.HOT;
-  }
-
-  isNew() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.NEW] || this.userSettings.communityContentSort === Sorting.NEW;
-  }
-
-  isTop() {
-    return !this.isHot() && !this.isNew();
-  }
-
-  isTopToday() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_TODAY] || this.userSettings.communityContentSort === Sorting.TOP_TODAY;
-  }
-
-  isTopWeek() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_WEEK] || this.userSettings.communityContentSort === Sorting.TOP_WEEK;
-  }
-
-  isTopMonth() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_MONTH] || this.userSettings.communityContentSort === Sorting.TOP_MONTH;
-  }
-
-  isTopYear() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_YEAR] || this.userSettings.communityContentSort === Sorting.TOP_YEAR;
-  }
-
-  isTopAllTime() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_ALL_TIME] || this.userSettings.communityContentSort === Sorting.TOP_ALL_TIME;
   }
 }

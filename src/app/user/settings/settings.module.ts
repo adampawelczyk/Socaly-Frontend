@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccountSettingsModule } from '../account-settings/account-settings.module';
 import { ProfileSettingsModule } from '../profile-settings/profile-settings.module';
+import { FeedSettingsModule } from '../feed-settings/feed-settings.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ProfileSettingsModule } from '../profile-settings/profile-settings.modu
     ReactiveFormsModule,
     NgbModule,
     AccountSettingsModule,
-    ProfileSettingsModule
+    ProfileSettingsModule,
+    FeedSettingsModule
   ],
   declarations: [
     SettingsComponent
