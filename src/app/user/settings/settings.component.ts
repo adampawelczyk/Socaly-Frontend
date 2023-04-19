@@ -17,7 +17,6 @@ export class SettingsComponent implements OnInit {
   @Input() activeId: string = "account";
   user: UserModel;
   userSettings: UserSettingsModel;
-  file: File;
 
   constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
               private route: ActivatedRoute, private location: Location) { }
