@@ -5,6 +5,7 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccountSettingsModule } from '../account-settings/account-settings.module';
+import { ProfileSettingsModule } from '../profile-settings/profile-settings.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { AccountSettingsModule } from '../account-settings/account-settings.modu
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    AccountSettingsModule
+    AccountSettingsModule,
+    ProfileSettingsModule
   ],
   declarations: [
     SettingsComponent

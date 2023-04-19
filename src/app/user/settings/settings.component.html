@@ -11,68 +11,7 @@
     <a ngbNavLink>Profile</a>
     <ng-template ngbNavContent>
       <div class="settings-page">
-        <h2>Customize Profile</h2>
-        <h4>Profile information</h4>
-        <div class="d-flex flex-column">
-          <div>
-            <h3>
-              About (optional)
-            </h3>
-            <p class="description">
-              A brief description of yourself shown on your profile.
-            </p>
-          </div>
-          <div>
-            <form [formGroup]="changeDescriptionForm" (ngSubmit)="changeDescription()">
-              <textarea maxlength="255" (keyup)="countCharacters()" (keydown)="countCharacters()" [formControlName]="'description'" class="about-textarea" placeholder="About (optional)" rows="4"></textarea>
-              <span [style.color]="availableCharacters == 0 ? 'red' : 'black'">{{availableCharacters}}</span>
-              <span *ngIf="availableCharacters != 1" [style.color]="availableCharacters == 0 ? 'red' : 'black'"> Characters</span>
-              <span *ngIf="availableCharacters == 1" class="black"> Character</span>
-              <span [style.color]="availableCharacters == 0 ? 'red' : 'black'"> remaining</span>
-              <div class="d-flex align-items-center justify-content-end flex-grow-1">
-                <div>
-                  <button type="submit" class="btn-primary">
-                    Save
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <h4>Images</h4>
-        <div class="d-flex flex-column">
-          <div>
-            <h3>
-              Profile image and banner
-            </h3>
-            <p class="description">
-              Images must be .png or .jpg format
-            </p>
-          </div>
-          <div class="d-flex flex-row user-images">
-            <div>
-              <img class="user-profile-image" src="{{this.user.profileImage}}" alt="user profile image"/>
-
-              <div class="lds-dual-ring profile-image-loading-wheel-position" *ngIf="isProfileImageUploading"></div>
-              <input type="file" id="profile-image-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
-                     (change)="changeProfileImage($event)" hidden/>
-              <label for="profile-image-upload" class="material-symbols-outlined me-1 change-profile-image-button">
-                add_a_photo
-              </label>
-            </div>
-            <div class="ms-3">
-              <img class="user-profile-banner" src="{{this.user.profileBanner}}" alt="user profile banner"/>
-
-              <div class="lds-dual-ring profile-banner-loading-wheel-position" *ngIf="isProfileBannerUploading"></div>
-              <input type="file" id="profile-banner-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
-                     (change)="changeProfileBanner($event)" hidden/>
-              <label for="profile-banner-upload" class="material-symbols-outlined me-1 change-banner-button">
-                add_a_photo
-              </label>
-            </div>
-          </div>
-        </div>
+        <app-profile-settings></app-profile-settings>
       </div>
     </ng-template>
   </li>
