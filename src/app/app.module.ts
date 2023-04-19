@@ -29,6 +29,7 @@ import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
 import { SettingsModule } from './user/settings/settings.module';
 import { AccountSettingsModule } from './user/account-settings/account-settings.module';
 import { ProfileSettingsModule } from './user/profile-settings/profile-settings.module';
+import { FeedSettingsModule } from './user/feed-settings/feed-settings.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -61,7 +62,8 @@ import { ProfileSettingsModule } from './user/profile-settings/profile-settings.
     UserSidebarModule,
     SettingsModule,
     AccountSettingsModule,
-    ProfileSettingsModule
+    ProfileSettingsModule,
+    FeedSettingsModule
   ],
   providers: [
     {
