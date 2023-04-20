@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserSettingsModel } from './user-settings.model';
 import { LocalStorageService } from 'ngx-webstorage';
-import { Sorting } from './sorting';
+import { Sorting } from '../../user/shared/sorting';
 
 @Injectable({
   providedIn: 'root'

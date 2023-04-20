@@ -1,4 +1,4 @@
-import { Sorting } from './sorting';
+import { Sorting } from '../../user/shared/sorting';
 
 export interface UserSettingsModel {
   communityContentSort: Sorting;
