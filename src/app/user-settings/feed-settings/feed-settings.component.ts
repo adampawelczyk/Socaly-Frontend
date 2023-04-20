@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Sorting} from '../shared/sorting';
-import { UserSettingsModel } from '../shared/user-settings.model';
+import { Sorting} from '../../user/shared/sorting';
+import { UserSettingsModel } from '../../user/shared/user-settings.model';
 import { AuthService } from '../../auth/shared/auth.service';
-import { UserSettingsService } from '../shared/user-settings.service';
+import { UserSettingsService } from '../../user/shared/user-settings.service';
 
 @Component({
   selector: 'app-feed-settings',

@@ -27,10 +27,10 @@ import { HomeSidebarModule } from './home/home-sidebar/home-sidebar.module';
 import { UserProfileModule } from './user/user-profile/user-profile.module';
 import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
 import { SettingsModule } from './user/settings/settings.module';
-import { AccountSettingsModule } from './user/account-settings/account-settings.module';
-import { ProfileSettingsModule } from './user/profile-settings/profile-settings.module';
-import { FeedSettingsModule } from './user/feed-settings/feed-settings.module';
-import {EmailSettingsModule} from "./user/email-settings/email-settings.module";
+import { AccountSettingsModule } from './user-settings/account-settings/account-settings.module';
+import { ProfileSettingsModule } from './user-settings/profile-settings/profile-settings.module';
+import { FeedSettingsModule } from './user-settings/feed-settings/feed-settings.module';
+import { EmailSettingsModule } from './user-settings/email-settings/email-settings.module';
 @NgModule({
   declarations: [
     AppComponent

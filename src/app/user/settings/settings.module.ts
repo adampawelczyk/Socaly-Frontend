@@ -4,10 +4,10 @@ import { SettingsComponent } from './settings.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AccountSettingsModule } from '../account-settings/account-settings.module';
-import { ProfileSettingsModule } from '../profile-settings/profile-settings.module';
-import { FeedSettingsModule } from '../feed-settings/feed-settings.module';
-import { EmailSettingsModule } from '../email-settings/email-settings.module';
+import { AccountSettingsModule } from '../../user-settings/account-settings/account-settings.module';
+import { ProfileSettingsModule } from '../../user-settings/profile-settings/profile-settings.module';
+import { FeedSettingsModule } from '../../user-settings/feed-settings/feed-settings.module';
+import { EmailSettingsModule } from '../../user-settings/email-settings/email-settings.module';
 
 @NgModule({
   imports: [

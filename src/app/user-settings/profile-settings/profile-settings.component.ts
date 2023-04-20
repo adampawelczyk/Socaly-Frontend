@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth/shared/auth.service';
-import { UserService } from '../shared/user.service';
+import { UserService } from '../../user/shared/user.service';
 import { FileService } from '../../shared/file.service';
-import { UserModel } from '../shared/user.model';
+import { UserModel } from '../../user/shared/user.model';
 
 @Component({
   selector: 'app-profile-settings',
