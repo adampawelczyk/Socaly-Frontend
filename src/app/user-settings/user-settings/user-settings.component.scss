@@ -23,23 +23,6 @@
   flex-flow: wrap;
 }
 
-.delete-account-button {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  background-color: transparent;
-  border: none;
-}
-
-.delete-account-button-text {
-  color: #ff585b;
-}
-
-.delete-icon {
-  color: colors.$darkgray;
-}
-
 .about-textarea {
   width: 100%;
   border: 1px solid colors.$border-color;

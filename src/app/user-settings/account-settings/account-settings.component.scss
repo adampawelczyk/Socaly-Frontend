@@ -1,0 +1,18 @@
+@use '../../../utilities/colors';
+
+.delete-account-button {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+}
+
+.delete-account-button-text {
+  color: #ff585b;
+}
+
+.delete-icon {
+  color: colors.$darkgray;
+}
