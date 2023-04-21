@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SettingsComponent } from './settings.component';
+import { UserSettingsComponent } from './user-settings.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,11 +21,11 @@ import { EmailSettingsModule } from '../email-settings/email-settings.module';
     EmailSettingsModule
   ],
   declarations: [
-    SettingsComponent
+    UserSettingsComponent
   ],
   exports: [
-    SettingsComponent
+    UserSettingsComponent
   ]
 })
 
-export class SettingsModule { }
+export class UserSettingsModule { }

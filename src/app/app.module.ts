@@ -26,7 +26,7 @@ import { CreatePostTopbarModule } from './post/create-post-topbar/create-post-to
 import { HomeSidebarModule } from './home/home-sidebar/home-sidebar.module';
 import { UserProfileModule } from './user/user-profile/user-profile.module';
 import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
-import { SettingsModule } from './user-settings/settings/settings.module';
+import { UserSettingsModule } from './user-settings/user-settings/user-settings.module';
 import { AccountSettingsModule } from './user-settings/account-settings/account-settings.module';
 import { ProfileSettingsModule } from './user-settings/profile-settings/profile-settings.module';
 import { FeedSettingsModule } from './user-settings/feed-settings/feed-settings.module';
@@ -61,7 +61,7 @@ import { EmailSettingsModule } from './user-settings/email-settings/email-settin
     HomeSidebarModule,
     UserProfileModule,
     UserSidebarModule,
-    SettingsModule,
+    UserSettingsModule,
     AccountSettingsModule,
     ProfileSettingsModule,
     FeedSettingsModule,

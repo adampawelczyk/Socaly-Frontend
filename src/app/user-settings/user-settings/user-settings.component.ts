@@ -9,11 +9,11 @@ import { Location } from '@angular/common';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  selector: 'app-user-settings',
+  templateUrl: './user-settings.component.html',
+  styleUrls: ['./user-settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class UserSettingsComponent implements OnInit {
   @Input() activeId: string = "account";
   user: UserModel;
 
@@ -29,6 +29,6 @@ export class SettingsComponent implements OnInit {
   }
 
   onChangeTab(url: NgbNavChangeEvent){
-    this.location.replaceState("settings/" + url.nextId);
+    this.location.replaceState("user-settings/" + url.nextId);
   }
 }
