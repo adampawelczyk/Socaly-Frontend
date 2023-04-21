@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sorting} from '../../user/shared/sorting';
+import { Sorting } from '../../../utilities/sorting';
 import { UserSettingsModel } from '../shared/user-settings.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { UserSettingsService } from '../shared/user-settings.service';
