@@ -5,7 +5,7 @@ import { AuthService } from '../../auth/shared/auth.service';
 @Component({
   selector: 'app-email-settings',
   templateUrl: './email-settings.component.html',
-  styleUrls: ['./email-settings.component.scss']
+  styleUrls: ['./email-settings.component.scss', './../shared/styles.scss']
 })
 export class EmailSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
