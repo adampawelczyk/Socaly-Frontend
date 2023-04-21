@@ -8,7 +8,7 @@ import { UserModel } from '../../user/shared/user.model';
 @Component({
   selector: 'app-profile-settings',
   templateUrl: './profile-settings.component.html',
-  styleUrls: ['./profile-settings.component.scss']
+  styleUrls: ['./profile-settings.component.scss', './../shared/styles.scss']
 })
 export class ProfileSettingsComponent implements OnInit {
   user: UserModel;
