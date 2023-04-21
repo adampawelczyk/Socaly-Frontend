@@ -7,7 +7,7 @@ import { UserSettingsService } from '../shared/user-settings.service';
 @Component({
   selector: 'app-feed-settings',
   templateUrl: './feed-settings.component.html',
-  styleUrls: ['./feed-settings.component.scss']
+  styleUrls: ['./feed-settings.component.scss', './../shared/styles.scss']
 })
 export class FeedSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
