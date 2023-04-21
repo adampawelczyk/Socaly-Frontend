@@ -4,7 +4,7 @@ import { UserService } from '../../user/shared/user.service';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
-  styleUrls: ['./account-settings.component.scss']
+  styleUrls: ['./account-settings.component.scss', './../shared/styles.scss']
 })
 export class AccountSettingsComponent implements OnInit {
   email: string;
