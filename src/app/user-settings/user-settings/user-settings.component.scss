@@ -31,25 +31,6 @@
   color: black;
 }
 
-.feed-sort-dropdown-menu-toggle {
-  width: 100px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  background-color: transparent;
-  color: colors.$primary-color;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.feed-sort-dropdown-menu-toggle:focus {
-  box-shadow: none;
-}
-
-.feed-sort-dropdown-menu-toggle::after {
-  display: none;
-}
-
 .feed-sort-dropdown-menu {
   min-width: 0;
 }
