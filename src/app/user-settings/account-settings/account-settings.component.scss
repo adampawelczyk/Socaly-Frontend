@@ -16,3 +16,13 @@
 .delete-icon {
   color: colors.$darkgray;
 }
+
+.btn-resend-verification-email {
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+  color: colors.$primary-color;
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+}
