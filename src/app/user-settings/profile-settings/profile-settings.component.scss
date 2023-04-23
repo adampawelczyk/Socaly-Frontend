@@ -34,3 +34,14 @@
 .black {
   color: black;
 }
+
+.button {
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px colors.$primary-color solid;
+  color: colors.$primary-color;
+  cursor: pointer;
+}

@@ -23,17 +23,6 @@
   flex-flow: wrap;
 }
 
-.button {
-  z-index: 2;
-  position: absolute;
-  background-color: white;
-  padding: 5px;
-  border-radius: 50%;
-  border: 1px colors.$primary-color solid;
-  color: colors.$primary-color;
-  cursor: pointer;
-}
-
 .change-profile-image-button {
   @extend .button;
   margin-top: 5rem;
