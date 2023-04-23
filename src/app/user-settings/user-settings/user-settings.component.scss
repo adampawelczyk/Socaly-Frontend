@@ -23,12 +23,6 @@
   flex-flow: wrap;
 }
 
-.change-banner-button {
-  @extend .button;
-  margin-top: 5rem;
-  margin-left: -2.5rem;
-}
-
 .profile-banner-loading-wheel-position {
   position: absolute;
   margin-top: 1.5rem;
