@@ -65,6 +65,7 @@ import { EmailSettingsModule } from './user-settings/email-settings/email-settin
     AccountSettingsModule,
     ProfileSettingsModule,
     FeedSettingsModule,
+    EmailSettingsModule,
     EmailSettingsModule
   ],
   providers: [
