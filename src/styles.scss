@@ -184,6 +184,10 @@ input:checked + .slider:before {
   background-color: colors.$dropdown-item-hover-color;
 }
 
+.dropdown-item.disabled {
+  color: colors.$darkgray;
+}
+
 .sticky-top {
   top: 4rem;
 }
