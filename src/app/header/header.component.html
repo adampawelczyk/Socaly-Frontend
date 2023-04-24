@@ -12,8 +12,11 @@
           {{username}}
         </button>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button class="d-flex" (click)="goToUserProfile()" ngbDropdownItem>
+          <button disabled class="d-flex" ngbDropdownItem>
             <span class="material-symbols-outlined">account_circle</span>
+            <span class="ps-1 text">My Stuff</span>
+          </button>
+          <button id="profile-button" class="d-flex" (click)="goToUserProfile()" ngbDropdownItem>
             <span class="ps-1 text">Profile</span>
           </button>
           <div class="dropdown-divider"></div>
