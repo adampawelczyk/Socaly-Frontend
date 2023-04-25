@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { EmailUpdateRequestModel } from '../shared/email-update-request.model';
 
 @Component({
   selector: 'app-email-update',
@@ -9,6 +10,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 })
 export class EmailUpdateComponent implements OnInit {
   emailUpdateForm: UntypedFormGroup;
+  emailUpdatePayload: EmailUpdateRequestModel;
 
   constructor(private activeModal: NgbActiveModal) { }
 
@@ -20,6 +22,11 @@ export class EmailUpdateComponent implements OnInit {
       password: new UntypedFormControl('', Validators.required),
       email: new UntypedFormControl('', Validators.required)
     });
+
+    this.emailUpdatePayload = {
+      password: '',
+      email: ''
+    }
   }
 
   discard() {
