@@ -32,4 +32,8 @@ export class EmailUpdateComponent implements OnInit {
   discard() {
     this.activeModal.close();
   }
+
+  fieldsAreEmpty() {
+    return this.emailUpdateForm.get('password')?.value === '' || this.emailUpdateForm.get('email')?.value === '';
+  }
 }
