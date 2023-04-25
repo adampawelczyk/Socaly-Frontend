@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-email-update',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmailUpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
     body.removeAttribute('style');
   }
 
+  discard() {
+    this.activeModal.close();
+  }
 }
