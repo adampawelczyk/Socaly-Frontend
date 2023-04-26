@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { EmailUpdateRequestModel } from '../shared/email-update-request.model';
+import { UserService } from '../../user/shared/user.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-email-update',
@@ -12,7 +14,7 @@ export class EmailUpdateComponent implements OnInit {
   emailUpdateForm: UntypedFormGroup;
   emailUpdatePayload: EmailUpdateRequestModel;
 
-  constructor(private activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal, private userService: UserService) { }
 
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
@@ -31,6 +33,18 @@ export class EmailUpdateComponent implements OnInit {
 
   discard() {
     this.activeModal.close();
+  }
+
+  updateEmail() {
+    this.emailUpdatePayload.password = this.emailUpdateForm.get('password')?.value;
+    this.emailUpdatePayload.email = this.emailUpdateForm.get('email')?.value;
+
+    this.userService.updateEmail(this.emailUpdatePayload).subscribe(() => {
+
+      this.activeModal.close();
+    }, error => {
+      throwError(error);
+    })
   }
 
   fieldsAreEmpty() {
