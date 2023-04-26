@@ -29,6 +29,6 @@ export class UserSettingsComponent implements OnInit {
   }
 
   onChangeTab(url: NgbNavChangeEvent){
-    this.location.replaceState("user-settings/" + url.nextId);
+    this.location.replaceState("settings/" + url.nextId);
   }
 }
