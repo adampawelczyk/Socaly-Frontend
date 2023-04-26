@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserModel } from './user.model';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
+import { EmailUpdateRequestModel } from '../../user-settings/shared/email-update-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class UserService {
 
   getEmail(): Observable<string> {
     return this.httpClient.get('http://localhost:8090/api/user/get/email', {responseType: "text"});
+  }
+
+  updateEmail(emailUpdatePayload: EmailUpdateRequestModel): Observable<Object> {
+    return this.httpClient.patch('http://localhost:8090/api/user/update/email', emailUpdatePayload)
   }
 
   isEmailVerified(): Observable<boolean> {
