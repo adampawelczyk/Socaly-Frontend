@@ -31,6 +31,7 @@ import { AccountSettingsModule } from './user-settings/account-settings/account-
 import { ProfileSettingsModule } from './user-settings/profile-settings/profile-settings.module';
 import { FeedSettingsModule } from './user-settings/feed-settings/feed-settings.module';
 import { EmailSettingsModule } from './user-settings/email-settings/email-settings.module';
+import { EmailUpdateModule } from './user-settings/email-update/email-update.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -66,7 +67,7 @@ import { EmailSettingsModule } from './user-settings/email-settings/email-settin
     ProfileSettingsModule,
     FeedSettingsModule,
     EmailSettingsModule,
-    EmailSettingsModule
+    EmailUpdateModule
   ],
   providers: [
     {
