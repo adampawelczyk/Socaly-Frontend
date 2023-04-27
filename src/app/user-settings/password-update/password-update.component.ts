@@ -10,6 +10,8 @@ export class PasswordUpdateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const body = document.getElementsByTagName('body')[0];
+    body.removeAttribute('style');
   }
 
 }
