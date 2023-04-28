@@ -4,6 +4,7 @@ import { UserModel } from './user.model';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { EmailUpdateRequestModel } from '../../user-settings/shared/email-update-request.model';
+import { PasswordUpdateRequestModel } from '../../user-settings/shared/password-update-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ export class UserService {
 
   updateEmail(emailUpdatePayload: EmailUpdateRequestModel): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/update/email', emailUpdatePayload)
+  }
+
+  updatePassword(passwordUpdatePayload: PasswordUpdateRequestModel): Observable<Object> {
+    return this.httpClient.patch('http://localhost:8090/api/user/update/password', passwordUpdatePayload);
   }
 
   isEmailVerified(): Observable<boolean> {
