@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PasswordUpdateRequestModel } from '../shared/password-update-request.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-password-update',
@@ -11,7 +12,7 @@ export class PasswordUpdateComponent implements OnInit {
   passwordUpdateForm: UntypedFormGroup;
   passwordUpdatePayload: PasswordUpdateRequestModel;
 
-  constructor() { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
@@ -29,4 +30,7 @@ export class PasswordUpdateComponent implements OnInit {
     }
   }
 
+  discard() {
+    this.activeModal.close();
+  }
 }
