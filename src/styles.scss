@@ -71,6 +71,11 @@ body {
   box-shadow: none;
 }
 
+.btn-primary:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
 .btn-secondary:active:focus, .btn-primary:active:focus {
   box-shadow: none;
 }
