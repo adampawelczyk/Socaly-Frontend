@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { PasswordUpdateRequestModel } from '../shared/password-update-request.model';
 
 @Component({
   selector: 'app-password-update',
@@ -8,6 +9,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 })
 export class PasswordUpdateComponent implements OnInit {
   passwordUpdateForm: UntypedFormGroup;
+  passwordUpdatePayload: PasswordUpdateRequestModel;
 
   constructor() { }
 
@@ -20,6 +22,11 @@ export class PasswordUpdateComponent implements OnInit {
       newPassword: new UntypedFormControl('', Validators.required),
       confirmNewPassword: new UntypedFormControl('', Validators.required)
     });
+
+    this.passwordUpdatePayload = {
+      currentPassword: '',
+      newPassword: ''
+    }
   }
 
 }
