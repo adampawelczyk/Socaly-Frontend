@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PasswordUpdateRequestModel } from '../shared/password-update-request.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../../user/shared/user.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-password-update',
@@ -12,7 +14,7 @@ export class PasswordUpdateComponent implements OnInit {
   passwordUpdateForm: UntypedFormGroup;
   passwordUpdatePayload: PasswordUpdateRequestModel;
 
-  constructor(private activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal, private userService: UserService) { }
 
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
@@ -32,5 +34,18 @@ export class PasswordUpdateComponent implements OnInit {
 
   discard() {
     this.activeModal.close();
+  }
+
+  updatePassword() {
+    this.passwordUpdatePayload.currentPassword = this.passwordUpdateForm.get('currentPassword')?.value;
+    this.passwordUpdatePayload.newPassword = this.passwordUpdateForm.get('newPassword')?.value;
+
+    this.userService.updatePassword(this.passwordUpdatePayload).subscribe(() => {
+
+      this.activeModal.close();
+    }, error => {
+      console.log(error);
+      throwError(error);
+    })
   }
 }
