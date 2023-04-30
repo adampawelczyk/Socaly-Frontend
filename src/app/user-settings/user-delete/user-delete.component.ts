@@ -11,5 +11,7 @@ export class UserDeleteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const body = document.getElementsByTagName('body')[0];
+    body.removeAttribute('style');
   }
 }
