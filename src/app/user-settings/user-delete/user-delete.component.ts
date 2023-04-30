@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-delete',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-delete.component.scss']
 })
 export class UserDeleteComponent implements OnInit {
+  userDeleteForm: UntypedFormGroup;
 
   constructor() {
   }
@@ -13,5 +15,10 @@ export class UserDeleteComponent implements OnInit {
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
     body.removeAttribute('style');
+
+    this.userDeleteForm = new UntypedFormGroup({
+      username: new UntypedFormControl('', Validators.required),
+      password: new UntypedFormControl('', Validators.required)
+    });
   }
 }
