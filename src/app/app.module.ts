@@ -33,6 +33,7 @@ import { FeedSettingsModule } from './user-settings/feed-settings/feed-settings.
 import { EmailSettingsModule } from './user-settings/email-settings/email-settings.module';
 import { EmailUpdateModule } from './user-settings/email-update/email-update.module';
 import { PasswordUpdateModule } from './user-settings/password-update/password-update.module';
+import { UserDeleteModule } from './user-settings/user-delete/user-delete.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -69,7 +70,8 @@ import { PasswordUpdateModule } from './user-settings/password-update/password-u
     FeedSettingsModule,
     EmailSettingsModule,
     EmailUpdateModule,
-    PasswordUpdateModule
+    PasswordUpdateModule,
+    UserDeleteModule
   ],
   providers: [
     {
