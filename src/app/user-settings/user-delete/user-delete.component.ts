@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { UserDeleteRequestModel } from '../shared/user-delete-request.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-delete',
@@ -11,7 +12,7 @@ export class UserDeleteComponent implements OnInit {
   userDeleteForm: UntypedFormGroup;
   userDeletePayload: UserDeleteRequestModel;
 
-  constructor() {
+  constructor(private activeModal: NgbActiveModal) {
   }
 
   ngOnInit(): void {
@@ -27,5 +28,9 @@ export class UserDeleteComponent implements OnInit {
       username: '',
       password: ''
     };
+  }
+
+  discard() {
+    this.activeModal.close();
   }
 }
