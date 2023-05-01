@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { EmailUpdateRequestModel } from '../../user-settings/shared/email-update-request.model';
 import { PasswordUpdateRequestModel } from '../../user-settings/shared/password-update-request.model';
+import { UserDeleteRequestModel } from '../../user-settings/shared/user-delete-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +53,9 @@ export class UserService {
 
   changeDescription(description: string): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/change/description', description);
+  }
+
+  delete(userDeletePayload: UserDeleteRequestModel): Observable<Object> {
+    return this.httpClient.delete('http://localhost:8090/api/user/delete',{body: userDeletePayload});
   }
 }
