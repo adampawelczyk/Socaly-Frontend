@@ -3,6 +3,7 @@ import { UserService } from '../../user/shared/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EmailUpdateComponent } from '../email-update/email-update.component';
 import { PasswordUpdateComponent } from '../password-update/password-update.component';
+import { UserDeleteComponent } from '../user-delete/user-delete.component';
 
 @Component({
   selector: 'app-account-settings',
@@ -36,5 +37,9 @@ export class AccountSettingsComponent implements OnInit {
 
   updatePassword() {
     this.modal.open(PasswordUpdateComponent, {size: "md"});
+  }
+
+  delete() {
+    this.modal.open(UserDeleteComponent, {size: "md"});
   }
 }
