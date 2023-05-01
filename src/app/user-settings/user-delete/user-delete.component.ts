@@ -51,4 +51,8 @@ export class UserDeleteComponent implements OnInit {
       throwError(error);
     })
   }
+
+  fieldsAreEmpty() {
+    return this.userDeleteForm.get('username')?.value === '' || this.userDeleteForm.get('password')?.value === '';
+  }
 }
