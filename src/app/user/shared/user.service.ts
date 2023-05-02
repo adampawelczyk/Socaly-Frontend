@@ -43,6 +43,10 @@ export class UserService {
     return this.httpClient.get<boolean>('http://localhost:8090/api/user/is-email-verified');
   }
 
+  isDeleted(username: string): Observable<boolean> {
+    return this.httpClient.get<boolean>('http://localhost:8090/api/user/is/deleted/' + username);
+  }
+
   changeProfileImage(imageUrl: string): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/change/profile/image', imageUrl);
   }
