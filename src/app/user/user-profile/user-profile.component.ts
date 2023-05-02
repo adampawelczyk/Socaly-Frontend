@@ -47,4 +47,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  goHome() {
+    this.router.navigateByUrl('');
+  }
 }
