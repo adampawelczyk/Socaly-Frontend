@@ -39,4 +39,9 @@ export class UserSettingsService {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/comment-reply-emails',
       commentReplyEmails, {responseType: 'text'});
   }
+
+  updatePostUpVoteEmails(postUpVoteEmails: boolean): Observable<Object> {
+    return this.httpClient.patch('http://localhost:8090/api/user/settings/change/post-up-vote-emails',
+      postUpVoteEmails, {responseType: 'text'});
+  }
 }
