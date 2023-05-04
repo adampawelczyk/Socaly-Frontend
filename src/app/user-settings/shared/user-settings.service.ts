@@ -30,7 +30,7 @@ export class UserSettingsService {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/community-content-sort', sorting)
   }
 
-  changePostCommentEmails(postCommentEmails: boolean): Observable<Object> {
+  updatePostCommentEmails(postCommentEmails: boolean): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/post-comment-emails',
       postCommentEmails, {responseType: 'text'});
   }
