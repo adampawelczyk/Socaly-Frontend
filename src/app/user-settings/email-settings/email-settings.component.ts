@@ -37,4 +37,11 @@ export class EmailSettingsComponent implements OnInit {
       this.userSettings.postUpVoteEmails = !this.userSettings.postUpVoteEmails;
     })
   }
+
+  updateCommentUpVoteEmails() {
+    this.userSettingsService.updateCommentUpVoteEmails(!this.userSettings.commentUpVoteEmails).subscribe(() => {
+      this.userSettingsService.reloadUserSettings();
+      this.userSettings.commentUpVoteEmails = !this.userSettings.commentUpVoteEmails;
+    });
+  }
 }
