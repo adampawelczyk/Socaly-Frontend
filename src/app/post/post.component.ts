@@ -81,7 +81,7 @@ export class PostComponent implements OnInit {
   }
 
   goToPost(id: number): void {
-    if (this.authService.getUserSettings().openPostsInNewTab) {
+    if (this.authService.isLoggedIn() && this.authService.getUserSettings().openPostsInNewTab) {
       const url = this.router.serializeUrl(this.router.createUrlTree(['/view-post/' + id]));
       window.open(url, '_blank');
     } else {
