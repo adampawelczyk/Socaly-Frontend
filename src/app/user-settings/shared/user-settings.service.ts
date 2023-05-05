@@ -26,7 +26,7 @@ export class UserSettingsService {
       openPostsInNewTab, {responseType: 'text'})
   }
 
-  changeCommunityContentSort(sorting: Sorting): Observable<Object> {
+  updateCommunityContentSort(sorting: Sorting): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/community-content-sort', sorting)
   }
 

@@ -20,7 +20,7 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   changeCommunityContentSort(sorting: Sorting) {
-    this.userSettingsService.changeCommunityContentSort(sorting).subscribe(() => {
+    this.userSettingsService.updateCommunityContentSort(sorting).subscribe(() => {
       this.userSettings.communityContentSort = sorting;
       this.userSettingsService.reloadUserSettings();
     })
