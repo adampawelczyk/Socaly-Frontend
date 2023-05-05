@@ -38,7 +38,7 @@
       </span>
     </button>
     <div ngbDropdownMenu aria-labelledby="contentSortDropdown" class="feed-sort-dropdown-menu">
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.HOT)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.HOT)">
         <span class="material-symbols-outlined">
           local_fire_department
         </span>
@@ -47,7 +47,7 @@
         </span>
       </button>
       <div class="dropdown-divider"></div>
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.NEW)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.NEW)">
         <span class="material-symbols-outlined">
           brightness_empty
         </span>
@@ -56,7 +56,7 @@
         </span>
       </button>
       <div class="dropdown-divider"></div>
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.TOP_TODAY)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.TOP_TODAY)">
         <span class="material-symbols-outlined">
           leaderboard
         </span>
@@ -95,31 +95,31 @@
       </span>
     </button>
     <div ngbDropdownMenu aria-labelledby="contentSortDropdownDuration" class="feed-sort-dropdown-menu">
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.TOP_TODAY)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.TOP_TODAY)">
         <span class="ms-1">
           today
         </span>
       </button>
       <div class="dropdown-divider"></div>
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.TOP_WEEK)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.TOP_WEEK)">
         <span class="ms-1">
           week
         </span>
       </button>
       <div class="dropdown-divider"></div>
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.TOP_MONTH)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.TOP_MONTH)">
         <span class="ms-1">
           month
         </span>
       </button>
       <div class="dropdown-divider"></div>
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.TOP_YEAR)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.TOP_YEAR)">
         <span class="ms-1">
           year
         </span>
       </button>
       <div class="dropdown-divider"></div>
-      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="changeCommunityContentSort(SortingType.TOP_ALL_TIME)">
+      <button ngbDropdownItem class="d-flex align-items-center feed-sort-button" (click)="updateCommunityContentSort(SortingType.TOP_ALL_TIME)">
         <span class="ms-1">
           all time
         </span>

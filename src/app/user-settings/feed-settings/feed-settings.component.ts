@@ -19,7 +19,7 @@ export class FeedSettingsComponent implements OnInit {
     this.userSettings = this.authService.getUserSettings();
   }
 
-  changeCommunityContentSort(sorting: Sorting) {
+  updateCommunityContentSort(sorting: Sorting) {
     this.userSettingsService.updateCommunityContentSort(sorting).subscribe(() => {
       this.userSettings.communityContentSort = sorting;
       this.userSettingsService.reloadUserSettings();
