@@ -21,7 +21,7 @@ export class UserSettingsService {
     return this.httpClient.get<UserSettingsModel>('http://localhost:8090/api/user/settings/get')
   }
 
-  changeOpenPostsInNewTab(openPostsInNewTab: boolean): Observable<Object> {
+  updateOpenPostsInNewTab(openPostsInNewTab: boolean): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/change/open-posts-in-new-tab',
       openPostsInNewTab, {responseType: 'text'})
   }

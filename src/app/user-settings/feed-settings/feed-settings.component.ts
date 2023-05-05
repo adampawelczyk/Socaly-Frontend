@@ -27,7 +27,7 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   changeOpenPostsInNewTab() {
-    this.userSettingsService.changeOpenPostsInNewTab(!this.userSettings.openPostsInNewTab).subscribe(() => {
+    this.userSettingsService.updateOpenPostsInNewTab(!this.userSettings.openPostsInNewTab).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
     })
   }
