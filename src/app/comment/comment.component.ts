@@ -29,6 +29,7 @@ export class CommentComponent implements OnInit {
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
   userProfileImage: string;
+  userIsDeleted: boolean;
 
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
               private authService: AuthService, private userService: UserService) {
@@ -62,6 +63,10 @@ export class CommentComponent implements OnInit {
       this.userProfileImage = data.profileImage;
       console.log(data.profileImage);
     })
+
+    this.userService.isDeleted(this.comment.username).subscribe(data => {
+      this.userIsDeleted = data;
+    });
   }
 
   private getSubCommentsForComment(commentId: number | undefined) {

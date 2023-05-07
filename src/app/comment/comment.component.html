@@ -1,9 +1,12 @@
 <div id="{{comment.postId}}-{{comment.username}}" *ngIf="!collapsed" class="mb-3">
   <div class="thread-line ps-2">
     <img class="profile-image" src="{{userProfileImage}}" alt="{{comment.username}} profile image">
-    <a class="comment-username ms-1" routerLink="/user/{{comment.username}}">
+    <a *ngIf="!userIsDeleted" class="comment-username ms-1" routerLink="/user/{{comment.username}}">
       {{comment.username}}
     </a>
+    <span *ngIf="userIsDeleted" class="comment-username ms-1">
+      [deleted]
+    </span>
     <span class="timeSinceCreation">
     • {{comment.timeSinceCreation}}
     </span>

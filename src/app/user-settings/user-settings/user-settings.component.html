@@ -1,0 +1,41 @@
+<ul ngbNav #nav="ngbNav" [activeId]="activeId" class="nav-tabs nav-fill" (navChange)="onChangeTab($event)">
+  <li [ngbNavItem]="'account'">
+    <a ngbNavLink>Account</a>
+    <ng-template ngbNavContent class="h-100">
+      <div class="settings-page">
+        <app-account-settings></app-account-settings>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="'profile'">
+    <a ngbNavLink>Profile</a>
+    <ng-template ngbNavContent>
+      <div class="settings-page">
+        <app-profile-settings></app-profile-settings>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="'feed'">
+    <a ngbNavLink>Feed Settings</a>
+    <ng-template ngbNavContent>
+      <div class="settings-page">
+        <app-feed-settings></app-feed-settings>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="'emails'">
+    <a ngbNavLink>Emails</a>
+    <ng-template ngbNavContent>
+      <div class="settings-page">
+        <app-email-settings></app-email-settings>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+<div class="container">
+  <div class="d-flex">
+    <div class="flex-grow-1">
+      <div [ngbNavOutlet]="nav"></div>
+    </div>
+  </div>
+</div>

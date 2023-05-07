@@ -26,7 +26,14 @@ import { CreatePostTopbarModule } from './post/create-post-topbar/create-post-to
 import { HomeSidebarModule } from './home/home-sidebar/home-sidebar.module';
 import { UserProfileModule } from './user/user-profile/user-profile.module';
 import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
-
+import { UserSettingsModule } from './user-settings/user-settings/user-settings.module';
+import { AccountSettingsModule } from './user-settings/account-settings/account-settings.module';
+import { ProfileSettingsModule } from './user-settings/profile-settings/profile-settings.module';
+import { FeedSettingsModule } from './user-settings/feed-settings/feed-settings.module';
+import { EmailSettingsModule } from './user-settings/email-settings/email-settings.module';
+import { EmailUpdateModule } from './user-settings/email-update/email-update.module';
+import { PasswordUpdateModule } from './user-settings/password-update/password-update.module';
+import { UserDeleteModule } from './user-settings/user-delete/user-delete.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -56,7 +63,15 @@ import { UserSidebarModule } from './user/user-sidebar/user-sidebar.module';
     CreatePostTopbarModule,
     HomeSidebarModule,
     UserProfileModule,
-    UserSidebarModule
+    UserSidebarModule,
+    UserSettingsModule,
+    AccountSettingsModule,
+    ProfileSettingsModule,
+    FeedSettingsModule,
+    EmailSettingsModule,
+    EmailUpdateModule,
+    PasswordUpdateModule,
+    UserDeleteModule
   ],
   providers: [
     {

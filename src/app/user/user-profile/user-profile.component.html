@@ -1,5 +1,5 @@
 <ul ngbNav #nav="ngbNav" class="nav-tabs nav-fill">
-  <li ngbNavItem>
+  <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Overview</a>
     <ng-template ngbNavContent>
       <app-post [posts]="posts"></app-post>
@@ -16,13 +16,13 @@
       </div>
     </ng-template>
   </li>
-  <li ngbNavItem>
+  <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Posts</a>
     <ng-template ngbNavContent>
       <app-post [posts]="posts"></app-post>
     </ng-template>
   </li>
-  <li ngbNavItem>
+  <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Comments</a>
     <ng-template ngbNavContent>
       <div *ngFor="let comment of comments">
@@ -38,19 +38,19 @@
       </div>
     </ng-template>
   </li>
-  <li ngbNavItem>
+  <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Saved</a>
     <ng-template ngbNavContent>
       Content
     </ng-template>
   </li>
-  <li ngbNavItem>
+  <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Upvoted</a>
     <ng-template ngbNavContent>
       Content
     </ng-template>
   </li>
-  <li ngbNavItem>
+  <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Downvoted</a>
     <ng-template ngbNavContent>
       Content
@@ -58,8 +58,8 @@
   </li>
 </ul>
 <div class="container">
-  <div class="d-flex">
-    <div class="flex-grow-1 me-lg-4">
+  <div *ngIf="!userIsDeleted" class="d-flex">
+    <div id="deleted-user" class="flex-grow-1 me-lg-4">
       <div [ngbNavOutlet]="nav"></div>
     </div>
     <div class="sidebar">
@@ -67,5 +67,13 @@
         <app-user-sidebar *ngIf = "userDetails" [userDetails]="userDetails"></app-user-sidebar>
       </div>
     </div>
+  </div>
+  <div *ngIf="userIsDeleted" class="d-flex align-items-center justify-content-center flex-column h-100">
+    <img id="thoughtful-snoo" src="https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fsnoo_thoughtful.png?alt=media&token=e9bace0b-05f5-4e0a-91d7-075b27d833b4"
+    alt="image of thoughtful snoo" loading="lazy">
+    <p id="deleted-user-message">This user deleted their account</p>
+    <div>
+      <button class="btn-primary" (click)="goHome()">Go home</button
+      ></div>
   </div>
 </div>

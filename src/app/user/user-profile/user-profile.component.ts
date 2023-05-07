@@ -19,12 +19,17 @@ export class UserProfileComponent implements OnInit {
   postLength: number;
   commentLength: number;
   userDetails: UserModel;
+  userIsDeleted: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, private commentService: CommentService,
               private userService: UserService) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.name = this.activatedRoute.snapshot.params.name;
+
+    userService.isDeleted(this.name).subscribe(isDeleted => {
+      this.userIsDeleted = isDeleted;
+    });
 
     this.userService.getUserDetails(this.name).subscribe(data => {
       this.userDetails = data;
@@ -42,4 +47,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  goHome() {
+    this.router.navigateByUrl('');
+  }
 }

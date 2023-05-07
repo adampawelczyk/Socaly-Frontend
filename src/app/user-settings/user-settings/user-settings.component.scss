@@ -1,0 +1,24 @@
+@use '../../../utilities/colors';
+
+.nav-tabs {
+  background-color: white;
+  border-top: 1px colors.$border-color solid;
+  padding-left: calc((100vw - 1200px + 0.75rem) / 2);
+  padding-right: calc((100vw - 1200px + 0.75rem) / 2);
+}
+
+.settings-page {
+  border: 1px solid colors.$border-color;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+  background-color: colors.$card-background-color;
+  color: colors.$darkgray;
+  position: relative;
+  border-radius: 4px;
+}
+
+.flex-flow-wrap {
+  flex-flow: wrap;
+}

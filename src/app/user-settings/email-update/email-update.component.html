@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">Update your email</h4>
+  <button type="button" class="btn-close outline-none" (click)="discard()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <p>Update your email below. There will be a new verification email sent that you will need to use to verify this
+    new email.</p>
+  <form id="email-update-form" class="d-flex flex-column" [formGroup]="emailUpdateForm" (ngSubmit)="updateEmail()">
+    <label for="password"><p class="sr-only">Current password: </p>
+      <input id="password" class="form-control shadow-none mt-2 mb-2 black-border" type="password"
+              [formControlName]="'password'" placeholder="Current password" required>
+    </label>
+
+    <label for="email"><p class="sr-only">New email: </p>
+      <input id="email" class="form-control shadow-none mt-2 mb-2 black-border" type="email" placeholder="New email"
+              [formControlName]="'email'" required>
+    </label>
+  </form>
+</div>
+<div class="modal-footer justify-content-end p-2">
+  <div class="d-flex flex-row">
+    <div>
+      <button class="btn-secondary" (click)="discard()">
+        Cancel
+      </button>
+    </div>
+    <div class="ms-2">
+      <button class="btn-primary" [disabled]="fieldsAreEmpty()" type="submit" form="email-update-form">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

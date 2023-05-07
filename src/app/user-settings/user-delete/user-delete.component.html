@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title">Delete account</h4>
+  <button type="button" class="btn-close outline-none" (click)="discard()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <form id="user-delete-form" class="d-flex flex-column" [formGroup]="userDeleteForm" (ngSubmit)="delete()">
+    <label for="username"><p class="sr-only">Username: </p>
+      <input id="username" class="form-control shadow-none mt-2 mb-2 black-border" type="text"
+             [formControlName]="'username'" placeholder="Username" required>
+    </label>
+
+    <label for="password"><p class="sr-only">Password: </p>
+      <input id="password" class="form-control shadow-none mt-2 mb-2 black-border" type="password"
+             placeholder="Password" [formControlName]="'password'" required>
+    </label>
+  </form>
+</div>
+<div class="modal-footer justify-content-end p-2">
+  <div class="d-flex flex-row">
+    <div>
+      <button class="btn-secondary" (click)="discard()">
+        Cancel
+      </button>
+    </div>
+    <div class="ms-2">
+      <button class="btn-primary" [disabled]="fieldsAreEmpty()" type="submit" form="user-delete-form">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
