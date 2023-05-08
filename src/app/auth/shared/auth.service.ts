@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupRequestModel } from './signup-request.model';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { LoginRequestModel } from './login-request.model';
 import { LoginResponseModel } from './login-response.model';
 import { map, tap } from 'rxjs/operators';
@@ -15,7 +15,8 @@ import { UserSettingsService } from '../../user-settings/shared/user-settings.se
   providedIn: 'root'
 })
 export class AuthService {
-  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
+  private loggedInSubject = new BehaviorSubject<boolean>(false);
+  loggedIn = this.loggedInSubject.asObservable();
   @Output() username: EventEmitter<string> = new EventEmitter();
   @Output() currentUser: UserModel;
   @Output() currentUserSettings: UserSettingsModel;
