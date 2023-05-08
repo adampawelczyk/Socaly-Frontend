@@ -41,7 +41,7 @@ export class AuthService {
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.expiresAt);
 
-        this.loggedIn.emit(true);
+        this.loggedInSubject.next(true);
         this.username.emit(data.username);
 
         this.userService.getUserDetails(data.username).subscribe(data => {
