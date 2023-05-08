@@ -59,10 +59,9 @@ export class CommentComponent implements OnInit {
     this.getSubCommentsForComment(this.comment.id);
     this.initializeEditForm()
 
-    this.userService.getUserDetails(this.comment.username).subscribe(data => {
-      this.userProfileImage = data.profileImage;
-      console.log(data.profileImage);
-    })
+    this.userService.getUserProfileImage(this.comment.username).subscribe(data => {
+      this.userProfileImage = data;
+    });
 
     this.userService.isDeleted(this.comment.username).subscribe(data => {
       this.userIsDeleted = data;
