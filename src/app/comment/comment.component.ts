@@ -48,7 +48,7 @@ export class CommentComponent implements OnInit {
 
     this.editForm = new UntypedFormGroup({
       text: new UntypedFormControl('')
-    })
+    });
   }
 
   ngAfterViewChecked() {
