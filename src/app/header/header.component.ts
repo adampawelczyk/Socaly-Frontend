@@ -11,21 +11,21 @@ import { LoginComponent } from '../auth/login/login.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean;
+  loggedIn: boolean;
   username: string;
 
   constructor(private authService: AuthService, private router: Router, private modal: NgbModal) { }
 
   ngOnInit(): void {
     this.authService.loggedIn.subscribe({
-      next: (isLoggedIn) => this.isLoggedIn = isLoggedIn
+      next: (loggedIn) => this.loggedIn = loggedIn
     });
 
     this.authService.username.subscribe({
       next: (username) => this.username = username
     });
 
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.loggedIn = this.authService.isLoggedIn();
     this.username = this.authService.getUsername();
   }
 
