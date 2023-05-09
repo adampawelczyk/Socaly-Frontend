@@ -14,9 +14,7 @@ import { UserSettingsService } from '../../user-settings/shared/user-settings.se
 })
 export class AuthService {
   loggedIn = new BehaviorSubject<boolean>(false);
-  @Output() username: EventEmitter<string> = new EventEmitter();
-  @Output() currentUser: UserModel;
-  @Output() currentUserSettings: UserSettingsModel;
+  username = new BehaviorSubject<string>("");
 
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
