@@ -15,8 +15,7 @@ import { UserSettingsService } from '../../user-settings/shared/user-settings.se
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedInSubject = new BehaviorSubject<boolean>(false);
-  loggedIn = this.loggedInSubject.asObservable();
+  loggedInSubject = new BehaviorSubject<boolean>(false);
   @Output() username: EventEmitter<string> = new EventEmitter();
   @Output() currentUser: UserModel;
   @Output() currentUserSettings: UserSettingsModel;
