@@ -17,10 +17,14 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private modal: NgbModal) { }
 
   ngOnInit(): void {
-    this.authService.username.subscribe((data: string) => this.username = data);
     this.authService.loggedIn.subscribe({
       next: (isLoggedIn) => this.isLoggedIn = isLoggedIn
     });
+
+    this.authService.username.subscribe({
+      next: (username) => this.username = username
+    });
+
     this.username = this.authService.getUsername();
   }
 
