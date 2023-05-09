@@ -6,8 +6,6 @@ import { LoginRequestModel } from './login-request.model';
 import { LoginResponseModel } from './login-response.model';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
-import { UserModel } from '../../user/shared/user.model';
-import { UserSettingsModel } from '../../user-settings/shared/user-settings.model';
 import { UserService } from '../../user/shared/user.service';
 import { UserSettingsService } from '../../user-settings/shared/user-settings.service';
 
