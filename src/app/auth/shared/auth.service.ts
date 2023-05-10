@@ -68,9 +68,7 @@ export class AuthService {
 
   logout() {
     this.httpClient.post('http://localhost:8090/api/auth/log-out', this.refreshTokenPayload, {responseType: 'text'})
-      .subscribe(data => {
-        console.log(data);
-      }, error => {
+      .subscribe(() => { }, error => {
         throwError(error);
       });
 
