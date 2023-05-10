@@ -13,7 +13,7 @@ import { UserSettingsService } from '../../user-settings/shared/user-settings.se
   providedIn: 'root'
 })
 export class AuthService {
-  loggedIn = new BehaviorSubject<boolean>(false);
+  loggedInSubject = new BehaviorSubject<boolean>(false);
   username = new BehaviorSubject<string>("");
 
   refreshTokenPayload = {
@@ -36,7 +36,7 @@ export class AuthService {
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.expiresAt);
 
-        this.loggedIn.next(true);
+        this.loggedInSubject.next(true);
         this.username.next(data.username);
 
         this.userService.getUserDetails(data.username).subscribe(data => {
@@ -79,7 +79,7 @@ export class AuthService {
     this.localStorage.clear('userDetails');
     this.localStorage.clear('userSettings');
 
-    this.loggedIn.next(false);
+    this.loggedInSubject.next(false);
   }
 
   getRefreshToken(): string {
