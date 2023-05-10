@@ -82,7 +82,7 @@ export class AuthService {
     this.loggedIn.next(false);
   }
 
-  getRefreshToken() {
+  getRefreshToken(): string {
     return this.localStorage.retrieve('refreshToken');
   }
 
