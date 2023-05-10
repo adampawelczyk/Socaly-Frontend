@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
       next: (loggedIn) => this.loggedIn = loggedIn
     });
 
-    this.authService.username.subscribe({
+    this.authService.usernameSubject.subscribe({
       next: (username) => this.username = username
     });
 

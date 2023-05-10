@@ -14,7 +14,7 @@ import { UserSettingsService } from '../../user-settings/shared/user-settings.se
 })
 export class AuthService {
   loggedInSubject = new BehaviorSubject<boolean>(false);
-  username = new BehaviorSubject<string>("");
+  usernameSubject = new BehaviorSubject<string>("");
 
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService, private userService: UserService,
               private userSettingsService: UserSettingsService) { }
@@ -32,7 +32,7 @@ export class AuthService {
         this.localStorage.store('expiresAt', data.expiresAt);
 
         this.loggedInSubject.next(true);
-        this.username.next(data.username);
+        this.usernameSubject.next(data.username);
 
         this.userService.getUserDetails(data.username).subscribe(data => {
           this.localStorage.store('userDetails', data);
