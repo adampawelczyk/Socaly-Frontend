@@ -16,11 +16,6 @@ export class AuthService {
   loggedInSubject = new BehaviorSubject<boolean>(false);
   username = new BehaviorSubject<string>("");
 
-  refreshTokenPayload = {
-    refreshToken: this.getRefreshToken(),
-    username: this.getUsername()
-  };
-
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService, private userService: UserService,
               private userSettingsService: UserSettingsService) { }
 
