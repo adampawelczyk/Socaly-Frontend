@@ -79,7 +79,7 @@ export class AuthService {
     this.localStorage.clear('userDetails');
     this.localStorage.clear('userSettings');
 
-    this.loggedInSubject.next(false);
+    this.loggedIn.next(false);
   }
 
   getRefreshToken() {
