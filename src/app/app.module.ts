@@ -42,7 +42,7 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot(),
+    NgxWebstorageModule.forRoot({prefix: '', separator: '', caseSensitive: true}),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     LoginModule,
