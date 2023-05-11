@@ -10,6 +10,7 @@ import { editorConfig } from '../../globals';
 import { HighlightService } from '../shared/highlight.service';
 import { AuthService } from '../auth/shared/auth.service';
 import { UserService } from '../user/shared/user.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-comment',
@@ -32,7 +33,7 @@ export class CommentComponent implements OnInit {
   userIsDeleted: boolean;
 
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private userService: UserService) {
+              private authService: AuthService, private userService: UserService, private localStorage: LocalStorageService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
@@ -106,7 +107,7 @@ export class CommentComponent implements OnInit {
   }
 
   showEdit() {
-    return this.comment.username === this.authService.getUsername()
+    return this.comment.username === this.localStorage.retrieve('username');
   }
 
   showEditForm() {
