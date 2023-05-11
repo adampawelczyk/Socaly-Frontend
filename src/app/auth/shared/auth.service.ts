@@ -46,10 +46,6 @@ export class AuthService {
       }));
   }
 
-  getJwtToken() {
-    return this.localStorage.retrieve('authenticationToken');
-  }
-
   refreshToken() {
     return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/refresh-token', this.refreshTokenPayload)
       .pipe(tap(response => {
