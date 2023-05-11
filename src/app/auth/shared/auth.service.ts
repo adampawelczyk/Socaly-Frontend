@@ -75,22 +75,6 @@ export class AuthService {
     this.loggedInSubject.next(false);
   }
 
-  getRefreshToken(): string {
-    return this.localStorage.retrieve('refreshToken');
-  }
-
-  getUsername() {
-    return this.localStorage.retrieve('username');
-  }
-
-  getUserDetails() {
-    return this.localStorage.retrieve('userDetails');
-  }
-
-  getUserSettings() {
-    return this.localStorage.retrieve('userSettings');
-  }
-
   isLoggedIn(): boolean {
     return this.getJwtToken() != null;
   }
