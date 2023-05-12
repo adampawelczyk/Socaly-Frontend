@@ -10,6 +10,7 @@ import { CommentResponseModel } from '../comment/shared/comment-response.model';
 import { editorConfig } from '../../globals';
 import { HighlightService } from '../shared/highlight.service';
 import { AuthService } from '../auth/shared/auth.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-post',
@@ -28,7 +29,8 @@ export class PostComponent implements OnInit {
   editorConfig = editorConfig;
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
-              private activateRoute: ActivatedRoute, private highlightService: HighlightService, private authService: AuthService) {
+              private activateRoute: ActivatedRoute, private highlightService: HighlightService,
+              private authService: AuthService, private localStorage: LocalStorageService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
@@ -81,7 +83,9 @@ export class PostComponent implements OnInit {
   }
 
   goToPost(id: number): void {
-    if (this.authService.isLoggedIn() && this.authService.getUserSettings().openPostsInNewTab) {
+    let userSettings = this.localStorage.retrieve('userSettings')
+
+    if (this.authService.isLoggedIn() && userSettings.openPostsInNewTab) {
       const url = this.router.serializeUrl(this.router.createUrlTree(['/view-post/' + id]));
       window.open(url, '_blank');
     } else {
