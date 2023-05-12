@@ -3,6 +3,7 @@ import { Sorting } from '../../../utilities/sorting';
 import { UserSettingsModel } from '../shared/user-settings.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { UserSettingsService } from '../shared/user-settings.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-feed-settings',
@@ -13,10 +14,11 @@ export class FeedSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
   SortingType = Sorting;
 
-  constructor(private authService: AuthService, private userSettingsService: UserSettingsService) { }
+  constructor(private authService: AuthService, private userSettingsService: UserSettingsService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.userSettings = this.authService.getUserSettings();
+    this.userSettings = this.localStorage.retrieve('userSettings');
   }
 
   updateCommunityContentSort(sorting: Sorting) {
