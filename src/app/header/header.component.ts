@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from '../auth/signup/signup.component';
 import { LoginComponent } from '../auth/login/login.component';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   loggedIn: boolean;
   username: string;
 
-  constructor(private authService: AuthService, private router: Router, private modal: NgbModal) { }
+  constructor(private authService: AuthService, private router: Router, private modal: NgbModal,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.authService.loggedInSubject.subscribe({
@@ -26,7 +28,7 @@ export class HeaderComponent implements OnInit {
     });
 
     this.loggedIn = this.authService.isLoggedIn();
-    this.username = this.authService.getUsername();
+    this.username = this.localStorage.retrieve('username');
   }
 
   signup() {
