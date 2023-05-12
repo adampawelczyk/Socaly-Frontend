@@ -23,23 +23,26 @@ export class CommunityComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService,
               private communityService: CommunityService, private authService: AuthService, private localStorage: LocalStorageService) {
+  }
+
+  ngOnInit(): void {
     this.communityName = this.activatedRoute.snapshot.params.name;
-    this.username = this.localStorage.retrieve('username')
+    this.username = this.localStorage.retrieve('username');
 
     this.postService.getAllPostsByCommunity(this.communityName).subscribe(data => {
       this.posts = data;
       this.postLength = data.length;
     });
 
-    this.communityService.getAllCommunitiesForUser(this.username).subscribe(data => {
-      this.userCommunities = data;
-      this.userBelongsToCommunity = data.some(community => community.name == this.communityName);
-    }, error => {
-      throwError(error);
-    });
+    if (this.username) {
+      this.communityService.getAllCommunitiesForUser(this.username).subscribe(data => {
+        this.userCommunities = data;
+        this.userBelongsToCommunity = data.some(community => community.name == this.communityName);
+      }, error => {
+        throwError(error);
+      });
+    }
   }
-
-  ngOnInit(): void { }
 
   joinCommunity() {
     this.communityService.joinCommunity(this.communityName).subscribe(() => {
