@@ -4,6 +4,7 @@ import { AuthService } from './auth/shared/auth.service';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, switchMap, take, filter } from 'rxjs/operators';
 import { LoginResponseModel } from './auth/shared/login-response.model';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,14 @@ export class TokenInterceptor implements HttpInterceptor {
   isTokenRefreshing = false;
   refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject(null);
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private localStorage: LocalStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
       return next.handle(req);
     }
 
-    const jwtToken = this.authService.getJwtToken();
+    const jwtToken = this.localStorage.retrieve('authenticationToken');
 
     if (jwtToken) {
       return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
@@ -45,7 +46,7 @@ export class TokenInterceptor implements HttpInterceptor {
         }));
     } else {
       return this.refreshTokenSubject.pipe(filter(result => result !== null), take(1), switchMap(() => {
-          return next.handle(this.addToken(req, this.authService.getJwtToken()));
+          return next.handle(this.addToken(req, this.localStorage.retrieve('authenticationToken')));
         }));
     }
   }
