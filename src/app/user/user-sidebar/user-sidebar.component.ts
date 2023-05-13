@@ -4,6 +4,7 @@ import { UserModel } from '../shared/user.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { FileService } from '../../shared/file.service';
 import { UserService } from '../shared/user.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -18,14 +19,14 @@ export class UserSidebarComponent implements OnInit {
   isProfileBannerUploading: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private fileService: FileService,
-              private userService: UserService, private router: Router) {
+              private userService: UserService, private router: Router, private localStorage: LocalStorageService) {
     this.username = this.activatedRoute.snapshot.params.name;
   }
 
   ngOnInit(): void { }
 
   isCurrentUser(): boolean {
-    return this.username === this.authService.getUsername()
+    return this.username === this.localStorage.retrieve('username');
   }
 
   async changeProfileImage(event: Event): Promise<void> {
