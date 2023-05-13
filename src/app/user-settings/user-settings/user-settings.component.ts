@@ -7,6 +7,7 @@ import { UserSettingsService } from '../shared/user-settings.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-user-settings',
@@ -18,14 +19,14 @@ export class UserSettingsComponent implements OnInit {
   user: UserModel;
 
   constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
-              private route: ActivatedRoute, private location: Location) { }
+              private route: ActivatedRoute, private location: Location, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       this.activeId = data.activeId;
     });
 
-    this.user = this.authService.getUserDetails();
+    this.user = this.localStorage.retrieve('userDetails');
   }
 
   onChangeTab(url: NgbNavChangeEvent){
