@@ -3,7 +3,7 @@ import { AuthService } from '../auth/shared/auth.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from '../auth/signup/signup.component';
-import { LoginComponent } from '../auth/login/login.component';
+import { LogInComponent } from '../auth/log-in/log-in.component';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.modal.open(LoginComponent);
+    this.modal.open(LogInComponent);
   }
 
   goToUserProfile() {

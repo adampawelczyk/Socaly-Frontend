@@ -1,4 +1,4 @@
-import { LoginComponent } from './login.component';
+import { LogInComponent } from './log-in.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,11 +9,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   declarations: [
-    LoginComponent
+    LogInComponent
   ],
   exports: [
-    LoginComponent
+    LogInComponent
   ]
 })
 
-export class LoginModule { }
+export class LogInModule { }

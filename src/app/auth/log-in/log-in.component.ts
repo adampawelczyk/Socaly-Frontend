@@ -8,11 +8,11 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from '../signup/signup.component';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-log-in',
+  templateUrl: './log-in.component.html',
+  styleUrls: ['./log-in.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LogInComponent implements OnInit {
   loginForm: UntypedFormGroup;
   loginPayload: LoginRequestModel;
 

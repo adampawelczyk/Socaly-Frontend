@@ -7,7 +7,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './token-interceptor';
-import { LoginModule } from './auth/login/login.module';
+import { LogInModule } from './auth/log-in/log-in.module';
 import { SignupModule } from './auth/signup/signup.module';
 import { CommentModule } from './comment/comment.module';
 import { CommentVoteModule } from './vote/comment-vote/comment-vote.module';
@@ -45,7 +45,7 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     NgxWebstorageModule.forRoot({prefix: '', separator: '', caseSensitive: true}),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    LoginModule,
+    LogInModule,
     SignupModule,
     CommentModule,
     CommentVoteModule,
