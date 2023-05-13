@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/shared/auth.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from '../auth/signup/signup.component';
+import { SignUpComponent } from '../auth/sign-up/sign-up.component';
 import { LogInComponent } from '../auth/log-in/log-in.component';
 import { LocalStorageService } from 'ngx-webstorage';
 
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signup() {
-    this.modal.open(SignupComponent);
+    this.modal.open(SignUpComponent);
   }
 
   login() {

@@ -5,7 +5,7 @@ import { AuthService } from '../shared/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from '../signup/signup.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-log-in',
@@ -53,6 +53,6 @@ export class LogInComponent implements OnInit {
 
   signup() {
     this.activeModal.close();
-    this.modal.open(SignupComponent);
+    this.modal.open(SignUpComponent);
   }
 }

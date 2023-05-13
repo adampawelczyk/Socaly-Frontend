@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './token-interceptor';
 import { LogInModule } from './auth/log-in/log-in.module';
-import { SignupModule } from './auth/signup/signup.module';
+import { SignUpModule } from './auth/sign-up/sign-up.module';
 import { CommentModule } from './comment/comment.module';
 import { CommentVoteModule } from './vote/comment-vote/comment-vote.module';
 import { CommunityModule } from './community/community.module';
@@ -46,7 +46,7 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     LogInModule,
-    SignupModule,
+    SignUpModule,
     CommentModule,
     CommentVoteModule,
     CommunityModule,
