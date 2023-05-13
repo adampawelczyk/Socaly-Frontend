@@ -3,7 +3,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { AuthService } from './auth/shared/auth.service';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, switchMap, take, filter } from 'rxjs/operators';
-import { LoginResponseModel } from './auth/shared/login-response.model';
+import { LogInResponseModel } from './auth/shared/log-in-response.model';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
@@ -39,7 +39,7 @@ export class TokenInterceptor implements HttpInterceptor {
       this.isTokenRefreshing = true;
       this.refreshTokenSubject.next(null);
 
-      return this.authService.refreshToken().pipe(switchMap((refreshTokenResponse: LoginResponseModel) => {
+      return this.authService.refreshToken().pipe(switchMap((refreshTokenResponse: LogInResponseModel) => {
           this.isTokenRefreshing = false;
           this.refreshTokenSubject.next(refreshTokenResponse.authenticationToken);
           return next.handle(this.addToken(req, refreshTokenResponse.authenticationToken));
