@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupRequestModel } from './signup-request.model';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { LoginRequestModel } from './login-request.model';
+import { LogInRequestModel } from './log-in-request.model';
 import { LoginResponseModel } from './login-response.model';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -23,7 +23,7 @@ export class AuthService {
     return this.httpClient.post('http://localhost:8090/api/auth/sign-up', signupPayload, {responseType: 'text'});
   }
 
-  login(loginPayload: LoginRequestModel): Observable<boolean> {
+  login(loginPayload: LogInRequestModel): Observable<boolean> {
     return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/log-in', loginPayload)
       .pipe(map(response => {
         this.localStorage.store('authenticationToken', response.authenticationToken);
