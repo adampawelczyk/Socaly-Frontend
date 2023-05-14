@@ -13,7 +13,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-  loginForm: UntypedFormGroup;
+  logInForm: UntypedFormGroup;
   loginPayload: LogInRequestModel;
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
@@ -28,15 +28,15 @@ export class LogInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginForm = new UntypedFormGroup({
+    this.logInForm = new UntypedFormGroup({
       username: new UntypedFormControl('', Validators.required),
       password: new UntypedFormControl('', Validators.required)
     });
   }
 
   login() {
-    this.loginPayload.username = this.loginForm.get('username')?.value;
-    this.loginPayload.password = this.loginForm.get('password')?.value;
+    this.loginPayload.username = this.logInForm.get('username')?.value;
+    this.loginPayload.password = this.logInForm.get('password')?.value;
 
     this.authService.login(this.loginPayload).subscribe(() => {
       this.activeModal.close();
