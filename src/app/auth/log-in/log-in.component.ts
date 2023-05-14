@@ -10,7 +10,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss']
+  styleUrls: ['./log-in.component.scss', '../shared/styles.scss']
 })
 export class LogInComponent implements OnInit {
   logInForm: UntypedFormGroup;
