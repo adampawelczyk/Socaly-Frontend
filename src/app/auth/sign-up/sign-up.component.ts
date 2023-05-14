@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { SignupRequestModel } from '../shared/signup-request.model';
+import { SignUpRequestModel } from '../shared/sign-up-request.model';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,7 +14,7 @@ import { LogInComponent } from '../log-in/log-in.component';
 })
 export class SignUpComponent implements OnInit {
   signupForm: UntypedFormGroup;
-  signupPayload: SignupRequestModel;
+  signupPayload: SignUpRequestModel;
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService,
               public activeModal: NgbActiveModal, private modal: NgbModal) {
