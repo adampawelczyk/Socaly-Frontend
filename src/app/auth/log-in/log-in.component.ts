@@ -14,11 +14,11 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 })
 export class LogInComponent implements OnInit {
   logInForm: UntypedFormGroup;
-  loginPayload: LogInRequestModel;
+  logInPayload: LogInRequestModel;
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
               private toastr: ToastrService, public activeModal: NgbActiveModal, private modal: NgbModal) {
-    this.loginPayload = {
+    this.logInPayload = {
       username: '',
       password: ''
     };
@@ -35,10 +35,10 @@ export class LogInComponent implements OnInit {
   }
 
   login() {
-    this.loginPayload.username = this.logInForm.get('username')?.value;
-    this.loginPayload.password = this.logInForm.get('password')?.value;
+    this.logInPayload.username = this.logInForm.get('username')?.value;
+    this.logInPayload.password = this.logInForm.get('password')?.value;
 
-    this.authService.login(this.loginPayload).subscribe(() => {
+    this.authService.login(this.logInPayload).subscribe(() => {
       this.activeModal.close();
       this.router.navigateByUrl('')
       this.toastr.success('Login successful')
