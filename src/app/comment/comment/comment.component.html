@@ -1,6 +1,6 @@
 <div id="{{comment.postId}}-{{comment.username}}" *ngIf="!collapsed" class="mb-3">
   <div id="thread-line" class="ps-2">
-    <img class="profile-image" src="{{userProfileImage}}" alt="{{comment.username}} profile image">
+    <img id="profile-image" src="{{userProfileImage}}" alt="{{comment.username}} profile image">
     <a *ngIf="!userIsDeleted" class="comment-username ms-1" routerLink="/user/{{comment.username}}">
       {{comment.username}}
     </a>
