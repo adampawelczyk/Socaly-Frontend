@@ -10,7 +10,7 @@
     <span id="timestamp">
     • {{comment.timeSinceCreation}}
     </span>
-    <span class="timeSinceEdit" *ngIf="comment.timeSinceEdit.length > 0">
+    <span id="timestamp-after-edit" *ngIf="comment.timeSinceEdit.length > 0">
       • edited {{comment.timeSinceEdit}}
     </span>
     <p class="comment-text ms-2 mt-1 mb-1" [innerHTML]="comment.text" style="margin: 0"></p>
