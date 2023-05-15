@@ -7,7 +7,7 @@
     <span *ngIf="userIsDeleted" class="comment-username ms-1">
       [deleted]
     </span>
-    <span class="timeSinceCreation">
+    <span id="timestamp">
     • {{comment.timeSinceCreation}}
     </span>
     <span class="timeSinceEdit" *ngIf="comment.timeSinceEdit.length > 0">
