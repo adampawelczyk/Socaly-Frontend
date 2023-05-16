@@ -9,7 +9,7 @@ import { CommunitiesComponent } from './community/communities/communities.compon
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { AuthGuard } from './auth/shared/auth.guard';
-import { CommunityComponent } from './community/community.component';
+import { CommunityComponent } from './community/community/community.component';
 import { UserSettingsComponent } from './user-settings/user-settings/user-settings.component';
 
 const routes: Routes = [

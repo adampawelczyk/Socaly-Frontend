@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PostResponseModel } from '../post/shared/post-response.model';
-import { PostService } from '../post/shared/post.service';
+import { PostResponseModel } from '../../post/shared/post-response.model';
+import { PostService } from '../../post/shared/post.service';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../auth/shared/auth.service';
-import { CommunityResponseModel } from './shared/community-response.model';
+import { AuthService } from '../../auth/shared/auth.service';
+import { CommunityResponseModel } from '../shared/community-response.model';
 import { throwError } from 'rxjs';
-import { CommunityService } from './shared/community.service';
+import { CommunityService } from '../shared/community.service';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
