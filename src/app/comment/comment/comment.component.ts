@@ -34,7 +34,13 @@ export class CommentComponent implements OnInit {
 
   constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
               private authService: AuthService, private userService: UserService, private localStorage: LocalStorageService) {
-    this.postId = this.activateRoute.snapshot.params.id;
+  }
+
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
+  }
+
+  ngOnInit(): void {
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
 
@@ -43,20 +49,14 @@ export class CommentComponent implements OnInit {
     });
 
     this.commentPayload = {
-      postId: this.postId,
+      postId: this.comment.postId,
       text: '',
     };
 
     this.editForm = new UntypedFormGroup({
       text: new UntypedFormControl('')
     });
-  }
 
-  ngAfterViewChecked() {
-    this.highlightService.highlightAll();
-  }
-
-  ngOnInit(): void {
     this.getSubCommentsForComment(this.comment.id);
     this.initializeEditForm()
 
