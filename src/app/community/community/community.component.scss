@@ -25,21 +25,12 @@
   background-color: white;
 }
 
-#community-name {
-  margin-left: 0.1rem;
-}
-
-.community-name-bold {
+h1.community-name {
   font-size: 2rem;
   font-weight: 700;
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-h2 {
+h2.community-name {
   font-size: 0.87rem;
   font-weight: 500;
   color: colors.$darkgray
