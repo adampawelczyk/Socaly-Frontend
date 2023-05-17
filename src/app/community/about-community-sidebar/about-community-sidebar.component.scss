@@ -17,9 +17,10 @@
   border: 1px solid colors.$primary-color;
 }
 
-.header-text {
+div > h5 {
   font-size: 0.87rem;
   font-weight: 700;
+  margin-bottom: 0;
 }
 
 .text {
