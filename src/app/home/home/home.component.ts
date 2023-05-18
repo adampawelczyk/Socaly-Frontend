@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PostResponseModel } from '../post/shared/post-response.model';
-import { PostService } from '../post/shared/post.service';
-import { AuthService } from '../auth/shared/auth.service';
+import { PostResponseModel } from '../../post/shared/post-response.model';
+import { PostService } from '../../post/shared/post.service';
+import { AuthService } from '../../auth/shared/auth.service';
 
 @Component({
   selector: 'app-home',

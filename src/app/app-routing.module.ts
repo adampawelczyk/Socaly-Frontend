@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { LogInComponent } from './auth/log-in/log-in.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home/home.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
 import { CommunitiesComponent } from './community/communities/communities.component';

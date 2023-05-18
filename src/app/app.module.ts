@@ -14,7 +14,7 @@ import { CommentVoteModule } from './vote/comment-vote/comment-vote.module';
 import { CommunityModule } from './community/community/community.module';
 import { PostVoteModule } from './vote/post-vote/post-vote.module';
 import { HeaderModule } from './header/header.module';
-import { HomeModule } from './home/home.module';
+import { HomeModule } from './home/home/home.module';
 import { PostModule } from './post/post.module';
 import { CommunitySidebarModule } from './community/community-sidebar/community-sidebar.module';
 import { CreateCommunityModule } from './community/create-community/create-community.module';
