@@ -31,11 +31,6 @@ a {
   content: none;
 }
 
-.disabled-btn, .disabled-btn:hover {
-  cursor: not-allowed;
-  filter: grayscale(1);
-}
-
 .progress-bar {
   background-color: colors.$primary-color;
 }
