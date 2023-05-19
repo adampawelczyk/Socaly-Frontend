@@ -27,7 +27,7 @@ export class UserSettingsService {
   }
 
   updateCommunityContentSort(sorting: Sorting): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/settings/update/community-content-sort', sorting)
+    return this.httpClient.patch('http://localhost:8090/api/user/settings/update/community-content-sort', sorting);
   }
 
   updatePostCommentEmails(postCommentEmails: boolean): Observable<Object> {
