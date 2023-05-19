@@ -36,7 +36,7 @@ export class UserService {
   }
 
   updateEmail(emailUpdatePayload: EmailUpdateRequestModel): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/update/email', emailUpdatePayload)
+    return this.httpClient.patch('http://localhost:8090/api/user/update/email', emailUpdatePayload);
   }
 
   updatePassword(passwordUpdatePayload: PasswordUpdateRequestModel): Observable<Object> {
