@@ -23,7 +23,7 @@ export class UserSettingsService {
 
   updateOpenPostsInNewTab(openPostsInNewTab: boolean): Observable<Object> {
     return this.httpClient.patch('http://localhost:8090/api/user/settings/update/open-posts-in-new-tab',
-      openPostsInNewTab, {responseType: 'text'})
+      openPostsInNewTab, {responseType: 'text'});
   }
 
   updateCommunityContentSort(sorting: Sorting): Observable<Object> {
