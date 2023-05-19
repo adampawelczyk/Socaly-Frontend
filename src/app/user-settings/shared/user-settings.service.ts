@@ -18,7 +18,7 @@ export class UserSettingsService {
   }
 
   getUserSettings(): Observable<UserSettingsModel> {
-    return this.httpClient.get<UserSettingsModel>('http://localhost:8090/api/user/settings/get')
+    return this.httpClient.get<UserSettingsModel>('http://localhost:8090/api/user/settings/get');
   }
 
   updateOpenPostsInNewTab(openPostsInNewTab: boolean): Observable<Object> {
