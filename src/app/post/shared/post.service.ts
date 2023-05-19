@@ -8,25 +8,25 @@ import { PostRequestModel } from './post-request.model';
   providedIn: 'root'
 })
 export class PostService {
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getAllPosts(): Observable<PostResponseModel[]> {
-    return this.http.get<PostResponseModel[]>('http://localhost:8090/api/post/get/all');
+    return this.httpClient.get<PostResponseModel[]>('http://localhost:8090/api/post/get/all');
   }
 
   createPost(postPayload: PostRequestModel): Observable<number> {
-    return this.http.post<number>('http://localhost:8090/api/post/create', postPayload);
+    return this.httpClient.post<number>('http://localhost:8090/api/post/create', postPayload);
   }
 
   getPost(id: number): Observable<PostResponseModel> {
-    return this.http.get<PostResponseModel>('http://localhost:8090/api/post/get/' + id);
+    return this.httpClient.get<PostResponseModel>('http://localhost:8090/api/post/get/' + id);
   }
 
   getAllPostsByUser(username: string): Observable<PostResponseModel[]> {
-    return this.http.get<PostResponseModel[]>('http://localhost:8090/api/post/get/all/by-user/' + username);
+    return this.httpClient.get<PostResponseModel[]>('http://localhost:8090/api/post/get/all/by-user/' + username);
   }
 
   getAllPostsByCommunity(communityName: string): Observable<PostResponseModel[]> {
-    return this.http.get<PostResponseModel[]>('http://localhost:8090/api/post/get/all/by-community/' + communityName);
+    return this.httpClient.get<PostResponseModel[]>('http://localhost:8090/api/post/get/all/by-community/' + communityName);
   }
 }
