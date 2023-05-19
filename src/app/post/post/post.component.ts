@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PostService } from './shared/post.service';
-import { PostResponseModel } from './shared/post-response.model';
+import { PostService } from '../shared/post.service';
+import { PostResponseModel } from '../shared/post-response.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { CommentService } from '../comment/shared/comment.service';
-import { CommentRequestModel } from '../comment/shared/comment-request.model';
+import { CommentService } from '../../comment/shared/comment.service';
+import { CommentRequestModel } from '../../comment/shared/comment-request.model';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { CommentResponseModel } from '../comment/shared/comment-response.model';
-import { editorConfig } from '../../globals';
-import { HighlightService } from '../shared/highlight.service';
-import { AuthService } from '../auth/shared/auth.service';
+import { CommentResponseModel } from '../../comment/shared/comment-response.model';
+import { editorConfig } from '../../../globals';
+import { HighlightService } from '../../shared/highlight.service';
+import { AuthService } from '../../auth/shared/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
