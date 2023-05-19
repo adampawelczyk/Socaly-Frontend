@@ -46,7 +46,7 @@ export class PasswordUpdateComponent implements OnInit {
     }, error => {
       console.log(error);
       throwError(error);
-    })
+    });
   }
 
   fieldsAreEmpty() {
