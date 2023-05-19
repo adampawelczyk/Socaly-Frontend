@@ -28,7 +28,7 @@ export class UserService {
   }
 
   getUserProfileImage(username: string): Observable<string> {
-    return this.httpClient.get('http://localhost:8090/api/user/get/profile/image/' + username, {responseType: "text"})
+    return this.httpClient.get('http://localhost:8090/api/user/get/profile/image/' + username, {responseType: "text"});
   }
 
   getEmail(): Observable<string> {
