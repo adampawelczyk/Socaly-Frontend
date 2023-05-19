@@ -91,7 +91,7 @@ export class ProfileSettingsComponent implements OnInit {
           this.user.profileBanner = data.profileBanner;
           this.userService.reloadUserDetails();
         });
-      })
+      });
     }
   }
 }
