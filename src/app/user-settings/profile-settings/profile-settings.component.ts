@@ -69,7 +69,7 @@ export class ProfileSettingsComponent implements OnInit {
           this.user.profileImage = data.profileImage;
           this.userService.reloadUserDetails();
         });
-      })
+      });
     }
   }
 
