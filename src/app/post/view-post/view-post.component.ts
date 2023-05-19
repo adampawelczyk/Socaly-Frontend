@@ -25,7 +25,7 @@ export class ViewPostComponent implements OnInit {
   private getPostById() {
     this.postService.getPost(this.postId).subscribe(data => {
       this.posts.push(data);
-      this.communityName = data.communityName
+      this.communityName = data.communityName;
     }, error => {
       throwError(error);
     });
