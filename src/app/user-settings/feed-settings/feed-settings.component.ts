@@ -35,7 +35,8 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isHot() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.HOT] || this.userSettings.communityContentSort === Sorting.HOT;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.HOT]
+      || this.userSettings.communityContentSort === Sorting.HOT;
   }
 
   isNew() {
