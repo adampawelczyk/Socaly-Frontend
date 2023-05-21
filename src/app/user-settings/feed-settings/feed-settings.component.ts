@@ -40,7 +40,8 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isNew() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.NEW] || this.userSettings.communityContentSort === Sorting.NEW;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.NEW]
+      || this.userSettings.communityContentSort === Sorting.NEW;
   }
 
   isTop() {
