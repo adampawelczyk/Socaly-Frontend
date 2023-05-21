@@ -49,7 +49,8 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isTopToday() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_TODAY] || this.userSettings.communityContentSort === Sorting.TOP_TODAY;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_TODAY]
+      || this.userSettings.communityContentSort === Sorting.TOP_TODAY;
   }
 
   isTopWeek() {
