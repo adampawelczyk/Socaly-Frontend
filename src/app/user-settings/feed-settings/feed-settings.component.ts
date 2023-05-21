@@ -59,7 +59,8 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isTopMonth() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_MONTH] || this.userSettings.communityContentSort === Sorting.TOP_MONTH;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_MONTH]
+      || this.userSettings.communityContentSort === Sorting.TOP_MONTH;
   }
 
   isTopYear() {
