@@ -69,6 +69,7 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isTopAllTime() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_ALL_TIME] || this.userSettings.communityContentSort === Sorting.TOP_ALL_TIME;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_ALL_TIME]
+      || this.userSettings.communityContentSort === Sorting.TOP_ALL_TIME;
   }
 }
