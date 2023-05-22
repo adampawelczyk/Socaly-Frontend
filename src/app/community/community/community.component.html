@@ -26,7 +26,7 @@
   <div class="d-flex">
     <div class="flex-grow-1 me-lg-4">
       <app-create-post-topbar></app-create-post-topbar>
-      <app-post [posts]="posts" [showCommunityName]="false"></app-post>
+      <app-post *ngFor="let post of posts" [post]="post" [showCommunityName]="false"></app-post>
     </div>
     <div>
       <div class="sticky-top">

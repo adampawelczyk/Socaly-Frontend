@@ -2,7 +2,7 @@
   <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Overview</a>
     <ng-template ngbNavContent>
-      <app-post [posts]="posts"></app-post>
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
       <div *ngFor="let comment of comments">
         <div class="comment">
           <div class="username">
@@ -19,7 +19,7 @@
   <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Posts</a>
     <ng-template ngbNavContent>
-      <app-post [posts]="posts"></app-post>
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
     </ng-template>
   </li>
   <li ngbNavItem *ngIf="!userIsDeleted">

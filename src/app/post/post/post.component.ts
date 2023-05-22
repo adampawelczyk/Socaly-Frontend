@@ -20,7 +20,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class PostComponent implements OnInit {
   @Input() showCommunityName: boolean = true;
   @Input() showComments: boolean = false;
-  @Input() posts: PostResponseModel[];
+  @Input() post: PostResponseModel;
   comments: CommentResponseModel[];
 
   postId: number;
