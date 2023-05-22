@@ -1,6 +1,6 @@
 @use '../../../utilities/colors';
 
-.post {
+#post {
   border: 1px solid colors.$border-color;
   overflow: hidden;
   background-color: colors.$card-background-color;
