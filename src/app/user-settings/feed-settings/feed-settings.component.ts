@@ -64,7 +64,8 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isTopYear() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_YEAR] || this.userSettings.communityContentSort === Sorting.TOP_YEAR;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_YEAR]
+      || this.userSettings.communityContentSort === Sorting.TOP_YEAR;
   }
 
   isTopAllTime() {
