@@ -40,9 +40,9 @@ export class UserProfileComponent implements OnInit {
       this.postLength = posts.length;
     });
 
-    this.commentService.getAllCommentsByUser(this.name).subscribe(data => {
-      this.comments = data;
-      this.commentLength = data.length;
+    this.commentService.getAllCommentsByUser(this.name).subscribe(comments => {
+      this.comments = comments;
+      this.commentLength = comments.length;
     });
   }
 
