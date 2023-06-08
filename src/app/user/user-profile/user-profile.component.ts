@@ -31,8 +31,8 @@ export class UserProfileComponent implements OnInit {
       this.userIsDeleted = isDeleted;
     });
 
-    this.userService.getUserDetails(this.name).subscribe(data => {
-      this.userDetails = data;
+    this.userService.getUserDetails(this.name).subscribe(userDetails => {
+      this.userDetails = userDetails;
     })
 
     this.postService.getAllPostsByUser(this.name).subscribe(posts => {
