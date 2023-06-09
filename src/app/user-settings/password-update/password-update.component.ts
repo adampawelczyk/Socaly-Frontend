@@ -44,7 +44,6 @@ export class PasswordUpdateComponent implements OnInit {
 
       this.activeModal.close();
     }, error => {
-      console.log(error);
       throwError(error);
     });
   }
