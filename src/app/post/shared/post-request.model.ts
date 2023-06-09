@@ -1,5 +1,5 @@
 export interface PostRequestModel {
-  postName: string;
+  postTitle: string;
   communityName: string;
   description?: string;
   images?: string[];

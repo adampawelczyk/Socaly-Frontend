@@ -35,7 +35,7 @@ export class CreatePostComponent implements OnInit {
     this.editorConfig.height = 300;
 
     this.postPayload = {
-      postName: '',
+      postTitle: '',
       description: '',
       communityName: ''
     };
@@ -68,7 +68,7 @@ export class CreatePostComponent implements OnInit {
 
   createPost() {
     this.postPayload.communityName = this.selectedCommunity;
-    this.postPayload.postName = this.createPostForm.get('postName')?.value;
+    this.postPayload.postTitle = this.createPostForm.get('postName')?.value;
 
     if (this.active == 1) {
       this.postPayload.description = this.createPostForm.get('description')?.value;
