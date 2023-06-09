@@ -17,7 +17,7 @@
       <ng-template ngbNavContent>
         <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="form-group">
-            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postName'" placeholder="Title">
+            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postTitle'" placeholder="Title">
             <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
           </div>
         </form>
@@ -28,7 +28,7 @@
       <ng-template ngbNavContent>
         <form class="post-form" id="create-image-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="form-group">
-            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postName'" placeholder="Title">
+            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postTitle'" placeholder="Title">
             <div class="dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
               <ngx-dropzone-label>Drag & drop, or click to upload images</ngx-dropzone-label>
               <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">

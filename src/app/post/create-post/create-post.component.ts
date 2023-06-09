@@ -46,7 +46,7 @@ export class CreatePostComponent implements OnInit {
 
   ngOnInit(): void {
     this.createPostForm = new UntypedFormGroup({
-      postName: new UntypedFormControl('', Validators.required),
+      postTitle: new UntypedFormControl('', Validators.required),
       communityName: new UntypedFormControl('', Validators.required),
       description: new UntypedFormControl('')
     });
@@ -68,7 +68,7 @@ export class CreatePostComponent implements OnInit {
 
   createPost() {
     this.postPayload.communityName = this.selectedCommunity;
-    this.postPayload.postTitle = this.createPostForm.get('postName')?.value;
+    this.postPayload.postTitle = this.createPostForm.get('postTitle')?.value;
 
     if (this.active == 1) {
       this.postPayload.description = this.createPostForm.get('description')?.value;
@@ -128,6 +128,6 @@ export class CreatePostComponent implements OnInit {
   }
 
   isTitleEmpty() {
-    return this.createPostForm.get('postName')?.value === '';
+    return this.createPostForm.get('postTitle')?.value === '';
   }
 }
