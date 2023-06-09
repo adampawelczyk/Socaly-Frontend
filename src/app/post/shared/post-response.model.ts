@@ -1,6 +1,6 @@
 export interface PostResponseModel {
   id: number;
-  postName: string;
+  postTitle: string;
   description?: string;
   images?: string[];
   voteCount: number;
