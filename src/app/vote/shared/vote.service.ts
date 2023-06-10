@@ -12,7 +12,7 @@ export class VoteService {
   constructor(private httpClient: HttpClient) { }
 
   voteOnPost(postVotePayload: PostVoteModel): Observable<Object> {
-    return this.httpClient.post(apiURL + '/votes/', postVotePayload);
+    return this.httpClient.post(apiURL + '/post/vote/', postVotePayload);
   }
 
   voteOnComment(commentVotePayload: CommentVoteModel): Observable<Object> {
