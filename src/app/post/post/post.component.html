@@ -11,8 +11,8 @@
         <span *ngIf="showCommunityName"> • </span>
         <span>
           Posted by
-          <a class="username" routerLink="/user/{{post.userName}}" (click)="$event.stopPropagation()">
-            u/{{post.userName}}
+          <a class="username" routerLink="/user/{{post.username}}" (click)="$event.stopPropagation()">
+            u/{{post.username}}
           </a>
         </span>
         <span>   {{post.duration}}</span>

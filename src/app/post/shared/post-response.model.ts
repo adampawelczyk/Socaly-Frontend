@@ -4,7 +4,7 @@ export interface PostResponseModel {
   description?: string;
   images?: string[];
   voteCount: number;
-  userName: string;
+  username: string;
   communityName: string;
   commentCount: number;
   duration: string;
