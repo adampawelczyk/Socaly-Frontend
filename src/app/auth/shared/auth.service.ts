@@ -8,6 +8,7 @@ import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
 import { UserService } from '../../user/shared/user.service';
 import { UserSettingsService } from '../../user-settings/shared/user-settings.service';
+import { apiURL } from '../../../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,11 @@ export class AuthService {
               private userSettingsService: UserSettingsService) { }
 
   signup(signupPayload: SignUpRequestModel): Observable<any> {
-    return this.httpClient.post('http://localhost:8090/api/auth/sign-up', signupPayload, {responseType: 'text'});
+    return this.httpClient.post(apiURL + '/auth/sign-up', signupPayload, {responseType: 'text'});
   }
 
   login(loginPayload: LogInRequestModel): Observable<boolean> {
-    return this.httpClient.post<LogInResponseModel>('http://localhost:8090/api/auth/log-in', loginPayload)
+    return this.httpClient.post<LogInResponseModel>(apiURL + '/auth/log-in', loginPayload)
       .pipe(map(response => {
         this.localStorage.store('authenticationToken', response.authenticationToken);
         this.localStorage.store('username', response.username);
@@ -52,7 +53,7 @@ export class AuthService {
       refreshToken: this.localStorage.retrieve('refreshToken')
     };
 
-    return this.httpClient.post<LogInResponseModel>('http://localhost:8090/api/auth/refresh-token',refreshTokenPayload)
+    return this.httpClient.post<LogInResponseModel>(apiURL + '/auth/refresh-token',refreshTokenPayload)
       .pipe(tap(response => {
         this.localStorage.store('authenticationToken', response.authenticationToken);
         this.localStorage.store('expiresAt', response.expiresAt);
@@ -65,7 +66,7 @@ export class AuthService {
       refreshToken: this.localStorage.retrieve('refreshToken')
     };
 
-    this.httpClient.post('http://localhost:8090/api/auth/log-out', refreshTokenPayload, {responseType: 'text'})
+    this.httpClient.post(apiURL + '/auth/log-out', refreshTokenPayload, {responseType: 'text'})
       .subscribe(() => { }, error => {
         throwError(error);
       });
