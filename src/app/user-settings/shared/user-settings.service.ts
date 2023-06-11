@@ -13,8 +13,8 @@ export class UserSettingsService {
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
 
   reloadUserSettings() {
-    this.getUserSettings().subscribe(data => {
-      this.localStorage.store('userSettings', data);
+    this.getUserSettings().subscribe(userSettings => {
+      this.localStorage.store('userSettings', userSettings);
     })
   }
 
