@@ -4,7 +4,7 @@ export interface CommentResponseModel {
   text: string;
   username: string;
   timestamp: string;
-  timeSinceEdit: string;
+  editTimestamp: string;
   voteCount: number;
   upVote: boolean;
   downVote: boolean;

@@ -10,8 +10,8 @@
     <span id="timestamp">
     • {{comment.timestamp}}
     </span>
-    <span id="timestamp-after-edit" *ngIf="comment.timeSinceEdit.length > 0">
-      • edited {{comment.timeSinceEdit}}
+    <span id="timestamp-after-edit" *ngIf="comment.editTimestamp.length > 0">
+      • edited {{comment.editTimestamp}}
     </span>
     <p id="comment-text" class="ms-2 mt-1 mb-1" [innerHTML]="comment.text" style="margin: 0"></p>
     <div class="d-flex flex-row ms-2">
