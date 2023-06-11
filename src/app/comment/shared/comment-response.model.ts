@@ -3,7 +3,7 @@ export interface CommentResponseModel {
   postId: number;
   text: string;
   username: string;
-  timeSinceCreation: string;
+  timestamp: string;
   timeSinceEdit: string;
   voteCount: number;
   upVote: boolean;
