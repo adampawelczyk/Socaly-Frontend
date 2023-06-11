@@ -19,8 +19,8 @@ export class UserService {
   }
 
   reloadUserDetails() {
-    this.getUserDetails(this.getCurrentUsername()).subscribe(data => {
-      this.localStorage.store('userDetails', data);
+    this.getUserDetails(this.getCurrentUsername()).subscribe(userDetails => {
+      this.localStorage.store('userDetails', userDetails);
     })
   }
 
