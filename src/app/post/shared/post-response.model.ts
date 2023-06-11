@@ -7,7 +7,7 @@ export interface PostResponseModel {
   username: string;
   communityName: string;
   commentCount: number;
-  duration: string;
+  timestamp: string;
   upVote: boolean;
   downVote: boolean;
 }
