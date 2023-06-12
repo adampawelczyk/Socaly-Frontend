@@ -60,8 +60,8 @@ export class UserService {
     return this.httpClient.patch(apiURL + '/user/update/profile/banner', imageUrl);
   }
 
-  changeDescription(description: string): Observable<Object> {
-    return this.httpClient.patch(apiURL + '/user/change/description', description);
+  updateDescription(description: string): Observable<Object> {
+    return this.httpClient.patch(apiURL + '/user/update/description', description);
   }
 
   delete(userDeletePayload: UserDeleteRequestModel): Observable<Object> {

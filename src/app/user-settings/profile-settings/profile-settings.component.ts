@@ -40,7 +40,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   changeDescription() {
-    this.userService.changeDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
+    this.userService.updateDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
       this.userService.getUserDetails(this.username).subscribe(() => {
         this.userService.reloadUserDetails();
       })
