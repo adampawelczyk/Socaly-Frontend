@@ -60,7 +60,7 @@ export class ProfileSettingsComponent implements OnInit {
       let fileUrl = await this.fileService.uploadFile(file);
       this.isProfileImageUploading = false;
 
-      this.userService.changeProfileImage(fileUrl).subscribe(() => {
+      this.userService.updateProfileImage(fileUrl).subscribe(() => {
         this.userService.getUserDetails(this.username).subscribe(data => {
           if (this.user.profileImage.includes('uploads')) {
             this.fileService.removeFile(this.user.profileImage);

@@ -52,8 +52,8 @@ export class UserService {
     return this.httpClient.get<boolean>(apiURL + '/user/is/deleted/' + username);
   }
 
-  changeProfileImage(imageUrl: string): Observable<Object> {
-    return this.httpClient.patch(apiURL + '/user/change/profile/image', imageUrl);
+  updateProfileImage(imageUrl: string): Observable<Object> {
+    return this.httpClient.patch(apiURL + '/user/update/profile/image', imageUrl);
   }
 
   changeProfileBanner(imageUrl: string): Observable<Object> {
