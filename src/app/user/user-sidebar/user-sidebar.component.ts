@@ -59,7 +59,7 @@ export class UserSidebarComponent implements OnInit {
       let fileUrl = await this.fileService.uploadFile(file);
       this.isProfileBannerUploading = false;
 
-      this.userService.changeProfileBanner(fileUrl).subscribe(() => {
+      this.userService.updateProfileBanner(fileUrl).subscribe(() => {
         this.userService.getUserDetails(this.username).subscribe(data => {
           if (this.userDetails.profileBanner.includes('uploads')) {
             this.fileService.removeFile(this.userDetails.profileBanner);
