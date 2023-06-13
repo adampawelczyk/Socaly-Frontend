@@ -14,8 +14,8 @@ export class CommunitiesComponent implements OnInit {
   constructor(private communityService: CommunityService) { }
 
   ngOnInit(): void {
-    this.communityService.getAllCommunities().subscribe(data => {
-      this.communities = data;
+    this.communityService.getAllCommunities().subscribe(communities => {
+      this.communities = communities;
     }, error => {
       throwError(error);
     });
