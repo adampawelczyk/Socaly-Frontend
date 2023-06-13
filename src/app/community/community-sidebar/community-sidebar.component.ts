@@ -14,12 +14,12 @@ export class CommunitySidebarComponent implements OnInit {
   displayViewAll: boolean;
 
   constructor(private communityService: CommunityService, private modal: NgbModal) {
-    this.communityService.getAllCommunities().subscribe(data => {
-      if (data.length >= 4) {
-        this.communities = data.slice(0, 3);
+    this.communityService.getAllCommunities().subscribe(communities => {
+      if (communities.length >= 4) {
+        this.communities = communities.slice(0, 3);
         this.displayViewAll = true;
       } else {
-        this.communities = data;
+        this.communities = communities;
       }
     });
   }
