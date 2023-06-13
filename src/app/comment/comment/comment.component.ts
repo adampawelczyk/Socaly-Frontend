@@ -64,8 +64,8 @@ export class CommentComponent implements OnInit {
       this.userProfileImage = data;
     });
 
-    this.userService.isDeleted(this.comment.username).subscribe(data => {
-      this.userIsDeleted = data;
+    this.userService.isDeleted(this.comment.username).subscribe(userIsDeleted => {
+      this.userIsDeleted = userIsDeleted;
     });
   }
 
