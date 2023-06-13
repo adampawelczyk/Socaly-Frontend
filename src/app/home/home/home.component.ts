@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   isLoggedIn: boolean;
 
   constructor(private postService: PostService, private authService: AuthService) {
-    this.postService.getAllPosts().subscribe(data => {
-      this.posts = data;
+    this.postService.getAllPosts().subscribe(posts => {
+      this.posts = posts;
     });
   }
 
