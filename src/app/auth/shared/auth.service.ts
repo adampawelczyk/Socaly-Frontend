@@ -39,8 +39,8 @@ export class AuthService {
           this.localStorage.store('userDetails', userDetails);
         })
 
-        this.userSettingsService.getUserSettings().subscribe(data => {
-          this.localStorage.store('userSettings', data);
+        this.userSettingsService.getUserSettings().subscribe(userSettings => {
+          this.localStorage.store('userSettings', userSettings);
         })
 
         return true;
