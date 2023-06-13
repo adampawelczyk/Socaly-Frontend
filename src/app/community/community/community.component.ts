@@ -29,9 +29,9 @@ export class CommunityComponent implements OnInit {
     this.communityName = this.activatedRoute.snapshot.params.name;
     this.username = this.localStorage.retrieve('username');
 
-    this.postService.getAllPostsByCommunity(this.communityName).subscribe(data => {
-      this.posts = data;
-      this.postLength = data.length;
+    this.postService.getAllPostsByCommunity(this.communityName).subscribe(posts => {
+      this.posts = posts;
+      this.postLength = posts.length;
     });
 
     if (this.username) {
