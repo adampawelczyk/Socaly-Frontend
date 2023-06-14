@@ -51,8 +51,8 @@ export class CreatePostComponent implements OnInit {
       description: new UntypedFormControl('')
     });
 
-    this.communityService.getAllCommunities().subscribe((data) => {
-      this.communities = data;
+    this.communityService.getAllCommunities().subscribe((communities) => {
+      this.communities = communities;
     }, error => {
       throwError(error);
     });
