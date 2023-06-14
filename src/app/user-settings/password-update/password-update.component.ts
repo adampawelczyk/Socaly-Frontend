@@ -49,11 +49,13 @@ export class PasswordUpdateComponent implements OnInit {
   }
 
   fieldsAreEmpty() {
-    return this.passwordUpdateForm.get('currentPassword')?.value === '' || this.passwordUpdateForm.get('newPassword')?.value === ''
+    return this.passwordUpdateForm.get('currentPassword')?.value === ''
+      || this.passwordUpdateForm.get('newPassword')?.value === ''
       || this.passwordUpdateForm.get('confirmNewPassword')?.value === '';
   }
 
   newPasswordsAreEqual() {
-    return this.passwordUpdateForm.get('newPassword')?.value === this.passwordUpdateForm.get('confirmNewPassword')?.value;
+    return this.passwordUpdateForm.get('newPassword')?.value
+      === this.passwordUpdateForm.get('confirmNewPassword')?.value;
   }
 }
