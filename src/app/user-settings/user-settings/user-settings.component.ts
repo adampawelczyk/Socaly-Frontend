@@ -18,8 +18,9 @@ export class UserSettingsComponent implements OnInit {
   @Input() activeId: string = "account";
   user: UserModel;
 
-  constructor(private authService: AuthService ,private userService: UserService, private userSettingsService: UserSettingsService,
-              private route: ActivatedRoute, private location: Location, private localStorage: LocalStorageService) { }
+  constructor(private authService: AuthService ,private userService: UserService,
+              private userSettingsService: UserSettingsService, private route: ActivatedRoute,
+              private location: Location, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
