@@ -21,8 +21,8 @@ export class AccountSettingsComponent implements OnInit {
       this.email = email;
     });
 
-    this.userService.isEmailVerified().subscribe(data => {
-      this.isEmailVerified = data;
+    this.userService.isEmailVerified().subscribe(isEmailVerified => {
+      this.isEmailVerified = isEmailVerified;
     });
   }
 
