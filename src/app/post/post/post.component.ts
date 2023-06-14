@@ -75,8 +75,8 @@ export class PostComponent implements OnInit {
   }
 
   private getCommentsForPost() {
-    this.commentService.getAllCommentsForPost(this.postId).subscribe(data => {
-      this.comments = data.reverse();
+    this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
+      this.comments = comments.reverse();
     }, error => {
       throwError(error);
     });
