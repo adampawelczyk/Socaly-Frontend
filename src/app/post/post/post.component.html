@@ -18,7 +18,7 @@
         <span>   {{post.timestamp}}</span>
       </span>
       <div class="post-title">
-        <a class="post-name" href="">{{post.postTitle}}</a>
+        <a class="post-name" href="">{{post.title}}</a>
       </div>
       <div *ngIf="postDescriptionIsNotEmpty(post)" class="mt-1 mb-1">
         <p [innerHTML]="post.description"></p>
@@ -28,7 +28,7 @@
                       [showNavigationArrows]="showCarouselNavigationControls(post)" (click)="$event.stopPropagation()">
           <ng-template ngbSlide *ngFor="let image of post.images">
             <div class="pe-3">
-              <img [src]="image" alt="{{post.postTitle}}">
+              <img [src]="image" alt="{{post.title}}">
             </div>
           </ng-template>
         </ngb-carousel>
