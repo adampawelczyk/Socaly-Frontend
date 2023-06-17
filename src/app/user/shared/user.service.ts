@@ -18,13 +18,13 @@ export class UserService {
     return this.localStorage.retrieve('username');
   }
 
-  reloadUserDetails() {
-    this.getUserDetails(this.getCurrentUsername()).subscribe(userDetails => {
-      this.localStorage.store('userDetails', userDetails);
+  reloadUser() {
+    this.getUser(this.getCurrentUsername()).subscribe(user => {
+      this.localStorage.store('user', user);
     })
   }
 
-  getUserDetails(username: string): Observable<UserModel> {
+  getUser(username: string): Observable<UserModel> {
     return this.httpClient.get<UserModel>(apiURL + '/user/get/' + username);
   }
 

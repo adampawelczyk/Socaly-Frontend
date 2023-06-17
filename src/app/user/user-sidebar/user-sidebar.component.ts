@@ -39,9 +39,9 @@ export class UserSidebarComponent implements OnInit {
       this.isProfileImageUploading = false;
 
       this.userService.updateProfileImage(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.username).subscribe(data => {
-          if (this.userDetails.profileImage.includes('uploads')) {
-            this.fileService.removeFile(this.userDetails.profileImage);
+        this.userService.getUser(this.username).subscribe(data => {
+          if (this.user.profileImage.includes('uploads')) {
+            this.fileService.removeFile(this.user.profileImage);
           }
 
           this.userDetails.profileImage = data.profileImage;
@@ -60,9 +60,9 @@ export class UserSidebarComponent implements OnInit {
       this.isProfileBannerUploading = false;
 
       this.userService.updateProfileBanner(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.username).subscribe(data => {
-          if (this.userDetails.profileBanner.includes('uploads')) {
-            this.fileService.removeFile(this.userDetails.profileBanner);
+        this.userService.getUser(this.username).subscribe(data => {
+          if (this.user.profileBanner.includes('uploads')) {
+            this.fileService.removeFile(this.user.profileBanner);
           }
 
           this.userDetails.profileBanner = data.profileBanner;

@@ -41,8 +41,8 @@ export class ProfileSettingsComponent implements OnInit {
 
   changeDescription() {
     this.userService.updateDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
-      this.userService.getUserDetails(this.username).subscribe(() => {
-        this.userService.reloadUserDetails();
+      this.userService.getUser(this.username).subscribe(() => {
+        this.userService.reloadUser();
       })
     })
   }
@@ -61,13 +61,13 @@ export class ProfileSettingsComponent implements OnInit {
       this.isProfileImageUploading = false;
 
       this.userService.updateProfileImage(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.username).subscribe(data => {
+        this.userService.getUser(this.username).subscribe(data => {
           if (this.user.profileImage.includes('uploads')) {
             this.fileService.removeFile(this.user.profileImage);
           }
 
           this.user.profileImage = data.profileImage;
-          this.userService.reloadUserDetails();
+          this.userService.reloadUser();
         });
       });
     }
@@ -83,13 +83,13 @@ export class ProfileSettingsComponent implements OnInit {
       this.isProfileBannerUploading = false;
 
       this.userService.updateProfileBanner(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.username).subscribe(data => {
+        this.userService.getUser(this.username).subscribe(data => {
           if (this.user.profileBanner.includes('uploads')) {
             this.fileService.removeFile(this.user.profileBanner);
           }
 
           this.user.profileBanner = data.profileBanner;
-          this.userService.reloadUserDetails();
+          this.userService.reloadUser();
         });
       });
     }
