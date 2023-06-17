@@ -27,7 +27,7 @@ export class UserSettingsComponent implements OnInit {
       this.activeId = data.activeId;
     });
 
-    this.user = this.localStorage.retrieve('userDetails');
+    this.user = this.localStorage.retrieve('user');
   }
 
   onChangeTab(url: NgbNavChangeEvent){

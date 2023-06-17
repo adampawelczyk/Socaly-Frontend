@@ -23,7 +23,7 @@ export class ProfileSettingsComponent implements OnInit {
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.user = this.localStorage.retrieve('userDetails');
+    this.user = this.localStorage.retrieve('user');
     this.username = this.localStorage.retrieve('username');
 
     this.changeDescriptionForm = new UntypedFormGroup({
