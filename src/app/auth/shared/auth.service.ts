@@ -35,8 +35,8 @@ export class AuthService {
         this.loggedInSubject.next(true);
         this.usernameSubject.next(response.username);
 
-        this.userService.getUserDetails(response.username).subscribe(userDetails => {
-          this.localStorage.store('userDetails', userDetails);
+        this.userService.getUser(response.username).subscribe(user => {
+          this.localStorage.store('user', user);
         })
 
         this.userSettingsService.getUserSettings().subscribe(userSettings => {
