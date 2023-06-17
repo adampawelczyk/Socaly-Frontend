@@ -12,7 +12,7 @@ import { LocalStorageService } from 'ngx-webstorage';
   styleUrls: ['./user-sidebar.component.scss']
 })
 export class UserSidebarComponent implements OnInit {
-  @Input() userDetails: UserModel;
+  @Input() user: UserModel;
   username: string;
   file: File;
   isProfileImageUploading: boolean = false;
@@ -44,7 +44,7 @@ export class UserSidebarComponent implements OnInit {
             this.fileService.removeFile(this.user.profileImage);
           }
 
-          this.userDetails.profileImage = data.profileImage;
+          this.user.profileImage = data.profileImage;
         })
       })
     }
@@ -65,7 +65,7 @@ export class UserSidebarComponent implements OnInit {
             this.fileService.removeFile(this.user.profileBanner);
           }
 
-          this.userDetails.profileBanner = data.profileBanner;
+          this.user.profileBanner = data.profileBanner;
         })
       })
     }
