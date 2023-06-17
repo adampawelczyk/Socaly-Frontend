@@ -18,7 +18,7 @@ export class UserProfileComponent implements OnInit {
   comments: CommentResponseModel[];
   postLength: number;
   commentLength: number;
-  userDetails: UserModel;
+  user: UserModel;
   userIsDeleted: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, private commentService: CommentService,
