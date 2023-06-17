@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../../user/shared/user.service';
 import { AuthService } from '../../auth/shared/auth.service';
-import { UserSettingsModel } from '../shared/user-settings.model';
 import { UserModel } from '../../user/shared/user.model';
 import { UserSettingsService } from '../shared/user-settings.service';
 import { ActivatedRoute } from '@angular/router';
