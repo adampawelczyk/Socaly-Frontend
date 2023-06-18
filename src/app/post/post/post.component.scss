@@ -97,3 +97,11 @@ img {
     'GRAD' 200,
     'opsz' 48
 }
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  min-width: 100px;
+}
