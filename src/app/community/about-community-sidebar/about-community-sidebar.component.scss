@@ -1,25 +1,15 @@
 @use '../../../utilities/colors.scss';
 
-.about-community-sidebar {
-  border: 0.5px solid colors.$border-color;
-  overflow: hidden;
-  background-color: colors.$card-background-color;
-  color: colors.$darkgray;
-  border-radius: 4px;
-  padding: 0;
-  margin-top: 1rem;
-  width: 312px;
-}
-
-.blue-background {
+#blue-banner {
   background-color: colors.$primary-color;
   color: white;
   border: 1px solid colors.$primary-color;
 }
 
-.header-text {
+div > h5 {
   font-size: 0.87rem;
   font-weight: 700;
+  margin-bottom: 0;
 }
 
 .text {

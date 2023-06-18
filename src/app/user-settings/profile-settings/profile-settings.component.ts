@@ -4,6 +4,7 @@ import { AuthService } from '../../auth/shared/auth.service';
 import { UserService } from '../../user/shared/user.service';
 import { FileService } from '../../shared/file.service';
 import { UserModel } from '../../user/shared/user.model';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-profile-settings',
@@ -12,15 +13,18 @@ import { UserModel } from '../../user/shared/user.model';
 })
 export class ProfileSettingsComponent implements OnInit {
   user: UserModel;
+  username: string;
   changeDescriptionForm: UntypedFormGroup;
   availableCharacters: number;
   isProfileImageUploading: boolean = false;
   isProfileBannerUploading: boolean = false;
 
-  constructor(private authService: AuthService, private userService: UserService, private fileService: FileService) { }
+  constructor(private authService: AuthService, private userService: UserService, private fileService: FileService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.getUserDetails();
+    this.user = this.localStorage.retrieve('user');
+    this.username = this.localStorage.retrieve('username');
 
     this.changeDescriptionForm = new UntypedFormGroup({
       description: new UntypedFormControl('', Validators.required)
@@ -32,13 +36,13 @@ export class ProfileSettingsComponent implements OnInit {
 
   initializeDescriptionForm() {
     this.changeDescriptionForm.get('description')
-      ?.setValue(this.authService.getUserDetails().description ? this.authService.getUserDetails().description : '');
+      ?.setValue(this.user.description ? this.user.description : '');
   }
 
   changeDescription() {
-    this.userService.changeDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
-      this.userService.getUserDetails(this.authService.getUsername()).subscribe(() => {
-        this.userService.reloadUserDetails();
+    this.userService.updateDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
+      this.userService.getUser(this.username).subscribe(() => {
+        this.userService.reloadUser();
       })
     })
   }
@@ -56,16 +60,16 @@ export class ProfileSettingsComponent implements OnInit {
       let fileUrl = await this.fileService.uploadFile(file);
       this.isProfileImageUploading = false;
 
-      this.userService.changeProfileImage(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.authService.getUsername()).subscribe(data => {
+      this.userService.updateProfileImage(fileUrl).subscribe(() => {
+        this.userService.getUser(this.username).subscribe(data => {
           if (this.user.profileImage.includes('uploads')) {
             this.fileService.removeFile(this.user.profileImage);
           }
 
           this.user.profileImage = data.profileImage;
-          this.userService.reloadUserDetails();
-        })
-      })
+          this.userService.reloadUser();
+        });
+      });
     }
   }
 
@@ -78,16 +82,16 @@ export class ProfileSettingsComponent implements OnInit {
       let fileUrl = await this.fileService.uploadFile(file);
       this.isProfileBannerUploading = false;
 
-      this.userService.changeProfileBanner(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.authService.getUsername()).subscribe(data => {
+      this.userService.updateProfileBanner(fileUrl).subscribe(() => {
+        this.userService.getUser(this.username).subscribe(data => {
           if (this.user.profileBanner.includes('uploads')) {
             this.fileService.removeFile(this.user.profileBanner);
           }
 
           this.user.profileBanner = data.profileBanner;
-          this.userService.reloadUserDetails();
-        })
-      })
+          this.userService.reloadUser();
+        });
+      });
     }
   }
 }

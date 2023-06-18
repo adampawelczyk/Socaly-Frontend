@@ -18,7 +18,7 @@ export class UserProfileComponent implements OnInit {
   comments: CommentResponseModel[];
   postLength: number;
   commentLength: number;
-  userDetails: UserModel;
+  user: UserModel;
   userIsDeleted: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, private commentService: CommentService,
@@ -31,18 +31,18 @@ export class UserProfileComponent implements OnInit {
       this.userIsDeleted = isDeleted;
     });
 
-    this.userService.getUserDetails(this.name).subscribe(data => {
-      this.userDetails = data;
+    this.userService.getUser(this.name).subscribe(user => {
+      this.user = user;
     })
 
-    this.postService.getAllPostsByUser(this.name).subscribe(data => {
-      this.posts = data;
-      this.postLength = data.length;
+    this.postService.getAllPostsByUser(this.name).subscribe(posts => {
+      this.posts = posts;
+      this.postLength = posts.length;
     });
 
-    this.commentService.getAllCommentsByUser(this.name).subscribe(data => {
-      this.comments = data;
-      this.commentLength = data.length;
+    this.commentService.getAllCommentsByUser(this.name).subscribe(comments => {
+      this.comments = comments;
+      this.commentLength = comments.length;
     });
   }
 

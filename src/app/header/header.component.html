@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="d-flex ms-auto">
-      <div *ngIf="isLoggedIn" ngbDropdown class="me-3">
+      <div *ngIf="loggedIn" ngbDropdown class="me-3">
         <button class="user-dropdown text-start form-select" id="dropdownBasic1" ngbDropdownToggle>
           {{username}}
         </button>
@@ -29,7 +29,7 @@
           </button>
         </div>
       </div>
-      <div class="d-flex flex-row" *ngIf="!isLoggedIn">
+      <div class="d-flex flex-row" *ngIf="!loggedIn">
         <div class="me-2">
           <button (click)="login()" class="btn-secondary min-width">Log In</button>
         </div>

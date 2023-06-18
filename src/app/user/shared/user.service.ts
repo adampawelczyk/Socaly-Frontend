@@ -6,6 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { EmailUpdateRequestModel } from '../../user-settings/shared/email-update-request.model';
 import { PasswordUpdateRequestModel } from '../../user-settings/shared/password-update-request.model';
 import { UserDeleteRequestModel } from '../../user-settings/shared/user-delete-request.model';
+import { apiURL } from '../../../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -17,49 +18,53 @@ export class UserService {
     return this.localStorage.retrieve('username');
   }
 
-  reloadUserDetails() {
-    this.getUserDetails(this.getCurrentUsername()).subscribe(data => {
-      this.localStorage.store('userDetails', data);
+  reloadUser() {
+    this.getUser(this.getCurrentUsername()).subscribe(user => {
+      this.localStorage.store('user', user);
     })
   }
 
-  getUserDetails(username: string): Observable<UserModel> {
-    return this.httpClient.get<UserModel>('http://localhost:8090/api/user/get/' + username)
+  getUser(username: string): Observable<UserModel> {
+    return this.httpClient.get<UserModel>(apiURL + '/user/get/' + username);
+  }
+
+  getUserProfileImage(username: string): Observable<string> {
+    return this.httpClient.get(apiURL + '/user/get/profile/image/' + username, {responseType: "text"});
   }
 
   getEmail(): Observable<string> {
-    return this.httpClient.get('http://localhost:8090/api/user/get/email', {responseType: "text"});
+    return this.httpClient.get(apiURL + '/user/get/email', {responseType: "text"});
   }
 
   updateEmail(emailUpdatePayload: EmailUpdateRequestModel): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/update/email', emailUpdatePayload)
+    return this.httpClient.patch(apiURL + '/user/update/email', emailUpdatePayload);
   }
 
   updatePassword(passwordUpdatePayload: PasswordUpdateRequestModel): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/update/password', passwordUpdatePayload);
+    return this.httpClient.patch(apiURL + '/user/update/password', passwordUpdatePayload);
   }
 
   isEmailVerified(): Observable<boolean> {
-    return this.httpClient.get<boolean>('http://localhost:8090/api/user/is-email-verified');
+    return this.httpClient.get<boolean>(apiURL + '/user/is-email-verified');
   }
 
   isDeleted(username: string): Observable<boolean> {
-    return this.httpClient.get<boolean>('http://localhost:8090/api/user/is/deleted/' + username);
+    return this.httpClient.get<boolean>(apiURL + '/user/is/deleted/' + username);
   }
 
-  changeProfileImage(imageUrl: string): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/change/profile/image', imageUrl);
+  updateProfileImage(imageUrl: string): Observable<Object> {
+    return this.httpClient.patch(apiURL + '/user/update/profile/image', imageUrl);
   }
 
-  changeProfileBanner(imageUrl: string): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/change/profile/banner', imageUrl);
+  updateProfileBanner(imageUrl: string): Observable<Object> {
+    return this.httpClient.patch(apiURL + '/user/update/profile/banner', imageUrl);
   }
 
-  changeDescription(description: string): Observable<Object> {
-    return this.httpClient.patch('http://localhost:8090/api/user/change/description', description);
+  updateDescription(description: string): Observable<Object> {
+    return this.httpClient.patch(apiURL + '/user/update/description', description);
   }
 
   delete(userDeletePayload: UserDeleteRequestModel): Observable<Object> {
-    return this.httpClient.delete('http://localhost:8090/api/user/delete',{body: userDeletePayload});
+    return this.httpClient.delete(apiURL + '/user/delete',{body: userDeletePayload});
   }
 }

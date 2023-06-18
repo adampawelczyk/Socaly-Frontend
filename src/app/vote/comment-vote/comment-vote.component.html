@@ -3,7 +3,7 @@
     arrow_upward
   </span>
   <div class="vote-number-text">
-    {{comment.voteCount}}
+    {{comment.points}}
   </div>
   <span class="material-symbols-outlined down-vote" (click)="downVoteComment(); $event.stopPropagation()" [style.color]="comment.downVote ? 'red':''">
     arrow_downward

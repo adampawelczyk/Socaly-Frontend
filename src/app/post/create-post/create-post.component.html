@@ -3,8 +3,8 @@
   <button type="button" class="btn-close outline-none" (click)="discardPost()" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-<div ngbDropdown class="d-inline-block w-100">
-    <button class="form-select outline-none block mb-2 text-start" id="communityDropdown2" ngbDropdownToggle>{{selectedCommunity}}</button>
+  <div ngbDropdown class="w-100">
+    <button class="form-select outline-none mb-2 text-start" id="communityDropdown2" ngbDropdownToggle>{{selectedCommunity}}</button>
     <div ngbDropdownMenu aria-labelledby="communityDropdown2" class="w-100">
       <button *ngFor="let community of communities" ngbDropdownItem class="btn" (click)="selectCommunity(community.name)">
         {{community.name}}
@@ -17,7 +17,7 @@
       <ng-template ngbNavContent>
         <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="form-group">
-            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postName'" placeholder="Title">
+            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'title'" placeholder="Title">
             <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
           </div>
         </form>
@@ -28,7 +28,7 @@
       <ng-template ngbNavContent>
         <form class="post-form" id="create-image-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
           <div class="form-group">
-            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'postName'" placeholder="Title">
+            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'title'" placeholder="Title">
             <div class="dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
               <ngx-dropzone-label>Drag & drop, or click to upload images</ngx-dropzone-label>
               <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
@@ -58,13 +58,13 @@
       </button>
     </div>
     <div>
-      <button *ngIf="active == 1" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty())}" type="submit" form="create-post-form"
+      <button *ngIf="active == 1" [disabled]="isCommunityEmpty() || isTitleEmpty()" type="submit" form="create-post-form"
               class="btn-primary">
         Post
       </button>
     </div>
     <div>
-      <button *ngIf="active == 2" [ngClass]="{'disabled-btn': (isCommunityEmpty() || isTitleEmpty() || uploadingFiles)}" type="submit" form="create-image-form"
+      <button *ngIf="active == 2" [disabled]="isCommunityEmpty() || isTitleEmpty() || uploadingFiles" type="submit" form="create-image-form"
               class="btn-primary">
         Post
       </button>

@@ -1,0 +1,37 @@
+<div id="community-banner"></div>
+<div id="community-header">
+  <div class="container">
+    <div class="d-flex">
+      <div class="d-flex flex-grow-1 flex-row">
+        <div id="community-logo">
+          <img src="https://firebasestorage.googleapis.com/v0/b/socaly-eb5f5.appspot.com/o/static%2Fcommunity-default-icon.png?alt=media&token=91a364b7-eccf-41c2-8504-a11ddd552d56" alt="Image representing community logo">
+        </div>
+        <div class="ps-3 pt-1">
+          <h1 class="mb-0 community-name">{{communityName}}</h1>
+          <h2 class="community-name">s/{{communityName}}</h2>
+        </div>
+        <div class="ps-4 pt-2">
+          <div *ngIf="userBelongsToCommunity">
+            <button class="btn-secondary hover-text min-width" (click)="leaveCommunity()"></button>
+          </div>
+          <div *ngIf="!userBelongsToCommunity">
+            <button class="btn-primary min-width" (click)="joinCommunity()">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="d-flex">
+    <div class="flex-grow-1 me-lg-4">
+      <app-create-post-topbar></app-create-post-topbar>
+      <app-post *ngFor="let post of posts" [post]="post" [showCommunityName]="false"></app-post>
+    </div>
+    <div>
+      <div class="sticky-top">
+        <app-about-community-sidebar [communityName]="communityName"></app-about-community-sidebar>
+      </div>
+    </div>
+  </div>
+</div>

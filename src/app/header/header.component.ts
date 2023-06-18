@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/shared/auth.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from '../auth/signup/signup.component';
-import { LoginComponent } from '../auth/login/login.component';
+import { SignUpComponent } from '../auth/sign-up/sign-up.component';
+import { LogInComponent } from '../auth/log-in/log-in.component';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header',
@@ -11,24 +12,31 @@ import { LoginComponent } from '../auth/login/login.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean;
+  loggedIn: boolean;
   username: string;
 
-  constructor(private authService: AuthService, private router: Router, private modal: NgbModal) { }
+  constructor(private authService: AuthService, private router: Router, private modal: NgbModal,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
-    this.authService.username.subscribe((data: string) => this.username = data);
-    this.isLoggedIn = this.authService.isLoggedIn();
-    this.username = this.authService.getUsername();
+    this.authService.loggedInSubject.subscribe({
+      next: (loggedIn) => this.loggedIn = loggedIn
+    });
+
+    this.authService.usernameSubject.subscribe({
+      next: (username) => this.username = username
+    });
+
+    this.loggedIn = this.authService.isLoggedIn();
+    this.username = this.localStorage.retrieve('username');
   }
 
   signup() {
-    this.modal.open(SignupComponent);
+    this.modal.open(SignUpComponent);
   }
 
   login() {
-    this.modal.open(LoginComponent);
+    this.modal.open(LogInComponent);
   }
 
   goToUserProfile() {
@@ -41,7 +49,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.isLoggedIn = false;
     this.router.navigateByUrl('');
   }
 }

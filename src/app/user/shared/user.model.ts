@@ -1,5 +1,5 @@
 export interface UserModel {
-  createdDate: string;
+  creationDate: string;
   profileImage: string;
   profileBanner: string;
   description: string;

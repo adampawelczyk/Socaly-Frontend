@@ -56,5 +56,13 @@ export const editorConfig = {
   target_list: false,
   default_link_target:"_blank",
   link_context_toolbar: true,
-  contextmenu: false
+  contextmenu: false,
+  emoticons_append: {
+    custom_mind_explode: {
+      keywords: ['brain', 'mind', 'explode', 'blown'],
+      char: 'https://www.redditstatic.com/marketplace-assets/v1/core/emotes/snoomoji_emotes/free_emotes_pack/poop.gif'
+    }
+  }
 }
+
+export const apiURL = "http://localhost:8090/api";

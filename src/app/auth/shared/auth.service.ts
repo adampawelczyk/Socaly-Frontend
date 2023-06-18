@@ -1,108 +1,82 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SignupRequestModel } from './signup-request.model';
-import { Observable, throwError } from 'rxjs';
-import { LoginRequestModel } from './login-request.model';
-import { LoginResponseModel } from './login-response.model';
+import { SignUpRequestModel } from './sign-up-request.model';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { LogInRequestModel } from './log-in-request.model';
+import { LogInResponseModel } from './log-in-response.model';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
-import { UserModel } from '../../user/shared/user.model';
-import { UserSettingsModel } from '../../user-settings/shared/user-settings.model';
 import { UserService } from '../../user/shared/user.service';
 import { UserSettingsService } from '../../user-settings/shared/user-settings.service';
+import { apiURL } from '../../../globals';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
-  @Output() username: EventEmitter<string> = new EventEmitter();
-  @Output() currentUser: UserModel;
-  @Output() currentUserSettings: UserSettingsModel;
-
-  refreshTokenPayload = {
-    refreshToken: this.getRefreshToken(),
-    username: this.getUsername()
-  };
+  loggedInSubject = new BehaviorSubject<boolean>(false);
+  usernameSubject = new BehaviorSubject<string>("");
 
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService, private userService: UserService,
               private userSettingsService: UserSettingsService) { }
 
-  signup(signupPayload: SignupRequestModel): Observable<any> {
-    return this.httpClient.post('http://localhost:8090/api/auth/sign-up', signupPayload, {responseType: 'text'});
+  signup(signupPayload: SignUpRequestModel): Observable<any> {
+    return this.httpClient.post(apiURL + '/auth/sign-up', signupPayload, {responseType: 'text'});
   }
 
-  login(loginPayload: LoginRequestModel): Observable<boolean> {
-    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/log-in', loginPayload)
-      .pipe(map(data => {
-        this.localStorage.store('authenticationToken', data.authenticationToken);
-        this.localStorage.store('username', data.username);
-        this.localStorage.store('refreshToken', data.refreshToken);
-        this.localStorage.store('expiresAt', data.expiresAt);
+  login(loginPayload: LogInRequestModel): Observable<boolean> {
+    return this.httpClient.post<LogInResponseModel>(apiURL + '/auth/log-in', loginPayload)
+      .pipe(map(response => {
+        this.localStorage.store('authenticationToken', response.authenticationToken);
+        this.localStorage.store('username', response.username);
+        this.localStorage.store('refreshToken', response.refreshToken);
+        this.localStorage.store('expiresAt', response.expiresAt);
 
-        this.loggedIn.emit(true);
-        this.username.emit(data.username);
+        this.loggedInSubject.next(true);
+        this.usernameSubject.next(response.username);
 
-        this.userService.getUserDetails(data.username).subscribe(data => {
-          this.localStorage.store('userDetails', data);
+        this.userService.getUser(response.username).subscribe(user => {
+          this.localStorage.store('user', user);
         })
 
-        this.userSettingsService.getUserSettings().subscribe(data => {
-          this.localStorage.store('userSettings', data);
+        this.userSettingsService.getUserSettings().subscribe(userSettings => {
+          this.localStorage.store('userSettings', userSettings);
         })
 
         return true;
       }));
   }
 
-  getJwtToken() {
-    return this.localStorage.retrieve('authenticationToken');
-  }
-
   refreshToken() {
-    return this.httpClient.post<LoginResponseModel>('http://localhost:8090/api/auth/refresh-token', this.refreshTokenPayload)
-      .pipe(tap(response => {
-        this.localStorage.clear('authenticationToken');
-        this.localStorage.clear('expiresAt');
+    let refreshTokenPayload = {
+      username: this.localStorage.retrieve('username'),
+      refreshToken: this.localStorage.retrieve('refreshToken')
+    };
 
+    return this.httpClient.post<LogInResponseModel>(apiURL + '/auth/refresh-token',refreshTokenPayload)
+      .pipe(tap(response => {
         this.localStorage.store('authenticationToken', response.authenticationToken);
         this.localStorage.store('expiresAt', response.expiresAt);
       }));
   }
 
   logout() {
-    this.httpClient.post('http://localhost:8090/api/auth/log-out', this.refreshTokenPayload, {responseType: 'text'})
-      .subscribe(data => {
-        console.log(data);
-      }, error => {
+    let refreshTokenPayload = {
+      username: this.localStorage.retrieve('username'),
+      refreshToken: this.localStorage.retrieve('refreshToken')
+    };
+
+    this.httpClient.post(apiURL + '/auth/log-out', refreshTokenPayload, {responseType: 'text'})
+      .subscribe(() => { }, error => {
         throwError(error);
       });
 
-    this.localStorage.clear('authenticationToken');
-    this.localStorage.clear('username');
-    this.localStorage.clear('refreshToken');
-    this.localStorage.clear('expiresAt');
-    this.localStorage.clear('userDetails');
-    this.localStorage.clear('userSettings');
-  }
+    this.localStorage.clear();
 
-  getRefreshToken() {
-    return this.localStorage.retrieve('refreshToken');
-  }
-
-  getUsername() {
-    return this.localStorage.retrieve('username');
-  }
-
-  getUserDetails() {
-    return this.localStorage.retrieve('userDetails');
-  }
-
-  getUserSettings() {
-    return this.localStorage.retrieve('userSettings');
+    this.loggedInSubject.next(false);
   }
 
   isLoggedIn(): boolean {
-    return this.getJwtToken() != null;
+    return this.localStorage.retrieve('authenticationToken') != null;
   }
 }

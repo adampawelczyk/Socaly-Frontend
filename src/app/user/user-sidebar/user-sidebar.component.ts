@@ -4,6 +4,7 @@ import { UserModel } from '../shared/user.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { FileService } from '../../shared/file.service';
 import { UserService } from '../shared/user.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -11,21 +12,21 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./user-sidebar.component.scss']
 })
 export class UserSidebarComponent implements OnInit {
-  @Input() userDetails: UserModel;
+  @Input() user: UserModel;
   username: string;
   file: File;
   isProfileImageUploading: boolean = false;
   isProfileBannerUploading: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private fileService: FileService,
-              private userService: UserService, private router: Router) {
+              private userService: UserService, private router: Router, private localStorage: LocalStorageService) {
     this.username = this.activatedRoute.snapshot.params.name;
   }
 
   ngOnInit(): void { }
 
   isCurrentUser(): boolean {
-    return this.username === this.authService.getUsername()
+    return this.username === this.localStorage.retrieve('username');
   }
 
   async changeProfileImage(event: Event): Promise<void> {
@@ -37,13 +38,13 @@ export class UserSidebarComponent implements OnInit {
       let fileUrl = await this.fileService.uploadFile(file);
       this.isProfileImageUploading = false;
 
-      this.userService.changeProfileImage(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.username).subscribe(data => {
-          if (this.userDetails.profileImage.includes('uploads')) {
-            this.fileService.removeFile(this.userDetails.profileImage);
+      this.userService.updateProfileImage(fileUrl).subscribe(() => {
+        this.userService.getUser(this.username).subscribe(data => {
+          if (this.user.profileImage.includes('uploads')) {
+            this.fileService.removeFile(this.user.profileImage);
           }
 
-          this.userDetails.profileImage = data.profileImage;
+          this.user.profileImage = data.profileImage;
         })
       })
     }
@@ -58,13 +59,13 @@ export class UserSidebarComponent implements OnInit {
       let fileUrl = await this.fileService.uploadFile(file);
       this.isProfileBannerUploading = false;
 
-      this.userService.changeProfileBanner(fileUrl).subscribe(() => {
-        this.userService.getUserDetails(this.username).subscribe(data => {
-          if (this.userDetails.profileBanner.includes('uploads')) {
-            this.fileService.removeFile(this.userDetails.profileBanner);
+      this.userService.updateProfileBanner(fileUrl).subscribe(() => {
+        this.userService.getUser(this.username).subscribe(data => {
+          if (this.user.profileBanner.includes('uploads')) {
+            this.fileService.removeFile(this.user.profileBanner);
           }
 
-          this.userDetails.profileBanner = data.profileBanner;
+          this.user.profileBanner = data.profileBanner;
         })
       })
     }

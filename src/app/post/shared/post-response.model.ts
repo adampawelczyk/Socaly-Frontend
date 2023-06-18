@@ -1,13 +1,13 @@
 export interface PostResponseModel {
   id: number;
-  postName: string;
+  title: string;
   description?: string;
   images?: string[];
-  voteCount: number;
-  userName: string;
+  points: number;
+  username: string;
   communityName: string;
   commentCount: number;
-  duration: string;
+  timeSinceCreation: string;
   upVote: boolean;
   downVote: boolean;
 }

@@ -1,9 +1,9 @@
 <div class="sidebar d-none d-lg-block d-xl-block">
   <div>
-    <img class="sidebar-banner" src="{{userDetails.profileBanner}}" alt="profile banner">
+    <img class="sidebar-banner" src="{{user.profileBanner}}" alt="profile banner">
   </div>
   <div class="profile-image-frame">
-    <img class="profile-image" src="{{userDetails.profileImage}}" alt="profile image">
+    <img class="profile-image" src="{{user.profileImage}}" alt="profile image">
   </div>
   <span *ngIf="isCurrentUser()">
     <div class="lds-dual-ring profile-image-loading-wheel-position" *ngIf="isProfileImageUploading"></div>
@@ -28,7 +28,7 @@
       u/{{username}}
     </div>
     <div class="description mt-2 mb-2">
-      {{userDetails.description}}
+      {{user.description}}
     </div>
     <div class="cake-day">
       Cake day
@@ -37,7 +37,7 @@
           cake
         </span>
         <span class="date">
-          {{userDetails.createdDate | date: 'longDate'}}
+          {{user.creationDate | date: 'longDate'}}
         </span>
       </div>
     </div>

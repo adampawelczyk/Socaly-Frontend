@@ -54,8 +54,8 @@ export class PostVoteComponent implements OnInit {
   }
 
   private updateVoteDetails() {
-    this.postService.getPost(this.post.id).subscribe(data => {
-      this.post = data;
+    this.postService.getPost(this.post.id).subscribe(post => {
+      this.post = post;
     });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserSettingsModel } from '../shared/user-settings.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { UserSettingsService } from '../shared/user-settings.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-email-settings',
@@ -11,10 +12,11 @@ import { UserSettingsService } from '../shared/user-settings.service';
 export class EmailSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
 
-  constructor(private authService: AuthService, private userSettingsService: UserSettingsService) { }
+  constructor(private authService: AuthService, private userSettingsService: UserSettingsService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.userSettings = this.authService.getUserSettings();
+    this.userSettings = this.localStorage.retrieve('userSettings');
   }
 
   updatePostCommentEmails() {

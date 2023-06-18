@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommunityService } from '../shared/community.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommunityRequestModel } from '../shared/community-request.model';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-create-community',
@@ -39,8 +40,8 @@ export class CreateCommunityComponent implements OnInit {
 
     this.communityService.createCommunity(this.communityPayload).subscribe(() => {
       this.router.navigateByUrl('/communities');
-    }, () => {
-      console.log('Error occurred');
+    }, error => {
+      throwError(error);
     });
   }
 

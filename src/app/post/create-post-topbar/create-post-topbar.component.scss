@@ -1,6 +1,6 @@
 @use '../../../utilities/colors.scss';
 
-.create-post-topbar {
+#top-bar {
   border: 1px solid colors.$border-color;
   overflow: hidden;
   background-color: colors.$card-background-color;

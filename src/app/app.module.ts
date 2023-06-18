@@ -7,15 +7,15 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './token-interceptor';
-import { LoginModule } from './auth/login/login.module';
-import { SignupModule } from './auth/signup/signup.module';
-import { CommentModule } from './comment/comment.module';
+import { LogInModule } from './auth/log-in/log-in.module';
+import { SignUpModule } from './auth/sign-up/sign-up.module';
+import { CommentModule } from './comment/comment/comment.module';
 import { CommentVoteModule } from './vote/comment-vote/comment-vote.module';
-import { CommunityModule } from './community/community.module';
+import { CommunityModule } from './community/community/community.module';
 import { PostVoteModule } from './vote/post-vote/post-vote.module';
 import { HeaderModule } from './header/header.module';
-import { HomeModule } from './home/home.module';
-import { PostModule } from './post/post.module';
+import { HomeModule } from './home/home/home.module';
+import { PostModule } from './post/post/post.module';
 import { CommunitySidebarModule } from './community/community-sidebar/community-sidebar.module';
 import { CreateCommunityModule } from './community/create-community/create-community.module';
 import { CreatePostModule } from './post/create-post/create-post.module';
@@ -42,11 +42,11 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot(),
+    NgxWebstorageModule.forRoot({prefix: '', separator: '', caseSensitive: true}),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    LoginModule,
-    SignupModule,
+    LogInModule,
+    SignUpModule,
     CommentModule,
     CommentVoteModule,
     CommunityModule,

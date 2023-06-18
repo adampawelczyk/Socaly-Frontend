@@ -11,7 +11,7 @@ import { throwError } from 'rxjs';
 })
 export class ViewPostComponent implements OnInit {
   postId: number;
-  posts: PostResponseModel[] = [];
+  post: PostResponseModel;
   communityName = '';
 
   constructor(private postService: PostService, private activateRoute: ActivatedRoute) {
@@ -23,9 +23,9 @@ export class ViewPostComponent implements OnInit {
   }
 
   private getPostById() {
-    this.postService.getPost(this.postId).subscribe(data => {
-      this.posts.push(data);
-      this.communityName = data.communityName
+    this.postService.getPost(this.postId).subscribe(post => {
+      this.post = post;
+      this.communityName = post.communityName;
     }, error => {
       throwError(error);
     });

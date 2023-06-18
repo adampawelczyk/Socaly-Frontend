@@ -1,23 +1,12 @@
 @use '../../../utilities/colors.scss';
 
-.content {
-  border: 0.5px solid colors.$border-color;
-  overflow: hidden;
-  background-color: colors.$card-background-color;
-  color: colors.$darkgray;
-  border-radius: 4px;
-  padding: 0;
-  margin: 0;
-  width: 312px;
-}
-
-.home-sidebar-banner {
+#banner {
   height: 34px;
   background-image: url('../../../assets/home-banner.png');
   background-size: cover;
 }
 
-.title {
+#heading {
   margin-top: -1.7rem;
 }
 
@@ -28,17 +17,17 @@
   width: 40px;
 }
 
-.title-text {
+#title {
   font-size: 1rem;
   font-weight: 500;
   line-height: 20px;
+  color: black;
 }
 
-.text {
-  font-family: 'Noto Sans, Arial', sans-serif;
+#text {
+  font-family: 'Noto Sans', Arial, sans-serif;
   font-size: 0.87rem;
   line-height: 21px;
-  font-weight: 400;
   color: black
 }
 

@@ -3,6 +3,7 @@ import { Sorting } from '../../../utilities/sorting';
 import { UserSettingsModel } from '../shared/user-settings.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { UserSettingsService } from '../shared/user-settings.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-feed-settings',
@@ -13,10 +14,11 @@ export class FeedSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
   SortingType = Sorting;
 
-  constructor(private authService: AuthService, private userSettingsService: UserSettingsService) { }
+  constructor(private authService: AuthService, private userSettingsService: UserSettingsService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.userSettings = this.authService.getUserSettings();
+    this.userSettings = this.localStorage.retrieve('userSettings');
   }
 
   updateCommunityContentSort(sorting: Sorting) {
@@ -33,11 +35,13 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isHot() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.HOT] || this.userSettings.communityContentSort === Sorting.HOT;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.HOT]
+      || this.userSettings.communityContentSort === Sorting.HOT;
   }
 
   isNew() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.NEW] || this.userSettings.communityContentSort === Sorting.NEW;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.NEW]
+      || this.userSettings.communityContentSort === Sorting.NEW;
   }
 
   isTop() {
@@ -45,22 +49,27 @@ export class FeedSettingsComponent implements OnInit {
   }
 
   isTopToday() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_TODAY] || this.userSettings.communityContentSort === Sorting.TOP_TODAY;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_TODAY]
+      || this.userSettings.communityContentSort === Sorting.TOP_TODAY;
   }
 
   isTopWeek() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_WEEK] || this.userSettings.communityContentSort === Sorting.TOP_WEEK;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_WEEK]
+      || this.userSettings.communityContentSort === Sorting.TOP_WEEK;
   }
 
   isTopMonth() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_MONTH] || this.userSettings.communityContentSort === Sorting.TOP_MONTH;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_MONTH]
+      || this.userSettings.communityContentSort === Sorting.TOP_MONTH;
   }
 
   isTopYear() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_YEAR] || this.userSettings.communityContentSort === Sorting.TOP_YEAR;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_YEAR]
+      || this.userSettings.communityContentSort === Sorting.TOP_YEAR;
   }
 
   isTopAllTime() {
-    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_ALL_TIME] || this.userSettings.communityContentSort === Sorting.TOP_ALL_TIME;
+    return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_ALL_TIME]
+      || this.userSettings.communityContentSort === Sorting.TOP_ALL_TIME;
   }
 }
