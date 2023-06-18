@@ -11,6 +11,7 @@ import { editorConfig } from '../../../globals';
 import { HighlightService } from '../../shared/highlight.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { ClipboardService } from '../../shared/clipboard.service';
 
 @Component({
   selector: 'app-post',
@@ -30,7 +31,7 @@ export class PostComponent implements OnInit {
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
               private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private localStorage: LocalStorageService) {
+              private authService: AuthService, private localStorage: LocalStorageService, private clipboard: ClipboardService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
@@ -99,5 +100,9 @@ export class PostComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  copyLink() {
+    this.clipboard.writeText(location.href);
   }
 }
