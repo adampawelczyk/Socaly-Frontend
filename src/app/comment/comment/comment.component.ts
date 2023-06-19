@@ -129,6 +129,10 @@ export class CommentComponent implements OnInit {
   copyLink() {
     let url = location.href;
 
+    if (url.includes('#')) {
+      url = url.slice(0, location.href.indexOf('#'));
+    }
+
     url += '#' + this.comment.id;
 
     this.clipboard.writeText(url);
