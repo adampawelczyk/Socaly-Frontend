@@ -1,4 +1,4 @@
-<div id="{{comment.id}}" *ngIf="!collapsed" class="mb-3">
+<div id="{{comment.id}}" class="mb-3">
   <div id="thread-line" class="ps-2">
     <img id="profile-image" src="{{userProfileImage}}" alt="{{comment.username}} profile image">
     <a *ngIf="!userIsDeleted" class="comment-username ms-1" routerLink="/user/{{comment.username}}">
@@ -19,9 +19,6 @@
       <button class="ms-1 btn-tertiary" (click)="showReplyForm(); $event.stopPropagation()">
         <span class="material-symbols-outlined pe-1">reply</span>
         Reply
-      </button>
-      <button class="ms-1 btn-tertiary" (click)="collapse(); $event.stopPropagation()">
-        Collapse
       </button>
       <button *ngIf="showEdit()" class="ms-1 btn-tertiary" (click)="showEditForm(); $event.stopPropagation()">
         Edit
@@ -53,11 +50,4 @@
       </div>
     </div>
   </div>
-</div>
-<div *ngIf="collapsed">
-  <button class="btn-tertiary" (click)="extend(); $event.stopPropagation()">
-    <span class="material-icons-outlined me-1">expand_more</span>
-    Expand
-  </button>
-  <a class="comment-username ms-2" routerLink="/user/{{comment.username}}">{{comment.username}}</a>
 </div>

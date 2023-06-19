@@ -22,7 +22,6 @@ export class CommentComponent implements OnInit {
   @Input() comment: CommentResponseModel;
   @Input() postId: number;
   subComments: CommentResponseModel[];
-  collapsed = false;
   replyFormIsExpanded = false;
   replyForm: UntypedFormGroup;
   edit = false
@@ -79,14 +78,6 @@ export class CommentComponent implements OnInit {
 
   hasSubComments() {
     return this.subComments !== undefined;
-  }
-
-  collapse() {
-    this.collapsed = true;
-  }
-
-  extend() {
-    this.collapsed = false;
   }
 
   showReplyForm() {
