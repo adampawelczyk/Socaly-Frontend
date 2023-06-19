@@ -48,7 +48,7 @@
               <span class="ps-1 d-flex post-button-text">Share</span>
             </a>
             <div ngbDropdownMenu aria-labelledby="share-button">
-              <a ngbDropdownItem class="btn-tertiary d-flex justify-content-center" (click)="copyLink()">
+              <a ngbDropdownItem class="btn-tertiary d-flex justify-content-center" (click)="copyLink(); $event.stopPropagation()">
                 <span class="material-symbols-outlined">link</span>
                 <span class="ps-1 d-flex post-button-text">Copy link</span>
               </a>
