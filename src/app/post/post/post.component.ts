@@ -28,6 +28,7 @@ export class PostComponent implements OnInit {
   commentForm: UntypedFormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
+  singleCommentThread = false;
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
               private activateRoute: ActivatedRoute, private highlightService: HighlightService,
@@ -35,6 +36,8 @@ export class PostComponent implements OnInit {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
     this.commentForm = new UntypedFormGroup({
       text: new UntypedFormControl('', Validators.required)
@@ -51,6 +54,9 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (location.href.includes('#')) {
+      this.singleCommentThread = true;
+    }
     if (this.showComments) {
       this.getCommentsForPost();
     }
@@ -75,12 +81,20 @@ export class PostComponent implements OnInit {
     });
   }
 
-  private getCommentsForPost() {
-    this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
-      this.comments = comments.reverse();
-    }, error => {
-      throwError(error);
-    });
+  getCommentsForPost() {
+    if (this.singleCommentThread) {
+      this.commentService.getComment(Number(location.href.slice(location.href.indexOf('#') + 1))).subscribe(comment => {
+        this.comments = [];
+        this.comments.push(comment);
+      })
+    } else {
+      this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
+        this.comments = comments.reverse();
+      }, error => {
+        throwError(error);
+      });
+    }
+
   }
 
   goToPost(id: number): void {
@@ -110,5 +124,10 @@ export class PostComponent implements OnInit {
     }
 
     this.clipboard.writeText(url);
+  }
+
+  seeFullDiscussion() {
+    this.singleCommentThread = false;
+    location.assign(location.href.slice(0, location.href.indexOf('#')));
   }
 }

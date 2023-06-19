@@ -105,3 +105,12 @@ img {
 .dropdown-menu {
   min-width: 100px;
 }
+
+.medium-text {
+  font-size: 0.87rem;
+}
+
+#see-full-discussion-link {
+  color: colors.$primary-color;
+  cursor: pointer;
+}
