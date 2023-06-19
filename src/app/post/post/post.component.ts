@@ -11,6 +11,7 @@ import { editorConfig } from '../../../globals';
 import { HighlightService } from '../../shared/highlight.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { ClipboardService } from '../../shared/clipboard.service';
 
 @Component({
   selector: 'app-post',
@@ -27,13 +28,16 @@ export class PostComponent implements OnInit {
   commentForm: UntypedFormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
+  singleCommentThread = false;
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
               private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private localStorage: LocalStorageService) {
+              private authService: AuthService, private localStorage: LocalStorageService, private clipboard: ClipboardService) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
     this.commentForm = new UntypedFormGroup({
       text: new UntypedFormControl('', Validators.required)
@@ -50,6 +54,9 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (location.href.includes('#')) {
+      this.singleCommentThread = true;
+    }
     if (this.showComments) {
       this.getCommentsForPost();
     }
@@ -74,22 +81,30 @@ export class PostComponent implements OnInit {
     });
   }
 
-  private getCommentsForPost() {
-    this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
-      this.comments = comments.reverse();
-    }, error => {
-      throwError(error);
-    });
+  getCommentsForPost() {
+    if (this.singleCommentThread) {
+      this.commentService.getComment(Number(location.href.slice(location.href.indexOf('#') + 1))).subscribe(comment => {
+        this.comments = [];
+        this.comments.push(comment);
+      })
+    } else {
+      this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
+        this.comments = comments.reverse();
+      }, error => {
+        throwError(error);
+      });
+    }
+
   }
 
   goToPost(id: number): void {
     let userSettings = this.localStorage.retrieve('userSettings')
 
     if (this.authService.isLoggedIn() && userSettings.openPostsInNewTab) {
-      const url = this.router.serializeUrl(this.router.createUrlTree(['/view-post/' + id]));
+      const url = this.router.serializeUrl(this.router.createUrlTree(['/post/' + id]));
       window.open(url, '_blank');
     } else {
-      this.router.navigateByUrl('/view-post/' + id);
+      this.router.navigateByUrl('/post/' + id);
     }
   }
 
@@ -99,5 +114,20 @@ export class PostComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  copyLink() {
+    let url = location.href;
+
+    if (!/\d$/.test(url)) {
+      url += 'post/' + this.post.id;
+    }
+
+    this.clipboard.writeText(url);
+  }
+
+  seeFullDiscussion() {
+    this.singleCommentThread = false;
+    location.assign(location.href.slice(0, location.href.indexOf('#')));
   }
 }
