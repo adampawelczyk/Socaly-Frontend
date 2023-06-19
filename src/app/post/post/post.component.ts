@@ -87,10 +87,10 @@ export class PostComponent implements OnInit {
     let userSettings = this.localStorage.retrieve('userSettings')
 
     if (this.authService.isLoggedIn() && userSettings.openPostsInNewTab) {
-      const url = this.router.serializeUrl(this.router.createUrlTree(['/view-post/' + id]));
+      const url = this.router.serializeUrl(this.router.createUrlTree(['/post/' + id]));
       window.open(url, '_blank');
     } else {
-      this.router.navigateByUrl('/view-post/' + id);
+      this.router.navigateByUrl('/post/' + id);
     }
   }
 
