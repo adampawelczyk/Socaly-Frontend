@@ -43,7 +43,7 @@
             <span class="ps-1 d-flex post-button-text">{{post.commentCount}} Comments</span>
           </a>
           <div ngbDropdown>
-            <a class="btn-tertiary p-1 ms-1" id="share-button" ngbDropdownToggle role="button" (click)="goToPost(post.id)">
+            <a class="btn-tertiary p-1 ms-1" id="share-button" ngbDropdownToggle role="button" (click)="$event.stopPropagation()">
               <span class="material-symbols-outlined d-flex">share</span>
               <span class="ps-1 d-flex post-button-text">Share</span>
             </a>
