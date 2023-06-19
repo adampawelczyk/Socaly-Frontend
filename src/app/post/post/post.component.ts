@@ -103,6 +103,12 @@ export class PostComponent implements OnInit {
   }
 
   copyLink() {
-    this.clipboard.writeText(location.href);
+    let url = location.href;
+
+    if (!/\d$/.test(url)) {
+      url += 'post/' + this.post.id;
+    }
+
+    this.clipboard.writeText(url);
   }
 }
