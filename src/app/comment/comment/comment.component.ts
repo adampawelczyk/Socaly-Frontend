@@ -11,6 +11,7 @@ import { HighlightService } from '../../shared/highlight.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { UserService } from '../../user/shared/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { ClipboardService } from '../../shared/clipboard.service';
 
 @Component({
   selector: 'app-comment',
@@ -31,8 +32,10 @@ export class CommentComponent implements OnInit {
   userProfileImage: string;
   userIsDeleted: boolean;
 
-  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private userService: UserService, private localStorage: LocalStorageService) {
+  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute,
+              private highlightService: HighlightService, private authService: AuthService,
+              private userService: UserService, private localStorage: LocalStorageService,
+              private clipboard: ClipboardService) {
   }
 
   ngAfterViewChecked() {
@@ -121,5 +124,13 @@ export class CommentComponent implements OnInit {
     }, error => {
       throwError(error);
     });
+  }
+
+  copyLink() {
+    let url = location.href;
+
+    url += '#' + this.comment.id;
+
+    this.clipboard.writeText(url);
   }
 }

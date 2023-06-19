@@ -20,6 +20,18 @@
         <span class="material-symbols-outlined pe-1">reply</span>
         Reply
       </button>
+      <div ngbDropdown>
+        <button class="btn-tertiary p-1 ms-1" id="share-button" ngbDropdownToggle role="button" (click)="$event.stopPropagation()">
+          <span class="material-symbols-outlined d-flex">share</span>
+          <span class="ps-1 d-flex post-button-text">Share</span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="share-button">
+          <button ngbDropdownItem class="btn-tertiary d-flex justify-content-center" (click)="copyLink(); $event.stopPropagation()">
+            <span class="material-symbols-outlined">link</span>
+            <span class="ps-1 d-flex post-button-text">Copy link</span>
+          </button>
+        </div>
+      </div>
       <button *ngIf="showEdit()" class="ms-1 btn-tertiary" (click)="showEditForm(); $event.stopPropagation()">
         Edit
       </button>
