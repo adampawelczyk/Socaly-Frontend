@@ -6,7 +6,9 @@
     <div class="d-flex flex-column flex-fill p-2">
       <span class="community-info">
         <span *ngIf="showCommunityName">
-          <a id="community-name" routerLink="" (click)="$event.stopPropagation()">{{post.communityName}}</a>
+          <a id="community-name" routerLink="/community/{{post.communityName}}"
+             (click)="$event.stopPropagation()">{{post.communityName}}
+          </a>
         </span>
         <span *ngIf="showCommunityName"> • </span>
         <span>
