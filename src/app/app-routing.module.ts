@@ -15,7 +15,7 @@ import { UserSettingsComponent } from './user-settings/user-settings/user-settin
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'post/:id', component: ViewPostComponent },
-  { path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'user/:name', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'settings', canActivate: [AuthGuard], children: [
       { path: 'account', component: UserSettingsComponent, canActivate: [AuthGuard], data: {activeId: 'account'}},
       { path: 'profile', component: UserSettingsComponent, canActivate: [AuthGuard], data: {activeId: 'profile'}},
