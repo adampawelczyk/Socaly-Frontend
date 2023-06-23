@@ -39,7 +39,7 @@ export class CreateCommunityComponent implements OnInit {
     this.communityPayload.description = this.createCommunityForm.get('description')?.value;
 
     this.communityService.createCommunity(this.communityPayload).subscribe(() => {
-      this.router.navigateByUrl('/communities');
+      this.activeModal.close();
     }, error => {
       throwError(error);
     });
