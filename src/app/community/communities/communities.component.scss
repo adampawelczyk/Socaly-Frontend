@@ -5,3 +5,8 @@
   border-top: 1px colors.$border-color solid;
   padding: 1rem calc((100vw - 1200px + 0.75rem) / 2);
 }
+
+.community-character:hover {
+  color: colors.$primary-color;
+  cursor: pointer;
+}
