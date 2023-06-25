@@ -11,19 +11,22 @@ import { throwError } from 'rxjs';
 export class CommunitiesComponent implements OnInit {
   communities: CommunityResponseModel[];
   filteredCommunities: CommunityResponseModel[];
+  sortingLetter: string;
 
   constructor(private communityService: CommunityService) { }
 
   ngOnInit(): void {
     this.communityService.getAllCommunities().subscribe(communities => {
       this.communities = communities;
-      this.sortBy('a');
+      this.sortingLetter = 'a';
+      this.sortBy(this.sortingLetter);
     }, error => {
       throwError(error);
     });
   }
 
   sortBy(letter: string) {
+    this.sortingLetter = letter;
     this.filteredCommunities = this.communities.filter(community => community.name.startsWith(letter));
   }
 }
