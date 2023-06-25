@@ -10,6 +10,7 @@ import { throwError } from 'rxjs';
 })
 export class CommunitiesComponent implements OnInit {
   communities: CommunityResponseModel[];
+  filteredCommunities: CommunityResponseModel[];
 
   constructor(private communityService: CommunityService) { }
 
@@ -19,5 +20,9 @@ export class CommunitiesComponent implements OnInit {
     }, error => {
       throwError(error);
     });
+  }
+
+  sortBy(letter: string) {
+    this.filteredCommunities = this.communities.filter(community => community.name.startsWith(letter));
   }
 }

@@ -1,6 +1,7 @@
 <div id="community-directory">
   <h2>Community directory</h2>
-  <span class="community-character" *ngFor="let character of 'abcdefghijklmnopqrstuvwxyz#'.split('')">
+  <span class="community-character" *ngFor="let character of 'abcdefghijklmnopqrstuvwxyz#'.split('')"
+        (click)="sortBy(character)">
     {{character}}
   </span>
 </div>
