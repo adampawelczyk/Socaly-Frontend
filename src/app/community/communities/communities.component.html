@@ -6,11 +6,9 @@
   </span>
 </div>
 <div class="container">
-  <div id="communities">
-    <ul>
-      <li *ngFor="let community of communities">
-        <a routerLink="/view-community/{{community.name}}">{{community.name}}</a>
-      </li>
-    </ul>
+  <div id="communities" class="d-flex flex-wrap">
+    <div class="community" *ngFor="let community of filteredCommunities">
+      <a class="community-link" routerLink="/community/{{community.name}}">{{community.name}}</a>
+    </div>
   </div>
 </div>
