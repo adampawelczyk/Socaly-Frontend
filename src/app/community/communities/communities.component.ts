@@ -17,6 +17,7 @@ export class CommunitiesComponent implements OnInit {
   ngOnInit(): void {
     this.communityService.getAllCommunities().subscribe(communities => {
       this.communities = communities;
+      this.sortBy('a');
     }, error => {
       throwError(error);
     });
