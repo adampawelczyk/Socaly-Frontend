@@ -33,5 +33,15 @@ export class CommunitiesComponent implements OnInit {
     } else {
       this.filteredCommunities = this.communities.filter(community => community.name.startsWith(letter));
     }
+
+    this.filteredCommunities = this.filteredCommunities.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
   }
 }
