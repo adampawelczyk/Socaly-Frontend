@@ -27,6 +27,11 @@ export class CommunitiesComponent implements OnInit {
 
   sortBy(letter: string) {
     this.sortingLetter = letter;
-    this.filteredCommunities = this.communities.filter(community => community.name.startsWith(letter));
+
+    if (letter == '#') {
+      this.filteredCommunities = this.communities.filter(community => community.name.match(/^\d/));
+    } else {
+      this.filteredCommunities = this.communities.filter(community => community.name.startsWith(letter));
+    }
   }
 }
