@@ -26,3 +26,10 @@
   color: colors.$primary-color;
   text-decoration: none;
 }
+
+@media (max-width: 1215px) {
+  #community-directory {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
