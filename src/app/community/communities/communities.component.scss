@@ -1,0 +1,35 @@
+@use '../../../utilities/colors';
+
+#community-directory {
+  background-color: white;
+  border-top: 1px colors.$border-color solid;
+  padding: 1rem calc((100vw - 1200px + 0.75rem) / 2);
+}
+
+.community-character:hover {
+  color: colors.$primary-color;
+  cursor: pointer;
+}
+
+#communities {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.community {
+  width: 25%;
+}
+
+.community-link {
+  color: colors.$primary-color;
+  text-decoration: none;
+}
+
+@media (max-width: 1215px) {
+  #community-directory {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
