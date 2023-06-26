@@ -47,6 +47,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/settings/account');
   }
 
+  goToCommunityDirectory() {
+    this.router.navigateByUrl('/communities');
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('');
