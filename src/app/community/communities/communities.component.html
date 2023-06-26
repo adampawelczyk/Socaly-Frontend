@@ -6,13 +6,15 @@
   </span>
 </div>
 <div class="container">
-  <div>
-    Browse the communities starting with '{{sortingLetter}}'
-  </div>
-  <hr/>
-  <div id="communities" class="d-flex flex-wrap">
-    <div class="community" *ngFor="let community of filteredCommunities">
-      <a class="community-link" routerLink="/community/{{community.name}}">{{community.name}}</a>
+  <div id="communities">
+    <div>
+      Browse the communities starting with '{{sortingLetter}}'
+    </div>
+    <hr/>
+    <div class="d-flex flex-wrap">
+      <div class="community" *ngFor="let community of filteredCommunities">
+        <a class="community-link" routerLink="/community/{{community.name}}">{{community.name}}</a>
+      </div>
     </div>
   </div>
 </div>
