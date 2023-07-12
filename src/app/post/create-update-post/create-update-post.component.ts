@@ -130,4 +130,13 @@ export class CreateUpdatePostComponent implements OnInit {
   isTitleEmpty() {
     return this.createPostForm.get('title')?.value === '';
   }
+
+  async createFile(path: string, name: string, type: string): Promise<File> {
+    let response = await fetch(path);
+    let data = await response.blob();
+    let metadata = {
+      type: type
+    };
+    return new File([data], name, metadata);
+  }
 }
