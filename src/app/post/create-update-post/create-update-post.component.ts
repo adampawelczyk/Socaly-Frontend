@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PostRequestModel } from '../shared/post-request.model';
 import { CommunityResponseModel } from '../../community/shared/community-response.model';
@@ -17,6 +17,8 @@ import { editorConfig } from '../../../globals';
   styleUrls: ['./create-update-post.component.scss']
 })
 export class CreateUpdatePostComponent implements OnInit {
+  @Input() isUpdating = false;
+  @Input() postIdToUpdate: number;
   createPostForm: UntypedFormGroup;
   postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
