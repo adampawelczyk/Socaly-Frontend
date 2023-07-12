@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateCommunityComponent } from '../../community/create-community/create-community.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreatePostComponent } from '../../post/create-post/create-post.component';
+import { CreateUpdatePostComponent } from '../../post/create-update-post/create-update-post.component';
 
 @Component({
   selector: 'app-home-sidebar',
@@ -14,7 +14,7 @@ export class HomeSidebarComponent implements OnInit {
   ngOnInit(): void { }
 
   createPost() {
-    this.modal.open(CreatePostComponent, {size: 'lg'});
+    this.modal.open(CreateUpdatePostComponent, {size: 'lg'});
   }
 
   createCommunity() {

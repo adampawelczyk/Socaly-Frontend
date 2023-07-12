@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreatePostComponent } from '../create-post/create-post.component';
+import { CreateUpdatePostComponent } from '../create-update-post/create-update-post.component';
 
 @Component({
   selector: 'app-create-post-topbar',
@@ -13,6 +13,6 @@ export class CreatePostTopbarComponent implements OnInit {
   ngOnInit(): void { }
 
   createPost() {
-    this.modal.open(CreatePostComponent, { size: 'lg' });
+    this.modal.open(CreateUpdatePostComponent, { size: 'lg' });
   }
 }

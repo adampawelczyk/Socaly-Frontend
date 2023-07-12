@@ -12,11 +12,11 @@ import { FileService } from '../../shared/file.service';
 import { editorConfig } from '../../../globals';
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+  selector: 'app-create-update-post',
+  templateUrl: './create-update-post.component.html',
+  styleUrls: ['./create-update-post.component.scss']
 })
-export class CreatePostComponent implements OnInit {
+export class CreateUpdatePostComponent implements OnInit {
   createPostForm: UntypedFormGroup;
   postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
