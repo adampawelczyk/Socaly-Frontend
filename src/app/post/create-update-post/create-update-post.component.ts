@@ -58,6 +58,27 @@ export class CreateUpdatePostComponent implements OnInit {
     }, error => {
       throwError(error);
     });
+
+    if (this.isUpdating) {
+      this.postService.getPost(this.postIdToUpdate).subscribe(async post => {
+        this.selectedCommunity = post.communityName;
+        this.createPostForm.get('title')?.setValue(post.title);
+
+        if (post.images !== undefined && post.images.length != 0) {
+          this.active = 2;
+
+          for (let imageUrl of post.images) {
+            this.fileUrls.push(imageUrl);
+            await this.createFile(imageUrl, '', 'image/png')
+              .then(file => {
+                this.files.push(file);
+              });
+          }
+        } else {
+          this.createPostForm.get("description")?.setValue(post.description);
+        }
+      });
+    }
   }
 
   ngOnDestroy() {
