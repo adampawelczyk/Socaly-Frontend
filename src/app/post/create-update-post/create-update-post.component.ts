@@ -101,13 +101,23 @@ export class CreateUpdatePostComponent implements OnInit {
       this.postPayload.images = this.fileUrls;
     }
 
-    this.postService.createPost(this.postPayload).subscribe((id) => {
-      this.postWasPosted = true;
-      this.activeModal.close();
-      this.router.navigateByUrl('/post/' + id);
-    }, error => {
-      throwError(error);
-    });
+    if (this.isUpdating) {
+      this.postService.updatePost(this.postIdToUpdate, this.postPayload).subscribe(id => {
+        this.postWasPosted = true;
+        this.activeModal.close();
+        this.router.navigateByUrl('/post/' + id);
+      }, error => {
+        throwError(error);
+      })
+    } else {
+      this.postService.createPost(this.postPayload).subscribe((id) => {
+        this.postWasPosted = true;
+        this.activeModal.close();
+        this.router.navigateByUrl('/post/' + id);
+      }, error => {
+        throwError(error);
+      });
+    }
   }
 
   discardPost() {
