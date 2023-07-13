@@ -60,13 +60,15 @@
     <div>
       <button *ngIf="active == 1" [disabled]="isCommunityEmpty() || isTitleEmpty()" type="submit" form="create-post-form"
               class="btn-primary">
-        Post
+        <span *ngIf="!isUpdating">Post</span>
+        <span *ngIf="isUpdating">Save</span>
       </button>
     </div>
     <div>
       <button *ngIf="active == 2" [disabled]="isCommunityEmpty() || isTitleEmpty() || uploadingFiles" type="submit" form="create-image-form"
               class="btn-primary">
-        Post
+        <span *ngIf="!isUpdating">Post</span>
+        <span *ngIf="isUpdating">Save</span>
       </button>
     </div>
   </div>
