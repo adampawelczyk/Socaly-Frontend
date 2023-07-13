@@ -1,5 +1,8 @@
 <div class="modal-header">
-  <h4 class="modal-title">Create Post</h4>
+  <h4 class="modal-title">
+    <span *ngIf="!isUpdating">Create Post</span>
+    <span *ngIf="isUpdating">Edit Post</span>
+  </h4>
   <button type="button" class="btn-close outline-none" (click)="discardPost()" aria-label="Close"></button>
 </div>
 <div class="modal-body">
