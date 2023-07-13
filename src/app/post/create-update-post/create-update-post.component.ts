@@ -82,7 +82,7 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    if (this.fileUrls.length > 0 && !this.postWasPosted) {
+    if (this.fileUrls.length > 0 && !this.postWasPosted && !this.isUpdating) {
       this.fileUrls.forEach(fileUrl => {
         this.fileService.removeFile(fileUrl);
       });
