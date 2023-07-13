@@ -12,6 +12,8 @@ import { HighlightService } from '../../shared/highlight.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { ClipboardService } from '../../shared/clipboard.service';
+import { CreateUpdatePostComponent } from '../create-update-post/create-update-post.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-post',
@@ -129,5 +131,11 @@ export class PostComponent implements OnInit {
   seeFullDiscussion() {
     this.singleCommentThread = false;
     location.assign(location.href.slice(0, location.href.indexOf('#')));
+  }
+
+  updatePost(postId: number) {
+    const modalRef = this.modal.open(CreateUpdatePostComponent, { size: 'lg' });
+    modalRef.componentInstance.isUpdating = true;
+    modalRef.componentInstance.postIdToUpdate = postId;
   }
 }
