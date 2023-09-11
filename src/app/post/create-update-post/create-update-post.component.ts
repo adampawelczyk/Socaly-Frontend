@@ -103,6 +103,18 @@ export class CreateUpdatePostComponent implements OnInit {
     if (this.active == 1) {
       this.postPayload.description = this.createPostForm.get('description')?.value;
       this.postPayload.images = [];
+
+      if (this.fileUrls.length > 0) {
+        this.fileUrls.forEach(fileUrl => {
+          this.fileService.removeFile(fileUrl);
+        });
+      }
+
+      if (this.updatedFileUrls.length > 0) {
+        this.updatedFileUrls.forEach(fileUrl => {
+          this.fileService.removeFile(fileUrl);
+        })
+      }
     } else {
       this.fileUrls.push(...this.updatedFileUrls);
       this.postPayload.description = '';
