@@ -24,6 +24,7 @@ export class CreateUpdatePostComponent implements OnInit {
   communities: CommunityResponseModel[];
   files: File[] = [];
   fileUrls: string[] = [];
+  updatedFileUrls: string[] = [];
   active = 1;
   selectedCommunity = 'Choose a community';
   uploadingFiles = false;
@@ -82,10 +83,16 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    if (this.fileUrls.length > 0 && !this.postWasPosted && !this.isUpdating) {
-      this.fileUrls.forEach(fileUrl => {
-        this.fileService.removeFile(fileUrl);
-      });
+    if ((this.fileUrls.length > 0 || this.updatedFileUrls.length > 0) && !this.postWasPosted) {
+      if (!this.isUpdating) {
+        this.fileUrls.forEach(fileUrl => {
+          this.fileService.removeFile(fileUrl);
+        });
+      } else {
+        this.updatedFileUrls.forEach(fileUrl => {
+          this.fileService.removeFile(fileUrl);
+        })
+      }
     }
   }
 
@@ -97,6 +104,7 @@ export class CreateUpdatePostComponent implements OnInit {
       this.postPayload.description = this.createPostForm.get('description')?.value;
       this.postPayload.images = [];
     } else {
+      this.fileUrls.push(...this.updatedFileUrls);
       this.postPayload.description = '';
       this.postPayload.images = this.fileUrls;
     }
@@ -149,7 +157,12 @@ export class CreateUpdatePostComponent implements OnInit {
       if (file.name === '') continue;
       let fileUrl = await this.fileService.uploadFile(file);
       this.filesUploadProgress += 100 / files.length;
-      this.fileUrls.push(fileUrl);
+
+      if (this.isUpdating) {
+        this.updatedFileUrls.push(fileUrl);
+      } else {
+        this.fileUrls.push(fileUrl);
+      }
     }
   }
 
