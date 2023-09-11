@@ -125,7 +125,8 @@ export class CreateUpdatePostComponent implements OnInit {
       this.postService.updatePost(this.postIdToUpdate, this.postPayload).subscribe(id => {
         this.postWasPosted = true;
         this.activeModal.close();
-        this.router.navigateByUrl('/post/' + id);
+
+        location.reload();
       }, error => {
         throwError(error);
       })
