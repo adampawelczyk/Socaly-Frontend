@@ -56,6 +56,17 @@
               </a>
             </div>
           </div>
+          <div ngbDropdown>
+            <a class="btn-tertiary p-1 ms-1" id="more-button" ngbDropdownToggle role="button" (click)="$event.stopPropagation()">
+              <span class="material-symbols-outlined d-flex">more_horiz</span>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="more-button">
+              <a *ngIf="showEdit()" ngbDropdownItem class="btn-tertiary d-flex justify-content-start" (click)="updatePost(post.id); $event.stopPropagation()">
+                <span class="material-symbols-outlined">edit</span>
+                <span class="ps-2 d-flex post-button-text">Edit</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

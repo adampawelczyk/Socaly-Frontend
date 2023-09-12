@@ -139,4 +139,8 @@ export class PostComponent implements OnInit {
     modalRef.componentInstance.isUpdating = true;
     modalRef.componentInstance.postIdToUpdate = postId;
   }
+
+  showEdit() {
+    return this.post.username === this.localStorage.retrieve('username');
+  }
 }
