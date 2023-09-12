@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { LogInComponent } from './auth/log-in/log-in.component';
 import { HomeComponent } from './home/home/home.component';
-import { CreatePostComponent } from './post/create-post/create-post.component';
+import { CreateUpdatePostComponent } from './post/create-update-post/create-update-post.component';
 import { CreateCommunityComponent } from './community/create-community/create-community.component';
 import { CommunitiesComponent } from './community/communities/communities.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
     ]},
   { path: 'communities', component: CommunitiesComponent },
   { path: 'community/:name', component: CommunityComponent },
-  { path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuard] },
+  { path: 'create-update-post', component: CreateUpdatePostComponent, canActivate: [AuthGuard] },
   { path: 'create-community', component: CreateCommunityComponent, canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LogInComponent }

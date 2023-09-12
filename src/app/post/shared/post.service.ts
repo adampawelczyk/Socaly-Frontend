@@ -23,6 +23,10 @@ export class PostService {
     return this.httpClient.get<PostResponseModel>(apiURL + '/post/get/' + id);
   }
 
+  updatePost(id: number, postPayload: PostRequestModel): Observable<number> {
+    return this.httpClient.put<number>(apiURL + '/post/update/' + id, postPayload)
+  }
+
   getAllPostsByUser(username: string): Observable<PostResponseModel[]> {
     return this.httpClient.get<PostResponseModel[]>(apiURL + '/post/get/all/by-user/' + username);
   }

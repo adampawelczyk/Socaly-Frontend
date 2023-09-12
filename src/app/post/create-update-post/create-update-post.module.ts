@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreatePostComponent } from './create-post.component';
+import { CreateUpdatePostComponent } from './create-update-post.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,11 +22,11 @@ import { environment } from '../../../environments/environment';
     AngularFireStorageModule,
   ],
   declarations: [
-    CreatePostComponent
+    CreateUpdatePostComponent
   ],
   exports: [
-    CreatePostComponent
+    CreateUpdatePostComponent
   ]
 })
 
-export class CreatePostModule { }
+export class CreateUpdatePostModule { }

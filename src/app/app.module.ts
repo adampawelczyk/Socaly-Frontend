@@ -18,7 +18,7 @@ import { HomeModule } from './home/home/home.module';
 import { PostModule } from './post/post/post.module';
 import { CommunitySidebarModule } from './community/community-sidebar/community-sidebar.module';
 import { CreateCommunityModule } from './community/create-community/create-community.module';
-import { CreatePostModule } from './post/create-post/create-post.module';
+import { CreateUpdatePostModule } from './post/create-update-post/create-update-post.module';
 import { CommunitiesModule } from './community/communities/communities.module';
 import { ViewPostModule } from './post/view-post/view-post.module';
 import { AboutCommunitySidebarModule } from './community/about-community-sidebar/about-community-sidebar.module';
@@ -56,7 +56,7 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     PostModule,
     CommunitySidebarModule,
     CreateCommunityModule,
-    CreatePostModule,
+    CreateUpdatePostModule,
     CommunitiesModule,
     ViewPostModule,
     AboutCommunitySidebarModule,

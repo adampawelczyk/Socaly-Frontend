@@ -12,6 +12,8 @@ import { HighlightService } from '../../shared/highlight.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { ClipboardService } from '../../shared/clipboard.service';
+import { CreateUpdatePostComponent } from '../create-update-post/create-update-post.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-post',
@@ -32,7 +34,8 @@ export class PostComponent implements OnInit {
 
   constructor(private postService: PostService, private router: Router, private commentService: CommentService,
               private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private localStorage: LocalStorageService, private clipboard: ClipboardService) {
+              private authService: AuthService, private localStorage: LocalStorageService,
+              private clipboard: ClipboardService, private modal: NgbModal) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
@@ -129,5 +132,15 @@ export class PostComponent implements OnInit {
   seeFullDiscussion() {
     this.singleCommentThread = false;
     location.assign(location.href.slice(0, location.href.indexOf('#')));
+  }
+
+  updatePost(postId: number) {
+    const modalRef = this.modal.open(CreateUpdatePostComponent, { size: 'lg' });
+    modalRef.componentInstance.isUpdating = true;
+    modalRef.componentInstance.postIdToUpdate = postId;
+  }
+
+  showEdit() {
+    return this.post.username === this.localStorage.retrieve('username');
   }
 }
