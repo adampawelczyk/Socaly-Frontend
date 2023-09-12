@@ -32,8 +32,12 @@ export class CreateUpdatePostComponent implements OnInit {
   postWasPosted = false;
   editorConfig = editorConfig;
 
-  constructor(private router: Router, private postService: PostService, private communityService: CommunityService,
-              public activeModal: NgbActiveModal, private authService: AuthService, private fileService: FileService) {
+  constructor(private router: Router,
+              private postService: PostService,
+              private communityService: CommunityService,
+              public activeModal: NgbActiveModal,
+              private authService: AuthService,
+              private fileService: FileService) {
     this.editorConfig.placeholder = 'Text (optional)';
     this.editorConfig.height = 300;
 
@@ -48,97 +52,118 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initializeCreatePostForm();
+    this.loadCommunities();
+
+    if (this.isUpdating) {
+      this.loadPostToUpdate();
+    }
+  }
+
+  private initializeCreatePostForm(): void {
     this.createPostForm = new UntypedFormGroup({
       title: new UntypedFormControl('', Validators.required),
       communityName: new UntypedFormControl('', Validators.required),
-      description: new UntypedFormControl('')
+      description: new UntypedFormControl(''),
     });
+  }
 
-    this.communityService.getAllCommunities().subscribe((communities) => {
-      this.communities = communities;
-    }, error => {
-      throwError(error);
-    });
+  private loadCommunities(): void {
+    this.communityService.getAllCommunities().subscribe(
+      (communities) => {
+        this.communities = communities;
+      },
+      (error) => {
+        throwError(error);
+      }
+    );
+  }
 
-    if (this.isUpdating) {
-      this.postService.getPost(this.postIdToUpdate).subscribe(async post => {
-        this.selectedCommunity = post.communityName;
-        this.createPostForm.get('title')?.setValue(post.title);
+  private loadPostToUpdate(): void {
+    this.postService.getPost(this.postIdToUpdate).subscribe(async (post) => {
+      this.selectedCommunity = post.communityName;
+      this.createPostForm.get('title')?.setValue(post.title);
 
-        if (post.images !== undefined && post.images.length != 0) {
-          this.active = 2;
+      if (post.images !== undefined && post.images.length !== 0) {
+        this.active = 2;
 
-          for (let imageUrl of post.images) {
-            this.fileUrls.push(imageUrl);
-            await this.createFile(imageUrl, '', 'image/png')
-              .then(file => {
-                this.files.push(file);
-              });
-          }
-        } else {
-          this.createPostForm.get("description")?.setValue(post.description);
+        for (const imageUrl of post.images) {
+          this.fileUrls.push(imageUrl);
+          const file = await this.createFile(imageUrl, '', 'image/png');
+          this.files.push(file);
         }
+      } else {
+        this.createPostForm.get('description')?.setValue(post.description);
+      }
+    });
+  }
+
+  async createFile(path: string, name: string, type: string): Promise<File> {
+    let response = await fetch(path);
+    let data = await response.blob();
+    let metadata = {
+      type: type
+    };
+    return new File([data], name, metadata);
+  }
+
+  ngOnDestroy() {
+    this.cleanupFiles();
+  }
+
+  private cleanupFiles(): void {
+    if ((this.fileUrls.length > 0 || this.updatedFileUrls.length > 0) && !this.postWasPosted) {
+      const filesToRemove = this.isUpdating ? this.updatedFileUrls : this.fileUrls;
+      filesToRemove.forEach((fileUrl) => {
+        this.fileService.removeFile(fileUrl);
       });
     }
   }
 
-  ngOnDestroy() {
-    if ((this.fileUrls.length > 0 || this.updatedFileUrls.length > 0) && !this.postWasPosted) {
-      if (!this.isUpdating) {
-        this.fileUrls.forEach(fileUrl => {
-          this.fileService.removeFile(fileUrl);
-        });
-      } else {
-        this.updatedFileUrls.forEach(fileUrl => {
-          this.fileService.removeFile(fileUrl);
-        })
-      }
-    }
+  createPost() {
+    this.initializePostPayload();
+    this.submitPost();
   }
 
-  createPost() {
+  private initializePostPayload(): void {
     this.postPayload.communityName = this.selectedCommunity;
     this.postPayload.title = this.createPostForm.get('title')?.value;
 
-    if (this.active == 1) {
+    if (this.active === 1) {
       this.postPayload.description = this.createPostForm.get('description')?.value;
       this.postPayload.images = [];
-
-      if (this.fileUrls.length > 0) {
-        this.fileUrls.forEach(fileUrl => {
-          this.fileService.removeFile(fileUrl);
-        });
-      }
-
-      if (this.updatedFileUrls.length > 0) {
-        this.updatedFileUrls.forEach(fileUrl => {
-          this.fileService.removeFile(fileUrl);
-        })
-      }
+      this.cleanupFiles();
     } else {
       this.fileUrls.push(...this.updatedFileUrls);
       this.postPayload.description = '';
       this.postPayload.images = this.fileUrls;
     }
+  }
+
+  private submitPost(): void {
+    let postObservable;
 
     if (this.isUpdating) {
-      this.postService.updatePost(this.postIdToUpdate, this.postPayload).subscribe(id => {
+      postObservable = this.postService.updatePost(this.postIdToUpdate, this.postPayload);
+    } else {
+      postObservable = this.postService.createPost(this.postPayload);
+    }
+
+    postObservable.subscribe((id) => {
         this.postWasPosted = true;
         this.activeModal.close();
 
-        location.reload();
-      }, error => {
+        if (this.isUpdating) {
+          location.reload();
+        } else {
+          this.router.navigateByUrl('/post/' + id);
+        }
+
+      },
+      (error) => {
         throwError(error);
-      })
-    } else {
-      this.postService.createPost(this.postPayload).subscribe((id) => {
-        this.postWasPosted = true;
-        this.activeModal.close();
-        this.router.navigateByUrl('/post/' + id);
-      }, error => {
-        throwError(error);
-      });
-    }
+      }
+    );
   }
 
   discardPost() {
@@ -189,14 +214,5 @@ export class CreateUpdatePostComponent implements OnInit {
 
   isTitleEmpty() {
     return this.createPostForm.get('title')?.value === '';
-  }
-
-  async createFile(path: string, name: string, type: string): Promise<File> {
-    let response = await fetch(path);
-    let data = await response.blob();
-    let metadata = {
-      type: type
-    };
-    return new File([data], name, metadata);
   }
 }
