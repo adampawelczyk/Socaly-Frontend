@@ -25,16 +25,29 @@
   <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Comments</a>
     <ng-template ngbNavContent>
-      <div *ngFor="let comment of comments">
-        <div class="comment">
-          <div class="username">
-            <a routerLink="/user/comment.username">
-              {{comment.username}}
-            </a>
+      <div class="mb-3">
+        <div *ngFor="let postId of unique(comments)" class="mt-3">
+          <div class="comments">
+            <div class="p-3 comments-header">
+              <a class="comments-header-link" [routerLink]="'/user/' + getUsername()">
+                {{getUsername()}}
+              </a>
+              commented on
+              <a class="comments-header-link" [routerLink]="'/post/' + findPost(postId)!.id">
+                {{findPost(postId)!.title}}
+              </a>
+              •
+              <a class="comments-header-link" [routerLink]="'/community/' + findPost(postId)!.communityName">
+                {{findPost(postId)!.communityName}}
+              </a>
+            </div>
+            <div *ngFor="let comment of comments">
+              <div *ngIf="comment.postId == postId && findPost(postId) !== undefined" class="comment" (click)="goToComment(comment)">
+                <app-comment [comment]="comment"></app-comment>
+              </div>
+            </div>
           </div>
-          <b>{{comment.text}}</b>
         </div>
-        <hr>
       </div>
     </ng-template>
   </li>

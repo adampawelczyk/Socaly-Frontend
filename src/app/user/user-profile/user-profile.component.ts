@@ -6,6 +6,7 @@ import { CommentService } from '../../comment/shared/comment.service';
 import { CommentResponseModel } from '../../comment/shared/comment-response.model';
 import { UserModel } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,7 +23,7 @@ export class UserProfileComponent implements OnInit {
   userIsDeleted: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, private commentService: CommentService,
-              private userService: UserService) {
+              private userService: UserService, private localStorage: LocalStorageService) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.name = this.activatedRoute.snapshot.params.name;
@@ -50,5 +51,21 @@ export class UserProfileComponent implements OnInit {
 
   goHome() {
     this.router.navigateByUrl('');
+  }
+
+  unique(comments: CommentResponseModel[]) {
+    return new Set(comments.map(comment => comment.postId));
+  }
+
+  findPost(postId: number) {
+    return this.posts.find(post => post.id == postId)
+  }
+
+  getUsername(): string {
+    return this.localStorage.retrieve('username');
+  }
+
+  goToComment(comment: CommentResponseModel) {
+    this.router.navigateByUrl('/post/' + comment.postId + '#' + comment.id);
   }
 }

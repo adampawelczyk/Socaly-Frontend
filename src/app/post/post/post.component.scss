@@ -10,7 +10,7 @@
 }
 
 .post-hover-border:hover {
-  border-color: #303030;
+  border-color: colors.$hover-border-color;
   cursor: pointer;
 }
 
