@@ -22,3 +22,26 @@
 #deleted-user-message {
   font-size: 18px;
 }
+
+.comments {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.comments-header {
+  font-size: 0.75rem;
+}
+
+.comment {
+  border-top: 1px solid colors.$border-color;
+}
+
+.comment:hover {
+  cursor: pointer;
+}
+
+.comments-header-link {
+  color: colors.$primary-color;
+  text-decoration: none;
+  cursor: pointer;
+}
