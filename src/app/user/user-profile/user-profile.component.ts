@@ -72,4 +72,12 @@ export class UserProfileComponent implements OnInit {
   showTab() {
     return this.name === this.localStorage.retrieve('username');
   }
+
+  commentsAreEmpty() {
+    return this.comments.length === 0;
+  }
+
+  postsAreEmpty() {
+    return this.posts.length === 0;
+  }
 }
