@@ -68,4 +68,8 @@ export class UserProfileComponent implements OnInit {
   goToComment(comment: CommentResponseModel) {
     this.router.navigateByUrl('/post/' + comment.postId + '#' + comment.id);
   }
+
+  showTab() {
+    return this.name === this.localStorage.retrieve('username');
+  }
 }
