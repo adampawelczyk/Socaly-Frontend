@@ -51,19 +51,19 @@
       </div>
     </ng-template>
   </li>
-  <li ngbNavItem *ngIf="!userIsDeleted">
+  <li ngbNavItem *ngIf="!userIsDeleted && showTab()">
     <a ngbNavLink>Saved</a>
     <ng-template ngbNavContent>
       Content
     </ng-template>
   </li>
-  <li ngbNavItem *ngIf="!userIsDeleted">
+  <li ngbNavItem *ngIf="!userIsDeleted  && showTab()">
     <a ngbNavLink>Upvoted</a>
     <ng-template ngbNavContent>
       Content
     </ng-template>
   </li>
-  <li ngbNavItem *ngIf="!userIsDeleted">
+  <li ngbNavItem *ngIf="!userIsDeleted  && showTab()">
     <a ngbNavLink>Downvoted</a>
     <ng-template ngbNavContent>
       Content
