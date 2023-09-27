@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LogInComponent } from '../log-in/log-in.component';
+import {LogInRequestModel} from "../shared/log-in-request.model";
 
 @Component({
   selector: 'app-sign-up',
@@ -45,6 +46,15 @@ export class SignUpComponent implements OnInit {
       this.activeModal.close();
       this.toastr.success('Signup Successful');
       this.toastr.success('Please check your inbox for activation email');
+
+      let logInPayload: LogInRequestModel = {
+        username: this.signupPayload.username,
+        password: this.signupPayload.password
+      }
+
+      this.authService.login(logInPayload).subscribe(() => {
+
+      })
     }, () => {
       this.toastr.error('Registration failed! Please try again');
     });
