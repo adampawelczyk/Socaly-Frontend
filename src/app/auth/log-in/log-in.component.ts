@@ -45,6 +45,10 @@ export class LogInComponent implements OnInit {
 
 
   login() {
+    if (this.logInForm.invalid) {
+      return;
+    }
+
     this.logInPayload.username = this.logInForm.get('username')?.value;
     this.logInPayload.password = this.logInForm.get('password')?.value;
 
