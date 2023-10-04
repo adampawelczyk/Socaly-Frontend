@@ -16,8 +16,13 @@ export class LogInComponent implements OnInit {
   logInForm: UntypedFormGroup;
   logInPayload: LogInRequestModel;
 
-  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private router: Router,
-              private toastr: ToastrService, public activeModal: NgbActiveModal, private modal: NgbModal) {
+  constructor(
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService,
+    public activeModal: NgbActiveModal,
+    private modal: NgbModal) {
     this.logInPayload = {
       username: '',
       password: ''
