@@ -33,11 +33,16 @@ export class LogInComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initializeLoginForm();
+  }
+
+  private initializeLoginForm(): void {
     this.logInForm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
   }
+
 
   login() {
     this.logInPayload.username = this.logInForm.get('username')?.value;
