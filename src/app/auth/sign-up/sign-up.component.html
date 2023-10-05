@@ -6,7 +6,7 @@
       <button type="button" class="btn-close" (click)="discardSignup()" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <form id="signup-form" [formGroup]="signupForm" (ngSubmit)="signup()">
+      <form id="signup-form" [formGroup]="signupForm" (ngSubmit)="signUp()">
         <input type="text" [formControlName]="'email'" id="email_address" class="form-control" name="email-address" placeholder="E-mail address" required autofocus>
         <input type="text" [formControlName]="'username'" class="form-control mt-2" placeholder="Username" required autofocus>
         <input type="password" [formControlName]="'password'" id="password" class="form-control mt-2" name="password" placeholder="Password" required>

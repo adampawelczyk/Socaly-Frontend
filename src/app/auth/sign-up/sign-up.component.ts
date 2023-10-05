@@ -40,7 +40,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  signup() {
+  signUp() {
     if (this.signupForm.invalid) {
       return;
     }
