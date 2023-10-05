@@ -45,9 +45,7 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    this.signupPayload.email = this.signupForm.get('email')?.value;
-    this.signupPayload.username = this.signupForm.get('username')?.value;
-    this.signupPayload.password = this.signupForm.get('password')?.value;
+    this.signupPayload = { ...this.signupForm.value };
 
     this.authService.signup(this.signupPayload).subscribe(() => {
       this.activeModal.close();
