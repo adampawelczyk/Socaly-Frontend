@@ -14,7 +14,7 @@ import {LogInRequestModel} from "../shared/log-in-request.model";
   styleUrls: ['./sign-up.component.scss', '../shared/styles.scss']
 })
 export class SignUpComponent implements OnInit {
-  signupForm: UntypedFormGroup;
+  signUpForm: UntypedFormGroup;
   signupPayload: SignUpRequestModel;
 
   constructor(private authService: AuthService,
@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.signupForm = new UntypedFormGroup({
+    this.signUpForm = new UntypedFormGroup({
       username: new UntypedFormControl('', Validators.required),
       email: new UntypedFormControl('', [Validators.required, Validators.email]),
       password: new UntypedFormControl('', Validators.required)
@@ -41,11 +41,11 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
-    if (this.signupForm.invalid) {
+    if (this.signUpForm.invalid) {
       return;
     }
 
-    this.signupPayload = { ...this.signupForm.value };
+    this.signupPayload = { ...this.signUpForm.value };
 
     this.authService.signup(this.signupPayload).subscribe(() => {
       this.handleSignUpSuccess();
