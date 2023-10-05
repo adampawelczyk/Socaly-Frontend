@@ -48,23 +48,29 @@ export class SignUpComponent implements OnInit {
     this.signupPayload = { ...this.signupForm.value };
 
     this.authService.signup(this.signupPayload).subscribe(() => {
-      this.activeModal.close();
-      this.toastr.success('Signup Successful');
-      this.toastr.success('Please check your inbox for activation email');
-
-      let logInPayload: LogInRequestModel = {
-        username: this.signupPayload.username,
-        password: this.signupPayload.password
-      }
-
-      this.authService.login(logInPayload).subscribe(() => {
-
-      })
+      this.handleSignUpSuccess();
     }, () => {
-      this.toastr.error('Registration failed! Please try again');
+      this.handleSignUpFailure();
     });
 
     this.activeModal.close();
+  }
+
+  private handleSignUpSuccess() {
+    this.activeModal.close();
+    this.toastr.success('Signup Successful');
+    this.toastr.success('Please check your inbox for activation email');
+
+    const logInPayload: LogInRequestModel = {
+      username: this.signupPayload.username,
+      password: this.signupPayload.password
+    };
+
+    this.authService.login(logInPayload).subscribe(() => {});
+  }
+
+  private handleSignUpFailure() {
+    this.toastr.error('Registration failed! Please try again');
   }
 
   discardSignup() {
