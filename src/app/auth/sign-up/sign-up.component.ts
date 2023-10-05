@@ -41,6 +41,10 @@ export class SignUpComponent implements OnInit {
   }
 
   signup() {
+    if (this.signupForm.invalid) {
+      return;
+    }
+
     this.signupPayload.email = this.signupForm.get('email')?.value;
     this.signupPayload.username = this.signupForm.get('username')?.value;
     this.signupPayload.password = this.signupForm.get('password')?.value;
