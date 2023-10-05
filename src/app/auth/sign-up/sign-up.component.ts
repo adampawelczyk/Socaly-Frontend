@@ -17,8 +17,11 @@ export class SignUpComponent implements OnInit {
   signupForm: UntypedFormGroup;
   signupPayload: SignUpRequestModel;
 
-  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService,
-              public activeModal: NgbActiveModal, private modal: NgbModal) {
+  constructor(private authService: AuthService,
+              private router: Router,
+              private toastr: ToastrService,
+              public activeModal: NgbActiveModal,
+              private modal: NgbModal) {
     this.signupPayload = {
       username: '',
       email: '',
