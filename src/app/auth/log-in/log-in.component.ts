@@ -49,8 +49,7 @@ export class LogInComponent implements OnInit {
       return;
     }
 
-    this.logInPayload.username = this.logInForm.get('username')?.value;
-    this.logInPayload.password = this.logInForm.get('password')?.value;
+    this.logInPayload = { ...this.logInForm.value };
 
     this.authService.login(this.logInPayload).subscribe(() => {
       this.activeModal.close();
