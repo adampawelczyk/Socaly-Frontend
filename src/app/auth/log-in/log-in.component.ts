@@ -52,19 +52,19 @@ export class LogInComponent implements OnInit {
     this.logInPayload = { ...this.logInForm.value };
 
     this.authService.login(this.logInPayload).subscribe(() => {
-      this.handleSuccessfulLogin();
+      this.handleSuccessfulLogIn();
     }, () => {
-        this.handleFailedLogin();
+        this.handleFailedLogIn();
     });
   }
 
-  private handleSuccessfulLogin(): void {
+  private handleSuccessfulLogIn(): void {
     this.activeModal.close();
     this.router.navigateByUrl('');
     this.toastr.success('Login successful');
   }
 
-  private handleFailedLogin(): void {
+  private handleFailedLogIn(): void {
     this.toastr.error('Login failed. Please check your credentials and try again');
   }
 
