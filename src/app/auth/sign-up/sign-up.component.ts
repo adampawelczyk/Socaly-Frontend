@@ -15,14 +15,14 @@ import {LogInRequestModel} from "../shared/log-in-request.model";
 })
 export class SignUpComponent implements OnInit {
   signUpForm: UntypedFormGroup;
-  signupPayload: SignUpRequestModel;
+  signUpPayload: SignUpRequestModel;
 
   constructor(private authService: AuthService,
               private router: Router,
               private toastr: ToastrService,
               public activeModal: NgbActiveModal,
               private modal: NgbModal) {
-    this.signupPayload = {
+    this.signUpPayload = {
       username: '',
       email: '',
       password: ''
@@ -45,9 +45,9 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    this.signupPayload = { ...this.signUpForm.value };
+    this.signUpPayload = { ...this.signUpForm.value };
 
-    this.authService.signup(this.signupPayload).subscribe(() => {
+    this.authService.signup(this.signUpPayload).subscribe(() => {
       this.handleSignUpSuccess();
     }, () => {
       this.handleSignUpFailure();
@@ -62,8 +62,8 @@ export class SignUpComponent implements OnInit {
     this.toastr.success('Please check your inbox for activation email');
 
     const logInPayload: LogInRequestModel = {
-      username: this.signupPayload.username,
-      password: this.signupPayload.password
+      username: this.signUpPayload.username,
+      password: this.signUpPayload.password
     };
 
     this.authService.login(logInPayload).subscribe(() => {});
