@@ -6,7 +6,7 @@
       <button type="button" class="btn-close" (click)="discardSignup()" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <form [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signup-form">
+      <form ngNativeValidate [formGroup]="signUpForm" (ngSubmit)="signUp()" id="signup-form">
         <div class="mb-2">
           <input
             type="text"
