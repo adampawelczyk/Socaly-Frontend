@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LogInComponent } from '../log-in/log-in.component';
-import {LogInRequestModel} from "../shared/log-in-request.model";
+import { LogInRequestModel } from '../shared/log-in-request.model';
 
 @Component({
   selector: 'app-sign-up',
