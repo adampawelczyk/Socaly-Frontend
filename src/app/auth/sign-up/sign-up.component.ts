@@ -48,15 +48,15 @@ export class SignUpComponent implements OnInit {
     this.signUpPayload = { ...this.signUpForm.value };
 
     this.authService.signup(this.signUpPayload).subscribe(() => {
-      this.handleSignUpSuccess();
+      this.handleSuccessfulSignUp();
     }, () => {
-      this.handleSignUpFailure();
+      this.handleFailedSignUp();
     });
 
     this.activeModal.close();
   }
 
-  private handleSignUpSuccess() {
+  private handleSuccessfulSignUp() {
     this.activeModal.close();
     this.toastr.success('Signup Successful');
     this.toastr.success('Please check your inbox for activation email');
@@ -69,7 +69,7 @@ export class SignUpComponent implements OnInit {
     this.authService.login(logInPayload).subscribe(() => {});
   }
 
-  private handleSignUpFailure() {
+  private handleFailedSignUp() {
     this.toastr.error('Registration failed! Please try again');
   }
 
