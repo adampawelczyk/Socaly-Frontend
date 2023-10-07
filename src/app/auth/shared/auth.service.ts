@@ -63,7 +63,7 @@ export class AuthService {
       }));
   }
 
-  logout() {
+  logOut() {
     let refreshTokenPayload = {
       username: this.localStorage.retrieve('username'),
       refreshToken: this.localStorage.retrieve('refreshToken')

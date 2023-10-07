@@ -45,7 +45,7 @@ export class UserDeleteComponent implements OnInit {
 
     this.userService.delete(this.userDeletePayload).subscribe(() => {
       this.activeModal.close();
-      this.authService.logout();
+      this.authService.logOut();
       this.router.navigateByUrl('');
     }, error => {
       throwError(error);
