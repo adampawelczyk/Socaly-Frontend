@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
 
     this.signUpPayload = { ...this.signUpForm.value };
 
-    this.authService.signup(this.signUpPayload).subscribe(() => {
+    this.authService.signUp(this.signUpPayload).subscribe(() => {
       this.handleSuccessfulSignUp();
     }, () => {
       this.handleFailedSignUp();

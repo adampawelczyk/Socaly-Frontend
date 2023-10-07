@@ -22,7 +22,7 @@ export class AuthService {
               private userService: UserService,
               private userSettingsService: UserSettingsService) { }
 
-  signup(signupPayload: SignUpRequestModel): Observable<any> {
+  signUp(signupPayload: SignUpRequestModel): Observable<any> {
     return this.httpClient.post(apiURL + '/auth/sign-up', signupPayload, {responseType: 'text'});
   }
 
