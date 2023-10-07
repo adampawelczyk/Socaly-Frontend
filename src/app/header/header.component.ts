@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
   loggedIn: boolean;
   username: string;
 
-  constructor(private authService: AuthService, private router: Router, private modal: NgbModal,
+  constructor(private authService: AuthService,
+              private router: Router,
+              private modal: NgbModal,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
