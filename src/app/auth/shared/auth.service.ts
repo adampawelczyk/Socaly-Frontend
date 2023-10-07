@@ -17,7 +17,9 @@ export class AuthService {
   loggedInSubject = new BehaviorSubject<boolean>(false);
   usernameSubject = new BehaviorSubject<string>("");
 
-  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService, private userService: UserService,
+  constructor(private httpClient: HttpClient,
+              private localStorage: LocalStorageService,
+              private userService: UserService,
               private userSettingsService: UserSettingsService) { }
 
   signup(signupPayload: SignUpRequestModel): Observable<any> {
