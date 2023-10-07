@@ -26,7 +26,7 @@ export class AuthService {
     return this.httpClient.post(apiURL + '/auth/sign-up', signupPayload, {responseType: 'text'});
   }
 
-  login(loginPayload: LogInRequestModel): Observable<boolean> {
+  logIn(loginPayload: LogInRequestModel): Observable<boolean> {
     return this.httpClient.post<LogInResponseModel>(apiURL + '/auth/log-in', loginPayload)
       .pipe(map(response => {
         this.localStorage.store('authenticationToken', response.authenticationToken);

@@ -66,7 +66,7 @@ export class SignUpComponent implements OnInit {
       password: this.signUpPayload.password
     };
 
-    this.authService.login(logInPayload).subscribe(() => {});
+    this.authService.logIn(logInPayload).subscribe(() => {});
   }
 
   private handleFailedSignUp() {

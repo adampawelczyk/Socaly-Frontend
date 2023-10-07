@@ -51,7 +51,7 @@ export class LogInComponent implements OnInit {
 
     this.logInPayload = { ...this.logInForm.value };
 
-    this.authService.login(this.logInPayload).subscribe(() => {
+    this.authService.logIn(this.logInPayload).subscribe(() => {
       this.handleSuccessfulLogIn();
     }, () => {
         this.handleFailedLogIn();
