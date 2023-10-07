@@ -32,11 +32,13 @@ export class CommentComponent implements OnInit {
   userProfileImage: string;
   userIsDeleted: boolean;
 
-  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute,
-              private highlightService: HighlightService, private authService: AuthService,
-              private userService: UserService, private localStorage: LocalStorageService,
-              private clipboard: ClipboardService) {
-  }
+  constructor(private commentService: CommentService,
+              private activateRoute: ActivatedRoute,
+              private highlightService: HighlightService,
+              private authService: AuthService,
+              private userService: UserService,
+              private localStorage: LocalStorageService,
+              private clipboard: ClipboardService) { }
 
   ngAfterViewChecked() {
     this.highlightService.highlightAll();
