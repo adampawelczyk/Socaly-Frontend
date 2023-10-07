@@ -23,7 +23,8 @@ export class AuthService {
               private userSettingsService: UserSettingsService) { }
 
   signUp(signupPayload: SignUpRequestModel): Observable<any> {
-    return this.httpClient.post(apiURL + '/auth/sign-up', signupPayload, {responseType: 'text'});
+    const url = `${apiURL}/auth/sign-up`;
+    return this.httpClient.post(url, signupPayload, {responseType: 'text'});
   }
 
   logIn(loginPayload: LogInRequestModel): Observable<boolean> {
