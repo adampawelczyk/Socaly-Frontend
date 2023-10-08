@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { throwError } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CommentResponseModel } from '../shared/comment-response.model';
@@ -24,9 +24,9 @@ export class CommentComponent implements OnInit {
   @Input() postId: number;
   subComments: CommentResponseModel[];
   replyFormIsExpanded = false;
-  replyForm: UntypedFormGroup;
+  replyForm: FormGroup;
   edit = false
-  editForm: UntypedFormGroup;
+  editForm: FormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
   userProfileImage: string;
@@ -48,8 +48,8 @@ export class CommentComponent implements OnInit {
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
 
-    this.replyForm = new UntypedFormGroup({
-      text: new UntypedFormControl('')
+    this.replyForm = new FormGroup({
+      text: new FormControl('')
     });
 
     this.commentPayload = {
@@ -57,8 +57,8 @@ export class CommentComponent implements OnInit {
       text: '',
     };
 
-    this.editForm = new UntypedFormGroup({
-      text: new UntypedFormControl('')
+    this.editForm = new FormGroup({
+      text: new FormControl('')
     });
 
     this.getSubCommentsForComment(this.comment.id);
