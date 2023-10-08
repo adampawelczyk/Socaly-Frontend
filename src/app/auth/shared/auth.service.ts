@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    let refreshTokenPayload = {
+    const refreshTokenPayload = {
       username: this.localStorage.retrieve('username'),
       refreshToken: this.localStorage.retrieve('refreshToken')
     };
