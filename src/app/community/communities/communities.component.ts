@@ -12,6 +12,7 @@ export class CommunitiesComponent implements OnInit {
   communities: CommunityResponseModel[];
   filteredCommunities: CommunityResponseModel[];
   sortingLetter: string;
+  alphabetAndHash = 'abcdefghijklmnopqrstuvwxyz#'.split('');
 
   constructor(private communityService: CommunityService) { }
 
