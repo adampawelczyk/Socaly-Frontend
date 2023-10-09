@@ -13,7 +13,7 @@
     <hr/>
     <div class="d-flex flex-wrap">
       <div class="community" *ngFor="let community of filteredCommunities">
-        <a class="community-link" routerLink="/community/{{community.name}}">{{community.name}}</a>
+        <a class="community-link" [routerLink]="'/community/' + community.name">{{community.name}}</a>
       </div>
     </div>
   </div>
