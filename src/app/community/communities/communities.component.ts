@@ -40,14 +40,7 @@ export class CommunitiesComponent implements OnInit {
         community.name.startsWith(letter));
     }
 
-    this.filteredCommunities = this.filteredCommunities.sort(function (a, b) {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
+    this.filteredCommunities.sort((a, b) =>
+      a.name.localeCompare(b.name));
   }
 }
