@@ -16,6 +16,10 @@ export class CommunitiesComponent implements OnInit {
   constructor(private communityService: CommunityService) { }
 
   ngOnInit(): void {
+    this.loadCommunities();
+  }
+
+  private loadCommunities() {
     this.communityService.getAllCommunities().subscribe(communities => {
       this.communities = communities;
       this.sortingLetter = 'a';
