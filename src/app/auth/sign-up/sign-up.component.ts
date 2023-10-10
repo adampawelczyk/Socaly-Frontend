@@ -69,7 +69,7 @@ export class SignUpComponent implements OnInit {
     this.authService.logIn(logInPayload).subscribe(() => {});
   }
 
-  private handleFailedSignUp() {
+  private handleFailedSignUp(): void {
     this.toastr.error('Registration failed! Please try again');
   }
 
