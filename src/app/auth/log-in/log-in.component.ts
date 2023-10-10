@@ -68,7 +68,7 @@ export class LogInComponent implements OnInit {
     this.toastr.error('Login failed. Please check your credentials and try again');
   }
 
-  discardLogin() {
+  discardLogin(): void {
     this.activeModal.close();
   }
 
