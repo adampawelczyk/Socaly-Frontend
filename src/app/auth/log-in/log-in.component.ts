@@ -44,7 +44,7 @@ export class LogInComponent implements OnInit {
   }
 
 
-  logIn() {
+  logIn(): void {
     if (this.logInForm.invalid) {
       return;
     }
