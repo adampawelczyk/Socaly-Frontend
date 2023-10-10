@@ -20,7 +20,7 @@ export class CommunitiesComponent implements OnInit {
     this.loadCommunities();
   }
 
-  private loadCommunities() {
+  private loadCommunities(): void {
     this.communityService.getAllCommunities().subscribe(communities => {
       this.communities = communities;
       this.sortingLetter = 'a';
