@@ -30,7 +30,7 @@ export class CommunitiesComponent implements OnInit {
     });
   }
 
-  sortBy(letter: string) {
+  sortBy(letter: string): void {
     this.sortingLetter = letter;
 
     if (letter == '#') {
