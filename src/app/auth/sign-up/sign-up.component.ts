@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit {
     this.activeModal.close();
   }
 
-  private handleSuccessfulSignUp() {
+  private handleSuccessfulSignUp(): void {
     this.activeModal.close();
     this.toastr.success('Signup Successful');
     this.toastr.success('Please check your inbox for activation email');
