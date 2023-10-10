@@ -72,7 +72,7 @@ export class LogInComponent implements OnInit {
     this.activeModal.close();
   }
 
-  signup() {
+  signUp() {
     this.activeModal.close();
     this.modal.open(SignUpComponent);
   }
