@@ -77,7 +77,7 @@ export class SignUpComponent implements OnInit {
     this.activeModal.close();
   }
 
-  logIn() {
+  logIn(): void {
     this.activeModal.close();
     this.modal.open(LogInComponent);
   }
