@@ -21,9 +21,11 @@ export class CommunityComponent implements OnInit {
   userCommunities: CommunityResponseModel[];
   userBelongsToCommunity: boolean;
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService,
-              private communityService: CommunityService, private authService: AuthService, private localStorage: LocalStorageService) {
-  }
+  constructor(private activatedRoute: ActivatedRoute,
+              private postService: PostService,
+              private communityService: CommunityService,
+              private authService: AuthService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.communityName = this.activatedRoute.snapshot.params.name;
