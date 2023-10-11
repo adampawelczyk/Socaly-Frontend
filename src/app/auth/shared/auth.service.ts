@@ -50,7 +50,7 @@ export class AuthService {
       }));
   }
 
-  refreshToken() {
+  refreshToken(): Observable<LogInResponseModel> {
     const refreshTokenPayload = {
       username: this.localStorage.retrieve('username'),
       refreshToken: this.localStorage.retrieve('refreshToken')
