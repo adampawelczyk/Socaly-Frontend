@@ -39,7 +39,9 @@ export class CommunityComponent implements OnInit {
     if (this.username) {
       this.communityService.getAllCommunitiesForUser(this.username).subscribe(communities => {
         this.userCommunities = communities;
-        this.userBelongsToCommunity = communities.some(community => community.name == this.communityName);
+        this.userBelongsToCommunity = communities.some(
+          community => community.name === this.communityName
+        );
       }, error => {
         throwError(error);
       });
