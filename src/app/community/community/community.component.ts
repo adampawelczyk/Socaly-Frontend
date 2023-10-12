@@ -16,9 +16,9 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class CommunityComponent implements OnInit {
   communityName: string;
   username: string;
-  posts: PostResponseModel[];
+  posts: PostResponseModel[] = [];
   postLength: number;
-  userCommunities: CommunityResponseModel[];
+  userCommunities: CommunityResponseModel[] = [];
   userBelongsToCommunity: boolean;
 
   constructor(private activatedRoute: ActivatedRoute,
