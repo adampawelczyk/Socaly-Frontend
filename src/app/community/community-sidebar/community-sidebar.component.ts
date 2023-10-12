@@ -12,6 +12,10 @@ export class CommunitySidebarComponent implements OnInit {
   displayViewAll: boolean;
 
   constructor(private communityService: CommunityService) {
+    this.loadCommunities();
+  }
+
+  private loadCommunities(): void {
     this.communityService.getAllCommunities().subscribe(communities => {
       if (communities.length >= 4) {
         this.communities = communities.slice(0, 3);
