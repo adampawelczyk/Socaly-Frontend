@@ -8,7 +8,7 @@ import { CommunityResponseModel } from '../shared/community-response.model';
   styleUrls: ['./community-sidebar.component.scss']
 })
 export class CommunitySidebarComponent implements OnInit {
-  communities: CommunityResponseModel[];
+  communities: CommunityResponseModel[] = [];
   displayViewAll: boolean;
 
   constructor(private communityService: CommunityService) {
