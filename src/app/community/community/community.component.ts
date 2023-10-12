@@ -34,6 +34,8 @@ export class CommunityComponent implements OnInit {
     this.postService.getAllPostsByCommunity(this.communityName).subscribe(posts => {
       this.posts = posts;
       this.postLength = posts.length;
+    }, error => {
+      throwError(error);
     });
 
     if (this.username) {
