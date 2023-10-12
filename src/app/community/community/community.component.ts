@@ -50,7 +50,7 @@ export class CommunityComponent implements OnInit {
     }
   }
 
-  joinCommunity() {
+  joinCommunity(): void {
     this.communityService.joinCommunity(this.communityName).subscribe(() => {
       this.userBelongsToCommunity = true;
     },error => {
