@@ -58,7 +58,7 @@ export class CommunityComponent implements OnInit {
     });
   }
 
-  leaveCommunity() {
+  leaveCommunity(): void {
     this.communityService.leaveCommunity(this.communityName).subscribe(() => {
       this.userBelongsToCommunity = false;
     }, error => {
