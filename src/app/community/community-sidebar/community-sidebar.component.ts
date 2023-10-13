@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunityService } from '../shared/community.service';
 import { CommunityResponseModel } from '../shared/community-response.model';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-community-sidebar',
@@ -23,6 +24,8 @@ export class CommunitySidebarComponent implements OnInit {
       } else {
         this.communities = communities;
       }
+    }, error => {
+      throwError(error);
     });
   }
 
