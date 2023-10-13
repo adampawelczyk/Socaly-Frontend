@@ -17,7 +17,9 @@ export class CreateCommunityComponent implements OnInit {
   title = new UntypedFormControl('');
   description = new UntypedFormControl('');
 
-  constructor(private router: Router, private communityService: CommunityService, public activeModal: NgbActiveModal) {
+  constructor(private router: Router,
+              private communityService: CommunityService,
+              public activeModal: NgbActiveModal) {
     this.createCommunityForm = new UntypedFormGroup({
       title: new UntypedFormControl('', Validators.required),
       description: new UntypedFormControl('', Validators.required)
