@@ -37,8 +37,7 @@ export class CreateCommunityComponent implements OnInit {
   ngOnInit(): void { }
 
   createCommunity() {
-    this.communityPayload.name = this.createCommunityForm.get('title')?.value;
-    this.communityPayload.description = this.createCommunityForm.get('description')?.value;
+    this.communityPayload = { ...this.createCommunityForm.value };
 
     this.communityService.createCommunity(this.communityPayload).subscribe(() => {
       this.activeModal.close();
