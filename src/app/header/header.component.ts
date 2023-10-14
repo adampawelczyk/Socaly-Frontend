@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.modal.open(SignUpComponent);
   }
 
-  login() {
+  logIn() {
     this.modal.open(LogInComponent);
   }
 
