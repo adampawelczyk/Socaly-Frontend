@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/communities');
   }
 
-  logOut() {
+  logOut(): void {
     this.authService.logOut();
     this.router.navigateByUrl('');
   }
