@@ -14,14 +14,14 @@ import { throwError } from 'rxjs';
 export class CreateCommunityComponent implements OnInit {
   createCommunityForm: FormGroup;
   communityPayload: CommunityRequestModel;
-  title = new FormControl('');
+  name = new FormControl('');
   description = new FormControl('');
 
   constructor(private router: Router,
               private communityService: CommunityService,
               public activeModal: NgbActiveModal) {
     this.createCommunityForm = new FormGroup({
-      title: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required)
     });
 
