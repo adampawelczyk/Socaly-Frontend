@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/settings/account');
   }
 
-  goToCommunityDirectory() {
+  goToCommunityDirectory(): void {
     this.router.navigateByUrl('/communities');
   }
 
