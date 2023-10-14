@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
     this.modal.open(LogInComponent);
   }
 
-  goToUserProfile() {
+  goToUserProfile(): void {
     this.router.navigateByUrl('/user/' + this.username);
   }
 
