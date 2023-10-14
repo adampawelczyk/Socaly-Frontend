@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/user/' + this.username);
   }
 
-  goToUserSettings() {
+  goToUserSettings(): void {
     this.router.navigateByUrl('/settings/account');
   }
 
