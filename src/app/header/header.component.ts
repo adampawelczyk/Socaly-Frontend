@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
     this.username = this.localStorage.retrieve('username');
   }
 
-  signup() {
+  signUp() {
     this.modal.open(SignUpComponent);
   }
 
