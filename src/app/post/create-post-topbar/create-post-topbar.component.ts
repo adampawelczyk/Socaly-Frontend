@@ -12,7 +12,7 @@ export class CreatePostTopbarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  createPost() {
+  createPost(): void {
     this.modal.open(CreateUpdatePostComponent, { size: 'lg' });
   }
 }
