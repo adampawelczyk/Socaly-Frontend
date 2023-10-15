@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostRequestModel } from '../shared/post-request.model';
 import { CommunityResponseModel } from '../../community/shared/community-response.model';
 import { Router } from '@angular/router';
@@ -19,7 +19,7 @@ import { editorConfig } from '../../../globals';
 export class CreateUpdatePostComponent implements OnInit {
   @Input() isUpdating = false;
   @Input() postIdToUpdate: number;
-  createPostForm: UntypedFormGroup;
+  createPostForm: FormGroup;
   postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
   files: File[] = [];
@@ -61,10 +61,10 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private initializeCreatePostForm(): void {
-    this.createPostForm = new UntypedFormGroup({
-      title: new UntypedFormControl('', Validators.required),
-      communityName: new UntypedFormControl('', Validators.required),
-      description: new UntypedFormControl(''),
+    this.createPostForm = new FormGroup({
+      title: new FormControl('', Validators.required),
+      communityName: new FormControl('', Validators.required),
+      description: new FormControl(''),
     });
   }
 
