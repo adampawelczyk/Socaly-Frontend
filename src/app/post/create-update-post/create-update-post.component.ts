@@ -166,7 +166,7 @@ export class CreateUpdatePostComponent implements OnInit {
     );
   }
 
-  discardPost() {
+  discardPost(): void {
     this.activeModal.close();
   }
 
