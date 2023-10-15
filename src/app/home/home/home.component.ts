@@ -12,7 +12,8 @@ export class HomeComponent implements OnInit {
   posts: PostResponseModel[];
   isLoggedIn: boolean;
 
-  constructor(private postService: PostService, private authService: AuthService) {
+  constructor(private postService: PostService,
+              private authService: AuthService) {
     this.postService.getAllPosts().subscribe(posts => {
       this.posts = posts;
     });
