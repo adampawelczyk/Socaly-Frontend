@@ -120,7 +120,7 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
-  createPost() {
+  createPost(): void {
     this.initializePostPayload();
     this.submitPost();
   }
