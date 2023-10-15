@@ -17,7 +17,7 @@ export class HomeSidebarComponent implements OnInit {
     this.modal.open(CreateUpdatePostComponent, {size: 'lg'});
   }
 
-  createCommunity() {
+  createCommunity(): void {
     this.modal.open(CreateCommunityComponent);
   }
 }
