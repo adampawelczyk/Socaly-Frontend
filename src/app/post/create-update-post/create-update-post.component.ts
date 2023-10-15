@@ -180,7 +180,7 @@ export class CreateUpdatePostComponent implements OnInit {
     this.filesUploadProgress = 0;
   }
 
-  onRemove(event: File) {
+  onRemove(event: File): void {
     let index = this.files.indexOf(event);
     this.files.splice(index, 1);
     let deleteFileUrl = this.fileUrls.splice(index, 1);
