@@ -98,7 +98,7 @@ export class CreateUpdatePostComponent implements OnInit {
     });
   }
 
-  async createFile(path: string, name: string, type: string): Promise<File> {
+  private async createFile(path: string, name: string, type: string): Promise<File> {
     let response = await fetch(path);
     let data = await response.blob();
     let metadata = {
