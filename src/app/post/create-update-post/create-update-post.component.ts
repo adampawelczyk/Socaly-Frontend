@@ -204,7 +204,7 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
-  selectCommunity(name: string) {
+  selectCommunity(name: string): void {
     this.selectedCommunity = name;
   }
 
