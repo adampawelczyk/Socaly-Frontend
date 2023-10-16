@@ -102,12 +102,17 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private async createFile(path: string, name: string, type: string): Promise<File> {
-    let response = await fetch(path);
-    let data = await response.blob();
-    let metadata = {
-      type: type
-    };
-    return new File([data], name, metadata);
+    return new Promise<File>(async (resolve, reject) => {
+      try {
+        const response = await fetch(path);
+        const data = await response.blob();
+        const metadata = { type: type };
+        const file = new File([data], name, metadata);
+        resolve(file);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
   ngOnDestroy() {
