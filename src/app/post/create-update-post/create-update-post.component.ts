@@ -212,7 +212,7 @@ export class CreateUpdatePostComponent implements OnInit {
     return this.selectedCommunity === 'Choose a community';
   }
 
-  isTitleEmpty() {
+  isTitleEmpty(): boolean {
     return this.createPostForm.get('title')?.value === '';
   }
 }
