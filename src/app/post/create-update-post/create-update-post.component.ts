@@ -149,15 +149,11 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private submitPost(): void {
-    let postObservable;
+    const postObservable = this.isUpdating
+      ? this.postService.updatePost(this.postIdToUpdate, this.postPayload)
+      : this.postService.createPost(this.postPayload);
 
-    if (this.isUpdating) {
-      postObservable = this.postService.updatePost(this.postIdToUpdate, this.postPayload);
-    } else {
-      postObservable = this.postService.createPost(this.postPayload);
-    }
-
-    postObservable.subscribe((id) => {
+    postObservable.subscribe(id => {
         this.postWasPosted = true;
         this.activeModal.close();
 
@@ -166,7 +162,6 @@ export class CreateUpdatePostComponent implements OnInit {
         } else {
           this.router.navigateByUrl('/post/' + id);
         }
-
       },
       (error) => {
         throwError(error);
