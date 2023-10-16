@@ -193,7 +193,7 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
-  private async uploadFiles(files: File[]) {
+  private async uploadFiles(files: File[]): Promise<void> {
     for (const file of files) {
       if (file.name === '') continue;
       let fileUrl = await this.fileService.uploadFile(file);
