@@ -173,7 +173,7 @@ export class CreateUpdatePostComponent implements OnInit {
     this.activeModal.close();
   }
 
-  async onSelect(event: { addedFiles: any }) {
+  async onSelect(event: { addedFiles: any }): Promise<void> {
     this.uploadingFiles = true;
     this.files.push(...event.addedFiles);
 
