@@ -208,7 +208,7 @@ export class CreateUpdatePostComponent implements OnInit {
     this.selectedCommunity = name;
   }
 
-  isCommunityEmpty() {
+  isCommunityEmpty(): boolean {
     return this.selectedCommunity === 'Choose a community';
   }
 
