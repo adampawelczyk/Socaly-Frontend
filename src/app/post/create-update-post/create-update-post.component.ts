@@ -79,27 +79,30 @@ export class CreateUpdatePostComponent implements OnInit {
     );
   }
 
-  private async loadPostToUpdate(): Promise<void> {
-    try {
-      const post = await this.postService.getPost(this.postIdToUpdate).toPromise();
-      this.selectedCommunity = post.communityName;
-      this.createPostForm.get('title')?.setValue(post.title);
+  private loadPostToUpdate(): void {
+    this.postService.getPost(this.postIdToUpdate).subscribe(
+      async (post) => {
+        this.selectedCommunity = post.communityName;
+        this.createPostForm.get('title')?.setValue(post.title);
 
-      if (post.images && post.images.length > 0) {
-        this.active = 2;
+        if (post.images !== undefined && post.images.length !== 0) {
+          this.active = 2;
 
-        for (const imageUrl of post.images) {
-          this.fileUrls.push(imageUrl);
-          const file = await this.createFile(imageUrl, '', 'image/png');
-          this.files.push(file);
+          for (const imageUrl of post.images) {
+            this.fileUrls.push(imageUrl);
+            const file = await this.createFile(imageUrl, '', 'image/png');
+            this.files.push(file);
+          }
+        } else {
+          this.createPostForm.get('description')?.setValue(post.description);
         }
-      } else {
-        this.createPostForm.get('description')?.setValue(post.description);
+      },
+      (error) => {
+        throwError(error);
       }
-    } catch (error) {
-      throwError(error);
-    }
+    );
   }
+
 
   private async createFile(path: string, name: string, type: string): Promise<File> {
     return new Promise<File>(async (resolve, reject) => {
