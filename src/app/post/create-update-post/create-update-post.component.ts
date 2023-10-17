@@ -199,7 +199,7 @@ export class CreateUpdatePostComponent implements OnInit {
   private async uploadFiles(files: File[]): Promise<void> {
     for (const file of files) {
       if (file.name === '') continue;
-      let fileUrl = await this.fileService.uploadFile(file);
+      const fileUrl = await this.fileService.uploadFile(file);
       this.filesUploadProgress += 100 / files.length;
 
       if (this.isUpdating) {
