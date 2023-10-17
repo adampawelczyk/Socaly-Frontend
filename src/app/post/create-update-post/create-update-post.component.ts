@@ -60,6 +60,10 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.cleanupFiles();
+  }
+
   private initializeCreatePostForm(): void {
     this.createPostForm = new FormGroup({
       title: new FormControl('', Validators.required),
@@ -116,10 +120,6 @@ export class CreateUpdatePostComponent implements OnInit {
         reject(error);
       }
     });
-  }
-
-  ngOnDestroy() {
-    this.cleanupFiles();
   }
 
   private cleanupFiles(): void {
