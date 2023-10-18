@@ -9,8 +9,8 @@
           <a id="community-name" routerLink="/community/{{post.communityName}}"
              (click)="$event.stopPropagation()">{{post.communityName}}
           </a>
+          •
         </ng-container>
-        <span *ngIf="showCommunityName"> • </span>
         <span>
           Posted by
           <a class="username" routerLink="/user/{{post.username}}" (click)="$event.stopPropagation()">
