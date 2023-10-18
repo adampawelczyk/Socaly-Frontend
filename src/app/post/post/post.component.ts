@@ -117,11 +117,7 @@ export class PostComponent implements OnInit {
   }
 
   showCarouselNavigationControls(post: PostResponseModel) {
-    if (post.images !== undefined) {
-      return post.images.length > 1;
-    } else {
-      return false;
-    }
+    return post.images ? post.images.length > 1 : false;
   }
 
   copyLink() {
