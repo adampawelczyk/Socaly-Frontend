@@ -91,7 +91,8 @@ export class PostComponent implements OnInit {
 
   getCommentsForPost() {
     if (this.singleCommentThread) {
-      this.commentService.getComment(Number(location.href.slice(location.href.indexOf('#') + 1))).subscribe(comment => {
+      const commentId = Number(location.href.slice(location.href.indexOf('#') + 1));
+      this.commentService.getComment(commentId).subscribe(comment => {
         this.comments = [];
         this.comments.push(comment);
       })
