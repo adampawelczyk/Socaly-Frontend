@@ -32,10 +32,15 @@ export class PostComponent implements OnInit {
   editorConfig = editorConfig;
   singleCommentThread = false;
 
-  constructor(private postService: PostService, private router: Router, private commentService: CommentService,
-              private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private localStorage: LocalStorageService,
-              private clipboard: ClipboardService, private modal: NgbModal) {
+  constructor(private postService: PostService,
+              private router: Router,
+              private commentService: CommentService,
+              private activateRoute: ActivatedRoute,
+              private highlightService: HighlightService,
+              private authService: AuthService,
+              private localStorage: LocalStorageService,
+              private clipboard: ClipboardService,
+              private modal: NgbModal) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
