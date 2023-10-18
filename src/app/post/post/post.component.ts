@@ -106,7 +106,7 @@ export class PostComponent implements OnInit {
   }
 
   goToPost(id: number): void {
-    const userSettings = this.localStorage.retrieve('userSettings')
+    const userSettings = this.localStorage.retrieve('userSettings');
 
     if (this.authService.isLoggedIn() && userSettings.openPostsInNewTab) {
       const url = this.router.serializeUrl(this.router.createUrlTree(['/post/' + id]));
