@@ -75,7 +75,7 @@ export class PostComponent implements OnInit {
   }
 
   postImagesAreNotEmpty(post: PostResponseModel) {
-    return post.images && post.images?.length > 0;
+    return post.images && post.images.length > 0;
   }
 
   postComment() {
