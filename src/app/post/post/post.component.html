@@ -5,11 +5,11 @@
     </div>
     <div class="d-flex flex-column flex-fill p-2">
       <span class="community-info">
-        <span *ngIf="showCommunityName">
+        <ng-container *ngIf="showCommunityName">
           <a id="community-name" routerLink="/community/{{post.communityName}}"
              (click)="$event.stopPropagation()">{{post.communityName}}
           </a>
-        </span>
+        </ng-container>
         <span *ngIf="showCommunityName"> • </span>
         <span>
           Posted by
