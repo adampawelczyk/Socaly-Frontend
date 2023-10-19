@@ -21,7 +21,7 @@
         </ng-container>
       </span>
       <div class="post-title">
-        <a class="post-name" href="">{{post.title}}</a>
+        {{post.title}}
       </div>
       <div *ngIf="postDescriptionIsNotEmpty(post)" class="mt-1 mb-1">
         <p [innerHTML]="post.description"></p>
