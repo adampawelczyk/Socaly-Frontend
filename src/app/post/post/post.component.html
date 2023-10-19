@@ -15,7 +15,7 @@
         <a class="username" routerLink="/user/{{post.username}}" (click)="$event.stopPropagation()">
           u/{{post.username}}
         </a>
-        <span>   {{post.timeSinceCreation}}</span>
+        {{post.timeSinceCreation}}
         <span id="timestamp-after-edit" *ngIf="post.timeSinceEdit.length > 0">
           • edited {{post.timeSinceEdit}}
         </span>
