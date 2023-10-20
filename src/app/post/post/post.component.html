@@ -12,7 +12,7 @@
           •
         </ng-container>
         Posted by
-        <a class="username" routerLink="/user/{{post.username}}" (click)="$event.stopPropagation()">
+        <a id="username" routerLink="/user/{{post.username}}" (click)="$event.stopPropagation()">
           u/{{post.username}}
         </a>
         {{post.timeSinceCreation}}
