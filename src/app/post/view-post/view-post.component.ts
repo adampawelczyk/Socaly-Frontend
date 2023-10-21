@@ -14,7 +14,8 @@ export class ViewPostComponent implements OnInit {
   post: PostResponseModel;
   communityName = '';
 
-  constructor(private postService: PostService, private activateRoute: ActivatedRoute) {
+  constructor(private postService: PostService,
+              private activateRoute: ActivatedRoute) {
     this.postId = this.activateRoute.snapshot.params.id;
   }
 
