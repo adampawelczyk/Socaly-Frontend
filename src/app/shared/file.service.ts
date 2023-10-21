@@ -8,7 +8,8 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 export class FileService {
   private basePath = '/uploads';
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  constructor(private db: AngularFireDatabase,
+              private storage: AngularFireStorage) { }
 
   async uploadFile(file: File) {
     const filePath = `${this.basePath}/${file.name}`;
