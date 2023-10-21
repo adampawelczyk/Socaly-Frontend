@@ -11,7 +11,7 @@ export class FileService {
   constructor(private db: AngularFireDatabase,
               private storage: AngularFireStorage) { }
 
-  async uploadFile(file: File) {
+  async uploadFile(file: File): Promise<string> {
     const filePath = `${this.basePath}/${file.name}`;
 
     try {
