@@ -32,7 +32,7 @@ export class ViewPostComponent implements OnInit {
     });
   }
 
-  exists() {
+  exists(): boolean {
     return this.communityName !== '';
   }
 }
