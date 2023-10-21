@@ -13,9 +13,14 @@ export class FileService {
 
   async uploadFile(file: File) {
     const filePath = `${this.basePath}/${file.name}`;
-    const snap = await this.storage.upload(filePath, file);
 
-    return await snap.ref.getDownloadURL();
+    try {
+      const snap = await this.storage.upload(filePath, file);
+
+      return await snap.ref.getDownloadURL();
+    } catch (error) {
+      throw error;
+    }
   }
 
   removeFile(url: string) {
