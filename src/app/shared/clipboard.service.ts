@@ -7,7 +7,7 @@ export class ClipboardService {
   constructor() { }
 
   public writeText(textToCopy: string): Promise<void> {
-    return new Promise(
+    return new Promise<void>(
       (resolve, reject): void => {
         let success = false;
         const listener = (clipboardEvent: ClipboardEvent): void => {
