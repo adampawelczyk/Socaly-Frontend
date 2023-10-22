@@ -54,7 +54,7 @@ export class UserProfileComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  unique(comments: CommentResponseModel[]) {
+  getUniquePostIdsFromComments(comments: CommentResponseModel[]) {
     return new Set(comments.map(comment => comment.postId));
   }
 
