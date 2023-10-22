@@ -24,7 +24,11 @@ export class FileService {
   }
 
   async removeFile(url: string) {
-    const fileRef = this.storage.refFromURL(url);
-    await fileRef.delete();
+    try {
+      const fileRef = this.storage.refFromURL(url);
+      await fileRef.delete();
+    } catch(error) {
+      throw error;
+    }
   }
 }
