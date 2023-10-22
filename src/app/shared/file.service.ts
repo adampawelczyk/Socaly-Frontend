@@ -23,7 +23,7 @@ export class FileService {
     }
   }
 
-  async removeFile(url: string) {
+  async removeFile(url: string): Promise<void> {
     try {
       const fileRef = this.storage.refFromURL(url);
       await fileRef.delete();
