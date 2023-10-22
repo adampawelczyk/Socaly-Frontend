@@ -7,6 +7,7 @@ import { CommentResponseModel } from '../../comment/shared/comment-response.mode
 import { UserModel } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-user-profile',
@@ -32,20 +33,16 @@ export class UserProfileComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.name = this.activatedRoute.snapshot.params.name;
 
-    userService.isDeleted(this.name).subscribe(isDeleted => {
+    forkJoin([
+      this.userService.isDeleted(this.name),
+      this.userService.getUser(this.name),
+      this.postService.getAllPostsByUser(this.name),
+      this.commentService.getAllCommentsByUser(this.name)
+    ]).subscribe(([isDeleted, user, posts, comments]) => {
       this.userIsDeleted = isDeleted;
-    });
-
-    this.userService.getUser(this.name).subscribe(user => {
       this.user = user;
-    })
-
-    this.postService.getAllPostsByUser(this.name).subscribe(posts => {
       this.posts = posts;
       this.postLength = posts.length;
-    });
-
-    this.commentService.getAllCommentsByUser(this.name).subscribe(comments => {
       this.comments = comments;
       this.commentLength = comments.length;
     });
