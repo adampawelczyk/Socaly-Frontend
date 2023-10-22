@@ -50,7 +50,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  goHome() {
+  goHome(): void {
     this.router.navigateByUrl('');
   }
 
