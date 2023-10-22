@@ -22,8 +22,12 @@ export class UserProfileComponent implements OnInit {
   user: UserModel;
   userIsDeleted: boolean;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, private commentService: CommentService,
-              private userService: UserService, private localStorage: LocalStorageService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
+              private postService: PostService,
+              private commentService: CommentService,
+              private userService: UserService,
+              private localStorage: LocalStorageService) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.name = this.activatedRoute.snapshot.params.name;
