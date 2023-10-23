@@ -58,8 +58,14 @@ export class UserProfileComponent implements OnInit {
     return new Set(comments.map(comment => comment.postId));
   }
 
-  findPostById(postId: number) {
-    return this.posts.find(post => post.id === postId)
+  findPostById(postId: number): PostResponseModel {
+    const posts = this.posts.find(post => post.id === postId);
+
+    if (posts) {
+      return posts;
+    } else {
+      throw new Error('Post with id: ${postId} not found.');
+    }
   }
 
   getUsername(): string {
