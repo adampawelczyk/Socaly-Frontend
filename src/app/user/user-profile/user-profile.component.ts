@@ -59,7 +59,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   findPost(postId: number) {
-    return this.posts.find(post => post.id == postId)
+    return this.posts.find(post => post.id === postId)
   }
 
   getUsername(): string {
