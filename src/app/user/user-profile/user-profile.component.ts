@@ -84,7 +84,7 @@ export class UserProfileComponent implements OnInit {
     return this.comments.length === 0;
   }
 
-  postsAreEmpty() {
+  arePostsEmpty() {
     return this.posts.length === 0;
   }
 }
