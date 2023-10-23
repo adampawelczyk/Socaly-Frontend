@@ -80,7 +80,7 @@ export class UserProfileComponent implements OnInit {
     return this.name === this.localStorage.retrieve('username');
   }
 
-  commentsAreEmpty() {
+  areCommentsEmpty() {
     return this.comments.length === 0;
   }
 

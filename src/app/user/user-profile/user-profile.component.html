@@ -2,7 +2,7 @@
   <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Overview</a>
     <ng-template ngbNavContent>
-      <div *ngIf="this.posts && this.comments && postsAreEmpty() && commentsAreEmpty()">
+      <div *ngIf="this.posts && this.comments && postsAreEmpty() && areCommentsEmpty()">
         <div *ngFor="let i of [1, 2, 3, 4, 5]" class="d-flex flex-column align-items-start empty-card p-3 mt-3">
           <span class="material-symbols-outlined">arrow_upward</span>
           <div *ngIf="i == 3" class="d-flex align-self-center empty-card-text">
@@ -44,7 +44,7 @@
     <a ngbNavLink>Comments</a>
     <ng-template ngbNavContent>
       <div class="mb-3">
-        <div *ngIf="this.comments && commentsAreEmpty()">
+        <div *ngIf="this.comments && areCommentsEmpty()">
           <div *ngFor="let i of [1, 2, 3, 4, 5]" class="d-flex flex-column align-items-start empty-card p-3 mt-3">
             <span class="material-symbols-outlined">arrow_upward</span>
             <div *ngIf="i == 3" class="d-flex align-self-center empty-card-text">
