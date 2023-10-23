@@ -60,16 +60,16 @@
                 {{getUsername()}}
               </a>
               commented on
-              <a class="comments-header-link" [routerLink]="'/post/' + findPost(postId)!.id">
-                {{findPost(postId)!.title}}
+              <a class="comments-header-link" [routerLink]="'/post/' + findPostById(postId)!.id">
+                {{findPostById(postId)!.title}}
               </a>
               •
-              <a class="comments-header-link" [routerLink]="'/community/' + findPost(postId)!.communityName">
-                {{findPost(postId)!.communityName}}
+              <a class="comments-header-link" [routerLink]="'/community/' + findPostById(postId)!.communityName">
+                {{findPostById(postId)!.communityName}}
               </a>
             </div>
             <div *ngFor="let comment of comments">
-              <div *ngIf="comment.postId == postId && findPost(postId) !== undefined" class="comment" (click)="goToComment(comment)">
+              <div *ngIf="comment.postId == postId && findPostById(postId) !== undefined" class="comment" (click)="goToComment(comment)">
                 <app-comment [comment]="comment"></app-comment>
               </div>
             </div>

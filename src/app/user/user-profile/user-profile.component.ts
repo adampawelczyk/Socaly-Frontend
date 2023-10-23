@@ -58,7 +58,7 @@ export class UserProfileComponent implements OnInit {
     return new Set(comments.map(comment => comment.postId));
   }
 
-  findPost(postId: number) {
+  findPostById(postId: number) {
     return this.posts.find(post => post.id === postId)
   }
 
