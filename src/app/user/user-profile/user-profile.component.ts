@@ -76,7 +76,7 @@ export class UserProfileComponent implements OnInit {
     this.router.navigateByUrl('/post/' + comment.postId + '#' + comment.id);
   }
 
-  isProfileOwner() {
+  isProfileOwner(): boolean {
     return this.name === this.localStorage.retrieve('username');
   }
 
