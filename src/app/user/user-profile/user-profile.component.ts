@@ -72,7 +72,7 @@ export class UserProfileComponent implements OnInit {
     return this.localStorage.retrieve('username');
   }
 
-  goToComment(comment: CommentResponseModel) {
+  goToComment(comment: CommentResponseModel): void {
     this.router.navigateByUrl('/post/' + comment.postId + '#' + comment.id);
   }
 
