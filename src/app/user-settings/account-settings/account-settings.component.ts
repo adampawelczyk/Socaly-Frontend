@@ -14,7 +14,8 @@ export class AccountSettingsComponent implements OnInit {
   email: string;
   isEmailVerified: boolean;
 
-  constructor(private userService: UserService, private modal: NgbModal) { }
+  constructor(private userService: UserService,
+              private modal: NgbModal) { }
 
   ngOnInit(): void {
     this.userService.getEmail().subscribe(email => {
