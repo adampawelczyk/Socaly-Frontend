@@ -89,7 +89,7 @@ export class CommentComponent implements OnInit {
     this.replyFormIsExpanded = !this.replyFormIsExpanded;
   }
 
-  postReply() {
+  postReply(): void {
     this.commentPayload.text = this.replyForm.get('text')?.value;
     this.replyForm.get('text')?.setValue('');
     this.commentPayload.parentCommentId = this.comment.id;
