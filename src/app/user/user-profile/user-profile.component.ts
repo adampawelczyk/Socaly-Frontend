@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PostResponseModel } from '../../post/shared/post-response.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../post/shared/post.service';
 import { CommentService } from '../../comment/shared/comment.service';
 import { CommentResponseModel } from '../../comment/shared/comment-response.model';
 import { UserModel } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
-import {forkJoin} from "rxjs";
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
