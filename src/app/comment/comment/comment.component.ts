@@ -81,7 +81,7 @@ export class CommentComponent implements OnInit {
     }
   }
 
-  hasSubComments() {
+  hasSubComments(): boolean {
     return this.subComments !== undefined;
   }
 
