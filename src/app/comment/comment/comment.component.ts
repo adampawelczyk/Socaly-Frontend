@@ -128,7 +128,7 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  copyLink() {
+  copyLink(): void {
     let url = location.href;
 
     if (url.includes('#')) {
