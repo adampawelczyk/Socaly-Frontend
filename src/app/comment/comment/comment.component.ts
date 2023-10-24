@@ -102,7 +102,7 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  showEdit() {
+  showEdit(): boolean {
     return this.comment.username === this.localStorage.retrieve('username');
   }
 
