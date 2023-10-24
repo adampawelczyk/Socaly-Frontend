@@ -18,8 +18,12 @@ export class UserSidebarComponent implements OnInit {
   isProfileImageUploading: boolean = false;
   isProfileBannerUploading: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private fileService: FileService,
-              private userService: UserService, private router: Router, private localStorage: LocalStorageService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private authService: AuthService,
+              private fileService: FileService,
+              private userService: UserService,
+              private router: Router,
+              private localStorage: LocalStorageService) {
     this.username = this.activatedRoute.snapshot.params.name;
   }
 
