@@ -73,7 +73,7 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  private getSubCommentsForComment(commentId: number | undefined) {
+  private getSubCommentsForComment(commentId: number | undefined): void {
     if (commentId !== undefined) {
       this.commentService.getSubCommentsForComment(commentId).subscribe(subComments => {
         this.subComments = subComments;
