@@ -29,7 +29,7 @@ export class UserSidebarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  isCurrentUser(): boolean {
+  isProfileOwner(): boolean {
     return this.username === this.localStorage.retrieve('username');
   }
 
