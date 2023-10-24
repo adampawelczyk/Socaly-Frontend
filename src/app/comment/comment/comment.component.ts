@@ -85,7 +85,7 @@ export class CommentComponent implements OnInit {
     return this.subComments !== undefined;
   }
 
-  showReplyForm() {
+  showReplyForm(): void {
     this.replyFormIsExpanded = !this.replyFormIsExpanded;
   }
 
