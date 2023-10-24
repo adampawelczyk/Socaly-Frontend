@@ -110,7 +110,7 @@ export class CommentComponent implements OnInit {
     this.edit = !this.edit
   }
 
-  initializeEditForm() {
+  initializeEditForm(): void {
     this.editForm.get('text')?.setValue(this.comment.text)
   }
 
