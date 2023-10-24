@@ -27,7 +27,7 @@ export class AccountSettingsComponent implements OnInit {
     });
   }
 
-  updateEmail() {
+  updateEmail(): void {
     const emailUpdateModal = this.modal.open(EmailUpdateComponent, {size: "md"});
     emailUpdateModal.closed.subscribe(() => {
       this.userService.getEmail().subscribe(email => {
