@@ -36,7 +36,7 @@ export class AccountSettingsComponent implements OnInit {
     })
   }
 
-  updatePassword() {
+  updatePassword(): void {
     this.modal.open(PasswordUpdateComponent, {size: "md"});
   }
 
