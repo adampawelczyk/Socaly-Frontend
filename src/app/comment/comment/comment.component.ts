@@ -106,7 +106,7 @@ export class CommentComponent implements OnInit {
     return this.comment.username === this.localStorage.retrieve('username');
   }
 
-  showEditForm() {
+  showEditForm(): void {
     this.edit = !this.edit
   }
 
