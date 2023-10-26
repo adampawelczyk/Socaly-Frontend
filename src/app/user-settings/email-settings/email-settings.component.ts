@@ -12,7 +12,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class EmailSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
 
-  constructor(private authService: AuthService, private userSettingsService: UserSettingsService,
+  constructor(private authService: AuthService,
+              private userSettingsService: UserSettingsService,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
