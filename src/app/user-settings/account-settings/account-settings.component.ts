@@ -40,7 +40,7 @@ export class AccountSettingsComponent implements OnInit {
     this.modal.open(PasswordUpdateComponent, {size: "md"});
   }
 
-  delete() {
+  delete(): void {
     this.modal.open(UserDeleteComponent, {size: "md"});
   }
 }
