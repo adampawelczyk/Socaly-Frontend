@@ -27,7 +27,7 @@ export class EmailSettingsComponent implements OnInit {
     })
   }
 
-  updateCommentReplyEmails() {
+  updateCommentReplyEmails(): void {
     this.userSettingsService.updateCommentReplyEmails(!this.userSettings.commentReplyEmails).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
       this.userSettings.commentReplyEmails = !this.userSettings.commentReplyEmails;
