@@ -20,7 +20,7 @@ export class EmailSettingsComponent implements OnInit {
     this.userSettings = this.localStorage.retrieve('userSettings');
   }
 
-  updatePostCommentEmails() {
+  updatePostCommentEmails(): void {
     this.userSettingsService.updatePostCommentEmails(!this.userSettings.postCommentEmails).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
       this.userSettings.postCommentEmails = !this.userSettings.postCommentEmails;
