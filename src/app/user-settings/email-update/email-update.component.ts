@@ -36,7 +36,7 @@ export class EmailUpdateComponent implements OnInit {
     this.activeModal.close();
   }
 
-  updateEmail() {
+  updateEmail(): void {
     this.emailUpdatePayload.password = this.emailUpdateForm.get('password')?.value;
     this.emailUpdatePayload.email = this.emailUpdateForm.get('email')?.value;
 
