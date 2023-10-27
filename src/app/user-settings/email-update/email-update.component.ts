@@ -32,7 +32,7 @@ export class EmailUpdateComponent implements OnInit {
     }
   }
 
-  discard() {
+  discard(): void {
     this.activeModal.close();
   }
 
