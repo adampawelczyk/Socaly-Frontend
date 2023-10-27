@@ -14,7 +14,8 @@ export class FeedSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
   SortingType = Sorting;
 
-  constructor(private authService: AuthService, private userSettingsService: UserSettingsService,
+  constructor(private authService: AuthService,
+              private userSettingsService: UserSettingsService,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
