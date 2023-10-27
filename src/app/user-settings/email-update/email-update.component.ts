@@ -14,7 +14,8 @@ export class EmailUpdateComponent implements OnInit {
   emailUpdateForm: UntypedFormGroup;
   emailUpdatePayload: EmailUpdateRequestModel;
 
-  constructor(private activeModal: NgbActiveModal, private userService: UserService) { }
+  constructor(private activeModal: NgbActiveModal,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
