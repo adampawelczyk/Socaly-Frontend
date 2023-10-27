@@ -48,7 +48,7 @@ export class EmailUpdateComponent implements OnInit {
     })
   }
 
-  areFieldsEmpty() {
+  areFieldsEmpty(): boolean {
     return this.emailUpdateForm.get('password')?.value === '' || this.emailUpdateForm.get('email')?.value === '';
   }
 }
