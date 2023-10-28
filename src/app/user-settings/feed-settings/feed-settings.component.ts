@@ -59,7 +59,7 @@ export class FeedSettingsComponent implements OnInit {
       || this.userSettings.communityContentSort === Sorting.TOP_WEEK;
   }
 
-  isTopMonth() {
+  isTopMonth(): boolean {
     return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_MONTH]
       || this.userSettings.communityContentSort === Sorting.TOP_MONTH;
   }
