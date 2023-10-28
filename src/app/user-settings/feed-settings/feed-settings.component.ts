@@ -45,7 +45,7 @@ export class FeedSettingsComponent implements OnInit {
       || this.userSettings.communityContentSort === Sorting.NEW;
   }
 
-  isTop() {
+  isTop(): boolean {
     return !this.isHot() && !this.isNew();
   }
 
