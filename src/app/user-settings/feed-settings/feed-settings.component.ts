@@ -22,7 +22,7 @@ export class FeedSettingsComponent implements OnInit {
     this.userSettings = this.localStorage.retrieve('userSettings');
   }
 
-  updateCommunityContentSort(sorting: Sorting) {
+  updateCommunityContentSort(sorting: Sorting): void {
     this.userSettingsService.updateCommunityContentSort(sorting).subscribe(() => {
       this.userSettings.communityContentSort = sorting;
       this.userSettingsService.reloadUserSettings();
