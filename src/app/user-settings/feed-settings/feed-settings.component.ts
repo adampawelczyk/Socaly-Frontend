@@ -49,7 +49,7 @@ export class FeedSettingsComponent implements OnInit {
     return !this.isHot() && !this.isNew();
   }
 
-  isTopToday() {
+  isTopToday(): boolean {
     return this.userSettings.communityContentSort.valueOf().toString() === Sorting[Sorting.TOP_TODAY]
       || this.userSettings.communityContentSort === Sorting.TOP_TODAY;
   }
