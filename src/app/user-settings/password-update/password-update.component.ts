@@ -32,7 +32,7 @@ export class PasswordUpdateComponent implements OnInit {
     }
   }
 
-  discard() {
+  discard(): void {
     this.activeModal.close();
   }
 
