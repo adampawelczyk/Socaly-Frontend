@@ -36,7 +36,7 @@ export class PasswordUpdateComponent implements OnInit {
     this.activeModal.close();
   }
 
-  updatePassword() {
+  updatePassword(): void {
     this.passwordUpdatePayload.currentPassword = this.passwordUpdateForm.get('currentPassword')?.value;
     this.passwordUpdatePayload.newPassword = this.passwordUpdateForm.get('newPassword')?.value;
 
