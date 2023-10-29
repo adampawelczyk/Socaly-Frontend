@@ -19,7 +19,9 @@ export class ProfileSettingsComponent implements OnInit {
   isProfileImageUploading: boolean = false;
   isProfileBannerUploading: boolean = false;
 
-  constructor(private authService: AuthService, private userService: UserService, private fileService: FileService,
+  constructor(private authService: AuthService,
+              private userService: UserService,
+              private fileService: FileService,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
