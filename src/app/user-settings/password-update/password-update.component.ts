@@ -48,7 +48,7 @@ export class PasswordUpdateComponent implements OnInit {
     });
   }
 
-  arePasswordFieldsEmpty() {
+  arePasswordFieldsEmpty(): boolean {
     return this.passwordUpdateForm.get('currentPassword')?.value === ''
       || this.passwordUpdateForm.get('newPassword')?.value === ''
       || this.passwordUpdateForm.get('confirmNewPassword')?.value === '';
