@@ -54,7 +54,7 @@ export class PasswordUpdateComponent implements OnInit {
       || this.passwordUpdateForm.get('confirmNewPassword')?.value === '';
   }
 
-  areNewPasswordsEqual() {
+  areNewPasswordsEqual(): boolean {
     return this.passwordUpdateForm.get('newPassword')?.value
       === this.passwordUpdateForm.get('confirmNewPassword')?.value;
   }
