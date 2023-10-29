@@ -36,7 +36,7 @@ export class ProfileSettingsComponent implements OnInit {
     this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 
-  initializeDescriptionForm() {
+  initializeDescriptionForm(): void {
     this.changeDescriptionForm.get('description')
       ?.setValue(this.user.description ? this.user.description : '');
   }
