@@ -16,7 +16,9 @@ export class UserDeleteComponent implements OnInit {
   userDeleteForm: UntypedFormGroup;
   userDeletePayload: UserDeleteRequestModel;
 
-  constructor(private activeModal: NgbActiveModal, private userService: UserService, private authService: AuthService,
+  constructor(private activeModal: NgbActiveModal,
+              private userService: UserService,
+              private authService: AuthService,
               private router: Router) {
   }
 
