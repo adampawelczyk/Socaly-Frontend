@@ -46,7 +46,7 @@ export class ProfileSettingsComponent implements OnInit {
       this.userService.getUser(this.username).subscribe(() => {
         this.userService.reloadUser();
       })
-    })
+    });
   }
 
   countCharacters() {
