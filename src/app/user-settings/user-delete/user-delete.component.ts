@@ -37,7 +37,7 @@ export class UserDeleteComponent implements OnInit {
     };
   }
 
-  discard() {
+  discard(): void {
     this.activeModal.close();
   }
 
