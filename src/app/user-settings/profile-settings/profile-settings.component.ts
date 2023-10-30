@@ -49,7 +49,7 @@ export class ProfileSettingsComponent implements OnInit {
     });
   }
 
-  countCharacters() {
+  countCharacters(): void {
     this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 
