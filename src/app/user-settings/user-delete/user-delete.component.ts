@@ -41,7 +41,7 @@ export class UserDeleteComponent implements OnInit {
     this.activeModal.close();
   }
 
-  delete() {
+  delete(): void {
     this.userDeletePayload.username = this.userDeleteForm.get('username')?.value;
     this.userDeletePayload.password = this.userDeleteForm.get('password')?.value;
 
