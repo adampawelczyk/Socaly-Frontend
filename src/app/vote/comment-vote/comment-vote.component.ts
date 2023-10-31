@@ -27,7 +27,7 @@ export class CommentVoteComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  upVoteComment() {
+  upVoteComment(): void {
     this.commentVotePayload.voteType = VoteType.UPVOTE;
     this.vote();
   }
