@@ -16,7 +16,8 @@ export class CommentVoteComponent implements OnInit {
   @Input() comment: CommentResponseModel;
   commentVotePayload: CommentVoteModel;
 
-  constructor(private voteService: VoteService, private authService: AuthService,
+  constructor(private voteService: VoteService,
+              private authService: AuthService,
               private commentService: CommentService) {
     this.commentVotePayload = {
       voteType: undefined!,
