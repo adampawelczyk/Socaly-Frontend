@@ -32,7 +32,7 @@ export class CommentVoteComponent implements OnInit {
     this.vote();
   }
 
-  downVoteComment() {
+  downVoteComment(): void {
     this.commentVotePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
   }
