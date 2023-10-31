@@ -32,7 +32,7 @@ export class UserSettingsComponent implements OnInit {
     this.user = this.localStorage.retrieve('user');
   }
 
-  onChangeTab(url: NgbNavChangeEvent){
+  onChangeTab(url: NgbNavChangeEvent): void {
     this.location.replaceState("settings/" + url.nextId);
   }
 }
