@@ -19,7 +19,9 @@ export class PostVoteComponent implements OnInit {
   upVoteColor: string;
   downVoteColor: string;
 
-  constructor(private voteService: VoteService, private authService: AuthService, private postService: PostService,
+  constructor(private voteService: VoteService,
+              private authService: AuthService,
+              private postService: PostService,
               private toastr: ToastrService) {
     this.postVotePayload = {
       voteType: undefined!,
