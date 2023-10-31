@@ -37,7 +37,7 @@ export class CommentVoteComponent implements OnInit {
     this.vote();
   }
 
-  private vote() {
+  private vote(): void {
     this.commentVotePayload.commentId = this.comment.id;
     this.voteService.voteOnComment(this.commentVotePayload).subscribe(() => {
       this.updateCommentVoteDetails();
