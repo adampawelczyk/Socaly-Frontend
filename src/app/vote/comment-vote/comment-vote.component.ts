@@ -46,7 +46,7 @@ export class CommentVoteComponent implements OnInit {
     });
   }
 
-  private updateCommentVoteDetails() {
+  private updateCommentVoteDetails(): void {
     this.commentService.getComment(this.comment.id).subscribe(comment => {
       this.comment = comment;
     });
