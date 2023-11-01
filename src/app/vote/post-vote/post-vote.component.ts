@@ -45,7 +45,7 @@ export class PostVoteComponent implements OnInit {
     this.upVoteColor = '';
   }
 
-  private vote() {
+  private vote(): void {
     this.postVotePayload.postId = this.post.id;
     this.voteService.voteOnPost(this.postVotePayload).subscribe(() => {
       this.updateVoteDetails();
