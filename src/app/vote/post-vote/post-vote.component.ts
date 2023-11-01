@@ -34,15 +34,19 @@ export class PostVoteComponent implements OnInit {
   }
 
   upVotePost(): void {
-    this.postVotePayload.voteType = VoteType.UPVOTE;
+    this.setVoteType(VoteType.UPVOTE);
     this.vote();
     this.downVoteColor = '';
   }
 
   downVotePost(): void {
-    this.postVotePayload.voteType = VoteType.DOWNVOTE;
+    this.setVoteType(VoteType.DOWNVOTE);
     this.vote();
     this.upVoteColor = '';
+  }
+
+  private setVoteType(voteType: VoteType): void {
+    this.postVotePayload.voteType = voteType;
   }
 
   private vote(): void {
