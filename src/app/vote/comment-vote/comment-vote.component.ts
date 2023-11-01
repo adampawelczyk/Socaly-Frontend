@@ -28,13 +28,17 @@ export class CommentVoteComponent implements OnInit {
   ngOnInit(): void { }
 
   upVoteComment(): void {
-    this.commentVotePayload.voteType = VoteType.UPVOTE;
+    this.setVoteType(VoteType.UPVOTE);
     this.vote();
   }
 
   downVoteComment(): void {
-    this.commentVotePayload.voteType = VoteType.DOWNVOTE;
+    this.setVoteType(VoteType.DOWNVOTE);
     this.vote();
+  }
+
+  private setVoteType(voteType: VoteType): void {
+    this.commentVotePayload.voteType = voteType;
   }
 
   private vote(): void {
