@@ -19,7 +19,9 @@ export class PostVoteComponent implements OnInit {
   upVoteColor: string;
   downVoteColor: string;
 
-  constructor(private voteService: VoteService, private authService: AuthService, private postService: PostService,
+  constructor(private voteService: VoteService,
+              private authService: AuthService,
+              private postService: PostService,
               private toastr: ToastrService) {
     this.postVotePayload = {
       voteType: undefined!,
@@ -31,19 +33,23 @@ export class PostVoteComponent implements OnInit {
     this.updateVoteDetails();
   }
 
-  upvotePost() {
-    this.postVotePayload.voteType = VoteType.UPVOTE;
+  upVotePost(): void {
+    this.setVoteType(VoteType.UPVOTE);
     this.vote();
     this.downVoteColor = '';
   }
 
-  downvotePost() {
-    this.postVotePayload.voteType = VoteType.DOWNVOTE;
+  downVotePost(): void {
+    this.setVoteType(VoteType.DOWNVOTE);
     this.vote();
     this.upVoteColor = '';
   }
 
-  private vote() {
+  private setVoteType(voteType: VoteType): void {
+    this.postVotePayload.voteType = voteType;
+  }
+
+  private vote(): void {
     this.postVotePayload.postId = this.post.id;
     this.voteService.voteOnPost(this.postVotePayload).subscribe(() => {
       this.updateVoteDetails();
@@ -53,7 +59,7 @@ export class PostVoteComponent implements OnInit {
     });
   }
 
-  private updateVoteDetails() {
+  private updateVoteDetails(): void {
     this.postService.getPost(this.post.id).subscribe(post => {
       this.post = post;
     });

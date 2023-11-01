@@ -2,7 +2,7 @@
   <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Overview</a>
     <ng-template ngbNavContent>
-      <div *ngIf="this.posts && this.comments && postsAreEmpty() && commentsAreEmpty()">
+      <div *ngIf="this.posts && this.comments && arePostsEmpty() && areCommentsEmpty()">
         <div *ngFor="let i of [1, 2, 3, 4, 5]" class="d-flex flex-column align-items-start empty-card p-3 mt-3">
           <span class="material-symbols-outlined">arrow_upward</span>
           <div *ngIf="i == 3" class="d-flex align-self-center empty-card-text">
@@ -28,7 +28,7 @@
   <li ngbNavItem *ngIf="!userIsDeleted">
     <a ngbNavLink>Posts</a>
     <ng-template ngbNavContent>
-      <div *ngIf="this.posts && postsAreEmpty()">
+      <div *ngIf="this.posts && arePostsEmpty()">
         <div *ngFor="let i of [1, 2, 3, 4, 5]" class="d-flex flex-column align-items-start empty-card p-3 mt-3">
           <span class="material-symbols-outlined">arrow_upward</span>
           <div *ngIf="i == 3" class="d-flex align-self-center empty-card-text">
@@ -44,7 +44,7 @@
     <a ngbNavLink>Comments</a>
     <ng-template ngbNavContent>
       <div class="mb-3">
-        <div *ngIf="this.comments && commentsAreEmpty()">
+        <div *ngIf="this.comments && areCommentsEmpty()">
           <div *ngFor="let i of [1, 2, 3, 4, 5]" class="d-flex flex-column align-items-start empty-card p-3 mt-3">
             <span class="material-symbols-outlined">arrow_upward</span>
             <div *ngIf="i == 3" class="d-flex align-self-center empty-card-text">
@@ -53,23 +53,23 @@
             <span class="material-symbols-outlined" [style.margin-top]="i !== 3 ? '24px' : ''">arrow_downward</span>
           </div>
         </div>
-        <div *ngFor="let postId of unique(comments)" class="mt-3">
+        <div *ngFor="let postId of getUniquePostIdsFromComments(comments)" class="mt-3">
           <div class="comments">
             <div class="p-3 comments-header">
               <a class="comments-header-link" [routerLink]="'/user/' + getUsername()">
                 {{getUsername()}}
               </a>
               commented on
-              <a class="comments-header-link" [routerLink]="'/post/' + findPost(postId)!.id">
-                {{findPost(postId)!.title}}
+              <a class="comments-header-link" [routerLink]="'/post/' + findPostById(postId).id">
+                {{findPostById(postId).title}}
               </a>
               •
-              <a class="comments-header-link" [routerLink]="'/community/' + findPost(postId)!.communityName">
-                {{findPost(postId)!.communityName}}
+              <a class="comments-header-link" [routerLink]="'/community/' + findPostById(postId).communityName">
+                {{findPostById(postId).communityName}}
               </a>
             </div>
             <div *ngFor="let comment of comments">
-              <div *ngIf="comment.postId == postId && findPost(postId) !== undefined" class="comment" (click)="goToComment(comment)">
+              <div *ngIf="comment.postId == postId" class="comment" (click)="goToComment(comment)">
                 <app-comment [comment]="comment"></app-comment>
               </div>
             </div>
@@ -78,19 +78,19 @@
       </div>
     </ng-template>
   </li>
-  <li ngbNavItem *ngIf="!userIsDeleted && showTab()">
+  <li ngbNavItem *ngIf="!userIsDeleted && isProfileOwner()">
     <a ngbNavLink>Saved</a>
     <ng-template ngbNavContent>
       Content
     </ng-template>
   </li>
-  <li ngbNavItem *ngIf="!userIsDeleted  && showTab()">
+  <li ngbNavItem *ngIf="!userIsDeleted  && isProfileOwner()">
     <a ngbNavLink>Upvoted</a>
     <ng-template ngbNavContent>
       Content
     </ng-template>
   </li>
-  <li ngbNavItem *ngIf="!userIsDeleted  && showTab()">
+  <li ngbNavItem *ngIf="!userIsDeleted  && isProfileOwner()">
     <a ngbNavLink>Downvoted</a>
     <ng-template ngbNavContent>
       Content
@@ -113,7 +113,7 @@
     alt="image of thoughtful snoo" loading="lazy">
     <p id="deleted-user-message">This user deleted their account</p>
     <div>
-      <button class="btn-primary" (click)="goHome()">Go home</button
-      ></div>
+      <button class="btn-primary" (click)="goHome()">Go home</button>
+    </div>
   </div>
 </div>

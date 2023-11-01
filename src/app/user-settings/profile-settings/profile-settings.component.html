@@ -10,7 +10,7 @@
     </p>
   </div>
   <div>
-    <form [formGroup]="changeDescriptionForm" (ngSubmit)="changeDescription()">
+    <form [formGroup]="changeDescriptionForm" (ngSubmit)="updateDescription()">
       <textarea maxlength="255" (keyup)="countCharacters()" (keydown)="countCharacters()" [formControlName]="'description'" class="about-textarea" placeholder="About (optional)" rows="4"></textarea>
       <div class="d-flex flex-row justify-content-between">
         <div class="d-flex flex-wrap align-items-center">

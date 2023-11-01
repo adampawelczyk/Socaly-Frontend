@@ -14,7 +14,8 @@ export class EmailUpdateComponent implements OnInit {
   emailUpdateForm: UntypedFormGroup;
   emailUpdatePayload: EmailUpdateRequestModel;
 
-  constructor(private activeModal: NgbActiveModal, private userService: UserService) { }
+  constructor(private activeModal: NgbActiveModal,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     const body = document.getElementsByTagName('body')[0];
@@ -31,11 +32,11 @@ export class EmailUpdateComponent implements OnInit {
     }
   }
 
-  discard() {
+  discard(): void {
     this.activeModal.close();
   }
 
-  updateEmail() {
+  updateEmail(): void {
     this.emailUpdatePayload.password = this.emailUpdateForm.get('password')?.value;
     this.emailUpdatePayload.email = this.emailUpdateForm.get('email')?.value;
 
@@ -47,7 +48,7 @@ export class EmailUpdateComponent implements OnInit {
     })
   }
 
-  fieldsAreEmpty() {
+  areFieldsEmpty(): boolean {
     return this.emailUpdateForm.get('password')?.value === '' || this.emailUpdateForm.get('email')?.value === '';
   }
 }

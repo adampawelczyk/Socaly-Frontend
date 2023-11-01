@@ -12,35 +12,36 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class EmailSettingsComponent implements OnInit {
   userSettings: UserSettingsModel;
 
-  constructor(private authService: AuthService, private userSettingsService: UserSettingsService,
+  constructor(private authService: AuthService,
+              private userSettingsService: UserSettingsService,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.userSettings = this.localStorage.retrieve('userSettings');
   }
 
-  updatePostCommentEmails() {
+  updatePostCommentEmails(): void {
     this.userSettingsService.updatePostCommentEmails(!this.userSettings.postCommentEmails).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
       this.userSettings.postCommentEmails = !this.userSettings.postCommentEmails;
     })
   }
 
-  updateCommentReplyEmails() {
+  updateCommentReplyEmails(): void {
     this.userSettingsService.updateCommentReplyEmails(!this.userSettings.commentReplyEmails).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
       this.userSettings.commentReplyEmails = !this.userSettings.commentReplyEmails;
     });
   }
 
-  updatePostUpVoteEmails() {
+  updatePostUpVoteEmails(): void {
     this.userSettingsService.updatePostUpVoteEmails(!this.userSettings.postUpVoteEmails).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
       this.userSettings.postUpVoteEmails = !this.userSettings.postUpVoteEmails;
     })
   }
 
-  updateCommentUpVoteEmails() {
+  updateCommentUpVoteEmails(): void {
     this.userSettingsService.updateCommentUpVoteEmails(!this.userSettings.commentUpVoteEmails).subscribe(() => {
       this.userSettingsService.reloadUserSettings();
       this.userSettings.commentUpVoteEmails = !this.userSettings.commentUpVoteEmails;

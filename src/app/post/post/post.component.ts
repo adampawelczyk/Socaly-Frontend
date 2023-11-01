@@ -32,10 +32,15 @@ export class PostComponent implements OnInit {
   editorConfig = editorConfig;
   singleCommentThread = false;
 
-  constructor(private postService: PostService, private router: Router, private commentService: CommentService,
-              private activateRoute: ActivatedRoute, private highlightService: HighlightService,
-              private authService: AuthService, private localStorage: LocalStorageService,
-              private clipboard: ClipboardService, private modal: NgbModal) {
+  constructor(private postService: PostService,
+              private router: Router,
+              private commentService: CommentService,
+              private activateRoute: ActivatedRoute,
+              private highlightService: HighlightService,
+              private authService: AuthService,
+              private localStorage: LocalStorageService,
+              private clipboard: ClipboardService,
+              private modal: NgbModal) {
     this.postId = this.activateRoute.snapshot.params.id;
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
@@ -70,7 +75,7 @@ export class PostComponent implements OnInit {
   }
 
   postImagesAreNotEmpty(post: PostResponseModel) {
-    return post.images && post.images?.length > 0;
+    return post.images && post.images.length > 0;
   }
 
   postComment() {
@@ -86,9 +91,9 @@ export class PostComponent implements OnInit {
 
   getCommentsForPost() {
     if (this.singleCommentThread) {
-      this.commentService.getComment(Number(location.href.slice(location.href.indexOf('#') + 1))).subscribe(comment => {
-        this.comments = [];
-        this.comments.push(comment);
+      const commentId = Number(location.href.slice(location.href.indexOf('#') + 1));
+      this.commentService.getComment(commentId).subscribe(comment => {
+        this.comments = [comment];
       })
     } else {
       this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
@@ -101,7 +106,7 @@ export class PostComponent implements OnInit {
   }
 
   goToPost(id: number): void {
-    let userSettings = this.localStorage.retrieve('userSettings')
+    const userSettings = this.localStorage.retrieve('userSettings');
 
     if (this.authService.isLoggedIn() && userSettings.openPostsInNewTab) {
       const url = this.router.serializeUrl(this.router.createUrlTree(['/post/' + id]));
@@ -112,11 +117,7 @@ export class PostComponent implements OnInit {
   }
 
   showCarouselNavigationControls(post: PostResponseModel) {
-    if (post.images !== undefined) {
-      return post.images.length > 1;
-    } else {
-      return false;
-    }
+    return post.images ? post.images.length > 1 : false;
   }
 
   copyLink() {

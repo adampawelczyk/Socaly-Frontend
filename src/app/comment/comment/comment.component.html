@@ -1,12 +1,16 @@
-<div id="{{comment.id}}" class="comment p-2">
+<div [id]="comment.id" class="comment p-2">
   <div id="thread-line" class="ps-2">
-    <img id="profile-image" src="{{userProfileImage}}" alt="{{comment.username}} profile image">
-    <a *ngIf="!userIsDeleted" class="comment-username ms-1" routerLink="/user/{{comment.username}}">
-      {{comment.username}}
-    </a>
-    <span *ngIf="userIsDeleted" class="comment-username ms-1">
+    <img id="profile-image" [src]="userProfileImage" [alt]="comment.username + 'profile image'">
+    <ng-container *ngIf="!userIsDeleted; else deletedUser">
+      <a class="comment-username ms-1" routerLink="/user/{{comment.username}}">
+        {{comment.username}}
+      </a>
+    </ng-container>
+    <ng-template #deletedUser>
+      <span class="comment-username ms-1">
       [deleted]
     </span>
+    </ng-template>
     <span id="timestamp">
     • {{comment.timeSinceCreation}}
     </span>

@@ -32,11 +32,11 @@ export class PasswordUpdateComponent implements OnInit {
     }
   }
 
-  discard() {
+  discard(): void {
     this.activeModal.close();
   }
 
-  updatePassword() {
+  updatePassword(): void {
     this.passwordUpdatePayload.currentPassword = this.passwordUpdateForm.get('currentPassword')?.value;
     this.passwordUpdatePayload.newPassword = this.passwordUpdateForm.get('newPassword')?.value;
 
@@ -48,13 +48,13 @@ export class PasswordUpdateComponent implements OnInit {
     });
   }
 
-  fieldsAreEmpty() {
+  arePasswordFieldsEmpty(): boolean {
     return this.passwordUpdateForm.get('currentPassword')?.value === ''
       || this.passwordUpdateForm.get('newPassword')?.value === ''
       || this.passwordUpdateForm.get('confirmNewPassword')?.value === '';
   }
 
-  newPasswordsAreEqual() {
+  areNewPasswordsEqual(): boolean {
     return this.passwordUpdateForm.get('newPassword')?.value
       === this.passwordUpdateForm.get('confirmNewPassword')?.value;
   }

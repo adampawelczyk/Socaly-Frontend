@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostRequestModel } from '../shared/post-request.model';
 import { CommunityResponseModel } from '../../community/shared/community-response.model';
 import { Router } from '@angular/router';
@@ -19,7 +19,7 @@ import { editorConfig } from '../../../globals';
 export class CreateUpdatePostComponent implements OnInit {
   @Input() isUpdating = false;
   @Input() postIdToUpdate: number;
-  createPostForm: UntypedFormGroup;
+  createPostForm: FormGroup;
   postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
   files: File[] = [];
@@ -60,11 +60,15 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.cleanupFiles();
+  }
+
   private initializeCreatePostForm(): void {
-    this.createPostForm = new UntypedFormGroup({
-      title: new UntypedFormControl('', Validators.required),
-      communityName: new UntypedFormControl('', Validators.required),
-      description: new UntypedFormControl(''),
+    this.createPostForm = new FormGroup({
+      title: new FormControl('', Validators.required),
+      communityName: new FormControl('', Validators.required),
+      description: new FormControl(''),
     });
   }
 
@@ -80,35 +84,42 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private loadPostToUpdate(): void {
-    this.postService.getPost(this.postIdToUpdate).subscribe(async (post) => {
-      this.selectedCommunity = post.communityName;
-      this.createPostForm.get('title')?.setValue(post.title);
+    this.postService.getPost(this.postIdToUpdate).subscribe(
+      async (post) => {
+        this.selectedCommunity = post.communityName;
+        this.createPostForm.get('title')?.setValue(post.title);
 
-      if (post.images !== undefined && post.images.length !== 0) {
-        this.active = 2;
+        if (post.images !== undefined && post.images.length !== 0) {
+          this.active = 2;
 
-        for (const imageUrl of post.images) {
-          this.fileUrls.push(imageUrl);
-          const file = await this.createFile(imageUrl, '', 'image/png');
-          this.files.push(file);
+          for (const imageUrl of post.images) {
+            this.fileUrls.push(imageUrl);
+            const file = await this.createFile(imageUrl, '', 'image/png');
+            this.files.push(file);
+          }
+        } else {
+          this.createPostForm.get('description')?.setValue(post.description);
         }
-      } else {
-        this.createPostForm.get('description')?.setValue(post.description);
+      },
+      (error) => {
+        throwError(error);
+      }
+    );
+  }
+
+
+  private async createFile(path: string, name: string, type: string): Promise<File> {
+    return new Promise<File>(async (resolve, reject) => {
+      try {
+        const response = await fetch(path);
+        const data = await response.blob();
+        const metadata = { type: type };
+        const file = new File([data], name, metadata);
+        resolve(file);
+      } catch (error) {
+        reject(error);
       }
     });
-  }
-
-  async createFile(path: string, name: string, type: string): Promise<File> {
-    let response = await fetch(path);
-    let data = await response.blob();
-    let metadata = {
-      type: type
-    };
-    return new File([data], name, metadata);
-  }
-
-  ngOnDestroy() {
-    this.cleanupFiles();
   }
 
   private cleanupFiles(): void {
@@ -120,7 +131,7 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
-  createPost() {
+  createPost(): void {
     this.initializePostPayload();
     this.submitPost();
   }
@@ -141,15 +152,11 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private submitPost(): void {
-    let postObservable;
+    const postObservable = this.isUpdating
+      ? this.postService.updatePost(this.postIdToUpdate, this.postPayload)
+      : this.postService.createPost(this.postPayload);
 
-    if (this.isUpdating) {
-      postObservable = this.postService.updatePost(this.postIdToUpdate, this.postPayload);
-    } else {
-      postObservable = this.postService.createPost(this.postPayload);
-    }
-
-    postObservable.subscribe((id) => {
+    postObservable.subscribe(id => {
         this.postWasPosted = true;
         this.activeModal.close();
 
@@ -158,7 +165,6 @@ export class CreateUpdatePostComponent implements OnInit {
         } else {
           this.router.navigateByUrl('/post/' + id);
         }
-
       },
       (error) => {
         throwError(error);
@@ -166,11 +172,11 @@ export class CreateUpdatePostComponent implements OnInit {
     );
   }
 
-  discardPost() {
+  discardPost(): void {
     this.activeModal.close();
   }
 
-  async onSelect(event: { addedFiles: any }) {
+  async onSelect(event: { addedFiles: any }): Promise<void> {
     this.uploadingFiles = true;
     this.files.push(...event.addedFiles);
 
@@ -180,8 +186,8 @@ export class CreateUpdatePostComponent implements OnInit {
     this.filesUploadProgress = 0;
   }
 
-  onRemove(event: File) {
-    let index = this.files.indexOf(event);
+  onRemove(event: File): void {
+    const index = this.files.indexOf(event);
     this.files.splice(index, 1);
     let deleteFileUrl = this.fileUrls.splice(index, 1);
 
@@ -190,10 +196,10 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
-  private async uploadFiles(files: File[]) {
+  private async uploadFiles(files: File[]): Promise<void> {
     for (const file of files) {
       if (file.name === '') continue;
-      let fileUrl = await this.fileService.uploadFile(file);
+      const fileUrl = await this.fileService.uploadFile(file);
       this.filesUploadProgress += 100 / files.length;
 
       if (this.isUpdating) {
@@ -204,15 +210,15 @@ export class CreateUpdatePostComponent implements OnInit {
     }
   }
 
-  selectCommunity(name: string) {
+  selectCommunity(name: string): void {
     this.selectedCommunity = name;
   }
 
-  isCommunityEmpty() {
+  isCommunityEmpty(): boolean {
     return this.selectedCommunity === 'Choose a community';
   }
 
-  isTitleEmpty() {
+  isTitleEmpty(): boolean {
     return this.createPostForm.get('title')?.value === '';
   }
 }

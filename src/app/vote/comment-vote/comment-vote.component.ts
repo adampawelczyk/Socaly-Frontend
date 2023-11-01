@@ -16,7 +16,8 @@ export class CommentVoteComponent implements OnInit {
   @Input() comment: CommentResponseModel;
   commentVotePayload: CommentVoteModel;
 
-  constructor(private voteService: VoteService, private authService: AuthService,
+  constructor(private voteService: VoteService,
+              private authService: AuthService,
               private commentService: CommentService) {
     this.commentVotePayload = {
       voteType: undefined!,
@@ -26,17 +27,21 @@ export class CommentVoteComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  upvoteComment() {
-    this.commentVotePayload.voteType = VoteType.UPVOTE;
+  upVoteComment(): void {
+    this.setVoteType(VoteType.UPVOTE);
     this.vote();
   }
 
-  downVoteComment() {
-    this.commentVotePayload.voteType = VoteType.DOWNVOTE;
+  downVoteComment(): void {
+    this.setVoteType(VoteType.DOWNVOTE);
     this.vote();
   }
 
-  private vote() {
+  private setVoteType(voteType: VoteType): void {
+    this.commentVotePayload.voteType = voteType;
+  }
+
+  private vote(): void {
     this.commentVotePayload.commentId = this.comment.id;
     this.voteService.voteOnComment(this.commentVotePayload).subscribe(() => {
       this.updateCommentVoteDetails();
@@ -45,7 +50,7 @@ export class CommentVoteComponent implements OnInit {
     });
   }
 
-  private updateCommentVoteDetails() {
+  private updateCommentVoteDetails(): void {
     this.commentService.getComment(this.comment.id).subscribe(comment => {
       this.comment = comment;
     });

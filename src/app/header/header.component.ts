@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
   loggedIn: boolean;
   username: string;
 
-  constructor(private authService: AuthService, private router: Router, private modal: NgbModal,
+  constructor(private authService: AuthService,
+              private router: Router,
+              private modal: NgbModal,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -31,28 +33,28 @@ export class HeaderComponent implements OnInit {
     this.username = this.localStorage.retrieve('username');
   }
 
-  signup() {
+  signUp(): void {
     this.modal.open(SignUpComponent);
   }
 
-  login() {
+  logIn(): void {
     this.modal.open(LogInComponent);
   }
 
-  goToUserProfile() {
+  goToUserProfile(): void {
     this.router.navigateByUrl('/user/' + this.username);
   }
 
-  goToUserSettings() {
+  goToUserSettings(): void {
     this.router.navigateByUrl('/settings/account');
   }
 
-  goToCommunityDirectory() {
+  goToCommunityDirectory(): void {
     this.router.navigateByUrl('/communities');
   }
 
-  logout() {
-    this.authService.logout();
+  logOut(): void {
+    this.authService.logOut();
     this.router.navigateByUrl('');
   }
 }

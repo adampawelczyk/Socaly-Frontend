@@ -12,10 +12,15 @@ export class CommunitiesComponent implements OnInit {
   communities: CommunityResponseModel[];
   filteredCommunities: CommunityResponseModel[];
   sortingLetter: string;
+  alphabetAndHash = 'abcdefghijklmnopqrstuvwxyz#'.split('');
 
   constructor(private communityService: CommunityService) { }
 
   ngOnInit(): void {
+    this.loadCommunities();
+  }
+
+  private loadCommunities(): void {
     this.communityService.getAllCommunities().subscribe(communities => {
       this.communities = communities;
       this.sortingLetter = 'a';
@@ -25,23 +30,18 @@ export class CommunitiesComponent implements OnInit {
     });
   }
 
-  sortBy(letter: string) {
+  sortBy(letter: string): void {
     this.sortingLetter = letter;
 
     if (letter == '#') {
-      this.filteredCommunities = this.communities.filter(community => community.name.match(/^\d/));
+      this.filteredCommunities = this.communities.filter(community =>
+        community.name.match(/^\d/));
     } else {
-      this.filteredCommunities = this.communities.filter(community => community.name.startsWith(letter));
+      this.filteredCommunities = this.communities.filter(community =>
+        community.name.startsWith(letter));
     }
 
-    this.filteredCommunities = this.filteredCommunities.sort(function (a, b) {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
+    this.filteredCommunities.sort((a, b) =>
+      a.name.localeCompare(b.name));
   }
 }

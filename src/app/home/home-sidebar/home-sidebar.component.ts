@@ -13,11 +13,11 @@ export class HomeSidebarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  createPost() {
+  createPost(): void {
     this.modal.open(CreateUpdatePostComponent, {size: 'lg'});
   }
 
-  createCommunity() {
+  createCommunity(): void {
     this.modal.open(CreateCommunityComponent);
   }
 }

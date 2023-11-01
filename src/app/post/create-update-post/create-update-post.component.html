@@ -1,7 +1,9 @@
 <div class="modal-header">
   <h4 class="modal-title">
-    <span *ngIf="!isUpdating">Create Post</span>
-    <span *ngIf="isUpdating">Edit Post</span>
+    <ng-container *ngIf="!isUpdating; else editMode">Create Post</ng-container>
+    <ng-template #editMode>
+      Edit Post
+    </ng-template>
   </h4>
   <button type="button" class="btn-close outline-none" (click)="discardPost()" aria-label="Close"></button>
 </div>
@@ -41,12 +43,12 @@
         </form>
         <div *ngIf="uploadingFiles" class="mt-2">
           <ngb-progressbar [showValue]="false" height=".5rem" [value]="filesUploadProgress" [max]="100"></ngb-progressbar>
-          <div *ngIf="filesUploadProgress != 100">
-            Image uploading in progress...
-          </div>
-          <div *ngIf="filesUploadProgress == 100">
+          <ng-container *ngIf="filesUploadProgress == 100; else uploadingInProgress">
             Image uploading completed
-          </div>
+          </ng-container>
+          <ng-template #uploadingInProgress>
+            Image uploading in progress...
+          </ng-template>
         </div>
       </ng-template>
     </li>
@@ -63,15 +65,15 @@
     <div>
       <button *ngIf="active == 1" [disabled]="isCommunityEmpty() || isTitleEmpty()" type="submit" form="create-post-form"
               class="btn-primary">
-        <span *ngIf="!isUpdating">Post</span>
-        <span *ngIf="isUpdating">Save</span>
+        <ng-container *ngIf="!isUpdating; else editMode">Post</ng-container>
+        <ng-template #editMode>Save</ng-template>
       </button>
     </div>
     <div>
       <button *ngIf="active == 2" [disabled]="isCommunityEmpty() || isTitleEmpty() || uploadingFiles" type="submit" form="create-image-form"
               class="btn-primary">
-        <span *ngIf="!isUpdating">Post</span>
-        <span *ngIf="isUpdating">Save</span>
+        <ng-container *ngIf="!isUpdating; else editMode">Post</ng-container>
+        <ng-template #editMode>Save</ng-template>
       </button>
     </div>
   </div>

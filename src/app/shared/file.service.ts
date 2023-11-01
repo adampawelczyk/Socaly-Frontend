@@ -8,16 +8,27 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 export class FileService {
   private basePath = '/uploads';
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  constructor(private db: AngularFireDatabase,
+              private storage: AngularFireStorage) { }
 
-  async uploadFile(file: File) {
+  async uploadFile(file: File): Promise<string> {
     const filePath = `${this.basePath}/${file.name}`;
-    const snap = await this.storage.upload(filePath, file);
 
-    return await snap.ref.getDownloadURL();
+    try {
+      const snap = await this.storage.upload(filePath, file);
+
+      return await snap.ref.getDownloadURL();
+    } catch (error) {
+      throw error;
+    }
   }
 
-  removeFile(url: string) {
-    this.storage.refFromURL(url).delete();
+  async removeFile(url: string): Promise<void> {
+    try {
+      const fileRef = this.storage.refFromURL(url);
+      await fileRef.delete();
+    } catch(error) {
+      throw error;
+    }
   }
 }

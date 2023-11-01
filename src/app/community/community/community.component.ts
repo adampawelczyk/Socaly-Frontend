@@ -16,14 +16,16 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class CommunityComponent implements OnInit {
   communityName: string;
   username: string;
-  posts: PostResponseModel[];
+  posts: PostResponseModel[] = [];
   postLength: number;
-  userCommunities: CommunityResponseModel[];
+  userCommunities: CommunityResponseModel[] = [];
   userBelongsToCommunity: boolean;
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService,
-              private communityService: CommunityService, private authService: AuthService, private localStorage: LocalStorageService) {
-  }
+  constructor(private activatedRoute: ActivatedRoute,
+              private postService: PostService,
+              private communityService: CommunityService,
+              private authService: AuthService,
+              private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.communityName = this.activatedRoute.snapshot.params.name;
@@ -32,19 +34,23 @@ export class CommunityComponent implements OnInit {
     this.postService.getAllPostsByCommunity(this.communityName).subscribe(posts => {
       this.posts = posts;
       this.postLength = posts.length;
+    }, error => {
+      throwError(error);
     });
 
     if (this.username) {
       this.communityService.getAllCommunitiesForUser(this.username).subscribe(communities => {
         this.userCommunities = communities;
-        this.userBelongsToCommunity = communities.some(community => community.name == this.communityName);
+        this.userBelongsToCommunity = communities.some(
+          community => community.name === this.communityName
+        );
       }, error => {
         throwError(error);
       });
     }
   }
 
-  joinCommunity() {
+  joinCommunity(): void {
     this.communityService.joinCommunity(this.communityName).subscribe(() => {
       this.userBelongsToCommunity = true;
     },error => {
@@ -52,7 +58,7 @@ export class CommunityComponent implements OnInit {
     });
   }
 
-  leaveCommunity() {
+  leaveCommunity(): void {
     this.communityService.leaveCommunity(this.communityName).subscribe(() => {
       this.userBelongsToCommunity = false;
     }, error => {

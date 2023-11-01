@@ -14,7 +14,8 @@ export class AccountSettingsComponent implements OnInit {
   email: string;
   isEmailVerified: boolean;
 
-  constructor(private userService: UserService, private modal: NgbModal) { }
+  constructor(private userService: UserService,
+              private modal: NgbModal) { }
 
   ngOnInit(): void {
     this.userService.getEmail().subscribe(email => {
@@ -26,8 +27,8 @@ export class AccountSettingsComponent implements OnInit {
     });
   }
 
-  updateEmail() {
-    let emailUpdateModal = this.modal.open(EmailUpdateComponent, {size: "md"});
+  updateEmail(): void {
+    const emailUpdateModal = this.modal.open(EmailUpdateComponent, {size: "md"});
     emailUpdateModal.closed.subscribe(() => {
       this.userService.getEmail().subscribe(email => {
         this.email = email;
@@ -35,11 +36,11 @@ export class AccountSettingsComponent implements OnInit {
     })
   }
 
-  updatePassword() {
+  updatePassword(): void {
     this.modal.open(PasswordUpdateComponent, {size: "md"});
   }
 
-  delete() {
+  delete(): void {
     this.modal.open(UserDeleteComponent, {size: "md"});
   }
 }

@@ -5,7 +5,7 @@
   <div class="profile-image-frame">
     <img class="profile-image" src="{{user.profileImage}}" alt="profile image">
   </div>
-  <span *ngIf="isCurrentUser()">
+  <span *ngIf="isProfileOwner()">
     <div class="lds-dual-ring profile-image-loading-wheel-position" *ngIf="isProfileImageUploading"></div>
     <input type="file" id="profile-image-upload" accept=".png,.pjp,.jpg,.pjpeg,.jpeg,.jfif"
            (change)="changeProfileImage($event)" hidden/>

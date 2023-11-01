@@ -31,56 +31,23 @@ img {
   vertical-align: middle;
 }
 
-.post-title {
+#post-title {
   font-size: 1.75rem;
   font-weight: bold;
-  opacity: 1;
-}
-
-.post-name {
   color: black;
-  text-decoration: none;
 }
 
-.community-info {
+#community-info {
   font-size: 0.75rem;
 }
 
-.community-text:hover {
-  text-decoration: underline;
-}
-
-.post-text {
-  margin-top: 0.62rem;
-  color: black;
-}
-
-.username {
+#username {
   text-decoration: none;
   color: colors.$darkgray;
 }
 
-.username:hover {
+#username:hover {
   text-decoration: underline;
-}
-
-.vote-background {
-  max-width: 40px;
-}
-
-.comment-username {
-  color: black;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.comment-username:hover {
-  text-decoration: underline;
-}
-
-.comment-text {
-  color: black;
 }
 
 .post-button-text {

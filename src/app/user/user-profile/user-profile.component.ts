@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PostResponseModel } from '../../post/shared/post-response.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../post/shared/post.service';
 import { CommentService } from '../../comment/shared/comment.service';
 import { CommentResponseModel } from '../../comment/shared/comment-response.model';
 import { UserModel } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,26 +23,26 @@ export class UserProfileComponent implements OnInit {
   user: UserModel;
   userIsDeleted: boolean;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, private commentService: CommentService,
-              private userService: UserService, private localStorage: LocalStorageService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
+              private postService: PostService,
+              private commentService: CommentService,
+              private userService: UserService,
+              private localStorage: LocalStorageService) {
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.name = this.activatedRoute.snapshot.params.name;
 
-    userService.isDeleted(this.name).subscribe(isDeleted => {
+    forkJoin([
+      this.userService.isDeleted(this.name),
+      this.userService.getUser(this.name),
+      this.postService.getAllPostsByUser(this.name),
+      this.commentService.getAllCommentsByUser(this.name)
+    ]).subscribe(([isDeleted, user, posts, comments]) => {
       this.userIsDeleted = isDeleted;
-    });
-
-    this.userService.getUser(this.name).subscribe(user => {
       this.user = user;
-    })
-
-    this.postService.getAllPostsByUser(this.name).subscribe(posts => {
       this.posts = posts;
       this.postLength = posts.length;
-    });
-
-    this.commentService.getAllCommentsByUser(this.name).subscribe(comments => {
       this.comments = comments;
       this.commentLength = comments.length;
     });
@@ -49,35 +50,41 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  goHome() {
+  goHome(): void {
     this.router.navigateByUrl('');
   }
 
-  unique(comments: CommentResponseModel[]) {
+  getUniquePostIdsFromComments(comments: CommentResponseModel[]): Set<number> {
     return new Set(comments.map(comment => comment.postId));
   }
 
-  findPost(postId: number) {
-    return this.posts.find(post => post.id == postId)
+  findPostById(postId: number): PostResponseModel {
+    const posts = this.posts.find(post => post.id === postId);
+
+    if (posts) {
+      return posts;
+    } else {
+      throw new Error('Post with id: ${postId} not found.');
+    }
   }
 
   getUsername(): string {
     return this.localStorage.retrieve('username');
   }
 
-  goToComment(comment: CommentResponseModel) {
+  goToComment(comment: CommentResponseModel): void {
     this.router.navigateByUrl('/post/' + comment.postId + '#' + comment.id);
   }
 
-  showTab() {
+  isProfileOwner(): boolean {
     return this.name === this.localStorage.retrieve('username');
   }
 
-  commentsAreEmpty() {
+  areCommentsEmpty(): boolean {
     return this.comments.length === 0;
   }
 
-  postsAreEmpty() {
+  arePostsEmpty(): boolean {
     return this.posts.length === 0;
   }
 }

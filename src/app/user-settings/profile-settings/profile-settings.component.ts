@@ -19,7 +19,9 @@ export class ProfileSettingsComponent implements OnInit {
   isProfileImageUploading: boolean = false;
   isProfileBannerUploading: boolean = false;
 
-  constructor(private authService: AuthService, private userService: UserService, private fileService: FileService,
+  constructor(private authService: AuthService,
+              private userService: UserService,
+              private fileService: FileService,
               private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -34,20 +36,20 @@ export class ProfileSettingsComponent implements OnInit {
     this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 
-  initializeDescriptionForm() {
+  initializeDescriptionForm(): void {
     this.changeDescriptionForm.get('description')
       ?.setValue(this.user.description ? this.user.description : '');
   }
 
-  changeDescription() {
+  updateDescription(): void {
     this.userService.updateDescription(this.changeDescriptionForm.get('description')?.value).subscribe(() => {
       this.userService.getUser(this.username).subscribe(() => {
         this.userService.reloadUser();
       })
-    })
+    });
   }
 
-  countCharacters() {
+  countCharacters(): void {
     this.availableCharacters = 255 - this.changeDescriptionForm.get('description')?.value.length;
   }
 

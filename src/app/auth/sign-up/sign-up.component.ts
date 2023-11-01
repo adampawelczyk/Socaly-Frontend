@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LogInComponent } from '../log-in/log-in.component';
-import {LogInRequestModel} from "../shared/log-in-request.model";
+import { LogInRequestModel } from '../shared/log-in-request.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,12 +14,15 @@ import {LogInRequestModel} from "../shared/log-in-request.model";
   styleUrls: ['./sign-up.component.scss', '../shared/styles.scss']
 })
 export class SignUpComponent implements OnInit {
-  signupForm: UntypedFormGroup;
-  signupPayload: SignUpRequestModel;
+  signUpForm: UntypedFormGroup;
+  signUpPayload: SignUpRequestModel;
 
-  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService,
-              public activeModal: NgbActiveModal, private modal: NgbModal) {
-    this.signupPayload = {
+  constructor(private authService: AuthService,
+              private router: Router,
+              private toastr: ToastrService,
+              public activeModal: NgbActiveModal,
+              private modal: NgbModal) {
+    this.signUpPayload = {
       username: '',
       email: '',
       password: ''
@@ -30,43 +33,51 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.signupForm = new UntypedFormGroup({
+    this.signUpForm = new UntypedFormGroup({
       username: new UntypedFormControl('', Validators.required),
       email: new UntypedFormControl('', [Validators.required, Validators.email]),
       password: new UntypedFormControl('', Validators.required)
     });
   }
 
-  signup() {
-    this.signupPayload.email = this.signupForm.get('email')?.value;
-    this.signupPayload.username = this.signupForm.get('username')?.value;
-    this.signupPayload.password = this.signupForm.get('password')?.value;
+  signUp(): void {
+    if (this.signUpForm.invalid) {
+      return;
+    }
 
-    this.authService.signup(this.signupPayload).subscribe(() => {
-      this.activeModal.close();
-      this.toastr.success('Signup Successful');
-      this.toastr.success('Please check your inbox for activation email');
+    this.signUpPayload = { ...this.signUpForm.value };
 
-      let logInPayload: LogInRequestModel = {
-        username: this.signupPayload.username,
-        password: this.signupPayload.password
-      }
-
-      this.authService.login(logInPayload).subscribe(() => {
-
-      })
+    this.authService.signUp(this.signUpPayload).subscribe(() => {
+      this.handleSuccessfulSignUp();
     }, () => {
-      this.toastr.error('Registration failed! Please try again');
+      this.handleFailedSignUp();
     });
 
     this.activeModal.close();
   }
 
-  discardSignup() {
+  private handleSuccessfulSignUp(): void {
+    this.activeModal.close();
+    this.toastr.success('Signup Successful');
+    this.toastr.success('Please check your inbox for activation email');
+
+    const logInPayload: LogInRequestModel = {
+      username: this.signUpPayload.username,
+      password: this.signUpPayload.password
+    };
+
+    this.authService.logIn(logInPayload).subscribe(() => {});
+  }
+
+  private handleFailedSignUp(): void {
+    this.toastr.error('Registration failed! Please try again');
+  }
+
+  discardSignup(): void {
     this.activeModal.close();
   }
 
-  login() {
+  logIn(): void {
     this.activeModal.close();
     this.modal.open(LogInComponent);
   }

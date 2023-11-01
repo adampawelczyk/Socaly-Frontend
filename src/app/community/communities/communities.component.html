@@ -1,7 +1,6 @@
 <div id="community-directory">
   <h2>Community directory</h2>
-  <span class="community-character" *ngFor="let character of 'abcdefghijklmnopqrstuvwxyz#'.split('')"
-        (click)="sortBy(character)">
+  <span class="community-character" *ngFor="let character of alphabetAndHash" (click)="sortBy(character)">
     {{character}}
   </span>
 </div>
@@ -13,7 +12,7 @@
     <hr/>
     <div class="d-flex flex-wrap">
       <div class="community" *ngFor="let community of filteredCommunities">
-        <a class="community-link" routerLink="/community/{{community.name}}">{{community.name}}</a>
+        <a class="community-link" [routerLink]="'/community/' + community.name">{{community.name}}</a>
       </div>
     </div>
   </div>

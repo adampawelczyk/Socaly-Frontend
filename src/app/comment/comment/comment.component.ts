@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { throwError } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CommentResponseModel } from '../shared/comment-response.model';
@@ -24,19 +24,21 @@ export class CommentComponent implements OnInit {
   @Input() postId: number;
   subComments: CommentResponseModel[];
   replyFormIsExpanded = false;
-  replyForm: UntypedFormGroup;
+  replyForm: FormGroup;
   edit = false
-  editForm: UntypedFormGroup;
+  editForm: FormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
   userProfileImage: string;
   userIsDeleted: boolean;
 
-  constructor(private commentService: CommentService, private activateRoute: ActivatedRoute,
-              private highlightService: HighlightService, private authService: AuthService,
-              private userService: UserService, private localStorage: LocalStorageService,
-              private clipboard: ClipboardService) {
-  }
+  constructor(private commentService: CommentService,
+              private activateRoute: ActivatedRoute,
+              private highlightService: HighlightService,
+              private authService: AuthService,
+              private userService: UserService,
+              private localStorage: LocalStorageService,
+              private clipboard: ClipboardService) { }
 
   ngAfterViewChecked() {
     this.highlightService.highlightAll();
@@ -46,8 +48,8 @@ export class CommentComponent implements OnInit {
     this.editorConfig.placeholder = 'What are your thoughts?';
     this.editorConfig.height = 174;
 
-    this.replyForm = new UntypedFormGroup({
-      text: new UntypedFormControl('')
+    this.replyForm = new FormGroup({
+      text: new FormControl('')
     });
 
     this.commentPayload = {
@@ -55,8 +57,8 @@ export class CommentComponent implements OnInit {
       text: '',
     };
 
-    this.editForm = new UntypedFormGroup({
-      text: new UntypedFormControl('')
+    this.editForm = new FormGroup({
+      text: new FormControl('')
     });
 
     this.getSubCommentsForComment(this.comment.id);
@@ -71,7 +73,7 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  private getSubCommentsForComment(commentId: number | undefined) {
+  private getSubCommentsForComment(commentId: number | undefined): void {
     if (commentId !== undefined) {
       this.commentService.getSubCommentsForComment(commentId).subscribe(subComments => {
         this.subComments = subComments;
@@ -79,15 +81,15 @@ export class CommentComponent implements OnInit {
     }
   }
 
-  hasSubComments() {
+  hasSubComments(): boolean {
     return this.subComments !== undefined;
   }
 
-  showReplyForm() {
+  showReplyForm(): void {
     this.replyFormIsExpanded = !this.replyFormIsExpanded;
   }
 
-  postReply() {
+  postReply(): void {
     this.commentPayload.text = this.replyForm.get('text')?.value;
     this.replyForm.get('text')?.setValue('');
     this.commentPayload.parentCommentId = this.comment.id;
@@ -100,19 +102,19 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  showEdit() {
+  showEdit(): boolean {
     return this.comment.username === this.localStorage.retrieve('username');
   }
 
-  showEditForm() {
+  showEditForm(): void {
     this.edit = !this.edit
   }
 
-  initializeEditForm() {
+  initializeEditForm(): void {
     this.editForm.get('text')?.setValue(this.comment.text)
   }
 
-  postEdit() {
+  postEdit(): void {
     this.commentService.editComment(this.comment.id, this.editForm.get('text')?.value).subscribe(() => {
       this.edit = false;
       this.editForm.get('text')?.setValue(this.editForm.get('text')?.value);
@@ -126,7 +128,7 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  copyLink() {
+  copyLink(): void {
     let url = location.href;
 
     if (url.includes('#')) {

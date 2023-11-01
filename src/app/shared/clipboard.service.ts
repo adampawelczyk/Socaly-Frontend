@@ -7,25 +7,21 @@ export class ClipboardService {
   constructor() { }
 
   public writeText(textToCopy: string): Promise<void> {
-    return new Promise(
-      (resolve, reject): void => {
-        let success = false;
-        const listener = (clipboardEvent: ClipboardEvent): void => {
-          clipboardEvent.clipboardData?.setData('text/plain', textToCopy);
-          clipboardEvent.preventDefault();
-          success = true;
-        };
+    return new Promise<void>((resolve, reject): void => {
+      const input = document.createElement('input');
+      input.value = textToCopy;
 
-        const input = document.createElement('input');
-        document.body.appendChild(input);
-        input.select();
+      document.body.appendChild(input);
+      input.select();
 
-        document.addEventListener('copy', listener);
+      try {
         document.execCommand('copy');
-        document.removeEventListener('copy', listener);
+        resolve();
+      } catch (error) {
+        reject(error);
+      } finally {
         document.body.removeChild(input);
-        success ? resolve() : reject();
-      },
-    );
+      }
+    });
   }
 }

@@ -16,7 +16,9 @@ export class UserDeleteComponent implements OnInit {
   userDeleteForm: UntypedFormGroup;
   userDeletePayload: UserDeleteRequestModel;
 
-  constructor(private activeModal: NgbActiveModal, private userService: UserService, private authService: AuthService,
+  constructor(private activeModal: NgbActiveModal,
+              private userService: UserService,
+              private authService: AuthService,
               private router: Router) {
   }
 
@@ -35,24 +37,24 @@ export class UserDeleteComponent implements OnInit {
     };
   }
 
-  discard() {
+  discard(): void {
     this.activeModal.close();
   }
 
-  delete() {
+  delete(): void {
     this.userDeletePayload.username = this.userDeleteForm.get('username')?.value;
     this.userDeletePayload.password = this.userDeleteForm.get('password')?.value;
 
     this.userService.delete(this.userDeletePayload).subscribe(() => {
       this.activeModal.close();
-      this.authService.logout();
+      this.authService.logOut();
       this.router.navigateByUrl('');
     }, error => {
       throwError(error);
     })
   }
 
-  fieldsAreEmpty() {
+  areFieldsEmpty(): boolean {
     return this.userDeleteForm.get('username')?.value === '' || this.userDeleteForm.get('password')?.value === '';
   }
 }

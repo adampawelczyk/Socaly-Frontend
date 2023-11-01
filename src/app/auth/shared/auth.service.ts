@@ -17,14 +17,17 @@ export class AuthService {
   loggedInSubject = new BehaviorSubject<boolean>(false);
   usernameSubject = new BehaviorSubject<string>("");
 
-  constructor(private httpClient: HttpClient, private localStorage: LocalStorageService, private userService: UserService,
+  constructor(private httpClient: HttpClient,
+              private localStorage: LocalStorageService,
+              private userService: UserService,
               private userSettingsService: UserSettingsService) { }
 
-  signup(signupPayload: SignUpRequestModel): Observable<any> {
-    return this.httpClient.post(apiURL + '/auth/sign-up', signupPayload, {responseType: 'text'});
+  signUp(signupPayload: SignUpRequestModel): Observable<any> {
+    const url = `${apiURL}/auth/sign-up`;
+    return this.httpClient.post(url, signupPayload, {responseType: 'text'});
   }
 
-  login(loginPayload: LogInRequestModel): Observable<boolean> {
+  logIn(loginPayload: LogInRequestModel): Observable<boolean> {
     return this.httpClient.post<LogInResponseModel>(apiURL + '/auth/log-in', loginPayload)
       .pipe(map(response => {
         this.localStorage.store('authenticationToken', response.authenticationToken);
@@ -47,8 +50,8 @@ export class AuthService {
       }));
   }
 
-  refreshToken() {
-    let refreshTokenPayload = {
+  refreshToken(): Observable<LogInResponseModel> {
+    const refreshTokenPayload = {
       username: this.localStorage.retrieve('username'),
       refreshToken: this.localStorage.retrieve('refreshToken')
     };
@@ -60,8 +63,8 @@ export class AuthService {
       }));
   }
 
-  logout() {
-    let refreshTokenPayload = {
+  logOut(): void {
+    const refreshTokenPayload = {
       username: this.localStorage.retrieve('username'),
       refreshToken: this.localStorage.retrieve('refreshToken')
     };
