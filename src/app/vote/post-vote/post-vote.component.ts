@@ -39,7 +39,7 @@ export class PostVoteComponent implements OnInit {
     this.downVoteColor = '';
   }
 
-  downvotePost() {
+  downVotePost() {
     this.postVotePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
     this.upVoteColor = '';
