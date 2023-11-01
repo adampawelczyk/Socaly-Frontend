@@ -33,7 +33,7 @@ export class PostVoteComponent implements OnInit {
     this.updateVoteDetails();
   }
 
-  upVotePost() {
+  upVotePost(): void {
     this.postVotePayload.voteType = VoteType.UPVOTE;
     this.vote();
     this.downVoteColor = '';
