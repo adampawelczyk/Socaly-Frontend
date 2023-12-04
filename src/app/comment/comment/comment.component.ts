@@ -25,7 +25,7 @@ export class CommentComponent implements OnInit {
   subComments: CommentResponseModel[];
   replyFormIsExpanded = false;
   replyForm: FormGroup;
-  edit = false
+  editFormVisible = false
   editForm: FormGroup;
   commentPayload: CommentRequestModel;
   editorConfig = editorConfig;
@@ -64,7 +64,7 @@ export class CommentComponent implements OnInit {
     this.getSubCommentsForComment(this.comment.id);
     this.initializeEditForm()
 
-    this.userService.getUserProfileImage(this.comment.username).subscribe(data => {
+    this.userService.getProfileImage(this.comment.username).subscribe(data => {
       this.userProfileImage = data;
     });
 
@@ -75,7 +75,7 @@ export class CommentComponent implements OnInit {
 
   private getSubCommentsForComment(commentId: number | undefined): void {
     if (commentId !== undefined) {
-      this.commentService.getSubCommentsForComment(commentId).subscribe(subComments => {
+      this.commentService.getSubComments(commentId).subscribe(subComments => {
         this.subComments = subComments;
       });
     }
@@ -89,12 +89,12 @@ export class CommentComponent implements OnInit {
     this.replyFormIsExpanded = !this.replyFormIsExpanded;
   }
 
-  postReply(): void {
+  reply(): void {
     this.commentPayload.text = this.replyForm.get('text')?.value;
     this.replyForm.get('text')?.setValue('');
     this.commentPayload.parentCommentId = this.comment.id;
 
-    this.commentService.postComment(this.commentPayload).subscribe(() => {
+    this.commentService.create(this.commentPayload).subscribe(() => {
       this.replyFormIsExpanded = false;
       this.getSubCommentsForComment(this.comment.id);
     }, error => {
@@ -107,18 +107,18 @@ export class CommentComponent implements OnInit {
   }
 
   showEditForm(): void {
-    this.edit = !this.edit
+    this.editFormVisible = !this.editFormVisible
   }
 
   initializeEditForm(): void {
     this.editForm.get('text')?.setValue(this.comment.text)
   }
 
-  postEdit(): void {
-    this.commentService.editComment(this.comment.id, this.editForm.get('text')?.value).subscribe(() => {
-      this.edit = false;
+  edit(): void {
+    this.commentService.edit(this.comment.id, this.editForm.get('text')?.value).subscribe(() => {
+      this.editFormVisible = false;
       this.editForm.get('text')?.setValue(this.editForm.get('text')?.value);
-      this.commentService.getComment(this.comment.id).subscribe(comment => {
+      this.commentService.get(this.comment.id).subscribe(comment => {
         this.comment = comment;
       }, error => {
         throwError(error);

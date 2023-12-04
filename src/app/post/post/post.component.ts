@@ -12,7 +12,7 @@ import { HighlightService } from '../../shared/highlight.service';
 import { AuthService } from '../../auth/shared/auth.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { ClipboardService } from '../../shared/clipboard.service';
-import { CreateUpdatePostComponent } from '../create-update-post/create-update-post.component';
+import { CreateEditPostComponent } from '../create-edit-post/create-edit-post.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -66,7 +66,7 @@ export class PostComponent implements OnInit {
       this.singleCommentThread = true;
     }
     if (this.showComments) {
-      this.getCommentsForPost();
+      this.getComments();
     }
   }
 
@@ -78,25 +78,25 @@ export class PostComponent implements OnInit {
     return post.images && post.images.length > 0;
   }
 
-  postComment() {
+  createComment() {
     this.commentPayload.text = this.commentForm.get('text')?.value;
     this.commentForm.get('text')?.setValue('');
 
-    this.commentService.postComment(this.commentPayload).subscribe(() => {
-      this.getCommentsForPost();
+    this.commentService.create(this.commentPayload).subscribe(() => {
+      this.getComments();
     }, error => {
       throwError(error);
     });
   }
 
-  getCommentsForPost() {
+  getComments() {
     if (this.singleCommentThread) {
       const commentId = Number(location.href.slice(location.href.indexOf('#') + 1));
-      this.commentService.getComment(commentId).subscribe(comment => {
+      this.commentService.get(commentId).subscribe(comment => {
         this.comments = [comment];
       })
     } else {
-      this.commentService.getAllCommentsForPost(this.postId).subscribe(comments => {
+      this.commentService.getAllByPost(this.postId).subscribe(comments => {
         this.comments = comments.reverse();
       }, error => {
         throwError(error);
@@ -135,10 +135,10 @@ export class PostComponent implements OnInit {
     location.assign(location.href.slice(0, location.href.indexOf('#')));
   }
 
-  updatePost(postId: number) {
-    const modalRef = this.modal.open(CreateUpdatePostComponent, { size: 'lg' });
-    modalRef.componentInstance.isUpdating = true;
-    modalRef.componentInstance.postIdToUpdate = postId;
+  edit(postId: number) {
+    const modalRef = this.modal.open(CreateEditPostComponent, { size: 'lg' });
+    modalRef.componentInstance.editing = true;
+    modalRef.componentInstance.postIdToEdit = postId;
   }
 
   showEdit() {

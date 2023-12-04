@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user/shared/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { EmailUpdateComponent } from '../email-update/email-update.component';
-import { PasswordUpdateComponent } from '../password-update/password-update.component';
+import { ChangeEmailComponent } from '../change-email/change-email.component';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { UserDeleteComponent } from '../user-delete/user-delete.component';
 
 @Component({
@@ -27,9 +27,9 @@ export class AccountSettingsComponent implements OnInit {
     });
   }
 
-  updateEmail(): void {
-    const emailUpdateModal = this.modal.open(EmailUpdateComponent, {size: "md"});
-    emailUpdateModal.closed.subscribe(() => {
+  changeEmail(): void {
+    const changeEmailModal = this.modal.open(ChangeEmailComponent, {size: "md"});
+    changeEmailModal.closed.subscribe(() => {
       this.userService.getEmail().subscribe(email => {
         this.email = email;
       });
@@ -37,7 +37,7 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   updatePassword(): void {
-    this.modal.open(PasswordUpdateComponent, {size: "md"});
+    this.modal.open(ChangePasswordComponent, {size: "md"});
   }
 
   delete(): void {

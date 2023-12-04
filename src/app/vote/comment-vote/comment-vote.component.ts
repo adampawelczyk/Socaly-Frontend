@@ -27,12 +27,12 @@ export class CommentVoteComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  upVoteComment(): void {
+  upVote(): void {
     this.setVoteType(VoteType.UPVOTE);
     this.vote();
   }
 
-  downVoteComment(): void {
+  downVote(): void {
     this.setVoteType(VoteType.DOWNVOTE);
     this.vote();
   }
@@ -51,7 +51,7 @@ export class CommentVoteComponent implements OnInit {
   }
 
   private updateCommentVoteDetails(): void {
-    this.commentService.getComment(this.comment.id).subscribe(comment => {
+    this.commentService.get(this.comment.id).subscribe(comment => {
       this.comment = comment;
     });
   }

@@ -18,7 +18,7 @@ import { HomeModule } from './home/home/home.module';
 import { PostModule } from './post/post/post.module';
 import { CommunitySidebarModule } from './community/community-sidebar/community-sidebar.module';
 import { CreateCommunityModule } from './community/create-community/create-community.module';
-import { CreateUpdatePostModule } from './post/create-update-post/create-update-post.module';
+import { CreateEditPostModule } from './post/create-edit-post/create-edit-post.module';
 import { CommunitiesModule } from './community/communities/communities.module';
 import { ViewPostModule } from './post/view-post/view-post.module';
 import { AboutCommunitySidebarModule } from './community/about-community-sidebar/about-community-sidebar.module';
@@ -31,8 +31,8 @@ import { AccountSettingsModule } from './user-settings/account-settings/account-
 import { ProfileSettingsModule } from './user-settings/profile-settings/profile-settings.module';
 import { FeedSettingsModule } from './user-settings/feed-settings/feed-settings.module';
 import { EmailSettingsModule } from './user-settings/email-settings/email-settings.module';
-import { EmailUpdateModule } from './user-settings/email-update/email-update.module';
-import { PasswordUpdateModule } from './user-settings/password-update/password-update.module';
+import { ChangeEmailModule } from './user-settings/change-email/change-email.module';
+import { ChangePasswordModule } from './user-settings/change-password/change-password.module';
 import { UserDeleteModule } from './user-settings/user-delete/user-delete.module';
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     PostModule,
     CommunitySidebarModule,
     CreateCommunityModule,
-    CreateUpdatePostModule,
+    CreateEditPostModule,
     CommunitiesModule,
     ViewPostModule,
     AboutCommunitySidebarModule,
@@ -69,8 +69,8 @@ import { UserDeleteModule } from './user-settings/user-delete/user-delete.module
     ProfileSettingsModule,
     FeedSettingsModule,
     EmailSettingsModule,
-    EmailUpdateModule,
-    PasswordUpdateModule,
+    ChangeEmailModule,
+    ChangePasswordModule,
     UserDeleteModule
   ],
   providers: [

@@ -17,7 +17,7 @@ export class CommunitySidebarComponent implements OnInit {
   }
 
   private loadCommunities(): void {
-    this.communityService.getAllCommunities().subscribe(communities => {
+    this.communityService.getAll().subscribe(communities => {
       if (communities.length >= 4) {
         this.communities = communities.slice(0, 3);
         this.displayViewAll = true;

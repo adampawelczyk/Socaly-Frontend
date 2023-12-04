@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PasswordUpdateComponent } from './password-update.component';
+import { ChangeEmailComponent } from './change-email.component';
 
-describe('PasswordUpdateComponent', () => {
-  let component: PasswordUpdateComponent;
-  let fixture: ComponentFixture<PasswordUpdateComponent>;
+describe('ChangeEmailComponent', () => {
+  let component: ChangeEmailComponent;
+  let fixture: ComponentFixture<ChangeEmailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PasswordUpdateComponent ]
+      declarations: [ ChangeEmailComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PasswordUpdateComponent);
+    fixture = TestBed.createComponent(ChangeEmailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

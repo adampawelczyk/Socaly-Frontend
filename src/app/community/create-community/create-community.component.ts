@@ -36,10 +36,10 @@ export class CreateCommunityComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  createCommunity(): void {
+  create(): void {
     this.communityPayload = { ...this.createCommunityForm.value };
 
-    this.communityService.createCommunity(this.communityPayload).subscribe(() => {
+    this.communityService.create(this.communityPayload).subscribe(() => {
       this.activeModal.close();
     }, error => {
       throwError(error);

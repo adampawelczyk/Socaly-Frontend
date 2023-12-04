@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { EmailUpdateRequestModel } from '../shared/email-update-request.model';
+import { ChangeEmailRequestModel } from '../shared/change-email-request.model';
 import { UserService } from '../../user/shared/user.service';
 import { throwError } from 'rxjs';
 
 @Component({
-  selector: 'app-email-update',
-  templateUrl: './email-update.component.html',
-  styleUrls: ['./email-update.component.scss']
+  selector: 'app-email-change',
+  templateUrl: './change-email.component.html',
+  styleUrls: ['./change-email.component.scss']
 })
-export class EmailUpdateComponent implements OnInit {
-  emailUpdateForm: UntypedFormGroup;
-  emailUpdatePayload: EmailUpdateRequestModel;
+export class ChangeEmailComponent implements OnInit {
+  changeEmailForm: UntypedFormGroup;
+  changeEmailPayload: ChangeEmailRequestModel;
 
   constructor(private activeModal: NgbActiveModal,
               private userService: UserService) { }
@@ -21,12 +21,12 @@ export class EmailUpdateComponent implements OnInit {
     const body = document.getElementsByTagName('body')[0];
     body.removeAttribute('style');
 
-    this.emailUpdateForm = new UntypedFormGroup({
+    this.changeEmailForm = new UntypedFormGroup({
       password: new UntypedFormControl('', Validators.required),
       email: new UntypedFormControl('', Validators.required)
     });
 
-    this.emailUpdatePayload = {
+    this.changeEmailPayload = {
       password: '',
       email: ''
     }
@@ -36,11 +36,11 @@ export class EmailUpdateComponent implements OnInit {
     this.activeModal.close();
   }
 
-  updateEmail(): void {
-    this.emailUpdatePayload.password = this.emailUpdateForm.get('password')?.value;
-    this.emailUpdatePayload.email = this.emailUpdateForm.get('email')?.value;
+  change(): void {
+    this.changeEmailPayload.password = this.changeEmailForm.get('password')?.value;
+    this.changeEmailPayload.email = this.changeEmailForm.get('email')?.value;
 
-    this.userService.updateEmail(this.emailUpdatePayload).subscribe(() => {
+    this.userService.changeEmail(this.changeEmailPayload).subscribe(() => {
 
       this.activeModal.close();
     }, error => {
@@ -49,6 +49,6 @@ export class EmailUpdateComponent implements OnInit {
   }
 
   areFieldsEmpty(): boolean {
-    return this.emailUpdateForm.get('password')?.value === '' || this.emailUpdateForm.get('email')?.value === '';
+    return this.changeEmailForm.get('password')?.value === '' || this.changeEmailForm.get('email')?.value === '';
   }
 }

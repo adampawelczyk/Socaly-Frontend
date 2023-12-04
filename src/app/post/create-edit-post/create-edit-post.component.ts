@@ -12,24 +12,24 @@ import { FileService } from '../../shared/file.service';
 import { editorConfig } from '../../../globals';
 
 @Component({
-  selector: 'app-create-update-post',
-  templateUrl: './create-update-post.component.html',
-  styleUrls: ['./create-update-post.component.scss']
+  selector: 'app-create-edit-post',
+  templateUrl: './create-edit-post.component.html',
+  styleUrls: ['./create-edit-post.component.scss']
 })
-export class CreateUpdatePostComponent implements OnInit {
-  @Input() isUpdating = false;
-  @Input() postIdToUpdate: number;
+export class CreateEditPostComponent implements OnInit {
+  @Input() editing = false;
+  @Input() postIdToEdit: number;
   createPostForm: FormGroup;
   postPayload: PostRequestModel;
   communities: CommunityResponseModel[];
   files: File[] = [];
   fileUrls: string[] = [];
-  updatedFileUrls: string[] = [];
+  editedFileUrls: string[] = [];
   active = 1;
   selectedCommunity = 'Choose a community';
   uploadingFiles = false;
   filesUploadProgress = 0;
-  postWasPosted = false;
+  posted = false;
   editorConfig = editorConfig;
 
   constructor(private router: Router,
@@ -55,7 +55,7 @@ export class CreateUpdatePostComponent implements OnInit {
     this.initializeCreatePostForm();
     this.loadCommunities();
 
-    if (this.isUpdating) {
+    if (this.editing) {
       this.loadPostToUpdate();
     }
   }
@@ -73,7 +73,7 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private loadCommunities(): void {
-    this.communityService.getAllCommunities().subscribe(
+    this.communityService.getAll().subscribe(
       (communities) => {
         this.communities = communities;
       },
@@ -84,7 +84,7 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private loadPostToUpdate(): void {
-    this.postService.getPost(this.postIdToUpdate).subscribe(
+    this.postService.get(this.postIdToEdit).subscribe(
       async (post) => {
         this.selectedCommunity = post.communityName;
         this.createPostForm.get('title')?.setValue(post.title);
@@ -123,17 +123,17 @@ export class CreateUpdatePostComponent implements OnInit {
   }
 
   private cleanupFiles(): void {
-    if ((this.fileUrls.length > 0 || this.updatedFileUrls.length > 0) && !this.postWasPosted) {
-      const filesToRemove = this.isUpdating ? this.updatedFileUrls : this.fileUrls;
+    if ((this.fileUrls.length > 0 || this.editedFileUrls.length > 0) && !this.posted) {
+      const filesToRemove = this.editing ? this.editedFileUrls : this.fileUrls;
       filesToRemove.forEach((fileUrl) => {
         this.fileService.removeFile(fileUrl);
       });
     }
   }
 
-  createPost(): void {
+  create(): void {
     this.initializePostPayload();
-    this.submitPost();
+    this.submit();
   }
 
   private initializePostPayload(): void {
@@ -145,22 +145,22 @@ export class CreateUpdatePostComponent implements OnInit {
       this.postPayload.images = [];
       this.cleanupFiles();
     } else {
-      this.fileUrls.push(...this.updatedFileUrls);
+      this.fileUrls.push(...this.editedFileUrls);
       this.postPayload.description = '';
       this.postPayload.images = this.fileUrls;
     }
   }
 
-  private submitPost(): void {
-    const postObservable = this.isUpdating
-      ? this.postService.updatePost(this.postIdToUpdate, this.postPayload)
-      : this.postService.createPost(this.postPayload);
+  private submit(): void {
+    const postObservable = this.editing
+      ? this.postService.edit(this.postIdToEdit, this.postPayload)
+      : this.postService.create(this.postPayload);
 
     postObservable.subscribe(id => {
-        this.postWasPosted = true;
+        this.posted = true;
         this.activeModal.close();
 
-        if (this.isUpdating) {
+        if (this.editing) {
           location.reload();
         } else {
           this.router.navigateByUrl('/post/' + id);
@@ -172,7 +172,7 @@ export class CreateUpdatePostComponent implements OnInit {
     );
   }
 
-  discardPost(): void {
+  discard(): void {
     this.activeModal.close();
   }
 
@@ -202,8 +202,8 @@ export class CreateUpdatePostComponent implements OnInit {
       const fileUrl = await this.fileService.uploadFile(file);
       this.filesUploadProgress += 100 / files.length;
 
-      if (this.isUpdating) {
-        this.updatedFileUrls.push(fileUrl);
+      if (this.editing) {
+        this.editedFileUrls.push(fileUrl);
       } else {
         this.fileUrls.push(fileUrl);
       }

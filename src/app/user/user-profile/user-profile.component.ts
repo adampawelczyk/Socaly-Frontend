@@ -35,9 +35,9 @@ export class UserProfileComponent implements OnInit {
 
     forkJoin([
       this.userService.isDeleted(this.name),
-      this.userService.getUser(this.name),
-      this.postService.getAllPostsByUser(this.name),
-      this.commentService.getAllCommentsByUser(this.name)
+      this.userService.get(this.name),
+      this.postService.getAllByUser(this.name),
+      this.commentService.getAllByUser(this.name)
     ]).subscribe(([isDeleted, user, posts, comments]) => {
       this.userIsDeleted = isDeleted;
       this.user = user;
