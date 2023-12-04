@@ -33,13 +33,13 @@ export class PostVoteComponent implements OnInit {
     this.updateVoteDetails();
   }
 
-  upVotePost(): void {
+  upVote(): void {
     this.setVoteType(VoteType.UPVOTE);
     this.vote();
     this.downVoteColor = '';
   }
 
-  downVotePost(): void {
+  downVote(): void {
     this.setVoteType(VoteType.DOWNVOTE);
     this.vote();
     this.upVoteColor = '';
@@ -60,7 +60,7 @@ export class PostVoteComponent implements OnInit {
   }
 
   private updateVoteDetails(): void {
-    this.postService.getPost(this.post.id).subscribe(post => {
+    this.postService.get(this.post.id).subscribe(post => {
       this.post = post;
     });
   }

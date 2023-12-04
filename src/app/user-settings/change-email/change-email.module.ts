@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../../app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PasswordUpdateComponent } from './password-update.component';
+import { ChangeEmailComponent as ChangeEmailComponent } from './change-email.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,11 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   declarations: [
-    PasswordUpdateComponent
+    ChangeEmailComponent
   ],
   exports: [
-    PasswordUpdateComponent
+    ChangeEmailComponent
   ]
 })
 
-export class PasswordUpdateModule { }
+export class ChangeEmailModule { }

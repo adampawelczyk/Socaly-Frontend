@@ -11,27 +11,27 @@ import { apiURL } from '../../../globals';
 export class CommunityService {
   constructor(private httpClient: HttpClient) { }
 
-  getAllCommunities(): Observable<CommunityResponseModel[]> {
+  getAll(): Observable<CommunityResponseModel[]> {
     return this.httpClient.get<CommunityResponseModel[]>(apiURL + '/community/get/all');
   }
 
-  createCommunity(communityPayload: CommunityRequestModel): Observable<CommunityResponseModel> {
+  create(communityPayload: CommunityRequestModel): Observable<CommunityResponseModel> {
     return this.httpClient.post<CommunityResponseModel>(apiURL + '/community/create', communityPayload);
   }
 
-  getCommunityDetails(name: string): Observable<CommunityResponseModel> {
+  get(name: string): Observable<CommunityResponseModel> {
     return this.httpClient.get<CommunityResponseModel>(apiURL + '/community/get/' + name);
   }
 
-  joinCommunity(name: string): Observable<Object> {
-    return this.httpClient.get(apiURL + '/community/join/' + name);
+  join(name: string): Observable<Object> {
+    return this.httpClient.post(apiURL + '/community/join/' + name, null);
   }
 
-  leaveCommunity(name: string): Observable<Object> {
-    return this.httpClient.get(apiURL + '/community/leave/' + name);
+  leave(name: string): Observable<Object> {
+    return this.httpClient.post(apiURL + '/community/leave/' + name, null);
   }
 
-  getAllCommunitiesForUser(name: string): Observable<CommunityResponseModel[]> {
+  getAllByUser(name: string): Observable<CommunityResponseModel[]> {
     return this.httpClient.get<CommunityResponseModel[]>(apiURL + '/community/get/all/by-user/' + name);
   }
 }

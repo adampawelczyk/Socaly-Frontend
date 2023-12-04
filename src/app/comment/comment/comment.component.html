@@ -41,7 +41,7 @@
       </button>
     </div>
     <div *ngIf="replyFormIsExpanded" class="mt-3 ms-2">
-      <form [formGroup]="replyForm" (ngSubmit)="postReply()">
+      <form [formGroup]="replyForm" (ngSubmit)="reply()">
         <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
         <div class="d-flex flex-row-reverse">
           <div>
@@ -50,8 +50,8 @@
         </div>
       </form>
     </div>
-    <div *ngIf="edit" class="mt-3 ms-2">
-      <form [formGroup]="editForm" (ngSubmit)="postEdit()">
+    <div *ngIf="editFormVisible" class="mt-3 ms-2">
+      <form [formGroup]="editForm" (ngSubmit)="edit()">
         <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
         <div class="d-flex flex-row-reverse">
           <div>

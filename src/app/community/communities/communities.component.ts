@@ -21,7 +21,7 @@ export class CommunitiesComponent implements OnInit {
   }
 
   private loadCommunities(): void {
-    this.communityService.getAllCommunities().subscribe(communities => {
+    this.communityService.getAll().subscribe(communities => {
       this.communities = communities;
       this.sortingLetter = 'a';
       this.sortBy(this.sortingLetter);

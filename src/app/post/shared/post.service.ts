@@ -11,27 +11,27 @@ import { apiURL } from '../../../globals';
 export class PostService {
   constructor(private httpClient: HttpClient) { }
 
-  getAllPosts(): Observable<PostResponseModel[]> {
+  getAll(): Observable<PostResponseModel[]> {
     return this.httpClient.get<PostResponseModel[]>(apiURL + '/post/get/all');
   }
 
-  createPost(postPayload: PostRequestModel): Observable<number> {
+  create(postPayload: PostRequestModel): Observable<number> {
     return this.httpClient.post<number>(apiURL + '/post/create', postPayload);
   }
 
-  getPost(id: number): Observable<PostResponseModel> {
+  get(id: number): Observable<PostResponseModel> {
     return this.httpClient.get<PostResponseModel>(apiURL + '/post/get/' + id);
   }
 
-  updatePost(id: number, postPayload: PostRequestModel): Observable<number> {
-    return this.httpClient.put<number>(apiURL + '/post/update/' + id, postPayload)
+  edit(id: number, postPayload: PostRequestModel): Observable<number> {
+    return this.httpClient.patch<number>(apiURL + '/post/edit/' + id, postPayload)
   }
 
-  getAllPostsByUser(username: string): Observable<PostResponseModel[]> {
+  getAllByUser(username: string): Observable<PostResponseModel[]> {
     return this.httpClient.get<PostResponseModel[]>(apiURL + '/post/get/all/by-user/' + username);
   }
 
-  getAllPostsByCommunity(communityName: string): Observable<PostResponseModel[]> {
+  getAllByCommunity(communityName: string): Observable<PostResponseModel[]> {
     return this.httpClient.get<PostResponseModel[]>(apiURL + '/post/get/all/by-community/' + communityName);
   }
 }

@@ -14,7 +14,7 @@ export class AboutCommunitySidebarComponent implements OnInit {
   constructor(private communityService: CommunityService) {}
 
   ngOnInit(): void {
-    this.communityService.getCommunityDetails(this.communityName).subscribe(community => {
+    this.communityService.get(this.communityName).subscribe(community => {
       this.communityDescription = community.description;
       this.createdDate = this.convertTimeToMs(community.createdDate!);
     });

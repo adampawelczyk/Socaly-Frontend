@@ -31,7 +31,7 @@ export class CommunityComponent implements OnInit {
     this.communityName = this.activatedRoute.snapshot.params.name;
     this.username = this.localStorage.retrieve('username');
 
-    this.postService.getAllPostsByCommunity(this.communityName).subscribe(posts => {
+    this.postService.getAllByCommunity(this.communityName).subscribe(posts => {
       this.posts = posts;
       this.postLength = posts.length;
     }, error => {
@@ -39,7 +39,7 @@ export class CommunityComponent implements OnInit {
     });
 
     if (this.username) {
-      this.communityService.getAllCommunitiesForUser(this.username).subscribe(communities => {
+      this.communityService.getAllByUser(this.username).subscribe(communities => {
         this.userCommunities = communities;
         this.userBelongsToCommunity = communities.some(
           community => community.name === this.communityName
@@ -50,16 +50,16 @@ export class CommunityComponent implements OnInit {
     }
   }
 
-  joinCommunity(): void {
-    this.communityService.joinCommunity(this.communityName).subscribe(() => {
+  join(): void {
+    this.communityService.join(this.communityName).subscribe(() => {
       this.userBelongsToCommunity = true;
     },error => {
       throwError(error);
     });
   }
 
-  leaveCommunity(): void {
-    this.communityService.leaveCommunity(this.communityName).subscribe(() => {
+  leave(): void {
+    this.communityService.leave(this.communityName).subscribe(() => {
       this.userBelongsToCommunity = false;
     }, error => {
       throwError(error);

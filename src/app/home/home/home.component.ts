@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private postService: PostService,
               private authService: AuthService) {
-    this.postService.getAllPosts().subscribe(posts => {
+    this.postService.getAll().subscribe(posts => {
       this.posts = posts;
     });
   }

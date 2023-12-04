@@ -62,7 +62,7 @@
               <span class="material-symbols-outlined d-flex">more_horiz</span>
             </a>
             <div ngbDropdownMenu aria-labelledby="more-button">
-              <a *ngIf="showEdit()" ngbDropdownItem class="btn-tertiary d-flex justify-content-start" (click)="updatePost(post.id); $event.stopPropagation()">
+              <a *ngIf="showEdit()" ngbDropdownItem class="btn-tertiary d-flex justify-content-start" (click)="edit(post.id); $event.stopPropagation()">
                 <span class="material-symbols-outlined">edit</span>
                 <span class="ps-2 d-flex post-button-text">Edit</span>
               </a>
@@ -73,7 +73,7 @@
     </div>
   </div>
   <div class="ps-5 pe-5 pt-2" *ngIf="showComments">
-    <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+    <form [formGroup]="commentForm" (ngSubmit)="createComment()">
       <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'text'" [init]="editorConfig"></editor>
       <div class="d-flex flex-row-reverse">
         <div>

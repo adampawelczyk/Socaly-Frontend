@@ -15,10 +15,10 @@
         </div>
         <div class="ps-4 pt-2">
           <ng-container *ngIf="userBelongsToCommunity; else joinButton">
-            <button class="btn-secondary hover-text min-width" (click)="leaveCommunity()"></button>
+            <button class="btn-secondary hover-text min-width" (click)="leave()"></button>
           </ng-container>
           <ng-template #joinButton>
-            <button class="btn-primary min-width" (click)="joinCommunity()">Join</button>
+            <button class="btn-primary min-width" (click)="join()">Join</button>
           </ng-template>
         </div>
       </div>
