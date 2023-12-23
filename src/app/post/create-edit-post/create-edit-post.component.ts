@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostRequestModel } from '../shared/post-request.model';
 import { CommunityResponseModel } from '../../community/shared/community-response.model';
@@ -6,15 +6,22 @@ import { Router } from '@angular/router';
 import { PostService } from '../shared/post.service';
 import { CommunityService } from '../../community/shared/community.service';
 import { throwError } from 'rxjs';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../../auth/shared/auth.service';
 import { FileService } from '../../shared/file.service';
 import { editorConfig } from '../../../globals';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-create-edit-post',
   templateUrl: './create-edit-post.component.html',
-  styleUrls: ['./create-edit-post.component.scss']
+  styleUrls: ['./create-edit-post.component.scss'],
+  animations: [
+    trigger('extendCollapse', [
+      state('collapsed', style({ height: '100px', opacity: '1'})),
+      state('expanded', style({ height: '420px', opacity: '1'})),
+      transition('collapsed <=> expanded', animate('.5s ease-in-out')),
+    ]),
+  ],
 })
 export class CreateEditPostComponent implements OnInit {
   @Input() editing = false;
@@ -31,12 +38,14 @@ export class CreateEditPostComponent implements OnInit {
   filesUploadProgress = 0;
   posted = false;
   editorConfig = editorConfig;
+  isCollapsed = true;
+  isExpanded = false;
+  showHiddenElement = false;
+  showTextarea = true;
 
   constructor(private router: Router,
               private postService: PostService,
               private communityService: CommunityService,
-              public activeModal: NgbActiveModal,
-              private authService: AuthService,
               private fileService: FileService) {
     this.editorConfig.placeholder = 'Text (optional)';
     this.editorConfig.height = 300;
@@ -158,7 +167,6 @@ export class CreateEditPostComponent implements OnInit {
 
     postObservable.subscribe(id => {
         this.posted = true;
-        this.activeModal.close();
 
         if (this.editing) {
           location.reload();
@@ -173,7 +181,6 @@ export class CreateEditPostComponent implements OnInit {
   }
 
   discard(): void {
-    this.activeModal.close();
   }
 
   async onSelect(event: { addedFiles: any }): Promise<void> {
@@ -220,5 +227,34 @@ export class CreateEditPostComponent implements OnInit {
 
   isTitleEmpty(): boolean {
     return this.createPostForm.get('title')?.value === '';
+  }
+
+  addFocusToTextarea() {
+    const iframe = document.querySelector('iframe[id^="tiny-angular_"][id$="_ifr"]') as HTMLObjectElement;
+    const innerDoc = (iframe.contentDocument) 
+                  ? iframe.contentDocument 
+                  : iframe.contentWindow!.document;
+
+    innerDoc.getElementById("tinymce")?.focus();
+  }
+
+  toggleExpand() {
+    this.showHiddenElement = true;
+    this.isExpanded = !this.isExpanded;
+
+    if (this.isExpanded) {
+      this.showTextarea = false;
+      this.showHiddenElement = true;
+    } else {
+      this.showTextarea = true;
+      this.showHiddenElement = false;
+    }
+  }
+
+  animationDone(event: any) {
+    if (event.toState === 'collapsed') {
+    } else {
+      this.addFocusToTextarea();
+    }
   }
 }

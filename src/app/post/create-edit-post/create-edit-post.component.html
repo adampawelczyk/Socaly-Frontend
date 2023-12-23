@@ -1,80 +1,78 @@
-<div class="modal-header">
-  <h4 class="modal-title">
-    <ng-container *ngIf="!editing; else editMode">Create Post</ng-container>
-    <ng-template #editMode>
-      Edit Post
-    </ng-template>
-  </h4>
-  <button type="button" class="btn-close outline-none" (click)="discard()" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-  <div ngbDropdown class="w-100">
-    <button class="form-select outline-none mb-2 text-start" id="communityDropdown2" ngbDropdownToggle>{{selectedCommunity}}</button>
-    <div ngbDropdownMenu aria-labelledby="communityDropdown2" class="w-100">
-      <button *ngFor="let community of communities" ngbDropdownItem class="btn" (click)="selectCommunity(community.name)">
-        {{community.name}}
-      </button>
+<div [@extendCollapse]="isExpanded ? 'expanded' : 'collapsed'" class="expandable-div mt-3 mb-3" (click)="toggleExpand()" (@extendCollapse.done)="animationDone($event)">
+  <div *ngIf="showHiddenElement" class="content">
+    <div>
+      <div ngbDropdown class="w-100">
+        <button class="form-select outline-none mb-2 text-start" id="communityDropdown2" ngbDropdownToggle>{{selectedCommunity}}</button>
+        <div ngbDropdownMenu aria-labelledby="communityDropdown2" class="w-100">
+          <button *ngFor="let community of communities" ngbDropdownItem class="btn" (click)="selectCommunity(community.name)">
+            {{community.name}}
+          </button>
+        </div>
+      </div>
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink class="d-flex"><span class="material-symbols-outlined me-1">article</span>Post</a>
+          <ng-template ngbNavContent>
+            <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="create()">
+              <div class="form-group">
+                <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'title'" placeholder="Title" (click)="$event.stopPropagation()">
+                <editor class="editor" apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
+              </div>
+            </form>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink class="d-flex"><span class="material-symbols-outlined me-1">image</span>Image</a>
+          <ng-template ngbNavContent>
+            <form class="post-form" id="create-image-form" [formGroup]="createPostForm" (ngSubmit)="create()">
+              <div class="form-group">
+                <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'title'" placeholder="Title">
+                <div class="dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                  <ngx-dropzone-label>Drag & drop, or click to upload images</ngx-dropzone-label>
+                  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                  </ngx-dropzone-image-preview>
+                </div>
+              </div>
+            </form>
+            <div *ngIf="uploadingFiles" class="mt-2">
+              <ngb-progressbar [showValue]="false" height=".5rem" [value]="filesUploadProgress" [max]="100"></ngb-progressbar>
+              <ng-container *ngIf="filesUploadProgress == 100; else uploadingInProgress">
+                Image uploading completed
+              </ng-container>
+              <ng-template #uploadingInProgress>
+                Image uploading in progress...
+              </ng-template>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
     </div>
   </div>
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-    <li [ngbNavItem]="1">
-      <a ngbNavLink class="d-flex"><span class="material-symbols-outlined me-1">article</span>Post</a>
-      <ng-template ngbNavContent>
-        <form class="post-form" id="create-post-form" [formGroup]="createPostForm" (ngSubmit)="create()">
-          <div class="form-group">
-            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'title'" placeholder="Title">
-            <editor apiKey="yrqxhih3zs204qm3tlwladpgem9hqlj1hvhoxuhn020cbidz" [formControlName]="'description'" [init]="editorConfig" style="border-radius: 4px"></editor>
-          </div>
-        </form>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink class="d-flex"><span class="material-symbols-outlined me-1">image</span>Image</a>
-      <ng-template ngbNavContent>
-        <form class="post-form" id="create-image-form" [formGroup]="createPostForm" (ngSubmit)="create()">
-          <div class="form-group">
-            <input type="text" class="form-control shadow-none mt-2 mb-2 black-border" [formControlName]="'title'" placeholder="Title">
-            <div class="dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
-              <ngx-dropzone-label>Drag & drop, or click to upload images</ngx-dropzone-label>
-              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
-              </ngx-dropzone-image-preview>
-            </div>
-          </div>
-        </form>
-        <div *ngIf="uploadingFiles" class="mt-2">
-          <ngb-progressbar [showValue]="false" height=".5rem" [value]="filesUploadProgress" [max]="100"></ngb-progressbar>
-          <ng-container *ngIf="filesUploadProgress == 100; else uploadingInProgress">
-            Image uploading completed
-          </ng-container>
-          <ng-template #uploadingInProgress>
-            Image uploading in progress...
-          </ng-template>
+  <textarea *ngIf="showTextarea" id="text-area" class="w-100" placeholder="What are your thoughts?"></textarea>
+  <div *ngIf="showHiddenElement" class="content">
+    <div>
+      <div class="d-flex flex-row-reverse">
+        <div>
+          <button *ngIf="active == 1" [disabled]="isCommunityEmpty() || isTitleEmpty()" type="submit" form="create-post-form"
+                  class="btn-primary">
+            <ng-container *ngIf="!editing; else editMode">Post</ng-container>
+            <ng-template #editMode>Save</ng-template>
+          </button>
         </div>
-      </ng-template>
-    </li>
-  </ul>
-  <div [ngbNavOutlet]="nav"></div>
-</div>
-<div class="modal-footer justify-content-end p-2">
-  <div class="d-flex flex-row">
-    <div class="me-2">
-      <button (click)="discard()" class="btn-secondary">
-        Discard
-      </button>
-    </div>
-    <div>
-      <button *ngIf="active == 1" [disabled]="isCommunityEmpty() || isTitleEmpty()" type="submit" form="create-post-form"
-              class="btn-primary">
-        <ng-container *ngIf="!editing; else editMode">Post</ng-container>
-        <ng-template #editMode>Save</ng-template>
-      </button>
-    </div>
-    <div>
-      <button *ngIf="active == 2" [disabled]="isCommunityEmpty() || isTitleEmpty() || uploadingFiles" type="submit" form="create-image-form"
-              class="btn-primary">
-        <ng-container *ngIf="!editing; else editMode">Post</ng-container>
-        <ng-template #editMode>Save</ng-template>
-      </button>
+        <div>
+          <button *ngIf="active == 2" [disabled]="isCommunityEmpty() || isTitleEmpty() || uploadingFiles" type="submit" form="create-image-form"
+                  class="btn-primary">
+            <ng-container *ngIf="!editing; else editMode">Post</ng-container>
+            <ng-template #editMode>Save</ng-template>
+          </button>
+        </div>
+        <div class="me-2">
+          <button (click)="toggleExpand(); $event.stopPropagation()" class="btn-secondary" >
+            Discard
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
