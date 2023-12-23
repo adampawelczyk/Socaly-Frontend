@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { HomeSidebarModule } from '../home-sidebar/home-sidebar.module';
 import { CommunitySidebarModule } from '../../community/community-sidebar/community-sidebar.module';
 import { PostModule } from '../../post/post/post.module';
-import { CreatePostTopbarModule } from '../../post/create-post-topbar/create-post-topbar.module';
+import { CreateEditPostModule } from 'src/app/post/create-edit-post/create-edit-post.module';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { CreatePostTopbarModule } from '../../post/create-post-topbar/create-pos
     HomeSidebarModule,
     CommunitySidebarModule,
     PostModule,
-    CreatePostTopbarModule
+    CreateEditPostModule
   ],
   declarations: [
     HomeComponent
