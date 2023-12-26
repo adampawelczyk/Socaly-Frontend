@@ -1,4 +1,4 @@
-<div [id]="comment.id" class="comment p-2">
+<div [id]="comment.id" class="comment">
   <div id="thread-line">
     <img id="profile-image" [src]="userProfileImage" [alt]="comment.username + 'profile image'">
     <ng-container *ngIf="!userIsDeleted; else deletedUser">
