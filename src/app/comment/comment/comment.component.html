@@ -1,5 +1,5 @@
-<div [id]="comment.id" class="comment">
-  <div id="thread-line">
+<div [id]="comment.id" class="comment p-2">
+  <div id="thread-line" class="ps-2">
     <img id="profile-image" [src]="userProfileImage" [alt]="comment.username + 'profile image'">
     <ng-container *ngIf="!userIsDeleted; else deletedUser">
       <a class="comment-username ms-1" routerLink="/user/{{comment.username}}">

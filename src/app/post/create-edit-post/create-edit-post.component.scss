@@ -1,29 +1,5 @@
 @use '../../../utilities/colors.scss';
 
-textarea {
-  border-radius: 10px;
-  border: 1px solid colors.$lightgray;
-  padding: 10px;
-}
-
-.expandable-div {
-  background-color: colors.$card-background-color;
-  color: colors.$darkgray;
-  padding: 1rem;
-  border-radius: 20px;
-}
-
-.content {
-  padding: 10px;
-  transition: height 0.3s, opacity 0.3s;
-  opacity: 1; /* Set initial opacity to 1 */
-}
-
-.collapsed .content {
-  opacity: 1;
-  padding: 0;
-}
-
 .black-border:hover {
   outline: none;
 }
@@ -47,7 +23,7 @@ a {
 }
 
 .dropzone {
-  height: 174px;
+  height: 200px;
   border: 1px dashed colors.$border-color;
 }
 
